@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgtool 6.1 from src/Request.msg.
+// Generated file, do not edit! Created by opp_msgtool 6.1 from Request.msg.
 //
 
 #ifndef __REQUEST_M_H
@@ -18,7 +18,7 @@
 
 class Request;
 /**
- * Class generated from <tt>src/Request.msg:19</tt> by opp_msgtool.
+ * Class generated from <tt>Request.msg:19</tt> by opp_msgtool.
  * <pre>
  * //
  * // TODO generated message class

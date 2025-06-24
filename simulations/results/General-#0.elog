@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250624-11:02:54-101732
+SB ov 1537 ev 2 rid General-0-20250624-11:17:01-104177
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -225,357 +225,139 @@ BS id 17 tid 17 eid 17 etid 17 c Packet n hsm_ecu_key_req m 4 pe 22
 SH sm 4 sg 1 pd 0.001
 ES id 17 tid 17 eid 17 etid 17 c Packet n hsm_ecu_key_req sm 4 sg 1 st 0.004 am 2 ag 1048576 at 0.005 pe 22
 CL id 18 tid 17 eid 18 etid 17 c omnetpp::cMessage n hsm_ecu_key_req m 4 pe -1 cid 17
-CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_req m 4 pe 22
-SH sm 4 sg 1 pd 0.001
-ES id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_req sm 4 sg 1 st 0.004 am 2 ag 1048576 at 0.005 pe 22
-CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n hsm_ecu_key_req m 4 pe -1 cid 18
-CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 19 tid 19 eid 19 etid 19 c Packet n hsm_ecu_key_req m 4 pe 22
-SH sm 4 sg 1 pd 0.001
-ES id 19 tid 19 eid 19 etid 19 c Packet n hsm_ecu_key_req sm 4 sg 1 st 0.004 am 2 ag 1048576 at 0.005 pe 22
-CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n hsm_ecu_key_req m 4 pe -1 cid 19
 
 E # 23 t 0.004 m 5 ce 19 msg 14
-CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 20 tid 20 eid 20 etid 20 c Packet n hsm_ecu_key_req m 5 pe 23
-SH sm 5 sg 1 pd 0.001
-ES id 20 tid 20 eid 20 etid 20 c Packet n hsm_ecu_key_req sm 5 sg 1 st 0.004 am 2 ag 1048577 at 0.005 pe 23
-CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n hsm_ecu_key_req m 5 pe -1 cid 20
-CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req m 5 pe 23
-SH sm 5 sg 1 pd 0.001
-ES id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req sm 5 sg 1 st 0.004 am 2 ag 1048577 at 0.005 pe 23
-CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n hsm_ecu_key_req m 5 pe -1 cid 21
-CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_req m 5 pe 23
-SH sm 5 sg 1 pd 0.001
-ES id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_req sm 5 sg 1 st 0.004 am 2 ag 1048577 at 0.005 pe 23
-CL id 23 tid 22 eid 23 etid 22 c omnetpp::cMessage n hsm_ecu_key_req m 5 pe -1 cid 22
 
 E # 24 t 0.004 m 6 ce 20 msg 15
-CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 23 tid 23 eid 23 etid 23 c Packet n hsm_ecu_key_req m 6 pe 24
-SH sm 6 sg 1 pd 0.001
-ES id 23 tid 23 eid 23 etid 23 c Packet n hsm_ecu_key_req sm 6 sg 1 st 0.004 am 2 ag 1048578 at 0.005 pe 24
-CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n hsm_ecu_key_req m 6 pe -1 cid 23
-CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 24 tid 24 eid 24 etid 24 c Packet n hsm_ecu_key_req m 6 pe 24
-SH sm 6 sg 1 pd 0.001
-ES id 24 tid 24 eid 24 etid 24 c Packet n hsm_ecu_key_req sm 6 sg 1 st 0.004 am 2 ag 1048578 at 0.005 pe 24
-CL id 25 tid 24 eid 25 etid 24 c omnetpp::cMessage n hsm_ecu_key_req m 6 pe -1 cid 24
-CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 25 tid 25 eid 25 etid 25 c Packet n hsm_ecu_key_req m 6 pe 24
-SH sm 6 sg 1 pd 0.001
-ES id 25 tid 25 eid 25 etid 25 c Packet n hsm_ecu_key_req sm 6 sg 1 st 0.004 am 2 ag 1048578 at 0.005 pe 24
-CL id 26 tid 25 eid 26 etid 25 c omnetpp::cMessage n hsm_ecu_key_req m 6 pe -1 cid 25
 
 E # 25 t 0.004 m 7 ce 21 msg 16
-CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 26 tid 26 eid 26 etid 26 c Packet n hsm_ecu_key_req m 7 pe 25
-SH sm 7 sg 1 pd 0.001
-ES id 26 tid 26 eid 26 etid 26 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 25
-CL id 27 tid 26 eid 27 etid 26 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 26
-CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 27 tid 27 eid 27 etid 27 c Packet n hsm_ecu_key_req m 7 pe 25
-SH sm 7 sg 1 pd 0.001
-ES id 27 tid 27 eid 27 etid 27 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 25
-CL id 28 tid 27 eid 28 etid 27 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 27
-CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 28 tid 28 eid 28 etid 28 c Packet n hsm_ecu_key_req m 7 pe 25
-SH sm 7 sg 1 pd 0.001
-ES id 28 tid 28 eid 28 etid 28 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 25
-CL id 29 tid 28 eid 29 etid 28 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 28
 
 E # 26 t 0.005 m 2 ce 22 msg 17
 BS id 17 tid 17 eid 17 etid 17 c Packet n hsm_ecu_key_req m 2 pe 26
 SH sm 2 sg 5 pd 0.001
 ES id 17 tid 17 eid 17 etid 17 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 26
-CL id 29 tid 17 eid 29 etid 17 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 17
+CL id 18 tid 17 eid 18 etid 17 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 17
 
-E # 27 t 0.005 m 2 ce 22 msg 18
-BS id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_req m 2 pe 27
-SH sm 2 sg 5 pd 0.001
-ES id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 27
-CL id 29 tid 18 eid 29 etid 18 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 18
-
-E # 28 t 0.005 m 2 ce 22 msg 19
-BS id 19 tid 19 eid 19 etid 19 c Packet n hsm_ecu_key_req m 2 pe 28
-SH sm 2 sg 5 pd 0.001
-ES id 19 tid 19 eid 19 etid 19 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 28
-CL id 29 tid 19 eid 29 etid 19 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 19
-
-E # 29 t 0.005 m 2 ce 23 msg 20
-BS id 20 tid 20 eid 20 etid 20 c Packet n hsm_ecu_key_req m 2 pe 29
-SH sm 2 sg 5 pd 0.001
-ES id 20 tid 20 eid 20 etid 20 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 29
-CL id 29 tid 20 eid 29 etid 20 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 20
-
-E # 30 t 0.005 m 2 ce 23 msg 21
-BS id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req m 2 pe 30
-SH sm 2 sg 5 pd 0.001
-ES id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 30
-CL id 29 tid 21 eid 29 etid 21 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 21
-
-E # 31 t 0.005 m 2 ce 23 msg 22
-BS id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_req m 2 pe 31
-SH sm 2 sg 5 pd 0.001
-ES id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 31
-CL id 29 tid 22 eid 29 etid 22 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 22
-
-E # 32 t 0.005 m 2 ce 24 msg 23
-BS id 23 tid 23 eid 23 etid 23 c Packet n hsm_ecu_key_req m 2 pe 32
-SH sm 2 sg 5 pd 0.001
-ES id 23 tid 23 eid 23 etid 23 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 32
-CL id 29 tid 23 eid 29 etid 23 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 23
-
-E # 33 t 0.005 m 2 ce 24 msg 24
-BS id 24 tid 24 eid 24 etid 24 c Packet n hsm_ecu_key_req m 2 pe 33
-SH sm 2 sg 5 pd 0.001
-ES id 24 tid 24 eid 24 etid 24 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 33
-CL id 29 tid 24 eid 29 etid 24 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 24
-
-E # 34 t 0.005 m 2 ce 24 msg 25
-BS id 25 tid 25 eid 25 etid 25 c Packet n hsm_ecu_key_req m 2 pe 34
-SH sm 2 sg 5 pd 0.001
-ES id 25 tid 25 eid 25 etid 25 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 34
-CL id 29 tid 25 eid 29 etid 25 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 25
-
-E # 35 t 0.005 m 2 ce 25 msg 26
-BS id 26 tid 26 eid 26 etid 26 c Packet n hsm_ecu_key_req m 2 pe 35
-SH sm 2 sg 5 pd 0.001
-ES id 26 tid 26 eid 26 etid 26 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 35
-CL id 29 tid 26 eid 29 etid 26 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 26
-
-E # 36 t 0.005 m 2 ce 25 msg 27
-BS id 27 tid 27 eid 27 etid 27 c Packet n hsm_ecu_key_req m 2 pe 36
-SH sm 2 sg 5 pd 0.001
-ES id 27 tid 27 eid 27 etid 27 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 36
-CL id 29 tid 27 eid 29 etid 27 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 27
-
-E # 37 t 0.005 m 2 ce 25 msg 28
-BS id 28 tid 28 eid 28 etid 28 c Packet n hsm_ecu_key_req m 2 pe 37
-SH sm 2 sg 5 pd 0.001
-ES id 28 tid 28 eid 28 etid 28 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 37
-CL id 29 tid 28 eid 29 etid 28 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 28
-
-E # 38 t 0.006 m 3 ce 26 msg 17
-CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 29 tid 29 eid 29 etid 29 c Packet n hsm_ecu_key_res m 3 pe 38
+E # 27 t 0.006 m 3 ce 26 msg 17
+CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n hsm_ecu_key_res pe -1
+BS id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_res m 3 pe 27
 SH sm 3 sg 3 pd 0.001
-ES id 29 tid 29 eid 29 etid 29 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 38
-CL id 30 tid 29 eid 30 etid 29 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 29
+ES id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 27
+CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 18
 
-E # 39 t 0.006 m 3 ce 27 msg 18
-CM id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 30 tid 30 eid 30 etid 30 c Packet n hsm_ecu_key_res m 3 pe 39
-SH sm 3 sg 3 pd 0.001
-ES id 30 tid 30 eid 30 etid 30 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 39
-CL id 31 tid 30 eid 31 etid 30 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 30
-
-E # 40 t 0.006 m 3 ce 28 msg 19
-CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 31 tid 31 eid 31 etid 31 c Packet n hsm_ecu_key_res m 3 pe 40
-SH sm 3 sg 3 pd 0.001
-ES id 31 tid 31 eid 31 etid 31 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 40
-CL id 32 tid 31 eid 32 etid 31 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 31
-
-E # 41 t 0.006 m 3 ce 29 msg 20
-CM id 32 tid 32 eid 32 etid 32 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 32 tid 32 eid 32 etid 32 c Packet n hsm_ecu_key_res m 3 pe 41
-SH sm 3 sg 3 pd 0.001
-ES id 32 tid 32 eid 32 etid 32 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 41
-CL id 33 tid 32 eid 33 etid 32 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 32
-
-E # 42 t 0.006 m 3 ce 30 msg 21
-CM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 33 tid 33 eid 33 etid 33 c Packet n hsm_ecu_key_res m 3 pe 42
-SH sm 3 sg 3 pd 0.001
-ES id 33 tid 33 eid 33 etid 33 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 42
-CL id 34 tid 33 eid 34 etid 33 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 33
-
-E # 43 t 0.006 m 3 ce 31 msg 22
-CM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 34 tid 34 eid 34 etid 34 c Packet n hsm_ecu_key_res m 3 pe 43
-SH sm 3 sg 3 pd 0.001
-ES id 34 tid 34 eid 34 etid 34 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 43
-CL id 35 tid 34 eid 35 etid 34 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 34
-
-E # 44 t 0.006 m 3 ce 32 msg 23
-CM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 35 tid 35 eid 35 etid 35 c Packet n hsm_ecu_key_res m 3 pe 44
-SH sm 3 sg 3 pd 0.001
-ES id 35 tid 35 eid 35 etid 35 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 44
-CL id 36 tid 35 eid 36 etid 35 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 35
-
-E # 45 t 0.006 m 3 ce 33 msg 24
-CM id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 36 tid 36 eid 36 etid 36 c Packet n hsm_ecu_key_res m 3 pe 45
-SH sm 3 sg 3 pd 0.001
-ES id 36 tid 36 eid 36 etid 36 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 45
-CL id 37 tid 36 eid 37 etid 36 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 36
-
-E # 46 t 0.006 m 3 ce 34 msg 25
-CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 37 tid 37 eid 37 etid 37 c Packet n hsm_ecu_key_res m 3 pe 46
-SH sm 3 sg 3 pd 0.001
-ES id 37 tid 37 eid 37 etid 37 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 46
-CL id 38 tid 37 eid 38 etid 37 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 37
-
-E # 47 t 0.006 m 3 ce 35 msg 26
-CM id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 38 tid 38 eid 38 etid 38 c Packet n hsm_ecu_key_res m 3 pe 47
-SH sm 3 sg 3 pd 0.001
-ES id 38 tid 38 eid 38 etid 38 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 47
-CL id 39 tid 38 eid 39 etid 38 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 38
-
-E # 48 t 0.006 m 3 ce 36 msg 27
-CM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 39 tid 39 eid 39 etid 39 c Packet n hsm_ecu_key_res m 3 pe 48
-SH sm 3 sg 3 pd 0.001
-ES id 39 tid 39 eid 39 etid 39 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 48
-CL id 40 tid 39 eid 40 etid 39 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 39
-
-E # 49 t 0.006 m 3 ce 37 msg 28
-CM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 40 tid 40 eid 40 etid 40 c Packet n hsm_ecu_key_res m 3 pe 49
-SH sm 3 sg 3 pd 0.001
-ES id 40 tid 40 eid 40 etid 40 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 49
-CL id 41 tid 40 eid 41 etid 40 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 40
-
-E # 50 t 0.007 m 2 ce 38 msg 29
-BS id 29 tid 29 eid 29 etid 29 c Packet n hsm_ecu_key_res m 2 pe 50
+E # 28 t 0.007 m 2 ce 27 msg 18
+BS id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_res m 2 pe 28
 SH sm 2 sg 2621440 pd 0.001
-ES id 29 tid 29 eid 29 etid 29 c Packet n hsm_ecu_key_res sm 2 sg 2621440 st 0.007 am 4 ag 2 at 0.008 pe 50
-CL id 41 tid 29 eid 41 etid 29 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 29
+ES id 18 tid 18 eid 18 etid 18 c Packet n hsm_ecu_key_res sm 2 sg 2621440 st 0.007 am 4 ag 2 at 0.008 pe 28
+CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 18
 
-E # 51 t 0.007 m 2 ce 39 msg 30
-BS id 30 tid 30 eid 30 etid 30 c Packet n hsm_ecu_key_res m 2 pe 51
+E # 29 t 0.008 m 4 ce 28 msg 18
+CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n ecu_ticket pe -1
+BS id 19 tid 19 eid 19 etid 19 c Packet n ecu_ticket m 4 pe 29
+SH sm 4 sg 1 pd 0.001
+ES id 19 tid 19 eid 19 etid 19 c Packet n ecu_ticket sm 4 sg 1 st 0.008 am 2 ag 1048576 at 0.009 pe 29
+CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n ecu_ticket m 4 pe -1 cid 19
+
+E # 30 t 0.009 m 2 ce 29 msg 19
+BS id 19 tid 19 eid 19 etid 19 c Packet n ecu_ticket m 2 pe 30
+SH sm 2 sg 2621443 pd 0.001
+ES id 19 tid 19 eid 19 etid 19 c Packet n ecu_ticket sm 2 sg 2621443 st 0.009 am 7 ag 2 at 0.01 pe 30
+CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 19
+
+E # 31 t 0.01 m 7 ce 30 msg 19
+
+E # 32 t 5 m 2 ce 1 msg 0
+CL id 20 tid 0 eid 20 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 20 tid 0 eid 20 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 32
 SH sm 2 sg 2621440 pd 0.001
-ES id 30 tid 30 eid 30 etid 30 c Packet n hsm_ecu_key_res sm 2 sg 2621440 st 0.007 am 4 ag 2 at 0.008 pe 51
-CL id 41 tid 30 eid 41 etid 30 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 30
+ES id 20 tid 0 eid 20 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 5 am 4 ag 2 at 5.001 pe 32
+CL id 21 tid 0 eid 21 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 20
+CL id 21 tid 0 eid 21 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 21 tid 0 eid 21 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 32
+SH sm 2 sg 2621441 pd 0.001
+ES id 21 tid 0 eid 21 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 5 am 5 ag 2 at 5.001 pe 32
+CL id 22 tid 0 eid 22 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 21
+CL id 22 tid 0 eid 22 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 22 tid 0 eid 22 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 32
+SH sm 2 sg 2621442 pd 0.001
+ES id 22 tid 0 eid 22 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 5 am 6 ag 2 at 5.001 pe 32
+CL id 23 tid 0 eid 23 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 22
+CL id 23 tid 0 eid 23 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 23 tid 0 eid 23 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 32
+SH sm 2 sg 2621443 pd 0.001
+ES id 23 tid 0 eid 23 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 5 am 7 ag 2 at 5.001 pe 32
+CL id 24 tid 0 eid 24 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 23
+BS id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 5 am 2 at 10 pe 32
+ES id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 5 am 2 at 10 pe 32
 
-E # 52 t 0.007 m 2 ce 40 msg 31
-BS id 31 tid 31 eid 31 etid 31 c Packet n hsm_ecu_key_res m 2 pe 52
+E # 33 t 5.001 m 4 ce 32 msg 20
+
+E # 34 t 5.001 m 5 ce 32 msg 21
+
+E # 35 t 5.001 m 6 ce 32 msg 22
+
+E # 36 t 5.001 m 7 ce 32 msg 23
+
+E # 37 t 10 m 2 ce 32 msg 0
+CL id 24 tid 0 eid 24 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 24 tid 0 eid 24 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 37
 SH sm 2 sg 2621440 pd 0.001
-ES id 31 tid 31 eid 31 etid 31 c Packet n hsm_ecu_key_res sm 2 sg 2621440 st 0.007 am 4 ag 2 at 0.008 pe 52
-CL id 41 tid 31 eid 41 etid 31 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 31
-
-E # 53 t 0.007 m 2 ce 41 msg 32
-BS id 32 tid 32 eid 32 etid 32 c Packet n hsm_ecu_key_res m 2 pe 53
+ES id 24 tid 0 eid 24 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 10 am 4 ag 2 at 10.001 pe 37
+CL id 25 tid 0 eid 25 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 24
+CL id 25 tid 0 eid 25 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 25 tid 0 eid 25 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 37
 SH sm 2 sg 2621441 pd 0.001
-ES id 32 tid 32 eid 32 etid 32 c Packet n hsm_ecu_key_res sm 2 sg 2621441 st 0.007 am 5 ag 2 at 0.008 pe 53
-CL id 41 tid 32 eid 41 etid 32 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 32
+ES id 25 tid 0 eid 25 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 10 am 5 ag 2 at 10.001 pe 37
+CL id 26 tid 0 eid 26 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 25
+CL id 26 tid 0 eid 26 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 26 tid 0 eid 26 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 37
+SH sm 2 sg 2621442 pd 0.001
+ES id 26 tid 0 eid 26 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 10 am 6 ag 2 at 10.001 pe 37
+CL id 27 tid 0 eid 27 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 26
+CL id 27 tid 0 eid 27 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 27 tid 0 eid 27 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 37
+SH sm 2 sg 2621443 pd 0.001
+ES id 27 tid 0 eid 27 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 10 am 7 ag 2 at 10.001 pe 37
+CL id 28 tid 0 eid 28 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 27
+BS id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 10 am 2 at 15 pe 37
+ES id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 10 am 2 at 15 pe 37
 
-E # 54 t 0.007 m 2 ce 42 msg 33
-BS id 33 tid 33 eid 33 etid 33 c Packet n hsm_ecu_key_res m 2 pe 54
+E # 38 t 10.001 m 4 ce 37 msg 24
+
+E # 39 t 10.001 m 5 ce 37 msg 25
+
+E # 40 t 10.001 m 6 ce 37 msg 26
+
+E # 41 t 10.001 m 7 ce 37 msg 27
+
+E # 42 t 15 m 2 ce 37 msg 0
+CL id 28 tid 0 eid 28 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 28 tid 0 eid 28 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 42
+SH sm 2 sg 2621440 pd 0.001
+ES id 28 tid 0 eid 28 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 15 am 4 ag 2 at 15.001 pe 42
+CL id 29 tid 0 eid 29 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 28
+CL id 29 tid 0 eid 29 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 29 tid 0 eid 29 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 42
 SH sm 2 sg 2621441 pd 0.001
-ES id 33 tid 33 eid 33 etid 33 c Packet n hsm_ecu_key_res sm 2 sg 2621441 st 0.007 am 5 ag 2 at 0.008 pe 54
-CL id 41 tid 33 eid 41 etid 33 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 33
-
-E # 55 t 0.007 m 2 ce 43 msg 34
-BS id 34 tid 34 eid 34 etid 34 c Packet n hsm_ecu_key_res m 2 pe 55
-SH sm 2 sg 2621441 pd 0.001
-ES id 34 tid 34 eid 34 etid 34 c Packet n hsm_ecu_key_res sm 2 sg 2621441 st 0.007 am 5 ag 2 at 0.008 pe 55
-CL id 41 tid 34 eid 41 etid 34 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 34
-
-E # 56 t 0.007 m 2 ce 44 msg 35
-BS id 35 tid 35 eid 35 etid 35 c Packet n hsm_ecu_key_res m 2 pe 56
+ES id 29 tid 0 eid 29 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 15 am 5 ag 2 at 15.001 pe 42
+CL id 30 tid 0 eid 30 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 29
+CL id 30 tid 0 eid 30 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 30 tid 0 eid 30 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 42
 SH sm 2 sg 2621442 pd 0.001
-ES id 35 tid 35 eid 35 etid 35 c Packet n hsm_ecu_key_res sm 2 sg 2621442 st 0.007 am 6 ag 2 at 0.008 pe 56
-CL id 41 tid 35 eid 41 etid 35 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 35
-
-E # 57 t 0.007 m 2 ce 45 msg 36
-BS id 36 tid 36 eid 36 etid 36 c Packet n hsm_ecu_key_res m 2 pe 57
-SH sm 2 sg 2621442 pd 0.001
-ES id 36 tid 36 eid 36 etid 36 c Packet n hsm_ecu_key_res sm 2 sg 2621442 st 0.007 am 6 ag 2 at 0.008 pe 57
-CL id 41 tid 36 eid 41 etid 36 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 36
-
-E # 58 t 0.007 m 2 ce 46 msg 37
-BS id 37 tid 37 eid 37 etid 37 c Packet n hsm_ecu_key_res m 2 pe 58
-SH sm 2 sg 2621442 pd 0.001
-ES id 37 tid 37 eid 37 etid 37 c Packet n hsm_ecu_key_res sm 2 sg 2621442 st 0.007 am 6 ag 2 at 0.008 pe 58
-CL id 41 tid 37 eid 41 etid 37 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 37
-
-E # 59 t 0.007 m 2 ce 47 msg 38
-BS id 38 tid 38 eid 38 etid 38 c Packet n hsm_ecu_key_res m 2 pe 59
+ES id 30 tid 0 eid 30 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 15 am 6 ag 2 at 15.001 pe 42
+CL id 31 tid 0 eid 31 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 30
+CL id 31 tid 0 eid 31 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 31 tid 0 eid 31 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 42
 SH sm 2 sg 2621443 pd 0.001
-ES id 38 tid 38 eid 38 etid 38 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 59
-CL id 41 tid 38 eid 41 etid 38 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 38
+ES id 31 tid 0 eid 31 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 15 am 7 ag 2 at 15.001 pe 42
+CL id 32 tid 0 eid 32 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 31
+BS id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 15 am 2 at 20 pe 42
+ES id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 15 am 2 at 20 pe 42
 
-E # 60 t 0.007 m 2 ce 48 msg 39
-BS id 39 tid 39 eid 39 etid 39 c Packet n hsm_ecu_key_res m 2 pe 60
-SH sm 2 sg 2621443 pd 0.001
-ES id 39 tid 39 eid 39 etid 39 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 60
-CL id 41 tid 39 eid 41 etid 39 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 39
+E # 43 t 15.001 m 4 ce 42 msg 28
 
-E # 61 t 0.007 m 2 ce 49 msg 40
-BS id 40 tid 40 eid 40 etid 40 c Packet n hsm_ecu_key_res m 2 pe 61
-SH sm 2 sg 2621443 pd 0.001
-ES id 40 tid 40 eid 40 etid 40 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 61
-CL id 41 tid 40 eid 41 etid 40 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 40
+E # 44 t 15.001 m 5 ce 42 msg 29
 
-E # 62 t 0.008 m 4 ce 50 msg 29
-CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 41 tid 41 eid 41 etid 41 c Packet n ecu_ticket m 4 pe 62
-SH sm 4 sg 1 pd 0.001
-ES id 41 tid 41 eid 41 etid 41 c Packet n ecu_ticket sm 4 sg 1 st 0.008 am 2 ag 1048576 at 0.009 pe 62
-CL id 42 tid 41 eid 42 etid 41 c omnetpp::cMessage n ecu_ticket m 4 pe -1 cid 41
-
-E # 63 t 0.008 m 4 ce 51 msg 30
-CM id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 42 tid 42 eid 42 etid 42 c Packet n ecu_ticket m 4 pe 63
-SH sm 4 sg 1 pd 0.001
-ES id 42 tid 42 eid 42 etid 42 c Packet n ecu_ticket sm 4 sg 1 st 0.008 am 2 ag 1048576 at 0.009 pe 63
-CL id 43 tid 42 eid 43 etid 42 c omnetpp::cMessage n ecu_ticket m 4 pe -1 cid 42
-
-E # 64 t 0.008 m 4 ce 52 msg 31
-CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 43 tid 43 eid 43 etid 43 c Packet n ecu_ticket m 4 pe 64
-SH sm 4 sg 1 pd 0.001
-ES id 43 tid 43 eid 43 etid 43 c Packet n ecu_ticket sm 4 sg 1 st 0.008 am 2 ag 1048576 at 0.009 pe 64
-CL id 44 tid 43 eid 44 etid 43 c omnetpp::cMessage n ecu_ticket m 4 pe -1 cid 43
-
-E # 65 t 0.008 m 5 ce 53 msg 32
-CM id 44 tid 44 eid 44 etid 44 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 44 tid 44 eid 44 etid 44 c Packet n ecu_ticket m 5 pe 65
-SH sm 5 sg 1 pd 0.001
-ES id 44 tid 44 eid 44 etid 44 c Packet n ecu_ticket sm 5 sg 1 st 0.008 am 2 ag 1048577 at 0.009 pe 65
-CL id 45 tid 44 eid 45 etid 44 c omnetpp::cMessage n ecu_ticket m 5 pe -1 cid 44
-
-E # 66 t 0.008 m 5 ce 54 msg 33
-CM id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 45 tid 45 eid 45 etid 45 c Packet n ecu_ticket m 5 pe 66
-SH sm 5 sg 1 pd 0.001
-ES id 45 tid 45 eid 45 etid 45 c Packet n ecu_ticket sm 5 sg 1 st 0.008 am 2 ag 1048577 at 0.009 pe 66
-CL id 46 tid 45 eid 46 etid 45 c omnetpp::cMessage n ecu_ticket m 5 pe -1 cid 45
-
-E # 67 t 0.008 m 5 ce 55 msg 34
-CM id 46 tid 46 eid 46 etid 46 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 46 tid 46 eid 46 etid 46 c Packet n ecu_ticket m 5 pe 67
-SH sm 5 sg 1 pd 0.001
-ES id 46 tid 46 eid 46 etid 46 c Packet n ecu_ticket sm 5 sg 1 st 0.008 am 2 ag 1048577 at 0.009 pe 67
-CL id 47 tid 46 eid 47 etid 46 c omnetpp::cMessage n ecu_ticket m 5 pe -1 cid 46
-
-E # 68 t 0.008 m 6 ce 56 msg 35
-CM id 47 tid 47 eid 47 etid 47 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 47 tid 47 eid 47 etid 47 c Packet n ecu_ticket m 6 pe 68
-SH sm 6 sg 1 pd 0.001
-ES id 47 tid 47 eid 47 etid 47 c Packet n ecu_ticket sm 6 sg 1 st 0.008 am 2 ag 1048578 at 0.009 pe 68
-CL id 48 tid 47 eid 48 etid 47 c omnetpp::cMessage n ecu_ticket m 6 pe -1 cid 47
-
-E # 69 t 0.008 m 6 ce 57 msg 36
-CM id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 48 tid 48 eid 48 etid 48 c Packet n ecu_ticket m 6 pe 69
-SH sm 6 sg 1 pd 0.001
-ES id 48 tid 48 eid 48 etid 48 c Packet n ecu_ticket sm 6 sg 1 st 0.008 am 2 ag 1048578 at 0.009 pe 69
-CL id 49 tid 48 eid 49 etid 48 c omnetpp::cMessage n ecu_ticket m 6 pe -1 cid 48
-
-E # 70 t 0.008 m 6 ce 58 msg 37
-CM id 49 tid 49 eid 49 etid 49 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 49 tid 49 eid 49 etid 49 c Packet n ecu_ticket m 6 pe 70
-SH sm 6 sg 1 pd 0.001
-ES id 49 tid 49 eid 49 etid 49 c Packet n ecu_ticket sm 6 sg 1 st 0.008 am 2 ag 1048578 at 0.009 pe 70
-CL id 50 tid 49 eid 50 etid 49 c omnetpp::cMessage n ecu_ticket m 6 pe -1 cid 49
+E # 45 t 15.001 m 6 ce 42 msg 30
 
 SE e 0 c -1 m ""

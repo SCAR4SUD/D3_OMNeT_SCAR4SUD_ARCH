@@ -1,65 +1,65 @@
-out/clang-release//src/rsa/rsa_exchange.o: src/rsa/rsa_exchange.cc \
-  src/rsa/rsa_exchange.h src/rsa/../common/common.h \
-  src/rsa/../common/../include/rapidjson/document.h \
-  src/rsa/../common/../include/rapidjson/reader.h \
-  src/rsa/../common/../include/rapidjson/allocators.h \
-  src/rsa/../common/../include/rapidjson/rapidjson.h \
-  src/rsa/../common/../include/rapidjson/internal/meta.h \
-  src/rsa/../common/../include/rapidjson/internal/../rapidjson.h \
-  src/rsa/../common/../include/rapidjson/stream.h \
-  src/rsa/../common/../include/rapidjson/encodings.h \
-  src/rsa/../common/../include/rapidjson/encodedstream.h \
-  src/rsa/../common/../include/rapidjson/memorystream.h \
-  src/rsa/../common/../include/rapidjson/internal/clzll.h \
-  src/rsa/../common/../include/rapidjson/internal/stack.h \
-  src/rsa/../common/../include/rapidjson/internal/../allocators.h \
-  src/rsa/../common/../include/rapidjson/internal/swap.h \
-  src/rsa/../common/../include/rapidjson/internal/strtod.h \
-  src/rsa/../common/../include/rapidjson/internal/ieee754.h \
-  src/rsa/../common/../include/rapidjson/internal/biginteger.h \
-  src/rsa/../common/../include/rapidjson/internal/diyfp.h \
-  src/rsa/../common/../include/rapidjson/internal/pow10.h \
-  src/rsa/../common/../include/rapidjson/error/error.h \
-  src/rsa/../common/../include/rapidjson/error/../rapidjson.h \
-  src/rsa/../common/../include/rapidjson/internal/strfunc.h \
-  src/rsa/../common/../include/rapidjson/internal/../stream.h \
-  src/rsa/../common/../include/rapidjson/stringbuffer.h \
-  src/rsa/../common/../include/rapidjson/writer.h \
-  src/rsa/../common/../include/rapidjson/internal/dtoa.h \
-  src/rsa/../common/../include/rapidjson/internal/itoa.h \
-  src/rsa/../common/../include/rapidjson/error/en.h \
-  src/rsa/../common/../def.h src/rsa/../crypto_utils/crypto_utils.h \
-  src/rsa/../crypto_utils/../common/common.h
-src/rsa/rsa_exchange.h:
-src/rsa/../common/common.h:
-src/rsa/../common/../include/rapidjson/document.h:
-src/rsa/../common/../include/rapidjson/reader.h:
-src/rsa/../common/../include/rapidjson/allocators.h:
-src/rsa/../common/../include/rapidjson/rapidjson.h:
-src/rsa/../common/../include/rapidjson/internal/meta.h:
-src/rsa/../common/../include/rapidjson/internal/../rapidjson.h:
-src/rsa/../common/../include/rapidjson/stream.h:
-src/rsa/../common/../include/rapidjson/encodings.h:
-src/rsa/../common/../include/rapidjson/encodedstream.h:
-src/rsa/../common/../include/rapidjson/memorystream.h:
-src/rsa/../common/../include/rapidjson/internal/clzll.h:
-src/rsa/../common/../include/rapidjson/internal/stack.h:
-src/rsa/../common/../include/rapidjson/internal/../allocators.h:
-src/rsa/../common/../include/rapidjson/internal/swap.h:
-src/rsa/../common/../include/rapidjson/internal/strtod.h:
-src/rsa/../common/../include/rapidjson/internal/ieee754.h:
-src/rsa/../common/../include/rapidjson/internal/biginteger.h:
-src/rsa/../common/../include/rapidjson/internal/diyfp.h:
-src/rsa/../common/../include/rapidjson/internal/pow10.h:
-src/rsa/../common/../include/rapidjson/error/error.h:
-src/rsa/../common/../include/rapidjson/error/../rapidjson.h:
-src/rsa/../common/../include/rapidjson/internal/strfunc.h:
-src/rsa/../common/../include/rapidjson/internal/../stream.h:
-src/rsa/../common/../include/rapidjson/stringbuffer.h:
-src/rsa/../common/../include/rapidjson/writer.h:
-src/rsa/../common/../include/rapidjson/internal/dtoa.h:
-src/rsa/../common/../include/rapidjson/internal/itoa.h:
-src/rsa/../common/../include/rapidjson/error/en.h:
-src/rsa/../common/../def.h:
-src/rsa/../crypto_utils/crypto_utils.h:
-src/rsa/../crypto_utils/../common/common.h:
+../out/clang-release/src/rsa/rsa_exchange.o: rsa/rsa_exchange.cc \
+  rsa/rsa_exchange.h rsa/../common/common.h \
+  rsa/../common/../include/rapidjson/document.h \
+  rsa/../common/../include/rapidjson/reader.h \
+  rsa/../common/../include/rapidjson/allocators.h \
+  rsa/../common/../include/rapidjson/rapidjson.h \
+  rsa/../common/../include/rapidjson/internal/meta.h \
+  rsa/../common/../include/rapidjson/internal/../rapidjson.h \
+  rsa/../common/../include/rapidjson/stream.h \
+  rsa/../common/../include/rapidjson/encodings.h \
+  rsa/../common/../include/rapidjson/encodedstream.h \
+  rsa/../common/../include/rapidjson/memorystream.h \
+  rsa/../common/../include/rapidjson/internal/clzll.h \
+  rsa/../common/../include/rapidjson/internal/stack.h \
+  rsa/../common/../include/rapidjson/internal/../allocators.h \
+  rsa/../common/../include/rapidjson/internal/swap.h \
+  rsa/../common/../include/rapidjson/internal/strtod.h \
+  rsa/../common/../include/rapidjson/internal/ieee754.h \
+  rsa/../common/../include/rapidjson/internal/biginteger.h \
+  rsa/../common/../include/rapidjson/internal/diyfp.h \
+  rsa/../common/../include/rapidjson/internal/pow10.h \
+  rsa/../common/../include/rapidjson/error/error.h \
+  rsa/../common/../include/rapidjson/error/../rapidjson.h \
+  rsa/../common/../include/rapidjson/internal/strfunc.h \
+  rsa/../common/../include/rapidjson/internal/../stream.h \
+  rsa/../common/../include/rapidjson/stringbuffer.h \
+  rsa/../common/../include/rapidjson/writer.h \
+  rsa/../common/../include/rapidjson/internal/dtoa.h \
+  rsa/../common/../include/rapidjson/internal/itoa.h \
+  rsa/../common/../include/rapidjson/error/en.h rsa/../common/../def.h \
+  rsa/../crypto_utils/crypto_utils.h \
+  rsa/../crypto_utils/../common/common.h
+rsa/rsa_exchange.h:
+rsa/../common/common.h:
+rsa/../common/../include/rapidjson/document.h:
+rsa/../common/../include/rapidjson/reader.h:
+rsa/../common/../include/rapidjson/allocators.h:
+rsa/../common/../include/rapidjson/rapidjson.h:
+rsa/../common/../include/rapidjson/internal/meta.h:
+rsa/../common/../include/rapidjson/internal/../rapidjson.h:
+rsa/../common/../include/rapidjson/stream.h:
+rsa/../common/../include/rapidjson/encodings.h:
+rsa/../common/../include/rapidjson/encodedstream.h:
+rsa/../common/../include/rapidjson/memorystream.h:
+rsa/../common/../include/rapidjson/internal/clzll.h:
+rsa/../common/../include/rapidjson/internal/stack.h:
+rsa/../common/../include/rapidjson/internal/../allocators.h:
+rsa/../common/../include/rapidjson/internal/swap.h:
+rsa/../common/../include/rapidjson/internal/strtod.h:
+rsa/../common/../include/rapidjson/internal/ieee754.h:
+rsa/../common/../include/rapidjson/internal/biginteger.h:
+rsa/../common/../include/rapidjson/internal/diyfp.h:
+rsa/../common/../include/rapidjson/internal/pow10.h:
+rsa/../common/../include/rapidjson/error/error.h:
+rsa/../common/../include/rapidjson/error/../rapidjson.h:
+rsa/../common/../include/rapidjson/internal/strfunc.h:
+rsa/../common/../include/rapidjson/internal/../stream.h:
+rsa/../common/../include/rapidjson/stringbuffer.h:
+rsa/../common/../include/rapidjson/writer.h:
+rsa/../common/../include/rapidjson/internal/dtoa.h:
+rsa/../common/../include/rapidjson/internal/itoa.h:
+rsa/../common/../include/rapidjson/error/en.h:
+rsa/../common/../def.h:
+rsa/../crypto_utils/crypto_utils.h:
+rsa/../crypto_utils/../common/common.h:

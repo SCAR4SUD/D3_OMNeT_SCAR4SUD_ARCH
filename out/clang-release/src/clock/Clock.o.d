@@ -1,3 +1,2 @@
-out/clang-release//src/clock/Clock.o: src/clock/Clock.cc \
-  src/clock/Clock.h
-src/clock/Clock.h:
+../out/clang-release/src/clock/Clock.o: clock/Clock.cc clock/Clock.h
+clock/Clock.h:

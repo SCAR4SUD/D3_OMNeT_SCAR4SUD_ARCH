@@ -1,6 +1,6 @@
-out/clang-release//src/storage.o: src/storage.cc src/storage.h \
+../out/clang-release/src/storage.o: storage.cc storage.h \
   /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h \
-  src/Communication_m.h
-src/storage.h:
+  Communication_m.h
+storage.h:
 /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h:
-src/Communication_m.h:
+Communication_m.h:

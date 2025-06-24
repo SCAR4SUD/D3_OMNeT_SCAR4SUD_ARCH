@@ -1,3 +1,3 @@
-src/Communication_m.cc src/Communication_m.h : \
-	src/Communication.msg
-src/Communication.msg:
+Communication_m.cc Communication_m.h : \
+	Communication.msg
+Communication.msg:

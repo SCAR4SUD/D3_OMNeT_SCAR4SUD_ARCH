@@ -1,3 +1,3 @@
-src/Packet_m.cc src/Packet_m.h : \
-	src/Packet.msg
-src/Packet.msg:
+Packet_m.cc Packet_m.h : \
+	Packet.msg
+Packet.msg:

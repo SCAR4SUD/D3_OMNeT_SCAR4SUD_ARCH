@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgtool 6.1 from src/Communication.msg.
+// Generated file, do not edit! Created by opp_msgtool 6.1 from Communication.msg.
 //
 
 #ifndef __COMMUNICATION_M_H
@@ -19,7 +19,7 @@
 class KeyRequest;
 class KeyResponse;
 /**
- * Class generated from <tt>src/Communication.msg:20</tt> by opp_msgtool.
+ * Class generated from <tt>Communication.msg:20</tt> by opp_msgtool.
  * <pre>
  * //
  * // TODO generated message class
@@ -63,7 +63,7 @@ inline void doParsimPacking(omnetpp::cCommBuffer *b, const KeyRequest& obj) {obj
 inline void doParsimUnpacking(omnetpp::cCommBuffer *b, KeyRequest& obj) {obj.parsimUnpack(b);}
 
 /**
- * Class generated from <tt>src/Communication.msg:26</tt> by opp_msgtool.
+ * Class generated from <tt>Communication.msg:26</tt> by opp_msgtool.
  * <pre>
  * message KeyResponse
  * {

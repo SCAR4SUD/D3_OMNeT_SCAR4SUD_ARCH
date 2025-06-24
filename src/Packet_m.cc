@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgtool 6.1 from src/Packet.msg.
+// Generated file, do not edit! Created by opp_msgtool 6.1 from Packet.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
