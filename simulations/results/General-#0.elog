@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250624-11:17:01-104177
+SB ov 1537 ev 2 rid General-0-20250624-11:37:36-104401
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -359,5 +359,33 @@ E # 43 t 15.001 m 4 ce 42 msg 28
 E # 44 t 15.001 m 5 ce 42 msg 29
 
 E # 45 t 15.001 m 6 ce 42 msg 30
+
+E # 46 t 15.001 m 7 ce 42 msg 31
+
+E # 47 t 20 m 2 ce 42 msg 0
+CL id 32 tid 0 eid 32 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 32 tid 0 eid 32 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 47
+SH sm 2 sg 2621440 pd 0.001
+ES id 32 tid 0 eid 32 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 20 am 4 ag 2 at 20.001 pe 47
+CL id 33 tid 0 eid 33 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 32
+CL id 33 tid 0 eid 33 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 33 tid 0 eid 33 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 47
+SH sm 2 sg 2621441 pd 0.001
+ES id 33 tid 0 eid 33 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 20 am 5 ag 2 at 20.001 pe 47
+CL id 34 tid 0 eid 34 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 33
+CL id 34 tid 0 eid 34 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 34 tid 0 eid 34 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 47
+SH sm 2 sg 2621442 pd 0.001
+ES id 34 tid 0 eid 34 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 20 am 6 ag 2 at 20.001 pe 47
+CL id 35 tid 0 eid 35 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 34
+CL id 35 tid 0 eid 35 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 0
+BS id 35 tid 0 eid 35 etid 0 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 47
+SH sm 2 sg 2621443 pd 0.001
+ES id 35 tid 0 eid 35 etid 0 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 20 am 7 ag 2 at 20.001 pe 47
+CL id 36 tid 0 eid 36 etid 0 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 35
+BS id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 20 am 2 at 25 pe 47
+ES id 0 tid 0 eid 0 etid 0 c Packet n SYNC_CLOCK_REQUEST sm 2 st 20 am 2 at 25 pe 47
+
+E # 48 t 20.001 m 4 ce 47 msg 32
 
 SE e 0 c -1 m ""
