@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Progetto
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I/run/media/andrea/mini/dev/omnet-src/include
+#  opp_makemake -f --deep
 #
 
 # Name of target to be created (-o option)
@@ -19,7 +19,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I/run/media/andrea/mini/dev/omnet-src/include
+INCLUDE_PATH =
 
 # Additional object and library files to link with
 EXTRA_OBJS =

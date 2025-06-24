@@ -94,7 +94,7 @@ bool ECU::setHsmSessionKey(Packet *res) {
     parse_rsa_response(json_response, aes_key_enc);
 
     size_t aes_key_len = AES_KEY_LEN;
-    int ret = rsa_decrypt_evp(tpm_access->getPrivateKey(), aes_key_enc, AES_KEY_ENC_MAXLEN, tpm_access->getSessionKeyHandle(0), &aes_key_len);
+    rsa_decrypt_evp(tpm_access->getPrivateKey(), aes_key_enc, AES_KEY_ENC_MAXLEN, tpm_access->getSessionKeyHandle(0), &aes_key_len);
     //std::cout << "rsa_decrypt_evp: " << ret << std::endl;
     //std::cout << "aes_key_len: " << aes_key_len << std::endl;
 
