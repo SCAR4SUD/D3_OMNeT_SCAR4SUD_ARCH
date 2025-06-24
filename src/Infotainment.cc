@@ -7,7 +7,6 @@
 #include <cstring>
 #include <openssl/rand.h>
 #include <ctime>
-#include <curl/curl.h>
 #include <fstream>
 
 #include "def.h"
