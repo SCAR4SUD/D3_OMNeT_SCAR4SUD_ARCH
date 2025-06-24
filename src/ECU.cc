@@ -42,13 +42,9 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
-            //if(id == 1) {
-                //sendEcuSessionRequest(4);
-                for(int i = 1; i <= numECUs; ++i) {
-                    if(i == id) continue;
-                    sendEcuSessionRequest(i);
-                }
-            //}
+            if(id == 1) {
+                sendEcuSessionRequest(4);
+            }
             }break;
         case NS_RESPONSE_SENDER: {
             handleEcuSessionKey(pkg);
