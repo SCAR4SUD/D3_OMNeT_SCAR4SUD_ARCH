@@ -15,13 +15,6 @@
 #include "aes/aes.h"
 #include "crypto_utils/crypto_utils.h"
 
-// #include <sys/socket.h>
-// #include <arpa/inet.h>
-// #include <unistd.h>
-
-#define PORT 9001
-#define LOCALHOST "127.0.0.1"
-
 Define_Module(Infotainment);
 
 void Infotainment::additional_initialize()
