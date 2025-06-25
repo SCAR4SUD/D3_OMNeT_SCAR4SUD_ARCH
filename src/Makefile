@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Progetto
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep
+#  opp_makemake -f --deep -lssl -lcrypto -lsofthsm2
 #
 
 # Name of target to be created (-o option)
@@ -25,7 +25,7 @@ INCLUDE_PATH =
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS =  -lssl -lcrypto -lsofthsm2
 
 # Output directory
 PROJECT_OUTPUT_DIR = ../out
@@ -101,8 +101,6 @@ endif
 
 #------------------------------------------------------------------------------
 # User-supplied makefile fragment(s)
--include makefrag
-
 #------------------------------------------------------------------------------
 
 # Main target

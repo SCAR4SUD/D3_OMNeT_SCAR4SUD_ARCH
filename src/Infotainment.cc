@@ -75,12 +75,13 @@ void Infotainment::additional_handleMessage(cMessage *msg)
 
 bool Infotainment::webAccess(std::string uri)
 {
-    if(rules[uri] == "ACCEPT")
+    if(rules[uri] == "ACCEPT") {
         EV << "Infotainment: requested resouces at " << uri << " can be requested" << std::endl;
-    else if(rules[uri] == "ALERT")
+    } else if(rules[uri] == "ALERT") {
         EV << "Infotainment: requested resouces at " << uri << " can be requested but alert is being sent" << std::endl;
-    else
+    } else {
         EV << "Infotainment: requested resouces at " << uri << " cannot requested. request has been dropped" << std::endl;
-
+        return false;
+    }
     return true;
 }
