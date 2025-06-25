@@ -49,7 +49,6 @@ void ECU::handleMessage(cMessage *msg)
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
             if(id == 1) {
-                sendEcuSessionRequest(4);
                 sendEcuSessionRequest(7);
             }
             }break;
@@ -58,7 +57,6 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case NS_RESPONSE_RECEIVER: {
             handleEcuTicket(pkg);
-            sendClockSyncRequest();
             sendChallenge(pkg->getSrcId());
             }break;
         case CLOCK_SYNC_RESPONSE: {
@@ -70,6 +68,7 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case NS_CHALLENGE_RESPONSE: {
             checkChallenge(pkg);
+            sendClockSyncRequest();
             }break;
         default: {
             additional_handleMessage(msg);
