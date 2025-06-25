@@ -11,6 +11,9 @@
 #define NS_AUTH_REQUEST             5
 #define NS_AUTH_RESPONSE            6
 
+#define NS_CHALLENGE_REQUEST        11
+#define NS_CHALLENGE_RESPONSE       12
+
 #define CLOCK_SYNC_REQUEST          7
 #define CLOCK_SYNC_RESPONSE         8
 

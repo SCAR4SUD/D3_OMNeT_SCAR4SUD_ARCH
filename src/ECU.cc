@@ -24,6 +24,12 @@ void ECU::initialize()
     tpm_access = new TPM(id);
     timestamp_b64 = new std::string[numECUs];
 
+    isECUAuth = new bool[numECUs];
+    ::memset(isECUAuth, 0, sizeof(bool) * numECUs);
+
+    timestamp_challenge = new std::time_t[numECUs];
+    ::memset(timestamp_challenge, 0, sizeof(std::time_t) * numECUs);
+
     HSMCommunicationInit = new Packet("HSM");
     HSMCommunicationInit->setType(ECU_INIT_RSA_SIGNAL);
     scheduleAt(0, HSMCommunicationInit);
@@ -43,9 +49,8 @@ void ECU::handleMessage(cMessage *msg)
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
             if(id == 1) {
-                sendEcuSessionRequest(2);
-                sendEcuSessionRequest(3);
                 sendEcuSessionRequest(4);
+                sendEcuSessionRequest(7);
             }
             }break;
         case NS_RESPONSE_SENDER: {
@@ -54,10 +59,17 @@ void ECU::handleMessage(cMessage *msg)
         case NS_RESPONSE_RECEIVER: {
             handleEcuTicket(pkg);
             sendClockSyncRequest();
+            sendChallenge(pkg->getSrcId());
             }break;
         case CLOCK_SYNC_RESPONSE: {
             handleClockSync(pkg);
             delete pkg;
+            }break;
+        case NS_CHALLENGE_REQUEST: {
+            acceptChallenge(pkg);
+            }break;
+        case NS_CHALLENGE_RESPONSE: {
+            checkChallenge(pkg);
             }break;
         default: {
             additional_handleMessage(msg);
@@ -182,10 +194,10 @@ bool ECU::handleEcuTicket(Packet *pkg)
     return true;
 }
 
-void ECU::sendEncPacket(Packet *pkg, int id, int type)
+void ECU::sendEncPacket(Packet *pkg, int other_ecu_id, int type)
 {
     std::string data = pkg->getData();
-    AesEncryptedMessage aes_msg = encrypt_message_aes((unsigned char*)data.c_str(), data.length(), tpm_access->getSessionKeyHandle(id));
+    AesEncryptedMessage aes_msg = encrypt_message_aes((unsigned char*)data.c_str(), data.length(), tpm_access->getSessionKeyHandle(other_ecu_id));
 
     rapidjson::Document aes_message;
     aes_message.SetObject();
@@ -229,25 +241,107 @@ void ECU::sendEncPacket(Packet *pkg, int id, int type)
     std::string aes_message_str = buffer_aes_message.GetString();
 
     pkg->setData(aes_message_str.c_str());
+    send(pkg, "out");
 }
 
-Packet *ECU::receiveEncPacket(Packet *pkg)
+void ECU::receiveEncPacket(Packet *pkg, int other_ecu_id)
 {
     std::string enc_message = pkg->getData();
     rapidjson::Document doc;
     if (doc.Parse(enc_message.c_str()).HasParseError())
         handle_errors("JSON non valido");
 
-    std::cout << enc_message << std::endl;
-
     unsigned long plain_len{0};
-    const unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID));    // Decrypt ticket
+    const unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(other_ecu_id));    // Decrypt ticket
     std::string dec_msg((const char*)plaintext, plain_len);
 
     pkg->setData(dec_msg.c_str());
-
-    return pkg;
 }
+
+void ECU::sendChallenge(int other_ecu_id)
+{
+    Packet *pkg = new Packet("NS_CHALLENGE_REQUEST");
+    pkg->setSrcId(id);
+    pkg->setDstId(other_ecu_id);
+    pkg->setType(NS_CHALLENGE_REQUEST);
+
+    rapidjson::Document message;
+    message.SetObject();
+    auto& alloc = message.GetAllocator();
+
+    std::time_t timestamp = hw_clock.time_since_epoch();
+    timestamp_challenge[other_ecu_id-1] = timestamp;
+
+    message.AddMember(
+        "type",
+        NS_CHALLENGE_REQUEST,
+        alloc
+    );
+    message.AddMember(
+        "nonce",
+        timestamp,
+        alloc
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    message.Accept(writer);
+
+    std::string message_str = buffer.GetString();
+
+    pkg->setData(message_str.c_str());
+
+    sendEncPacket(pkg, other_ecu_id, NS_CHALLENGE_REQUEST);
+}
+
+void ECU::acceptChallenge(Packet *pkg)
+{
+    receiveEncPacket(pkg, pkg->getSrcId());
+
+    std::string message = pkg->getData();
+    rapidjson::Document doc;
+    if (doc.Parse(message.c_str()).HasParseError())
+        handle_errors("JSON non valido");
+
+    doc["type"].SetInt(NS_CHALLENGE_RESPONSE);
+    doc["nonce"].SetInt(
+        doc["nonce"].GetInt() - 1
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    doc.Accept(writer);
+
+    Packet *ret = new Packet("NS_CHALLENGE_RESPONSE");
+
+    ret->setType(NS_CHALLENGE_RESPONSE);
+    ret->setSrcId(id);
+    ret->setDstId(pkg->getSrcId());
+    ret->setData(buffer.GetString());
+
+    sendEncPacket(ret, pkg->getSrcId(), NS_CHALLENGE_RESPONSE);
+}
+
+bool ECU::checkChallenge(Packet *pkg)
+{
+    receiveEncPacket(pkg, pkg->getSrcId());
+
+    std::string message = pkg->getData();
+    rapidjson::Document doc;
+    if (doc.Parse(message.c_str()).HasParseError())
+        handle_errors("JSON non valido");
+
+    std::time_t received_nonce = doc["nonce"].GetInt() + 1;
+
+    if(received_nonce != timestamp_challenge[pkg->getSrcId()-1]) {
+        isECUAuth[pkg->getSrcId()-1] = false;
+        return false;
+    }
+
+    isECUAuth[pkg->getSrcId()-1] = true;
+    return true;
+}
+
 
 void ECU::sendClockSyncRequest()
 {

@@ -21,6 +21,9 @@ protected:
     TPM *tpm_access = nullptr;
     Clock hw_clock;
 
+    bool *isECUAuth;
+    std::time_t *timestamp_challenge;
+
     void sendHsmRsaRequest();
     bool setHsmSessionKey(Packet *pkg);
 
@@ -32,8 +35,11 @@ protected:
     void sendClockSyncRequest();
 
     void sendEncPacket(Packet *pkg, int id, int type);
-    Packet *receiveEncPacket(Packet *pkg);
+    void receiveEncPacket(Packet *pkg, int other_ecu_id);
 
+    void sendChallenge(int other_ecu_id);
+    void acceptChallenge(Packet *pkg);
+    bool checkChallenge(Packet *pkg);
 
     void handleClockSync(Packet *pkg);
 
