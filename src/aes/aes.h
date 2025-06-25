@@ -7,6 +7,7 @@
 
 #define IV_LEN 12
 #define TAG_LEN 16
+#define AAD_LEN 8
 #define MAX_PLAINTEXT_LEN 16384
 
 struct AesEncryptedMessage {

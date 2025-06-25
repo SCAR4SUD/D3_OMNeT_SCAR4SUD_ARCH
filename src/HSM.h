@@ -5,6 +5,7 @@
 #include <string>
 #include "Communication_m.h"
 #include "Packet_m.h"
+#include "include/rapidjson/document.h"
 #include "include/sca.h"
 
 
@@ -14,9 +15,14 @@ class HSM : public cSimpleModule
 {
 private:
     void sendRequestToHSM(Packet *pkg, int response_type, const char* ret_pkg_name);
+    std::string clock_response(rapidjson::Document& doc, sca::Session& session, int id);
+
     sca::HSM *hsm = sca::HSM::get();
-        sca::Slot *slot = hsm->getSlot(0);
-        sca::Session session = sca::Session();
+    sca::Slot *slot = hsm->getSlot(0);
+    sca::Session session = sca::Session();
+    int numECUs;
+
+    bool *sessionKeyWith;
 
 protected:
     virtual void initialize() override;

@@ -16,10 +16,6 @@ private:
     int numECUs;
     std::ofstream logFile;
 
-    Packet *sync_clock_event;
-    rapidjson::Document doc;
-    rapidjson::StringBuffer buffer;
-
 
 protected:
     virtual void initialize() override;

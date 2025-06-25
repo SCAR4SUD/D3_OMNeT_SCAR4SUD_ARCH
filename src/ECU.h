@@ -29,6 +29,10 @@ protected:
     bool handleEcuTicket(Packet *pkg);
 
     void sendEcuAuthenticartion();
+    void sendClockSyncRequest();
+
+    void sendEncPacket(Packet *pkg, int id, int type);
+    Packet *receiveEncPacket(Packet *pkg);
 
 
     void handleClockSync(Packet *pkg);

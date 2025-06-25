@@ -43,6 +43,8 @@ void ECU::handleMessage(cMessage *msg)
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
             if(id == 1) {
+                sendEcuSessionRequest(2);
+                sendEcuSessionRequest(3);
                 sendEcuSessionRequest(4);
             }
             }break;
@@ -51,6 +53,7 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case NS_RESPONSE_RECEIVER: {
             handleEcuTicket(pkg);
+            sendClockSyncRequest();
             }break;
         case CLOCK_SYNC_RESPONSE: {
             handleClockSync(pkg);
@@ -179,12 +182,109 @@ bool ECU::handleEcuTicket(Packet *pkg)
     return true;
 }
 
+void ECU::sendEncPacket(Packet *pkg, int id, int type)
+{
+    std::string data = pkg->getData();
+    AesEncryptedMessage aes_msg = encrypt_message_aes((unsigned char*)data.c_str(), data.length(), tpm_access->getSessionKeyHandle(id));
+
+    rapidjson::Document aes_message;
+    aes_message.SetObject();
+    auto& alloc_aes = aes_message.GetAllocator();
+
+    std::string ciphertext_b64 = base64_encode((unsigned char*)aes_msg.ciphertext, aes_msg.ciphertext_len);
+    std::string iv_str = base64_encode((unsigned char*)aes_msg.iv, IV_LEN);
+    std::string tag_str = base64_encode((unsigned char*)aes_msg.tag, TAG_LEN);
+    std::string aad_str = base64_encode((unsigned char*)aes_msg.aad, AAD_LEN);
+
+    aes_message.AddMember(
+        "type",
+        type,
+        alloc_aes
+    );
+    aes_message.AddMember(
+        "aad",
+        rapidjson::Value().SetString(aad_str.c_str(), aad_str.length()),
+        alloc_aes
+    );
+    aes_message.AddMember(
+        "iv",
+        rapidjson::Value().SetString(iv_str.c_str(), iv_str.length()),
+        alloc_aes
+    );
+    aes_message.AddMember(
+        "ciphertext",
+        rapidjson::Value().SetString(ciphertext_b64.c_str(), ciphertext_b64.length()),
+        alloc_aes
+    );
+    aes_message.AddMember(
+        "tag",
+        rapidjson::Value().SetString(tag_str.c_str(), tag_str.length()),
+        alloc_aes
+    );
+
+    rapidjson::StringBuffer buffer_aes_message;
+    rapidjson::Writer<rapidjson::StringBuffer> aes_writer(buffer_aes_message);
+    aes_message.Accept(aes_writer);
+
+    std::string aes_message_str = buffer_aes_message.GetString();
+
+    pkg->setData(aes_message_str.c_str());
+}
+
+Packet *ECU::receiveEncPacket(Packet *pkg)
+{
+    std::string enc_message = pkg->getData();
+    rapidjson::Document doc;
+    if (doc.Parse(enc_message.c_str()).HasParseError())
+        handle_errors("JSON non valido");
+
+    std::cout << enc_message << std::endl;
+
+    unsigned long plain_len{0};
+    const unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID));    // Decrypt ticket
+    std::string dec_msg((const char*)plaintext, plain_len);
+
+    pkg->setData(dec_msg.c_str());
+
+    return pkg;
+}
+
+void ECU::sendClockSyncRequest()
+{
+    rapidjson::Document doc;
+    rapidjson::StringBuffer buffer;
+
+    doc.SetObject();
+    auto& alloc = doc.GetAllocator();
+
+    doc.AddMember("type", CLOCK_SYNC_REQUEST, alloc);
+    doc.AddMember("id", id, alloc);
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    doc.Accept(writer);
+
+    Packet *sync_clock_event = new Packet("SYNC_CLOCK_REQUEST");
+
+    sync_clock_event->setType(CLOCK_SYNC_REQUEST);
+    sync_clock_event->setSrcId(id);
+    sync_clock_event->setDstId(HSM_TOPOLOGICAL_ID);
+    sync_clock_event->setData(buffer.GetString());
+
+    send(sync_clock_event, "out");
+}
+
 void ECU::handleClockSync(Packet *pkg)
 {
-    std::string json_message = pkg->getData();
+    std::string enc_message = pkg->getData();
+    rapidjson::Document doc;
+    if (doc.Parse(enc_message.c_str()).HasParseError())
+        handle_errors("JSON non valido");
+
+    unsigned long plain_len{0};
+    const unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID));    // Decrypt ticket
+    std::string dec_str((const char *)plaintext, plain_len);
 
     rapidjson::Document message_doc;
-    if (message_doc.Parse(json_message.c_str()).HasParseError())
+    if (message_doc.Parse(dec_str.c_str()).HasParseError())
         std::cerr << "Error while parsing json (ECU::handleClockSync)" << std::endl;
 
     if (!message_doc.HasMember("timestamp") || !message_doc["timestamp"].IsInt())

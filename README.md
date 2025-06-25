@@ -9,7 +9,7 @@ This projects need the following dependencies:
 - openssl (version >= 1.0)
 - softhsm2
 
-> Note on Debian based environments intall also the dev version of this libraries
+> Note on Debian based environments install also the dev version of this libraries
 
 To compile the simulation run in `Progetto/src`:
 

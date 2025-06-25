@@ -11,22 +11,6 @@ Define_Module(Gateway);
 void Gateway::initialize()
 {
     numECUs = par("numECUs");
-
-    doc.SetObject();
-    auto& alloc = doc.GetAllocator();
-
-    doc.AddMember("type", CLOCK_SYNC_RESPONSE, alloc);
-    doc.AddMember("timestamp", std::time(0), alloc);
-
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    doc.Accept(writer);
-
-    buffer.GetString();
-
-    sync_clock_event = new Packet("SYNC_CLOCK_REQUEST");
-    sync_clock_event->setType(CLOCK_SYNC_REQUEST);
-    sync_clock_event->setData(buffer.GetString());
-    scheduleAt(simTime(), sync_clock_event);
 }
 
 void Gateway::handleMessage(cMessage *msg)
@@ -50,13 +34,10 @@ void Gateway::handleMessage(cMessage *msg)
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case CLOCK_SYNC_REQUEST: {
-            doc["timestamp"].SetInt(std::time(0));
-            sync_clock_event->setData(buffer.GetString());
-            sync_clock_event->setName("SYNC_CLOCK_RESPONSE");
-            for(size_t i = 0; i < numECUs; ++i)
-                send(sync_clock_event->dup(), "ecuOut", i);
-            sync_clock_event->setName("SYNC_CLOCK_REQUEST");
-            scheduleAt(simTime() + CLOCK_INTERVAL, sync_clock_event);
+            send(msg, "toHsm");
+            }break;
+        case CLOCK_SYNC_RESPONSE: {
+            send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         default: {
             if(pkg->getDstId() != 0) {
@@ -76,5 +57,4 @@ void Gateway::finish()
         logFile.close();
         EV << "[Gateway] Chiuso events.log\n";
     }
-    cancelAndDelete(sync_clock_event);
 }

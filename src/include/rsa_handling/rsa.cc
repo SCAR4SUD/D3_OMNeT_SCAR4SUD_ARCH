@@ -29,7 +29,7 @@ std::string rsa_response(rapidjson::Document& doc, sca::Session& session) {
     session.findKey(label, &hsm_ecu_key, &count);
     if(count != 0) {
         session.destroyObject(hsm_ecu_key);
-        std::cerr << "[INFO] Session key with this label present -> destroy..." << std::endl;
+        //std::cerr << "[INFO] Session key with this label present -> destroy..." << std::endl;
     }
     if(!session.createSessionKey(label, &hsm_ecu_key))
         std::cerr << "failed to create key" << label << std::endl;

@@ -18,23 +18,7 @@ std::string ns_response(rapidjson::Document& doc, sca::Session& session) {
     
     CK_ULONG sender_id = doc["sender_id"].GetInt();
     CK_ULONG receiver_id = doc["receiver_id"].GetInt();
-/*
-    unsigned char iv[IV_LEN];
-    unsigned char tag[TAG_LEN];
-    unsigned char ciphertext[16384];
-    unsigned char aad[AAD_NIST_MAX_SIZE];
 
-    sca::base64_decode(doc["iv"].GetString(),            iv,         IV_LEN);
-    sca::base64_decode(doc["tag"].GetString(),           tag,        TAG_LEN);
-    size_t cipher_text_len = sca::base64_decode(doc["ciphertext"].GetString(),    ciphertext, sizeof(ciphertext));
-    sca::base64_decode(doc["aad"].GetString(),           aad,        AAD_NIST_MAX_SIZE);
-
-    CK_ULONG encrypted_data_len = IV_LEN + cipher_text_len + TAG_LEN;
-    CK_BYTE_PTR encrypted_data = new CK_BYTE[encrypted_data_len];
-    memcpy(encrypted_data, iv, IV_LEN);
-    memcpy(encrypted_data + IV_LEN, ciphertext, cipher_text_len);
-    memcpy(encrypted_data + IV_LEN + cipher_text_len, tag, TAG_LEN);
-*/
     CK_OBJECT_HANDLE req_ecu_hsm_key{0};
     CK_ULONG req_ecu_hsm_key_count{0};
     session.findKey("ECU"+std::to_string(sender_id), &req_ecu_hsm_key, &req_ecu_hsm_key_count);
@@ -45,26 +29,6 @@ std::string ns_response(rapidjson::Document& doc, sca::Session& session) {
     session.findKey("ECU"+std::to_string(receiver_id), &rcv_ecu_hsm_key, &rcv_ecu_hsm_key_count);
     //std::cout << "rcv_ecu_hsm_key: " << rcv_ecu_hsm_key << "\n\n" << std::flush;
 
-/*
-    CK_BYTE_PTR decrypted_data;
-    CK_ULONG decrypted_data_len;
-    if(!session.decryptAesGCM(
-        req_ecu_hsm_key, 
-        encrypted_data,
-        encrypted_data_len,
-        std::string((char *)aad, ECUID_LEN),
-        decrypted_data,
-        &decrypted_data_len
-    ))
-        std::cerr << "\033[1;31m[ERROR] failed first decryptionn\033[0m" << std::endl;
-
-    std::string json_request((const char *)decrypted_data, decrypted_data_len);
-    //std::cout << json_request << "\n\n";
-    rapidjson::Document doc_request;
-    if (doc_request.Parse(json_request.c_str()).HasParseError()) 
-        std::cerr << "Errore parsing JSON" << "\n\n";
-*/
-    //std::string nonce_b64 = doc_request["nonce"].GetString();
     std::string nonce_b64 = doc["nonce"].GetString();
 
     std::string session_key_label = "ECU" + std::to_string(sender_id) +
