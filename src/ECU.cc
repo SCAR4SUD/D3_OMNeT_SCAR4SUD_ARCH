@@ -45,6 +45,7 @@ void ECU::handleMessage(cMessage *msg)
     switch(type) {
         case ECU_INIT_RSA_SIGNAL: {
             sendHsmRsaRequest();
+            return;
             }break;
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
@@ -61,7 +62,6 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case CLOCK_SYNC_RESPONSE: {
             handleClockSync(pkg);
-            delete pkg;
             }break;
         case NS_CHALLENGE_REQUEST: {
             acceptChallenge(pkg);
@@ -74,6 +74,7 @@ void ECU::handleMessage(cMessage *msg)
             additional_handleMessage(msg);
             }break;
     }
+    delete msg;
 }
 
 void ECU::additional_handleMessage(cMessage *msg)
@@ -88,6 +89,7 @@ void ECU::additional_handleMessage(cMessage *msg)
 }
 
 void ECU::sendHsmRsaRequest() {
+    EV << "ECU-" << id << " is sending RSA session key request to the HSM" << std::endl;
     Packet *req = new Packet("hsm_rsa_req");
 
     req->setType(RSA_REQUEST);
@@ -101,6 +103,7 @@ void ECU::sendHsmRsaRequest() {
 }
 
 bool ECU::setHsmSessionKey(Packet *res) {
+    EV << "ECU-" << id << " received session key from the HSM" << std::endl;
     std::string json_response(res->getData());
 
     unsigned char aes_key_enc[AES_KEY_ENC_MAXLEN];
@@ -121,6 +124,7 @@ bool ECU::setHsmSessionKey(Packet *res) {
 }
 
 void ECU::sendEcuSessionRequest(int dst) {
+    EV << "ECU-" << id << " is sending Needham–Schroeder request to HSM to get session key with ECU-" << dst << std::endl;
     std::string timestamp = std::to_string(hw_clock.time_since_epoch());
     timestamp_b64[dst-1] = base64_encode((const unsigned char*)timestamp.c_str(), timestamp.length());
 
@@ -177,6 +181,9 @@ bool ECU::handleEcuSessionKey(Packet *pkg) {
 
     send(msg, "out");
 
+    EV << "ECU-" << id << " received Needham–Schroeder session key with ECU-" << receiver_id << std::endl;
+    EV << "ECU-" << id << " is sending ticket to ECU-" << receiver_id << std::endl;
+
     return true;
 }
 
@@ -190,6 +197,7 @@ bool ECU::handleEcuTicket(Packet *pkg)
 
     base64_decode(ns_session_key_b64, (unsigned char*)tpm_access->getSessionKeyHandle(sender_id), AES_KEY_LEN);
 
+    EV << "ECU-" << id << " received session key with ECU-" << sender_id << std::endl;
     return true;
 }
 
@@ -259,6 +267,7 @@ void ECU::receiveEncPacket(Packet *pkg, int other_ecu_id)
 
 void ECU::sendChallenge(int other_ecu_id)
 {
+    EV << "ECU-" << id << " is sending challenge to ECU-" << other_ecu_id << std::endl;
     Packet *pkg = new Packet("NS_CHALLENGE_REQUEST");
     pkg->setSrcId(id);
     pkg->setDstId(other_ecu_id);
@@ -318,6 +327,7 @@ void ECU::acceptChallenge(Packet *pkg)
     ret->setDstId(pkg->getSrcId());
     ret->setData(buffer.GetString());
 
+    EV << "ECU-" << id << " is sending challenge response to ECU-" << pkg->getSrcId() << std::endl;
     sendEncPacket(ret, pkg->getSrcId(), NS_CHALLENGE_RESPONSE);
 }
 
@@ -334,16 +344,19 @@ bool ECU::checkChallenge(Packet *pkg)
 
     if(received_nonce != timestamp_challenge[pkg->getSrcId()-1]) {
         isECUAuth[pkg->getSrcId()-1] = false;
+        EV << "ECU-" << id << " verified failed challenge from ECU-" << pkg->getSrcId() << std::endl;
         return false;
     }
 
     isECUAuth[pkg->getSrcId()-1] = true;
+    EV << "ECU-" << id << " verified successful challenge from ECU-" << pkg->getSrcId() << std::endl;
     return true;
 }
 
 
 void ECU::sendClockSyncRequest()
 {
+    EV << "ECU-" << id << " sent clock synchronization request to the HMS" << std::endl;
     rapidjson::Document doc;
     rapidjson::StringBuffer buffer;
 
@@ -367,6 +380,8 @@ void ECU::sendClockSyncRequest()
 
 void ECU::handleClockSync(Packet *pkg)
 {
+    EV << "ECU-" << id << " received clock synchronization response from HSM" << std::endl;
+    EV << "ECU-" << id << " synchronized its internal clock" << std::endl;
     std::string enc_message = pkg->getData();
     rapidjson::Document doc;
     if (doc.Parse(enc_message.c_str()).HasParseError())

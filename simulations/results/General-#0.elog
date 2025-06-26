@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250625-20:26:31-201322
+SB ov 1537 ev 2 rid General-0-20250626-23:15:12-26683
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -126,6 +126,7 @@ ES id 6 tid 6 eid 6 etid 6 c Packet n HSM sm 10 st 0 am 10 at 0 pe 0
 CME
 
 E # 1 t 0 m 4 ce 0 msg 0
+- INFO: ECU-1 is sending RSA session key request to the HSM
 CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 7 tid 7 eid 7 etid 7 c Packet n hsm_rsa_req m 4 pe 1
 SH sm 4 sg 1 pd 0.001
@@ -133,6 +134,7 @@ ES id 7 tid 7 eid 7 etid 7 c Packet n hsm_rsa_req sm 4 sg 1 st 0 am 2 ag 1048576
 CL id 8 tid 7 eid 8 etid 7 c omnetpp::cMessage n hsm_rsa_req m 4 pe -1 cid 7
 
 E # 2 t 0 m 5 ce 0 msg 1
+- INFO: ECU-2 is sending RSA session key request to the HSM
 CM id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 8 tid 8 eid 8 etid 8 c Packet n hsm_rsa_req m 5 pe 2
 SH sm 5 sg 1 pd 0.001
@@ -140,6 +142,7 @@ ES id 8 tid 8 eid 8 etid 8 c Packet n hsm_rsa_req sm 5 sg 1 st 0 am 2 ag 1048577
 CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n hsm_rsa_req m 5 pe -1 cid 8
 
 E # 3 t 0 m 6 ce 0 msg 2
+- INFO: ECU-3 is sending RSA session key request to the HSM
 CM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 9 tid 9 eid 9 etid 9 c Packet n hsm_rsa_req m 6 pe 3
 SH sm 6 sg 1 pd 0.001
@@ -147,6 +150,7 @@ ES id 9 tid 9 eid 9 etid 9 c Packet n hsm_rsa_req sm 6 sg 1 st 0 am 2 ag 1048578
 CL id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n hsm_rsa_req m 6 pe -1 cid 9
 
 E # 4 t 0 m 7 ce 0 msg 3
+- INFO: ECU-4 is sending RSA session key request to the HSM
 CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 10 tid 10 eid 10 etid 10 c Packet n hsm_rsa_req m 7 pe 4
 SH sm 7 sg 1 pd 0.001
@@ -154,6 +158,7 @@ ES id 10 tid 10 eid 10 etid 10 c Packet n hsm_rsa_req sm 7 sg 1 st 0 am 2 ag 104
 CL id 11 tid 10 eid 11 etid 10 c omnetpp::cMessage n hsm_rsa_req m 7 pe -1 cid 10
 
 E # 5 t 0 m 8 ce 0 msg 4
+- INFO: ECU-5 is sending RSA session key request to the HSM
 CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 11 tid 11 eid 11 etid 11 c Packet n hsm_rsa_req m 8 pe 5
 SH sm 8 sg 1 pd 0.001
@@ -161,6 +166,7 @@ ES id 11 tid 11 eid 11 etid 11 c Packet n hsm_rsa_req sm 8 sg 1 st 0 am 2 ag 104
 CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n hsm_rsa_req m 8 pe -1 cid 11
 
 E # 6 t 0 m 9 ce 0 msg 5
+- INFO: ECU-6 is sending RSA session key request to the HSM
 CM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 12 tid 12 eid 12 etid 12 c Packet n hsm_rsa_req m 9 pe 6
 SH sm 9 sg 1 pd 0.001
@@ -168,6 +174,7 @@ ES id 12 tid 12 eid 12 etid 12 c Packet n hsm_rsa_req sm 9 sg 1 st 0 am 2 ag 104
 CL id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n hsm_rsa_req m 9 pe -1 cid 12
 
 E # 7 t 0 m 10 ce 0 msg 6
+- INFO: ECU-7 is sending RSA session key request to the HSM
 CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n hsm_rsa_req pe -1
 BS id 13 tid 13 eid 13 etid 13 c Packet n hsm_rsa_req m 10 pe 7
 SH sm 10 sg 1 pd 0.001
@@ -222,6 +229,8 @@ BS id 14 tid 14 eid 14 etid 14 c Packet n hsm_rsa_res m 3 pe 15
 SH sm 3 sg 3 pd 0.001
 ES id 14 tid 14 eid 14 etid 14 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 15
 CL id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 14
+- INFO: HSM received HSM-ECU session key request from ECU-1
+DM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n hsm_rsa_req m 3 pe 15
 
 E # 16 t 0.002 m 3 ce 9 msg 8
 CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -229,6 +238,8 @@ BS id 15 tid 15 eid 15 etid 15 c Packet n hsm_rsa_res m 3 pe 16
 SH sm 3 sg 3 pd 0.001
 ES id 15 tid 15 eid 15 etid 15 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 16
 CL id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 15
+- INFO: HSM received HSM-ECU session key request from ECU-2
+DM id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n hsm_rsa_req m 3 pe 16
 
 E # 17 t 0.002 m 3 ce 10 msg 9
 CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -236,6 +247,8 @@ BS id 16 tid 16 eid 16 etid 16 c Packet n hsm_rsa_res m 3 pe 17
 SH sm 3 sg 3 pd 0.001
 ES id 16 tid 16 eid 16 etid 16 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 17
 CL id 17 tid 16 eid 17 etid 16 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 16
+- INFO: HSM received HSM-ECU session key request from ECU-3
+DM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n hsm_rsa_req m 3 pe 17
 
 E # 18 t 0.002 m 3 ce 11 msg 10
 CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -243,6 +256,8 @@ BS id 17 tid 17 eid 17 etid 17 c Packet n hsm_rsa_res m 3 pe 18
 SH sm 3 sg 3 pd 0.001
 ES id 17 tid 17 eid 17 etid 17 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 18
 CL id 18 tid 17 eid 18 etid 17 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 17
+- INFO: HSM received HSM-ECU session key request from ECU-4
+DM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n hsm_rsa_req m 3 pe 18
 
 E # 19 t 0.002 m 3 ce 12 msg 11
 CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -250,6 +265,8 @@ BS id 18 tid 18 eid 18 etid 18 c Packet n hsm_rsa_res m 3 pe 19
 SH sm 3 sg 3 pd 0.001
 ES id 18 tid 18 eid 18 etid 18 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 19
 CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 18
+- INFO: HSM received HSM-ECU session key request from ECU-5
+DM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n hsm_rsa_req m 3 pe 19
 
 E # 20 t 0.002 m 3 ce 13 msg 12
 CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -257,6 +274,8 @@ BS id 19 tid 19 eid 19 etid 19 c Packet n hsm_rsa_res m 3 pe 20
 SH sm 3 sg 3 pd 0.001
 ES id 19 tid 19 eid 19 etid 19 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 20
 CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 19
+- INFO: HSM received HSM-ECU session key request from ECU-6
+DM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n hsm_rsa_req m 3 pe 20
 
 E # 21 t 0.002 m 3 ce 14 msg 13
 CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n hsm_rsa_res pe -1
@@ -264,6 +283,8 @@ BS id 20 tid 20 eid 20 etid 20 c Packet n hsm_rsa_res m 3 pe 21
 SH sm 3 sg 3 pd 0.001
 ES id 20 tid 20 eid 20 etid 20 c Packet n hsm_rsa_res sm 3 sg 3 st 0.002 am 2 ag 6 at 0.003 pe 21
 CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n hsm_rsa_res m 3 pe -1 cid 20
+- INFO: HSM received HSM-ECU session key request from ECU-7
+DM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n hsm_rsa_req m 3 pe 21
 
 E # 22 t 0.003 m 2 ce 15 msg 14
 BS id 14 tid 14 eid 14 etid 14 c Packet n hsm_rsa_res m 2 pe 22
@@ -308,23 +329,38 @@ ES id 20 tid 20 eid 20 etid 20 c Packet n hsm_rsa_res sm 2 sg 2621446 st 0.003 a
 CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n hsm_rsa_res m 2 pe -1 cid 20
 
 E # 29 t 0.004 m 4 ce 22 msg 14
+- INFO: ECU-1 received session key from the HSM
+- INFO: ECU-1 is sending Needham–Schroeder request to HSM to get session key with ECU-7
 CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n hsm_ecu_key_req pe -1
 BS id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req m 4 pe 29
 SH sm 4 sg 1 pd 0.001
 ES id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req sm 4 sg 1 st 0.004 am 2 ag 1048576 at 0.005 pe 29
 CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n hsm_ecu_key_req m 4 pe -1 cid 21
+DM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n hsm_rsa_res m 4 pe 29
 
 E # 30 t 0.004 m 5 ce 23 msg 15
+- INFO: ECU-2 received session key from the HSM
+DM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n hsm_rsa_res m 5 pe 30
 
 E # 31 t 0.004 m 6 ce 24 msg 16
+- INFO: ECU-3 received session key from the HSM
+DM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n hsm_rsa_res m 6 pe 31
 
 E # 32 t 0.004 m 7 ce 25 msg 17
+- INFO: ECU-4 received session key from the HSM
+DM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n hsm_rsa_res m 7 pe 32
 
 E # 33 t 0.004 m 8 ce 26 msg 18
+- INFO: ECU-5 received session key from the HSM
+DM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n hsm_rsa_res m 8 pe 33
 
 E # 34 t 0.004 m 9 ce 27 msg 19
+- INFO: ECU-6 received session key from the HSM
+DM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n hsm_rsa_res m 9 pe 34
 
 E # 35 t 0.004 m 10 ce 28 msg 20
+- INFO: ECU-7 received session key from the HSM
+DM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n hsm_rsa_res m 10 pe 35
 
 E # 36 t 0.005 m 2 ce 29 msg 21
 BS id 21 tid 21 eid 21 etid 21 c Packet n hsm_ecu_key_req m 2 pe 36
@@ -338,6 +374,8 @@ BS id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_res m 3 pe 37
 SH sm 3 sg 3 pd 0.001
 ES id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 37
 CL id 23 tid 22 eid 23 etid 22 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 22
+- INFO: HSM received ECU-ECU session key generation request from ECU-1
+DM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 37
 
 E # 38 t 0.007 m 2 ce 37 msg 22
 BS id 22 tid 22 eid 22 etid 22 c Packet n hsm_ecu_key_res m 2 pe 38
@@ -351,6 +389,9 @@ BS id 23 tid 23 eid 23 etid 23 c Packet n ecu_ticket m 4 pe 39
 SH sm 4 sg 1 pd 0.001
 ES id 23 tid 23 eid 23 etid 23 c Packet n ecu_ticket sm 4 sg 1 st 0.008 am 2 ag 1048576 at 0.009 pe 39
 CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n ecu_ticket m 4 pe -1 cid 23
+- INFO: ECU-1 received Needham–Schroeder session key with ECU-7
+- INFO: ECU-1 is sending ticket to ECU-7
+DM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n hsm_ecu_key_res m 4 pe 39
 
 E # 40 t 0.009 m 2 ce 39 msg 23
 BS id 23 tid 23 eid 23 etid 23 c Packet n ecu_ticket m 2 pe 40
@@ -359,11 +400,14 @@ ES id 23 tid 23 eid 23 etid 23 c Packet n ecu_ticket sm 2 sg 2621446 st 0.009 am
 CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 23
 
 E # 41 t 0.01 m 10 ce 40 msg 23
+- INFO: ECU-7 received session key with ECU-1
+- INFO: ECU-7 is sending challenge to ECU-1
 CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
 BS id 24 tid 24 eid 24 etid 24 c Packet n NS_CHALLENGE_REQUEST m 10 pe 41
 SH sm 10 sg 1 pd 0.001
 ES id 24 tid 24 eid 24 etid 24 c Packet n NS_CHALLENGE_REQUEST sm 10 sg 1 st 0.01 am 2 ag 1048582 at 0.011 pe 41
 CL id 25 tid 24 eid 25 etid 24 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 10 pe -1 cid 24
+DM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n ecu_ticket m 10 pe 41
 
 E # 42 t 0.011 m 2 ce 41 msg 24
 BS id 24 tid 24 eid 24 etid 24 c Packet n NS_CHALLENGE_REQUEST m 2 pe 42
@@ -373,10 +417,12 @@ CL id 25 tid 24 eid 25 etid 24 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe
 
 E # 43 t 0.012 m 4 ce 42 msg 24
 CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
+- INFO: ECU-1 is sending challenge response to ECU-7
 BS id 25 tid 25 eid 25 etid 25 c Packet n NS_CHALLENGE_RESPONSE m 4 pe 43
 SH sm 4 sg 1 pd 0.001
 ES id 25 tid 25 eid 25 etid 25 c Packet n NS_CHALLENGE_RESPONSE sm 4 sg 1 st 0.012 am 2 ag 1048576 at 0.013 pe 43
 CL id 26 tid 25 eid 26 etid 25 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 4 pe -1 cid 25
+DM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 4 pe 43
 
 E # 44 t 0.013 m 2 ce 43 msg 25
 BS id 25 tid 25 eid 25 etid 25 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 44
@@ -385,11 +431,14 @@ ES id 25 tid 25 eid 25 etid 25 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621446 
 CL id 26 tid 25 eid 26 etid 25 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 25
 
 E # 45 t 0.014 m 10 ce 44 msg 25
+- INFO: ECU-7 verified successful challenge from ECU-1
+- INFO: ECU-7 sent clock synchronization request to the HMS
 CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
 BS id 26 tid 26 eid 26 etid 26 c Packet n SYNC_CLOCK_REQUEST m 10 pe 45
 SH sm 10 sg 1 pd 0.001
 ES id 26 tid 26 eid 26 etid 26 c Packet n SYNC_CLOCK_REQUEST sm 10 sg 1 st 0.014 am 2 ag 1048582 at 0.015 pe 45
 CL id 27 tid 26 eid 27 etid 26 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 10 pe -1 cid 26
+DM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 10 pe 45
 
 E # 46 t 0.015 m 2 ce 45 msg 26
 BS id 26 tid 26 eid 26 etid 26 c Packet n SYNC_CLOCK_REQUEST m 2 pe 46
@@ -403,6 +452,8 @@ BS id 27 tid 27 eid 27 etid 27 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 47
 SH sm 3 sg 3 pd 0.001
 ES id 27 tid 27 eid 27 etid 27 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 0.016 am 2 ag 6 at 0.017 pe 47
 CL id 28 tid 27 eid 28 etid 27 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 27
+- INFO: HSM received clock synchronization request from ECU-7
+DM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 47
 
 E # 48 t 0.017 m 2 ce 47 msg 27
 BS id 27 tid 27 eid 27 etid 27 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 48
@@ -411,6 +462,8 @@ ES id 27 tid 27 eid 27 etid 27 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621446 st
 CL id 28 tid 27 eid 28 etid 27 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 27
 
 E # 49 t 0.018 m 10 ce 48 msg 27
+- INFO: ECU-7 received clock synchronization response from HSM
+- INFO: ECU-7 synchronized its internal clock
 DM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 10 pe 49
 
 
