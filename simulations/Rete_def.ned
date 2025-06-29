@@ -4,11 +4,13 @@ import progetto.ECU;
 import progetto.Gateway;
 import progetto.HSM;
 import progetto.Infotainment;
+import progetto.Storage;
+
 
 network Rete_def
 {
     parameters:
-        int numECUs = default(7); 
+        int numECUs = default(8); 
 
         @display("bgb=1000,1000");
     submodules:
@@ -16,7 +18,7 @@ network Rete_def
         gateway: Gateway {
             parameters:
                 numECUs = parent.numECUs;
-                @display("p=500,500;is=m");
+                @display("p=500,500;is=m;tpos=0,-1500");
         }
 
         hsm: HSM {
@@ -67,12 +69,23 @@ network Rete_def
                 sendInterval = uniform(1s, 3s);
                 @display("p=800,500;is=m");
         }
-        storage: ECU {
+        storage1: Storage {
             parameters:
                 id = 7;
                 numECUs = parent.numECUs;
                 sendInterval = uniform(1s, 3s);
-                @display("p=800,800;is=m");
+                checkInterval = 8;
+                dataLifeTime = 16; 
+                @display("p=835,721;is=m");
+        }
+        storage2: Storage {
+            parameters:
+                id = 8;
+                numECUs = parent.numECUs;
+                sendInterval = uniform(1s, 3s);
+                checkInterval = 8;
+                dataLifeTime = 16; 
+                @display("p=695,837;is=m");
         }
 
     connections allowunconnected:
@@ -98,8 +111,11 @@ network Rete_def
         ecu6.out --> {  delay = 1ms; } --> gateway.ecuIn[5];
         gateway.ecuOut[5] --> {  delay = 1ms; } --> ecu6.in;
 
-        storage.out --> {  delay = 1ms; } --> gateway.ecuIn[6];
-        gateway.ecuOut[6] --> {  delay = 1ms; } --> storage.in;
+        storage1.out --> {  delay = 1ms; } --> gateway.ecuIn[6];
+        gateway.ecuOut[6] --> {  delay = 1ms; } --> storage1.in;
+
+        storage2.out --> {  delay = 1ms; } --> gateway.ecuIn[7];
+        gateway.ecuOut[7] --> {  delay = 1ms; } --> storage2.in;
 
         // ----------------------------
         // Collegamento () Gateway <--> HSM 

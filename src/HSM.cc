@@ -42,6 +42,10 @@ void HSM::handleMessage(cMessage *msg)
         handle_request(pkg, CLOCK_SYNC_RESPONSE, "SYNC_CLOCK_RESPONSE");
         EV << "HSM received clock synchronization request from ECU-" << pkg->getSrcId() << std::endl;
         }break;
+    case GATEWAY_ROUTE_UPDATE: {
+        handle_request(pkg, GATEWAY_ROUTE_UPDATE_INTERNAL, "GATEWAY_ROUTE_UPDATE");
+        EV << "HSM received route rule update from Infotainment" << std::endl;
+        }break;
     default: {
         }break;
     }
@@ -71,6 +75,9 @@ void HSM::handle_request(Packet *pkg, int response_type, const char* ret_pkg_nam
             } break;
         case CLOCK_SYNC_REQUEST: {
             json_response = clock_response(doc, session, doc["id"].GetInt());
+            }break;
+        case GATEWAY_ROUTE_UPDATE: {
+            json_response = route_response(doc, session);
             }break;
         default: {
             } break;
@@ -174,6 +181,48 @@ std::string HSM::clock_response(rapidjson::Document& doc, sca::Session& session,
     aes_message.Accept(aes_writer);
 
     std::string aes_message_str = buffer_aes_message.GetString();
+
+    return aes_message_str;
+}
+
+std::string HSM::route_response(rapidjson::Document& doc, sca::Session& session)
+{
+    using namespace rapidjson;
+
+    CK_OBJECT_HANDLE ecu_hsm_key{0};
+    CK_ULONG ecu_hsm_key_count{0};
+    session.findKey("ECU"+std::to_string(INFOTAINMENT_ID), &ecu_hsm_key, &ecu_hsm_key_count);
+
+    unsigned char iv[IV_LEN];
+    unsigned char tag[TAG_LEN];
+    unsigned char ciphertext[16384];
+    unsigned char aad[AAD_NIST_MAX_SIZE];
+
+    sca::base64_decode(doc["iv"].GetString(),            iv,         IV_LEN);
+    sca::base64_decode(doc["tag"].GetString(),           tag,        TAG_LEN);
+    CK_ULONG ciphertext_len = sca::base64_decode(doc["ciphertext"].GetString(),    ciphertext, sizeof(ciphertext));
+    sca::base64_decode(doc["aad"].GetString(),           aad,        AAD_NIST_MAX_SIZE);
+
+    CK_ULONG encrypted_data_len = IV_LEN + ciphertext_len + TAG_LEN;
+    CK_BYTE_PTR encrypted_data = new CK_BYTE[encrypted_data_len];
+    memcpy(encrypted_data, iv, IV_LEN);
+    memcpy(encrypted_data + IV_LEN, ciphertext, ciphertext_len);
+    memcpy(encrypted_data + IV_LEN + ciphertext_len, tag, TAG_LEN);
+
+    CK_BYTE_PTR decrypted_data;
+    CK_ULONG decrypted_data_len;
+    if(!session.decryptAesGCM(
+        ecu_hsm_key,
+        encrypted_data,
+        encrypted_data_len,
+        std::string((char *)aad, ECUID_LEN),
+        decrypted_data,
+        &decrypted_data_len
+    ))
+        std::cerr << "\033[1;31m[ERROR] failed new rules decryption\033[0m" << std::endl;
+
+    std::string aes_message_str((char *)decrypted_data, decrypted_data_len);
+    std::cout << "aes_message_str: " << aes_message_str << std::endl;
 
     return aes_message_str;
 }

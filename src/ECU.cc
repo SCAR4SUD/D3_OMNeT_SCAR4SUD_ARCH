@@ -7,6 +7,7 @@
 #include <cstring>
 #include <openssl/rand.h>
 #include <ctime>
+#include <iomanip>
 
 #include "def.h"
 #include "rsa/rsa_exchange.h"
@@ -32,13 +33,22 @@ void ECU::initialize()
 
     HSMCommunicationInit = new Packet("HSM");
     HSMCommunicationInit->setType(ECU_INIT_RSA_SIGNAL);
-    scheduleAt(0, HSMCommunicationInit);
+    scheduleAt(simTime(), HSMCommunicationInit);
+
+    ClockSyncSignal = new Packet("HSM");
+    ClockSyncSignal->setType(ECU_INIT_CLOCK_SYNC);
+    scheduleAt(simTime()+5.0, ClockSyncSignal);
 
     additional_initialize();
 }
 
 void ECU::handleMessage(cMessage *msg)
 {
+    if(!isUp) {
+        //delete msg;
+        EV << "[info] id: " << id << " is not receiving packets" << std::endl;
+        return;
+    }
     Packet *pkg = (Packet *) msg;
 
     int type = pkg->getType();
@@ -47,10 +57,20 @@ void ECU::handleMessage(cMessage *msg)
             sendHsmRsaRequest();
             return;
             }break;
+        case ECU_INIT_CLOCK_SYNC: {
+            sendClockSyncRequest();
+            scheduleAt(simTime()+5.0, ClockSyncSignal);
+            return;
+            }break;
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
-            if(id == 1) {
+            //sendClockSyncRequest();
+            if(id == 4) {
                 sendEcuSessionRequest(7);
+                sendEcuSessionRequest(8);
+            }
+            if(id == 7) {
+                sendEcuSessionRequest(8);
             }
             }break;
         case NS_RESPONSE_SENDER: {
@@ -68,13 +88,11 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case NS_CHALLENGE_RESPONSE: {
             checkChallenge(pkg);
-            sendClockSyncRequest();
             }break;
         default: {
-            additional_handleMessage(msg);
             }break;
     }
-    delete msg;
+    additional_handleMessage(msg);
 }
 
 void ECU::additional_handleMessage(cMessage *msg)
@@ -120,6 +138,7 @@ bool ECU::setHsmSessionKey(Packet *res) {
         EV << "with key len: " << aes_key_len << std::endl;
     }
 
+    hsm_connection_active = true;
     return true;
 }
 
@@ -400,6 +419,59 @@ void ECU::handleClockSync(Packet *pkg)
 
     std::time_t trusted_timestamp = message_doc["timestamp"].GetInt();
     hw_clock.update_drift_correction(trusted_timestamp);
+}
+
+void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacyData){
+    /*
+    Tipo dato:
+    string Value = valore data
+    enum Tag = se è anagrafica o altro
+    string Date = funzione tempo
+    */
+    std::string type_data;
+    std::string value = "This contains some data :)!";
+    std::string date = get_current_timestamp_iso8601();
+    stateOfData = DATI_ANAGRAFICI;
+    logPacket->setSrcId(id);
+    logPacket->setDstId(par("storage1"));
+    logPacket->setType(REQUEST_STORAGE);
+
+    //Sistemazione del tipo di dato
+    type_data = "Value: " + value + "Tag: " + stateToString(stateOfData) + "Date: " + date + "\n";
+
+    logPacket->setData(type_data.c_str());
+
+
+    // Impostiamo il livello di privacy
+    logPacket->setPrivacyLevel(privacyData);
+    // ----------------------
+
+    EV << "[ECU " << id << "] Invio dati allo Storage con livello "
+       << (privacyData == PUBLIC_DATA ? "PUBLIC" : "PRIVATE")
+       << ": " << logPacket->getData() << "\n";
+
+    sendEncPacket(logPacket, par("storage1"), REQUEST_STORAGE);
+    //send(logPacket, "out");
+}
+//funzione tempo in formato iso
+std::string ECU::get_current_timestamp_iso8601()
+{
+    auto now = std::chrono::system_clock::now();
+    time_t now_c = std::chrono::system_clock::to_time_t(now);
+    std::stringstream ss;
+    ss<<std::put_time(localtime(&now_c), "%Y-%m-%dT%H:%M:%SZ"); //formato iso 8601
+    return ss.str();
+}
+//Richiesta dati
+void ECU::retrieveDataFromStorage(Packet *packet, PrivacyLevel privacyData){
+
+
+    packet->setDstId(par("storage1"));
+    packet->setSrcId(id);
+    packet->setData(nullptr);
+    packet->setPrivacyLevel(privacyData);
+    sendEncPacket(packet, par("storage1"), STORAGE_RETRIEVE_DATA);
+
 }
 
 void ECU::finish()

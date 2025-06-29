@@ -6,7 +6,7 @@
 
 
 TPM::TPM(int id) {
-    std::string path = "../storage/ecu" + std::to_string(id) + "/ecu" + std::to_string(id) +"_private.pem";
+    std::string path = "../tpm_storage/ecu" + std::to_string(id) + "/ecu" + std::to_string(id) +"_private.pem";
     init_keys(path.c_str(), ecu_priv_key);
 
     if(ecu_priv_key == nullptr)

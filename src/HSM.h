@@ -16,6 +16,7 @@ class HSM : public cSimpleModule
 private:
     void handle_request(Packet *pkg, int response_type, const char* ret_pkg_name);
     std::string clock_response(rapidjson::Document& doc, sca::Session& session, int id);
+    std::string route_response(rapidjson::Document& doc, sca::Session& session);
 
     sca::HSM *hsm = sca::HSM::get();
     sca::Slot *slot = hsm->getSlot(0);

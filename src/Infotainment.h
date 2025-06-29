@@ -19,6 +19,7 @@ private:
 protected:
     bool loadFilterRules();
     bool webAccess(std::string uri);
+    void sendNewRoutingRule(int src, int dst, bool isAccepted);
 
     void additional_initialize() override;
     void additional_handleMessage(cMessage *msg) override;

@@ -38,7 +38,7 @@ OBJS = \
     $O/Gateway.o \
     $O/HSM.o \
     $O/Infotainment.o \
-    $O/storage.o \
+    $O/Storage.o \
     $O/TPM.o \
     $O/aes/receive_aes.o \
     $O/aes/send_aes.o \
