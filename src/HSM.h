@@ -14,7 +14,7 @@ using namespace omnetpp;
 class HSM : public cSimpleModule
 {
 private:
-    void sendRequestToHSM(Packet *pkg, int response_type, const char* ret_pkg_name);
+    void handle_request(Packet *pkg, int response_type, const char* ret_pkg_name);
     std::string clock_response(rapidjson::Document& doc, sca::Session& session, int id);
     std::string route_response(rapidjson::Document& doc, sca::Session& session);
 

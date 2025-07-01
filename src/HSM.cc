@@ -31,19 +31,19 @@ void HSM::handleMessage(cMessage *msg)
     Packet *pkg = (Packet *) msg;
     switch(pkg->getType()) {
     case RSA_REQUEST: {
-        sendRequestToHSM(pkg, HSM_RSA_RESPONSE, "hsm_rsa_res");
+        handle_request(pkg, HSM_RSA_RESPONSE, "hsm_rsa_res");
         EV << "HSM received HSM-ECU session key request from ECU-" << pkg->getSrcId() << std::endl;
         }break;
     case NS_REQUEST: {
-        sendRequestToHSM(pkg, HSM_NS_RESPONSE_SENDER, "hsm_ecu_key_res");
+        handle_request(pkg, HSM_NS_RESPONSE_SENDER, "hsm_ecu_key_res");
         EV << "HSM received ECU-ECU session key generation request from ECU-" << pkg->getSrcId() << std::endl;
         }break;
     case CLOCK_SYNC_REQUEST: {
-        sendRequestToHSM(pkg, CLOCK_SYNC_RESPONSE, "SYNC_CLOCK_RESPONSE");
+        handle_request(pkg, CLOCK_SYNC_RESPONSE, "SYNC_CLOCK_RESPONSE");
         EV << "HSM received clock synchronization request from ECU-" << pkg->getSrcId() << std::endl;
         }break;
     case GATEWAY_ROUTE_UPDATE: {
-        sendRequestToHSM(pkg, GATEWAY_ROUTE_UPDATE_INTERNAL, "GATEWAY_ROUTE_UPDATE");
+        handle_request(pkg, GATEWAY_ROUTE_UPDATE_INTERNAL, "GATEWAY_ROUTE_UPDATE");
         EV << "HSM received route rule update from Infotainment" << std::endl;
         }break;
     default: {
@@ -52,7 +52,7 @@ void HSM::handleMessage(cMessage *msg)
     delete pkg;
 }
 
-void HSM::sendRequestToHSM(Packet *pkg, int response_type, const char* ret_pkg_name) {
+void HSM::handle_request(Packet *pkg, int response_type, const char* ret_pkg_name) {
     session.beginReadWrite(slot->getID());
     session.loginUser("12345");
 
