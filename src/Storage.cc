@@ -112,7 +112,8 @@ void Storage::additional_handleMessage(cMessage *msg)
         switch(type) {
             case REQUEST_STORAGE: {
                 if (tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID) == nullptr) {
-                    EV_WARN << "[Storage " << id << "] Non ho ancora una chiave di sessione con l'HSM. Messaggio scartato o messo in coda.";
+                    EV_WARN << "[Storage " << id << "] Non ho ancora una chiave di sessione con l'HSM. Messaggio scartato";
+                    return;
                 }
                     storeData(packet);
                 }break;
@@ -158,7 +159,7 @@ void Storage::storeData(Packet *packet){
     AesEncryptedMessage aes_msg = encrypt_message_aes(
         (unsigned char*)payload.c_str(),
         payload.length(),
-        tpm_access->getSessionKeyHandle(id)
+        tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID)
     );
         //Serializzazione
 

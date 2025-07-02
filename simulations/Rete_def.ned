@@ -11,6 +11,8 @@ network Rete_def
 {
     parameters:
         int numECUs = default(8); 
+        int storage1_id = 7;
+        int storage2_id = 8;
 
         @display("bgb=1000,1000");
     submodules:
@@ -31,6 +33,8 @@ network Rete_def
             parameters:
                 id = 1;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=200,800;is=m");
         }
@@ -38,6 +42,8 @@ network Rete_def
             parameters:
                 id = 2;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=200,500;is=m");
         }
@@ -45,6 +51,8 @@ network Rete_def
             parameters:
                 id = 3;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=200,200;is=m");
         }
@@ -52,6 +60,8 @@ network Rete_def
             parameters:
                 id = 4;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=500,200;is=m");
         }
@@ -59,6 +69,8 @@ network Rete_def
             parameters:
                 id = 5;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=800,200;is=m");
         }
@@ -66,6 +78,8 @@ network Rete_def
             parameters:
                 id = 6;
                 numECUs = parent.numECUs;
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 sendInterval = uniform(1s, 3s);
                 @display("p=800,500;is=m");
         }
@@ -74,6 +88,8 @@ network Rete_def
                 id = 7;
                 numECUs = parent.numECUs;
                 sendInterval = uniform(1s, 3s);
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 checkInterval = 8;
                 dataLifeTime = 16; 
                 @display("p=835,721;is=m");
@@ -83,6 +99,8 @@ network Rete_def
                 id = 8;
                 numECUs = parent.numECUs;
                 sendInterval = uniform(1s, 3s);
+                storage1_id = parent.storage1_id;
+                storage2_id = parent.storage2_id;
                 checkInterval = 8;
                 dataLifeTime = 16; 
                 @display("p=695,837;is=m");

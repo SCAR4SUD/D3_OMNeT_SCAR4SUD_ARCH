@@ -19,6 +19,7 @@ protected:
     int numECUs;                    // numero totale di ECU
     Packet *HSMCommunicationInit;   // timer per inviare il prossimo messaggio
     Packet *ClockSyncSignal;
+    Packet *SendDataSignal;
     bool isUp = true;
 
     TPM *tpm_access = nullptr;

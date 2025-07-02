@@ -31,13 +31,17 @@ void ECU::initialize()
     timestamp_challenge = new std::time_t[numECUs];
     ::memset(timestamp_challenge, 0, sizeof(std::time_t) * numECUs);
 
-    HSMCommunicationInit = new Packet("HSM");
+    HSMCommunicationInit = new Packet("SELF");
     HSMCommunicationInit->setType(ECU_INIT_RSA_SIGNAL);
     scheduleAt(simTime(), HSMCommunicationInit);
 
-    ClockSyncSignal = new Packet("HSM");
+    ClockSyncSignal = new Packet("SELF");
     ClockSyncSignal->setType(ECU_INIT_CLOCK_SYNC);
     scheduleAt(simTime()+5.0, ClockSyncSignal);
+
+    SendDataSignal = new Packet("SELF");
+    SendDataSignal->setType(ECU_SEND_DATA_SIGNAL);
+    scheduleAt(simTime()+10.0, SendDataSignal);
 
     additional_initialize();
 }
@@ -418,7 +422,10 @@ void ECU::handleClockSync(Packet *pkg)
         std::cerr << "Sync Message lacks time member (ECU::handleClockSync)" << std::endl;
 
     std::time_t trusted_timestamp = message_doc["timestamp"].GetInt();
-    hw_clock.update_drift_correction(trusted_timestamp);
+    if((hw_clock.time_since_epoch() - trusted_timestamp) < (std::time_t)EPSILON_SECONDS) {
+        hw_clock.update_drift_correction(trusted_timestamp);
+        std::cout << "EVERYTHING ALL RIGHT" << std::endl;
+    }
 }
 
 void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacyData){
@@ -433,7 +440,7 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacyData){
     std::string date = get_current_timestamp_iso8601();
     stateOfData = DATI_ANAGRAFICI;
     logPacket->setSrcId(id);
-    logPacket->setDstId(par("storage1"));
+    logPacket->setDstId(par("storage1_id"));
     logPacket->setType(REQUEST_STORAGE);
 
     //Sistemazione del tipo di dato
@@ -453,6 +460,7 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacyData){
     sendEncPacket(logPacket, par("storage1"), REQUEST_STORAGE);
     //send(logPacket, "out");
 }
+
 //funzione tempo in formato iso
 std::string ECU::get_current_timestamp_iso8601()
 {

@@ -9,6 +9,8 @@ simple Storage
         double sendInterval @unit(s);
         int checkInterval;
         int dataLifeTime; 
+        int storage1_id;
+        int storage2_id;
         
     gates:
         input in;

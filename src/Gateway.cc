@@ -57,8 +57,6 @@ void Gateway::handleMessage(cMessage *msg)
 {
     Packet *pkg = (Packet *) msg;
     if(approved_routes[{pkg->getSrcId(), pkg->getDstId()}] != true) {
-        std::cout << "TYPE: " << pkg->getType();
-        std::cout << "\tBLOCKED: " << pkg->getSrcId() << ", " << pkg->getDstId() << std::endl;
         delete msg;
         return;
     }
@@ -109,7 +107,6 @@ void Gateway::handleMessage(cMessage *msg)
             }break;
         case GATEWAY_ROUTE_UPDATE: {
             send(msg, "toHsm", pkg->getDstId()-1);
-            std::cout << "GATEWAY_ROUTE_UPDATE" << std::endl;
             }break;
         case GATEWAY_ROUTE_UPDATE_INTERNAL: {
             updateRule(pkg);
