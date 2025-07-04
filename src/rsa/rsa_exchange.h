@@ -10,7 +10,7 @@ extern EVP_PKEY* ecu_privkey;
 
 
 std::string serialize_rsa_request(int id);
-void parse_rsa_response(const std::string& json_str, unsigned char* aes_key_enc);
+void parse_rsa_response(const std::string& json_str, unsigned char* aes_key_enc, time_t& nonce, std::string& nonce_signature_b64);
 
 void rsa_exchange_with_hsm(const std::string& hsm_ip, int hsm_port);
 void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::string& receiver_rsa_id);

@@ -62,9 +62,8 @@ void Infotainment::additional_handleMessage(cMessage *msg)
 
     static bool once = true;
     if(hsm_connection_active && once) {
-        sendNewRoutingRule(1, 0, false);
-        sendNewRoutingRule(2, 0, false);
-        sendNewRoutingRule(3, 0, false);
+        sendNewRoutingRule(5, 0, false);
+        sendNewRoutingRule(6, 0, false);
         once = false;
     }
 

@@ -179,7 +179,6 @@ void Packet::copy(const Packet& other)
     this->srcId = other.srcId;
     this->dstId = other.dstId;
     this->data = other.data;
-    this->PrivacyLevel = other.PrivacyLevel;
 }
 
 void Packet::parsimPack(omnetpp::cCommBuffer *b) const
@@ -189,7 +188,6 @@ void Packet::parsimPack(omnetpp::cCommBuffer *b) const
     doParsimPacking(b,this->srcId);
     doParsimPacking(b,this->dstId);
     doParsimPacking(b,this->data);
-    doParsimPacking(b,this->PrivacyLevel);
 }
 
 void Packet::parsimUnpack(omnetpp::cCommBuffer *b)
@@ -199,7 +197,6 @@ void Packet::parsimUnpack(omnetpp::cCommBuffer *b)
     doParsimUnpacking(b,this->srcId);
     doParsimUnpacking(b,this->dstId);
     doParsimUnpacking(b,this->data);
-    doParsimUnpacking(b,this->PrivacyLevel);
 }
 
 int Packet::getType() const
@@ -242,16 +239,6 @@ void Packet::setData(const char * data)
     this->data = data;
 }
 
-int Packet::getPrivacyLevel() const
-{
-    return this->PrivacyLevel;
-}
-
-void Packet::setPrivacyLevel(int PrivacyLevel)
-{
-    this->PrivacyLevel = PrivacyLevel;
-}
-
 class PacketDescriptor : public omnetpp::cClassDescriptor
 {
   private:
@@ -261,7 +248,6 @@ class PacketDescriptor : public omnetpp::cClassDescriptor
         FIELD_srcId,
         FIELD_dstId,
         FIELD_data,
-        FIELD_PrivacyLevel,
     };
   public:
     PacketDescriptor();
@@ -328,7 +314,7 @@ const char *PacketDescriptor::getProperty(const char *propertyName) const
 int PacketDescriptor::getFieldCount() const
 {
     omnetpp::cClassDescriptor *base = getBaseClassDescriptor();
-    return base ? 5+base->getFieldCount() : 5;
+    return base ? 4+base->getFieldCount() : 4;
 }
 
 unsigned int PacketDescriptor::getFieldTypeFlags(int field) const
@@ -344,9 +330,8 @@ unsigned int PacketDescriptor::getFieldTypeFlags(int field) const
         FD_ISEDITABLE,    // FIELD_srcId
         FD_ISEDITABLE,    // FIELD_dstId
         FD_ISEDITABLE,    // FIELD_data
-        FD_ISEDITABLE,    // FIELD_PrivacyLevel
     };
-    return (field >= 0 && field < 5) ? fieldTypeFlags[field] : 0;
+    return (field >= 0 && field < 4) ? fieldTypeFlags[field] : 0;
 }
 
 const char *PacketDescriptor::getFieldName(int field) const
@@ -362,9 +347,8 @@ const char *PacketDescriptor::getFieldName(int field) const
         "srcId",
         "dstId",
         "data",
-        "PrivacyLevel",
     };
-    return (field >= 0 && field < 5) ? fieldNames[field] : nullptr;
+    return (field >= 0 && field < 4) ? fieldNames[field] : nullptr;
 }
 
 int PacketDescriptor::findField(const char *fieldName) const
@@ -375,7 +359,6 @@ int PacketDescriptor::findField(const char *fieldName) const
     if (strcmp(fieldName, "srcId") == 0) return baseIndex + 1;
     if (strcmp(fieldName, "dstId") == 0) return baseIndex + 2;
     if (strcmp(fieldName, "data") == 0) return baseIndex + 3;
-    if (strcmp(fieldName, "PrivacyLevel") == 0) return baseIndex + 4;
     return base ? base->findField(fieldName) : -1;
 }
 
@@ -392,9 +375,8 @@ const char *PacketDescriptor::getFieldTypeString(int field) const
         "int",    // FIELD_srcId
         "int",    // FIELD_dstId
         "string",    // FIELD_data
-        "int",    // FIELD_PrivacyLevel
     };
-    return (field >= 0 && field < 5) ? fieldTypeStrings[field] : nullptr;
+    return (field >= 0 && field < 4) ? fieldTypeStrings[field] : nullptr;
 }
 
 const char **PacketDescriptor::getFieldPropertyNames(int field) const
@@ -481,7 +463,6 @@ std::string PacketDescriptor::getFieldValueAsString(omnetpp::any_ptr object, int
         case FIELD_srcId: return long2string(pp->getSrcId());
         case FIELD_dstId: return long2string(pp->getDstId());
         case FIELD_data: return oppstring2string(pp->getData());
-        case FIELD_PrivacyLevel: return long2string(pp->getPrivacyLevel());
         default: return "";
     }
 }
@@ -502,7 +483,6 @@ void PacketDescriptor::setFieldValueAsString(omnetpp::any_ptr object, int field,
         case FIELD_srcId: pp->setSrcId(string2long(value)); break;
         case FIELD_dstId: pp->setDstId(string2long(value)); break;
         case FIELD_data: pp->setData((value)); break;
-        case FIELD_PrivacyLevel: pp->setPrivacyLevel(string2long(value)); break;
         default: throw omnetpp::cRuntimeError("Cannot set field %d of class 'Packet'", field);
     }
 }
@@ -521,7 +501,6 @@ omnetpp::cValue PacketDescriptor::getFieldValue(omnetpp::any_ptr object, int fie
         case FIELD_srcId: return pp->getSrcId();
         case FIELD_dstId: return pp->getDstId();
         case FIELD_data: return pp->getData();
-        case FIELD_PrivacyLevel: return pp->getPrivacyLevel();
         default: throw omnetpp::cRuntimeError("Cannot return field %d of class 'Packet' as cValue -- field index out of range?", field);
     }
 }
@@ -542,7 +521,6 @@ void PacketDescriptor::setFieldValue(omnetpp::any_ptr object, int field, int i, 
         case FIELD_srcId: pp->setSrcId(omnetpp::checked_int_cast<int>(value.intValue())); break;
         case FIELD_dstId: pp->setDstId(omnetpp::checked_int_cast<int>(value.intValue())); break;
         case FIELD_data: pp->setData(value.stringValue()); break;
-        case FIELD_PrivacyLevel: pp->setPrivacyLevel(omnetpp::checked_int_cast<int>(value.intValue())); break;
         default: throw omnetpp::cRuntimeError("Cannot set field %d of class 'Packet'", field);
     }
 }

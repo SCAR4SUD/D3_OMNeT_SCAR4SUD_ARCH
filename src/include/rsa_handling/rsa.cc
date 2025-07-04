@@ -1,6 +1,7 @@
 #include "rsa.h"
 
 #include <iostream>
+#include <chrono>
 
 #include "../rapidjson/document.h"
 #include "../rapidjson/stringbuffer.h"
@@ -48,6 +49,29 @@ std::string rsa_response(rapidjson::Document& doc, sca::Session& session) {
         wrapped_key_len
     );
 
+
+    CK_OBJECT_HANDLE hsm_priv_key = {0};
+    CK_ULONG hsm_priv_key_count = 0;
+    session.findKey(0, &hsm_priv_key, &hsm_priv_key_count);
+
+    CK_BYTE_PTR timestamp_signature;
+    CK_ULONG timestamp_signature_len;
+
+    std::time_t local_timestamp = std::time(0);
+    if(
+        !session.sign(
+            hsm_priv_key,
+            (CK_BYTE_PTR) &local_timestamp,
+            sizeof(std::time_t),
+            timestamp_signature,
+            &timestamp_signature_len
+        )
+    ) {
+        std::cerr << "[ERROR]: failed to sign timestamp to be sent" << std::endl;
+    }
+
+    std::string signed_nonce_b64 = sca::base64_encode(timestamp_signature, timestamp_signature_len);
+
     rapidjson::Document return_json;
     return_json.SetObject();
     auto& alloc = return_json.GetAllocator();
@@ -62,6 +86,15 @@ std::string rsa_response(rapidjson::Document& doc, sca::Session& session) {
         ),
         alloc
     );
+    return_json.AddMember("nonce", local_timestamp, alloc);
+    return_json.AddMember(
+            "nonce_signature_b64",
+            rapidjson::Value().SetString(
+                signed_nonce_b64.c_str(),
+                static_cast<rapidjson::SizeType>(signed_nonce_b64.length())
+            ),
+            alloc
+        );
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);

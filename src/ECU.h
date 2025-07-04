@@ -4,6 +4,8 @@
 #include "def.h"
 #include <omnetpp.h>
 #include <chrono>
+#include <tuple>
+#include <unordered_map>
 #include "Packet_m.h"
 #include "common/common.h"
 
@@ -11,6 +13,16 @@
 #include "clock/Clock.h"
 
 using namespace omnetpp;
+
+struct TupleHash {
+    template <class T1, class T2>
+    std::size_t operator()(const std::tuple<T1, T2>& t) const {
+        auto h1 = std::hash<T1>{}(std::get<0>(t));
+        auto h2 = std::hash<T2>{}(std::get<1>(t));
+
+        return h1 ^ (h2 << 1); // Simple XOR and shift for combination
+    }
+};
 
 class ECU : public cSimpleModule
 {
@@ -33,8 +45,6 @@ protected:
         NON_CATEGORIZZATO
     };
 
-    stateData stateOfData;
-
     bool hsm_connection_active = false;
     bool *isECUAuth;
     std::time_t *timestamp_challenge;
@@ -56,7 +66,7 @@ protected:
     void acceptChallenge(Packet *pkg);
     bool checkChallenge(Packet *pkg);
 
-    void sendDataToStorage(Packet *pkg, PrivacyLevel privacyData);
+    void sendDataToStorage(Packet *pkg, PrivacyLevel privacyData, stateData data_state);
     void retrieveDataFromStorage(Packet *pkg, PrivacyLevel privacyData);
     //Funzione per ottenere il timestampo iso
     std::string get_current_timestamp_iso8601();
@@ -77,6 +87,8 @@ protected:
     void sendEncrypted(Packet *pkg, const unsigned char *key);
 
     std::string *timestamp_b64;
+    std::unordered_map<std::tuple<std::time_t, int>, bool, TupleHash> used_nonces_rsa;
+    std::unordered_map<std::tuple<std::time_t, int>, bool, TupleHash> used_nonces_ns;
 
     virtual void initialize() override;
     virtual void additional_initialize() {};

@@ -26,7 +26,7 @@ class Packet;
  *     int srcId;
  *     int dstId;
  *     string data;
- *     int PrivacyLevel;
+ *     // int PrivacyLevel;
  * }
  * </pre>
  */
@@ -37,7 +37,6 @@ class Packet : public ::omnetpp::cMessage
     int srcId = 0;
     int dstId = 0;
     omnetpp::opp_string data;
-    int PrivacyLevel = 0;
 
   private:
     void copy(const Packet& other);
@@ -65,9 +64,6 @@ class Packet : public ::omnetpp::cMessage
 
     virtual const char * getData() const;
     virtual void setData(const char * data);
-
-    virtual int getPrivacyLevel() const;
-    virtual void setPrivacyLevel(int PrivacyLevel);
 };
 
 inline void doParsimPacking(omnetpp::cCommBuffer *b, const Packet& obj) {obj.parsimPack(b);}

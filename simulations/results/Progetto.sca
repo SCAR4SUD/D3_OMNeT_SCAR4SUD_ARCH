@@ -1,8 +1,8 @@
 version 3
-run General-0-20250701-12:32:57-173173
+run General-0-20250704-11:58:19-71310
 attr configname General
-attr datetime 20250701-12:32:57
-attr datetimef 20250701-123257
+attr datetime 20250704-11:58:19
+attr datetimef 20250704-115819
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Rete_def
-attr processid 173173
+attr processid 71310
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -18,7 +18,7 @@ attr runnumber 0
 attr seedset 0
 config network Rete_def
 config record-eventlog true
-config sim-time-limit 30s
+config sim-time-limit 20s
 config repeat 1
 config output-scalar-file results/Progetto.sca
 
@@ -139,31 +139,43 @@ par Rete_def.ecu1 id 1
 par Rete_def.ecu1 numECUs 8
 par Rete_def.ecu1 sendInterval 2.09763s
 attr unit s
+par Rete_def.ecu1 storage1_id 7
+par Rete_def.ecu1 storage2_id 8
 par Rete_def.ecu2 typename "\"progetto.ECU\""
 par Rete_def.ecu2 id 2
 par Rete_def.ecu2 numECUs 8
 par Rete_def.ecu2 sendInterval 2.18569s
 attr unit s
+par Rete_def.ecu2 storage1_id 7
+par Rete_def.ecu2 storage2_id 8
 par Rete_def.ecu3 typename "\"progetto.ECU\""
 par Rete_def.ecu3 id 3
 par Rete_def.ecu3 numECUs 8
 par Rete_def.ecu3 sendInterval 2.43038s
 attr unit s
+par Rete_def.ecu3 storage1_id 7
+par Rete_def.ecu3 storage2_id 8
 par Rete_def.Infotainment typename "\"progetto.Infotainment\""
 par Rete_def.Infotainment id 4
 par Rete_def.Infotainment numECUs 8
 par Rete_def.Infotainment sendInterval 2.68853s
 attr unit s
+par Rete_def.Infotainment storage1_id 7
+par Rete_def.Infotainment storage2_id 8
 par Rete_def.ecu5 typename "\"progetto.ECU\""
 par Rete_def.ecu5 id 5
 par Rete_def.ecu5 numECUs 8
 par Rete_def.ecu5 sendInterval 2.20553s
 attr unit s
+par Rete_def.ecu5 storage1_id 7
+par Rete_def.ecu5 storage2_id 8
 par Rete_def.ecu6 typename "\"progetto.ECU\""
 par Rete_def.ecu6 id 6
 par Rete_def.ecu6 numECUs 8
 par Rete_def.ecu6 sendInterval 2.71589s
 attr unit s
+par Rete_def.ecu6 storage1_id 7
+par Rete_def.ecu6 storage2_id 8
 par Rete_def.storage1 typename "\"progetto.Storage\""
 par Rete_def.storage1 id 7
 par Rete_def.storage1 numECUs 8
@@ -171,6 +183,8 @@ par Rete_def.storage1 sendInterval 2.08977s
 attr unit s
 par Rete_def.storage1 checkInterval 8
 par Rete_def.storage1 dataLifeTime 16
+par Rete_def.storage1 storage1_id 7
+par Rete_def.storage1 storage2_id 8
 par Rete_def.storage2 typename "\"progetto.Storage\""
 par Rete_def.storage2 id 8
 par Rete_def.storage2 numECUs 8
@@ -178,6 +192,10 @@ par Rete_def.storage2 sendInterval 2.6945s
 attr unit s
 par Rete_def.storage2 checkInterval 8
 par Rete_def.storage2 dataLifeTime 16
+par Rete_def.storage2 storage1_id 7
+par Rete_def.storage2 storage2_id 8
 par Rete_def typename "\"progetto.simulations.Rete_def\""
 par Rete_def numECUs 8
+par Rete_def storage1_id 7
+par Rete_def storage2_id 8
 

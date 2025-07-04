@@ -15,16 +15,22 @@ std::string serialize_rsa_request(int id) {
     return buffer.GetString();
 }
 
-void parse_rsa_response(const std::string& json_str, unsigned char* aes_key_enc) {
+void parse_rsa_response(const std::string& json_str, unsigned char* aes_key_enc, time_t& nonce, std::string& nonce_signature_b64) {
     rapidjson::Document doc;
     if (doc.Parse(json_str.c_str()).HasParseError()) {
         handle_errors("Errore parsing JSON in parse_rsa_response");
     }
 
-    if (!doc.HasMember("aes_key_enc") || !doc["aes_key_enc"].IsString()) {
+    if (
+        !doc.HasMember("aes_key_enc")           || !doc["aes_key_enc"].IsString()   ||
+        !doc.HasMember("nonce")                 || !doc["nonce"].IsInt()            ||
+        !doc.HasMember("nonce_signature_b64")   || !doc["nonce_signature_b64"].IsString()
+    ) {
         handle_errors("Campo 'aes_key_enc' mancante o non stringa");
     }
     base64_decode(doc["aes_key_enc"].GetString(), aes_key_enc, AES_KEY_ENC_MAXLEN);
+    nonce = doc["nonce"].GetInt();
+    nonce_signature_b64 = doc["nonce_signature_b64"].GetString();
 }
 
 

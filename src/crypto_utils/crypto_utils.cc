@@ -15,6 +15,14 @@ void init_keys(const char* path, EVP_PKEY*& ecu_priv_key) {
     if (!ecu_priv_key) handle_errors("lettura chiave privata ECU");
 }
 
+void init_public_keys(const char* path, EVP_PKEY*& ecu_publ_key) {
+    FILE* f_publ = fopen(path, "r");
+    if (!f_publ) handle_errors("apertura chiave pubblica");
+    ecu_publ_key = PEM_read_PUBKEY(f_publ, nullptr, nullptr, nullptr);
+    fclose(f_publ);
+    if (!ecu_publ_key) handle_errors("lettura chiave pubblica");
+}
+
 int rsa_encrypt_evp(EVP_PKEY* pubkey, const unsigned char* plaintext, size_t plaintext_len, unsigned char* ciphertext, size_t* ciphertext_len) {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(pubkey, nullptr);
     if (!ctx) handle_errors("allocazione EVP_PKEY_CTX");
@@ -58,6 +66,43 @@ int rsa_decrypt_evp(EVP_PKEY* privkey, const unsigned char* ciphertext, size_t c
     return 1;
 }
 
+bool check_signed_nonce(unsigned char* plain_data, size_t plain_data_len, unsigned char *signature, size_t signature_len, EVP_PKEY* public_key)
+{
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    if (!ctx) {
+        std::cerr << "Failed to create MD context" << std::endl;
+        //EVP_PKEY_free(public_key);
+        return false;
+    }
+
+    bool result = false;
+    if (EVP_DigestVerifyInit(ctx, nullptr, EVP_sha512(), nullptr, public_key) == 1) {
+        // Update with data
+        if (EVP_DigestVerifyUpdate(ctx, plain_data, plain_data_len) == 1) {
+            // Verify signature
+            int verifyResult = EVP_DigestVerifyFinal(ctx, signature, signature_len);
+            if (verifyResult == 1) {
+                result = true;  // Valid signature
+            } else if (verifyResult == 0) {
+                result = false; // Invalid signature
+            } else {
+                std::cerr << "Signature verification error" << std::endl;
+                ERR_print_errors_fp(stderr);
+            }
+        } else {
+            std::cerr << "Failed to update digest" << std::endl;
+        }
+    } else {
+        std::cerr << "Failed to initialize digest verification" << std::endl;
+    }
+
+    // Cleanup
+    EVP_MD_CTX_free(ctx);
+    //EVP_PKEY_free(public_key);
+
+    return result;
+}
+
 std::string base64_encode(const unsigned char* input, size_t len) {
     BIO* b64 = BIO_new(BIO_f_base64());
     BIO* mem = BIO_new(BIO_s_mem());
@@ -73,7 +118,7 @@ std::string base64_encode(const unsigned char* input, size_t len) {
 }
 
 size_t base64_decode(const std::string& input, unsigned char* output, size_t max_len) {
-    BIO* bio = BIO_new_mem_buf(input.data(), input.length());
+    BIO* bio = BIO_new_mem_buf(input.c_str(), input.length());
     BIO* b64 = BIO_new(BIO_f_base64());
     bio = BIO_push(b64, bio);
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);

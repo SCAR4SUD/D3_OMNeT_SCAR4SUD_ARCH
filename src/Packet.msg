@@ -9,5 +9,5 @@ message Packet {
     int srcId;
     int dstId;
     string data;
-    int PrivacyLevel;
+    // int PrivacyLevel;
 }

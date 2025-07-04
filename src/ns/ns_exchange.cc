@@ -133,7 +133,7 @@ void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::
     */
 }
 
-void ns_receive_ticket(std::string ticket_json_str, int& sender_id, std::string& ns_session_key_b64, unsigned char *aes_hsm_key) {
+void ns_receive_ticket(std::string ticket_json_str, int& sender_id, std::string& ns_session_key_b64, time_t& nonce, std::string& nonce_signature_b64, unsigned char *aes_hsm_key) {
     rapidjson::Document ticket;                                           // Parsing ticket 
     if (ticket.Parse(ticket_json_str.c_str()).HasParseError()) {
         handle_errors("Ticket JSON non valido");
@@ -153,7 +153,13 @@ void ns_receive_ticket(std::string ticket_json_str, int& sender_id, std::string&
         handle_errors("Campo sender_id mancante nel ticket");
     if (!doc.HasMember("ns_session_key_b64") || !doc["ns_session_key_b64"].IsString())
         handle_errors("Campo ns_session_key_enc mancante nel ticket");
+    if (!doc.HasMember("nonce") || !doc["nonce"].IsInt())
+        handle_errors("Campo nonce mancante nel ticket");
+    if (!doc.HasMember("nonce_signature_b64") || !doc["nonce_signature_b64"].IsString())
+        handle_errors("Campo nonce_signature_b64 mancante nel ticket");
 
     sender_id = doc["sender_id"].GetInt();                            // Sender retreiving
     ns_session_key_b64 = doc["ns_session_key_b64"].GetString();                   // Key retreiving
+    nonce = doc["nonce"].GetInt();
+    nonce_signature_b64 = doc["nonce_signature_b64"].GetString();
 }

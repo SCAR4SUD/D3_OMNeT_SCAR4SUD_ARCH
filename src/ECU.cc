@@ -19,6 +19,7 @@
 Define_Module(ECU);
 void ECU::initialize()
 {
+    std::cout << "get_current_timestamp_iso8601: " << get_current_timestamp_iso8601() << std::endl;
     id = par("id");
     numECUs = par("numECUs");
 
@@ -69,13 +70,17 @@ void ECU::handleMessage(cMessage *msg)
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
             //sendClockSyncRequest();
+            if(id == 1) {
+                sendEcuSessionRequest(4);
+            }
+            /*
             if(id == 4) {
                 sendEcuSessionRequest(7);
                 sendEcuSessionRequest(8);
             }
             if(id == 7) {
                 sendEcuSessionRequest(8);
-            }
+            }*/
             }break;
         case NS_RESPONSE_SENDER: {
             handleEcuSessionKey(pkg);
@@ -111,7 +116,7 @@ void ECU::additional_handleMessage(cMessage *msg)
 }
 
 void ECU::sendHsmRsaRequest() {
-    EV << "ECU-" << id << " is sending RSA session key request to the HSM" << std::endl;
+    EV << "[ECU-" << id << "] is sending RSA session key request to the HSM" << std::endl;
     Packet *req = new Packet("hsm_rsa_req");
 
     req->setType(RSA_REQUEST);
@@ -125,20 +130,27 @@ void ECU::sendHsmRsaRequest() {
 }
 
 bool ECU::setHsmSessionKey(Packet *res) {
-    EV << "ECU-" << id << " received session key from the HSM" << std::endl;
+    EV << "[ECU-" << id << "] received session key from the HSM" << std::endl;
     std::string json_response(res->getData());
 
     unsigned char aes_key_enc[AES_KEY_ENC_MAXLEN];
-    //std::cout << "json_response: " << json_response << std::endl;
-    parse_rsa_response(json_response, aes_key_enc);
+    std::time_t nonce;
+    std::string nonce_signature_b64;
+
+    parse_rsa_response(json_response, aes_key_enc, nonce, nonce_signature_b64);
+
+    unsigned char nonce_signature[2048];
+    size_t nonce_signature_len = base64_decode(nonce_signature_b64, nonce_signature, 2048);
+
+    if(!check_signed_nonce((unsigned char *)&nonce, sizeof(std::time_t), nonce_signature, nonce_signature_len, tpm_access->getPublicKey("hsm")))
+        return false;
 
     size_t aes_key_len = AES_KEY_LEN;
     rsa_decrypt_evp(tpm_access->getPrivateKey(), aes_key_enc, AES_KEY_ENC_MAXLEN, tpm_access->getSessionKeyHandle(0), &aes_key_len);
-    //std::cout << "rsa_decrypt_evp: " << ret << std::endl;
-    //std::cout << "aes_key_len: " << aes_key_len << std::endl;
+
 
     if (aes_key_len != AES_KEY_LEN) {
-        EV << "[Error] Chiave ricevuta con lunghezza errata" << std::endl;
+        EV << "[Error] key length is not right" << std::endl;
         EV << "with key len: " << aes_key_len << std::endl;
     }
 
@@ -147,7 +159,7 @@ bool ECU::setHsmSessionKey(Packet *res) {
 }
 
 void ECU::sendEcuSessionRequest(int dst) {
-    EV << "ECU-" << id << " is sending Needham–Schroeder request to HSM to get session key with ECU-" << dst << std::endl;
+    EV << "[ECU-" << id << "] is sending Needham–Schroeder request to HSM to get session key with ECU-" << dst << std::endl;
     std::string timestamp = std::to_string(hw_clock.time_since_epoch());
     timestamp_b64[dst-1] = base64_encode((const unsigned char*)timestamp.c_str(), timestamp.length());
 
@@ -162,11 +174,8 @@ void ECU::sendEcuSessionRequest(int dst) {
     req->setType(NS_REQUEST);
     req->setSrcId(id);
     req->setDstId(HSM_TOPOLOGICAL_ID);
-    //const char *data = json_request.c_str();
     const char *data = ns_request.c_str();
     req->setData(data);
-
-    // std::cout << "json_request: " << json_request << std::endl;
 
     send(req, "out");
 }
@@ -204,8 +213,8 @@ bool ECU::handleEcuSessionKey(Packet *pkg) {
 
     send(msg, "out");
 
-    EV << "ECU-" << id << " received Needham–Schroeder session key with ECU-" << receiver_id << std::endl;
-    EV << "ECU-" << id << " is sending ticket to ECU-" << receiver_id << std::endl;
+    EV << "[ECU-" << id << "] received Needham–Schroeder session key with ECU-" << receiver_id << std::endl;
+    EV << "[ECU-" << id << "] is sending ticket to ECU-" << receiver_id << std::endl;
 
     return true;
 }
@@ -215,12 +224,26 @@ bool ECU::handleEcuTicket(Packet *pkg)
     const std::string receivedData = pkg->getData();
     int sender_id;
     std::string ns_session_key_b64;
+    std::string nonce_signature_b64;
+    std::time_t nonce;
 
-    ns_receive_ticket(receivedData, sender_id, ns_session_key_b64, tpm_access->getSessionKeyHandle(0));
+    ns_receive_ticket(receivedData, sender_id, ns_session_key_b64, nonce, nonce_signature_b64, tpm_access->getSessionKeyHandle(0));
+    unsigned char nonce_signature[2048];
+    size_t nonce_signature_len = base64_decode(nonce_signature_b64, nonce_signature, 2048);
 
+    if(used_nonces_ns[{nonce, sender_id}] == true) {
+        EV << "[ECU-" << id << "] received invalid session key with ECU-" << sender_id << "; DROPPING" << std::endl;
+        return false;
+    }else {
+        used_nonces_ns[{nonce, sender_id}] = true;
+    }
+    if(!check_signed_nonce((unsigned char *)&nonce, sizeof(std::time_t), nonce_signature, nonce_signature_len, tpm_access->getPublicKey("hsm"))) {
+        EV << "[ECU-" << id << "] received invalid session key with ECU-" << sender_id << "; DROPPING" << std::endl;
+        return false;
+    }
     base64_decode(ns_session_key_b64, (unsigned char*)tpm_access->getSessionKeyHandle(sender_id), AES_KEY_LEN);
 
-    EV << "ECU-" << id << " received session key with ECU-" << sender_id << std::endl;
+    EV << "[ECU-" << id << "] received session key with ECU-" << sender_id << std::endl;
     return true;
 }
 
@@ -290,7 +313,7 @@ void ECU::receiveEncPacket(Packet *pkg, int other_ecu_id)
 
 void ECU::sendChallenge(int other_ecu_id)
 {
-    EV << "ECU-" << id << " is sending challenge to ECU-" << other_ecu_id << std::endl;
+    EV << "[ECU-" << id << "] is sending challenge to ECU-" << other_ecu_id << std::endl;
     Packet *pkg = new Packet("NS_CHALLENGE_REQUEST");
     pkg->setSrcId(id);
     pkg->setDstId(other_ecu_id);
@@ -350,7 +373,7 @@ void ECU::acceptChallenge(Packet *pkg)
     ret->setDstId(pkg->getSrcId());
     ret->setData(buffer.GetString());
 
-    EV << "ECU-" << id << " is sending challenge response to ECU-" << pkg->getSrcId() << std::endl;
+    EV << "[ECU-" << id << "] is sending challenge response to ECU-" << pkg->getSrcId() << std::endl;
     sendEncPacket(ret, pkg->getSrcId(), NS_CHALLENGE_RESPONSE);
 }
 
@@ -367,19 +390,19 @@ bool ECU::checkChallenge(Packet *pkg)
 
     if(received_nonce != timestamp_challenge[pkg->getSrcId()-1]) {
         isECUAuth[pkg->getSrcId()-1] = false;
-        EV << "ECU-" << id << " verified failed challenge from ECU-" << pkg->getSrcId() << std::endl;
+        EV << "[ECU-" << id << "] verified failed challenge from ECU-" << pkg->getSrcId() << std::endl;
         return false;
     }
 
     isECUAuth[pkg->getSrcId()-1] = true;
-    EV << "ECU-" << id << " verified successful challenge from ECU-" << pkg->getSrcId() << std::endl;
+    EV << "[ECU-" << id << "] verified successful challenge from ECU-" << pkg->getSrcId() << std::endl;
     return true;
 }
 
 
 void ECU::sendClockSyncRequest()
 {
-    EV << "ECU-" << id << " sent clock synchronization request to the HMS" << std::endl;
+    EV << "[ECU-" << id << "] sent clock synchronization request to the HMS" << std::endl;
     rapidjson::Document doc;
     rapidjson::StringBuffer buffer;
 
@@ -403,8 +426,8 @@ void ECU::sendClockSyncRequest()
 
 void ECU::handleClockSync(Packet *pkg)
 {
-    EV << "ECU-" << id << " received clock synchronization response from HSM" << std::endl;
-    EV << "ECU-" << id << " synchronized its internal clock" << std::endl;
+    EV << "[ECU-" << id << "] received clock synchronization response from HSM" << std::endl;
+    EV << "[ECU-" << id << "] synchronized its internal clock" << std::endl;
     std::string enc_message = pkg->getData();
     rapidjson::Document doc;
     if (doc.Parse(enc_message.c_str()).HasParseError())
@@ -424,48 +447,54 @@ void ECU::handleClockSync(Packet *pkg)
     std::time_t trusted_timestamp = message_doc["timestamp"].GetInt();
     if((hw_clock.time_since_epoch() - trusted_timestamp) < (std::time_t)EPSILON_SECONDS) {
         hw_clock.update_drift_correction(trusted_timestamp);
-        std::cout << "EVERYTHING ALL RIGHT" << std::endl;
     }
 }
 
-void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacyData){
-    /*
-    Tipo dato:
-    string Value = valore data
-    enum Tag = se è anagrafica o altro
-    string Date = funzione tempo
-    */
-    std::string type_data;
-    std::string value = "This contains some data :)!";
+void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, stateData data_state){
+    std::string value = logPacket->getData();
     std::string date = get_current_timestamp_iso8601();
-    stateOfData = DATI_ANAGRAFICI;
     logPacket->setSrcId(id);
     logPacket->setDstId(par("storage1_id"));
     logPacket->setType(REQUEST_STORAGE);
 
-    //Sistemazione del tipo di dato
-    type_data = "Value: " + value + "Tag: " + stateToString(stateOfData) + "Date: " + date + "\n";
+    rapidjson::Document store_message;
+    store_message.SetObject();
+    auto& store_alloc = store_message.GetAllocator();
 
-    logPacket->setData(type_data.c_str());
+    store_message.AddMember(
+        "value",
+        rapidjson::Value().SetString(value.c_str(), value.length()),
+        store_alloc
+    );
+    store_message.AddMember(
+        "tag",
+        data_state,
+        store_alloc
+    );
+    store_message.AddMember(
+        "date",
+        rapidjson::Value().SetString(date.c_str(), date.length()),
+        store_alloc
+    );
+    store_message.AddMember(
+        "privacy_level",
+        privacy_level,
+        store_alloc
+    );
 
+    logPacket->setData(store_message.GetString());
 
-    // Impostiamo il livello di privacy
-    logPacket->setPrivacyLevel(privacyData);
-    // ----------------------
-
-    EV << "[ECU " << id << "] Invio dati allo Storage con livello "
-       << (privacyData == PUBLIC_DATA ? "PUBLIC" : "PRIVATE")
+    EV << "[ECU " << id << "] sending data to be stored with level "
+       << (privacy_level == PUBLIC_DATA ? "PUBLIC" : "PRIVATE")
        << ": " << logPacket->getData() << "\n";
 
     sendEncPacket(logPacket, par("storage1"), REQUEST_STORAGE);
-    //send(logPacket, "out");
 }
 
 //funzione tempo in formato iso
 std::string ECU::get_current_timestamp_iso8601()
 {
-    auto now = std::chrono::system_clock::now();
-    time_t now_c = std::chrono::system_clock::to_time_t(now);
+    time_t now_c = hw_clock.time_since_epoch();
     std::stringstream ss;
     ss<<std::put_time(localtime(&now_c), "%Y-%m-%dT%H:%M:%SZ"); //formato iso 8601
     return ss.str();
@@ -477,7 +506,7 @@ void ECU::retrieveDataFromStorage(Packet *packet, PrivacyLevel privacyData){
     packet->setDstId(par("storage1"));
     packet->setSrcId(id);
     packet->setData(nullptr);
-    packet->setPrivacyLevel(privacyData);
+    //packet->setPrivacyLevel(privacyData);
     sendEncPacket(packet, par("storage1"), STORAGE_RETRIEVE_DATA);
 
 }

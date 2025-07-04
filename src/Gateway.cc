@@ -162,7 +162,7 @@ void Gateway::updateRule(Packet *pkg)
         std::cerr << "[ERROR] Gateway: updated rule has not been parsed correctly" << std::endl;
         return;
     }
-    std::cout << "from: " << doc["from"].GetInt() << "\t\tto: " << doc["to"].GetInt() << std::endl;
+    //std::cout << "from: " << doc["from"].GetInt() << "\t\tto: " << doc["to"].GetInt() << std::endl;
 
     approved_routes[{doc["from"].GetInt(), doc["to"].GetInt()}] = doc["route"].GetBool();
 }

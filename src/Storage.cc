@@ -148,7 +148,7 @@ void Storage::pingWithGateway(Packet *package){
 void Storage::storeData(Packet *packet){
     int sourceId = packet->getSrcId();
     std::string payload = packet->getData();
-    PrivacyLevel privacy = packet->getPrivacyLevel();
+    PrivacyLevel privacy = 1; //packet->getPrivacyLevel();
 
     EV << "[Storage] Ricevuto messaggio da ECU " << sourceId << " con payload: '" << payload << "'\n";
 
@@ -195,7 +195,7 @@ void Storage::storeData(Packet *packet){
 
 Packet *Storage::readDataFile(Packet *packet){
     int sourceId = packet->getSrcId();
-    PrivacyLevel privacy = packet->getPrivacyLevel();
+    PrivacyLevel privacy = 1;//packet->getPrivacyLevel();
     std::string readFile = nullptr;
 
     std::fstream *ReadStream = nullptr;
