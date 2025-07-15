@@ -19,9 +19,9 @@
 Define_Module(ECU);
 void ECU::initialize()
 {
-    std::cout << "get_current_timestamp_iso8601: " << get_current_timestamp_iso8601() << std::endl;
     id = par("id");
     numECUs = par("numECUs");
+    id_active_storage = par("storage1_id");
 
     tpm_access = new TPM(id);
     timestamp_b64 = new std::string[numECUs];
@@ -32,17 +32,20 @@ void ECU::initialize()
     timestamp_challenge = new std::time_t[numECUs];
     ::memset(timestamp_challenge, 0, sizeof(std::time_t) * numECUs);
 
-    HSMCommunicationInit = new Packet("SELF");
+    HSMCommunicationInit = new Packet("SELF_HSMCommunicationInit");
     HSMCommunicationInit->setType(ECU_INIT_RSA_SIGNAL);
     scheduleAt(simTime(), HSMCommunicationInit);
 
-    ClockSyncSignal = new Packet("SELF");
+    ClockSyncSignal = new Packet("SELF_ClockSyncSignal");
     ClockSyncSignal->setType(ECU_INIT_CLOCK_SYNC);
-    scheduleAt(simTime()+5.0, ClockSyncSignal);
+    scheduleAt(simTime()+10.0, ClockSyncSignal);
 
-    SendDataSignal = new Packet("SELF");
+    SendDataSignal = new Packet("SELF_SendDataSignal");
     SendDataSignal->setType(ECU_SEND_DATA_SIGNAL);
-    scheduleAt(simTime()+10.0, SendDataSignal);
+    //scheduleAt(simTime()+10.0, SendDataSignal);
+
+    RetriveDataSignal = new Packet("SELF_RetriveDataSignal");
+    // RetriveDataSignal->setType(ECU_SEND_DATA_SIGNAL);
 
     additional_initialize();
 }
@@ -70,20 +73,17 @@ void ECU::handleMessage(cMessage *msg)
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
             //sendClockSyncRequest();
-            if(id == 1) {
-                sendEcuSessionRequest(4);
-            }
-            /*
             if(id == 4) {
                 sendEcuSessionRequest(7);
                 sendEcuSessionRequest(8);
             }
             if(id == 7) {
                 sendEcuSessionRequest(8);
-            }*/
+            }
             }break;
         case NS_RESPONSE_SENDER: {
-            handleEcuSessionKey(pkg);
+            if(!handleEcuSessionKey(pkg))
+                std::cerr << "failed to set session key" << std::endl;
             }break;
         case NS_RESPONSE_RECEIVER: {
             handleEcuTicket(pkg);
@@ -93,13 +93,47 @@ void ECU::handleMessage(cMessage *msg)
             handleClockSync(pkg);
             }break;
         case NS_CHALLENGE_REQUEST: {
+            static bool once = true;
             acceptChallenge(pkg);
+            if(id == 4 && once) {
+                once = false;
+                scheduleAt(simTime()+3, SendDataSignal);
+            }
             }break;
         case NS_CHALLENGE_RESPONSE: {
             checkChallenge(pkg);
             }break;
+        case STORAGE_RETRIEVE_DATA: {
+            receiveEncPacket(pkg, id_active_storage);
+            EV << "[ECU-" << id <<"] data retrived from storage: " << pkg->getData() << std::endl;
+            }break;
+        case STORAGE_DOWN: {
+            if(std::stoi(pkg->getData()) == 7) {
+                std::cout << "->" << pkg->getData() << "<-" << std::endl;
+                id_active_storage = 8;
+            }
+            else id_active_storage = 7;
+            EV << "[ECU-" << id <<"] received info that a storage device is down, changing active storage option" << std::endl;
+            if(id == 4) scheduleAt(simTime()+1, RetriveDataSignal);
+            }break;
         default: {
             }break;
+    }
+    if(pkg == SendDataSignal) {
+        std::cout << "sending storage data..." << std::endl;
+        Packet *pkg_to_send = new Packet("DATA_STORE");
+        pkg_to_send->setSrcId(id);
+        pkg_to_send->setDstId(id_active_storage);
+        pkg_to_send->setType(REQUEST_STORAGE);
+        std::string data_to_send = "data";
+        pkg_to_send->setData(data_to_send.c_str());
+        sendDataToStorage(pkg_to_send, PRIVATE_DATA, DATI_ANAGRAFICI);
+        scheduleAt(simTime()+8, RetriveDataSignal);
+    }
+
+    if(pkg == RetriveDataSignal) {
+        std::cout << "sending data request to STORAGE" << std::endl;
+        sendRequestToStorage();
     }
     additional_handleMessage(msg);
 }
@@ -305,7 +339,9 @@ void ECU::receiveEncPacket(Packet *pkg, int other_ecu_id)
         handle_errors("JSON non valido");
 
     unsigned long plain_len{0};
-    const unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(other_ecu_id));    // Decrypt ticket
+    unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(other_ecu_id));    // Decrypt ticket
+    if(plaintext == nullptr)
+        std::cerr << "receiveEncPacket failed" << std::endl;
     std::string dec_msg((const char*)plaintext, plain_len);
 
     pkg->setData(dec_msg.c_str());
@@ -454,7 +490,7 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, state
     std::string value = logPacket->getData();
     std::string date = get_current_timestamp_iso8601();
     logPacket->setSrcId(id);
-    logPacket->setDstId(par("storage1_id"));
+    logPacket->setDstId(id_active_storage);
     logPacket->setType(REQUEST_STORAGE);
 
     rapidjson::Document store_message;
@@ -482,16 +518,25 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, state
         store_alloc
     );
 
-    logPacket->setData(store_message.GetString());
+    rapidjson::StringBuffer buffer_aes_message;
+    rapidjson::Writer<rapidjson::StringBuffer> aes_writer(buffer_aes_message);
+    store_message.Accept(aes_writer);
 
-    EV << "[ECU " << id << "] sending data to be stored with level "
+    std::string data_to_send = buffer_aes_message.GetString();
+    logPacket->setData(data_to_send.c_str());
+
+    EV << "[ECU-" << id << "] sending data to be stored with level "
        << (privacy_level == PUBLIC_DATA ? "PUBLIC" : "PRIVATE")
        << ": " << logPacket->getData() << "\n";
 
-    sendEncPacket(logPacket, par("storage1"), REQUEST_STORAGE);
+    Packet* redundant_logPacket = logPacket->dup();
+    redundant_logPacket->setDstId(8);
+    // std::cout << "logPacket->getData(): " << logPacket->getData() << std::endl;
+    if(id_active_storage == 7) sendEncPacket(logPacket, 7, REQUEST_STORAGE);
+    sendEncPacket(redundant_logPacket, 8, REQUEST_STORAGE);
+
 }
 
-//funzione tempo in formato iso
 std::string ECU::get_current_timestamp_iso8601()
 {
     time_t now_c = hw_clock.time_since_epoch();
@@ -499,16 +544,14 @@ std::string ECU::get_current_timestamp_iso8601()
     ss<<std::put_time(localtime(&now_c), "%Y-%m-%dT%H:%M:%SZ"); //formato iso 8601
     return ss.str();
 }
-//Richiesta dati
-void ECU::retrieveDataFromStorage(Packet *packet, PrivacyLevel privacyData){
 
-
-    packet->setDstId(par("storage1"));
+void ECU::sendRequestToStorage(){
+    Packet *packet = new Packet("REQUEST_FROM_STORAGE");
+    packet->setDstId(id_active_storage);
     packet->setSrcId(id);
     packet->setData(nullptr);
-    //packet->setPrivacyLevel(privacyData);
-    sendEncPacket(packet, par("storage1"), STORAGE_RETRIEVE_DATA);
-
+    packet->setType(REQUEST_STORAGE_DATA);
+    sendEncPacket(packet, id_active_storage, REQUEST_STORAGE_DATA);
 }
 
 void ECU::finish()

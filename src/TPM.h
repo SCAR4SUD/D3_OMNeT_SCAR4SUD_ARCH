@@ -10,11 +10,14 @@ private:
     unsigned char aes_hsm_key[AES_KEY_LEN];
     unsigned char aes_ecu_session_keys[MAX_ECU_NUM][AES_KEY_LEN];
 
+    unsigned char aes_self_key[AES_KEY_LEN];
+
 public:
     TPM(int id);
     virtual ~TPM();
     EVP_PKEY* getPrivateKey();
     EVP_PKEY* getPublicKey(std::string key_label);
+    unsigned char *getSelfKey() { return aes_self_key; }
     unsigned char *getSessionKeyHandle(unsigned int key_id);
 };
 

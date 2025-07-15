@@ -6,6 +6,7 @@
 #include "common/common.h"
 
 #define CLOCK_INTERVAL 5
+#define GATEWAY_STORAGE_SELF_PONG -2
 
 Define_Module(Gateway);
 
@@ -15,6 +16,10 @@ void Gateway::initialize()
     isStorageActive = true;
     loadFilterRules();
 
+    pending_ping = new bool[numECUs];
+    memset(pending_ping, false, numECUs);
+
+    self = new Packet("SELF_PONG_CHECK");
 }
 
 bool Gateway::loadFilterRules()
@@ -41,7 +46,6 @@ bool Gateway::loadFilterRules()
             std::cerr << "[ERROR] Gateway: rule at line " << ++line_count << " has not been parsed correctly" << std::endl;
             continue;
         }
-        // std::cout << "from: " << doc["from"].GetInt() << "\t\tto: " << doc["to"].GetInt() << std::endl;
 
         approved_routes[{doc["from"].GetInt(), doc["to"].GetInt()}] = doc["route"].GetBool();
     }
@@ -56,20 +60,17 @@ bool Gateway::loadFilterRules()
 void Gateway::handleMessage(cMessage *msg)
 {
     Packet *pkg = (Packet *) msg;
+
+    EV << "\033[36m[Gateway] packet \"" << pkg->getName() << "\"(" << pkg->getType() << "):\t\t" \
+            << pkg->getSrcId() << " -> " << pkg->getDstId() << "\033[0m" << std::endl;
+
     if(approved_routes[{pkg->getSrcId(), pkg->getDstId()}] != true) {
+        EV << "[Gateway] blocked message: \"" << pkg->getName() <<"\" with source: " << pkg->getSrcId() << " and destination: " \
+            << ((pkg->getDstId() == -1) ? "Gateway" : std::to_string(pkg->getDstId())) << std::endl;
         delete msg;
         return;
     }
-/*
-    cGate *store_gate = gate("ecuOut", 6)->getNextGate();
-    if(pkg->getDstId() == 7) {
-        Packet *pkt_dup = pkg->dup();
-        pkt_dup->setDstId(8);
-        // EV << "[INFO] Storage 1 is unreachable" << std::endl;
-        scheduleAt(simTime(), pkt_dup);
-        if(!store_gate->isConnected())
-            delete msg;
-    }*/
+
     int type = pkg->getType();
     switch(type) {
         case RSA_REQUEST: {
@@ -94,16 +95,20 @@ void Gateway::handleMessage(cMessage *msg)
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case REQUEST_STORAGE: {
+            sendStoragePing(pkg->getDstId());
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case REQUEST_STORAGE_DATA: {
+            sendStoragePing(pkg->getDstId());
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case STORAGE_RETRIEVE_DATA: {
-             send(msg, "ecuOut", pkg->getDstId()-1);
+            send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case PONG_MSG: {
-            checkPong(msg, pkg);
+            if(pkg->getDstId() != GATEWAY_STORAGE_SELF_PONG)
+                pending_ping[pkg->getSrcId()-1] = false;
+            checkStoragePong(pkg->getSrcId());
             }break;
         case GATEWAY_ROUTE_UPDATE: {
             send(msg, "toHsm", pkg->getDstId()-1);
@@ -120,28 +125,53 @@ void Gateway::handleMessage(cMessage *msg)
             }break;
     }
 }
-void Gateway::checkStorage(cMessage *msg, Packet *pkg){
-    if(1){
-        cMessage *dup_msg = msg->dup();
-        Packet *pkg_dup = (Packet *) msg;
-        pkg_dup->setDstId(pkg->getDstId()+1);
-        scheduleAt(simTime(), dup_msg);
-        send(msg, "ecuOut", pkg->getDstId()-1);
-        send(dup_msg, "ecuOut", pkg_dup->getDstId()-1);
-    }else{
-        pkg->setDstId(8);
-        send(msg, "ecuOut", pkg->getDstId()-1);
-    }
+
+void Gateway::sendStoragePing(int dst_id) {
+    Packet *ping = new Packet("GATEWAY_PING");
+
+    ping->setDstId(dst_id);     // destination set but not logically used for forwarding
+    ping->setSrcId(-1);         // message not sent from a node
+    ping->setData(nullptr);     // the ping packet has no payload
+    ping->setType(PING_MSG);    // type of ping message is PING_MSG
+
+    send(ping, "ecuOut", dst_id-1);
+    pending_ping[dst_id-1] = true;
+
+    self->setType(PONG_MSG);
+    self->setSrcId(dst_id);
+    self->setDstId(GATEWAY_STORAGE_SELF_PONG);
+    scheduleAt(simTime() + 1, self->dup());
+
+    return;
 }
-void Gateway::checkPong(cMessage *msg, Packet *pkg){
-    std::string value = "true";
-    if(pkg->getData() == value){
-        pkg->setType(PING_MSG);
-        send(msg, "ecuOut", pkg->getDstId()-1);
-    } else {
-        isStorageActive = false;
-        pkg->setDstId(8);
-        send(msg, "ecuOut", pkg->getDstId()-1);
+
+void Gateway::checkStoragePong(int src_id){
+    if(pending_ping[src_id-1] == false) {
+        EV << "[Gateway] received store (ECU " << src_id << ") pong" << std::endl;
+        return;
+    }
+
+    EV << "[Gateway] a storage device has failed" << std::endl;
+    sendBroadcastStorageDownSignal(src_id);
+
+    return;
+}
+
+void Gateway::sendBroadcastStorageDownSignal(int storage_id) {
+    Packet *broadcast_message = new Packet("STORAGE_DOWN_SIGNAL");
+
+    broadcast_message->setSrcId(-1);
+    broadcast_message->setType(STORAGE_DOWN);
+    broadcast_message->setData(std::to_string(storage_id).c_str());
+
+    for(int i = 0; i < numECUs; ++i ) {
+
+        Packet *to_send = broadcast_message->dup();
+        to_send->setDstId(i+1);
+        EV << "\033[36m[Gateway] packet \"" << to_send->getName() << "\"(" << to_send->getType() << "):\t\t" \
+                    << to_send->getSrcId() << " -> " << to_send->getDstId() << "\033[0m" << std::endl;
+
+        send(to_send, "ecuOut", i);
     }
 }
 
@@ -162,7 +192,6 @@ void Gateway::updateRule(Packet *pkg)
         std::cerr << "[ERROR] Gateway: updated rule has not been parsed correctly" << std::endl;
         return;
     }
-    //std::cout << "from: " << doc["from"].GetInt() << "\t\tto: " << doc["to"].GetInt() << std::endl;
 
     approved_routes[{doc["from"].GetInt(), doc["to"].GetInt()}] = doc["route"].GetBool();
 }

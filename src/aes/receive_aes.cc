@@ -35,7 +35,7 @@ std::string receive_message(int port) {
     return "test";
 }
 
-const unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& out_len, unsigned char *aes_hsm_key) {
+unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& out_len, unsigned char *aes_hsm_key) {
     if (!message.HasMember("iv") ||
         !message.HasMember("ciphertext") ||
         !message.HasMember("tag") ||

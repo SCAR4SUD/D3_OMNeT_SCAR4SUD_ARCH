@@ -12,7 +12,7 @@ std::string local_ecu_id;
 const char* ecu_ids[] = {ECU_ID1, ECU_ID2, ECU_ID3, ECU_ID4, ECU_ID5};
 
 void handle_errors(const std::string& context) {
-    std::cerr << "[Errore] " << context << "\n";
+    std::cerr << "[Errore] " << context << std::endl;
     ERR_print_errors_fp(stderr);
     //exit(1);
 }

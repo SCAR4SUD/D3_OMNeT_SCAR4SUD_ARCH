@@ -1,8 +1,8 @@
 version 3
-run General-0-20250704-11:58:19-71310
+run General-0-20250715-09:19:20-70362
 attr configname General
-attr datetime 20250704-11:58:19
-attr datetimef 20250704-115819
+attr datetime 20250715-09:19:20
+attr datetimef 20250715-091920
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Rete_def
-attr processid 71310
+attr processid 70362
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -92,12 +92,6 @@ par Rete_def.gateway.ecuOut[5].channel typename "\"ned.DelayChannel\""
 par Rete_def.gateway.ecuOut[5].channel disabled false
 attr mutable ""
 par Rete_def.gateway.ecuOut[5].channel delay 0.001s
-attr mutable ""
-attr unit s
-par Rete_def.storage1.out.channel typename "\"ned.DelayChannel\""
-par Rete_def.storage1.out.channel disabled false
-attr mutable ""
-par Rete_def.storage1.out.channel delay 0.001s
 attr mutable ""
 attr unit s
 par Rete_def.gateway.ecuOut[6].channel typename "\"ned.DelayChannel\""

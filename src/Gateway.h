@@ -5,7 +5,6 @@
 #include <fstream>
 #include <map>
 #include "common/common.h"
-#include "Communication_m.h"   // contiene Request, KeyRequest, KeyResponse
 #include "Request_m.h"
 #include "Packet_m.h"
 #include <tuple>
@@ -28,6 +27,9 @@ private:
     int numECUs;
     bool isStorageActive;
     std::unordered_map<std::tuple<int, int>, bool, TupleHash> approved_routes;
+    bool *pending_ping;
+
+    Packet *self{nullptr};
 
 
 protected:
@@ -35,7 +37,10 @@ protected:
     virtual void handleMessage(cMessage *msg) override;
 
     void checkStorage(cMessage *msg, Packet *pkg);
-    void checkPong(cMessage *msg, Packet *pkg);
+
+    void sendStoragePing(int dst_id);
+    void checkStoragePong(int src_id);
+    void sendBroadcastStorageDownSignal(int storage_id);
 
     bool loadFilterRules();
     void updateRule(Packet *pkg);

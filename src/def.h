@@ -1,6 +1,14 @@
 #ifndef SCAR_DEF_H
 #define SCAR_DEF_H
 
+enum stateData{
+    DATI_ANAGRAFICI,
+    PREFERENZE_UTENTE,
+    DATO_TEMPORALE,
+    PREFERENZE_AUTOVETTURA,
+    NON_CATEGORIZZATO
+};
+
 #define HSM_TOPOLOGICAL_ID              0
 #define INFOTAINMENT_ID                 4
 
@@ -21,11 +29,13 @@
 #define CLOCK_SYNC_REQUEST              7
 #define CLOCK_SYNC_RESPONSE             8
 
-#define REQUEST_STORAGE                 9 //Richiesta di storage
-#define REQUEST_STORAGE_DATA            10 //Richiesta di dati
-#define STORAGE_RETRIEVE_DATA           11 //Ritorno dei dati
+#define REQUEST_STORAGE                 9
+#define REQUEST_STORAGE_DATA            10
+#define STORAGE_RETRIEVE_DATA           11
 #define STORAGE_ACK                     12
 #define STORAGE_NACK                    13
+#define STORAGE_DOWN                    14
+#define STORAGE_RETRIEVE_DATA_ERROR     15
 
 //Ping Gateway<->Storage
 #define PING_MSG                        100
@@ -37,6 +47,7 @@
 
 #define GATEWAY_ROUTE_UPDATE            201
 #define GATEWAY_ROUTE_UPDATE_INTERNAL   202
+#define STORAGE_ECU_DOWN                203
 
 
 #define PRIVATE_DATA                    1

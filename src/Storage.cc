@@ -8,70 +8,61 @@ Define_Module(Storage);
 
 void Storage::additional_initialize()
 {
-    numEcu = par("numECUs");
-    fs::path storageBasePath = "storage";
+    id = par("id");
+    numECUs = par("numECUs");
+    std::string storageBasePath = ("storage/ecu" + std::to_string(id));
 
-    //Initialize pulizia.
+    //Initialize clean up.
     int checkInterval_t = par("checkInterval");
     int dataLifeTime_t = par("dataLifeTime");
     checkInterval = SimTime(checkInterval_t, SIMTIME_S);
     dataLifetime = SimTime(dataLifeTime_t, SIMTIME_S);
 
-    EV_INFO << "[Storage] Pulizia periodica configurata. Controllo ogni: " << checkInterval
-            << ", Durata dati: " << dataLifetime << endl;
+    EV_INFO << "[Storage] Periodic clean up configured. Clean up every: " << checkInterval
+            << ", Data lifetime: " << dataLifetime << endl;
 
     if(id == 7) {
         failureEvent = new Packet("failureEvent");
         failureEvent->setType(INIT_FAILURE_STATE);
-        scheduleAt(simTime() + SimTime(static_cast<double>(12), SIMTIME_MS), failureEvent);
+        scheduleAt(simTime() + 9, failureEvent);
     }
 
     cleanupEvent = new Packet("periodicCleanup");
     cleanupEvent->setType(CLEAN_UP_EVENT);
-    scheduleAt(simTime() + checkInterval, cleanupEvent);
+    // scheduleAt(simTime() + checkInterval, cleanupEvent);
 
     //Initialize file
     try {
 
         fs::create_directory(storageBasePath);
-        EV << "[Storage] Directory di base per i log: '" << storageBasePath << "' assicurata.\n";
 
     } catch (const fs::filesystem_error& e) {
-        throw cRuntimeError("Errore nella creazione della directory di base '%s': %s",
+        throw cRuntimeError("Error while creating directory '%s': %s",
                             storageBasePath.c_str(), e.what());
     }
 
 
-    // Creiamo le directory per ogni ECU
-    for (int i = 1; i <= numEcu; ++i) {
-
-        fs::path ecuDirPath = storageBasePath / ("ecu" + std::to_string(i));
+    for (int i = 1; i <= numECUs; ++i) {
+        std::string ecuDirPath = storageBasePath + ("/ecu" + std::to_string(i));
 
         try {
-
             fs::create_directory(ecuDirPath);
-
         } catch (const fs::filesystem_error& e) {
-            throw cRuntimeError("Errore nella creazione della directory per ECU %d ('%s'): %s",
+            throw cRuntimeError("Error while creating directory for ECU %d ('%s'): %s",
                                 i, ecuDirPath.c_str(), e.what());
         }
 
+        publicFilePath[i] = ecuDirPath +  "/public.txt";
+        privateFilePath[i] = ecuDirPath +  "/private.txt";
 
-        // Percorso completo per il file PUBLIC
-        fs::path publicFilePath = ecuDirPath / "public_log.txt";
-        publicFileStreams[i].open(publicFilePath, std::ios_base::app);
-        if (!publicFileStreams[i].is_open()) {
-            throw cRuntimeError("Impossibile aprire il file di log pubblico: %s", publicFilePath.c_str());
-        }
-        EV << "[Storage] File di log pubblico creato: " << publicFilePath << "\n";
+        std::fstream file_public(publicFilePath[i], std::ios::app);
+        std::fstream file_private(privateFilePath[i], std::ios::app);
 
-        // Percorso completo per il file PRIVATE
-        fs::path privateFilePath = ecuDirPath / "private_log.txt";
-        privateFileStreams[i].open(privateFilePath, std::ios_base::app);
-        if (!privateFileStreams[i].is_open()) {
-            throw cRuntimeError("Impossibile aprire il file di log privato: %s", privateFilePath.c_str());
-        }
-        EV << "[Storage] File di log privato creato: " << privateFilePath << "\n";
+        if(!file_public.is_open()) file_public.open(publicFilePath[i], std::ios::out);
+        if(!file_private.is_open()) file_private.open(privateFilePath[i], std::ios::out);
+
+        file_public.close();
+        file_private.close();
     }
 }
 
@@ -82,20 +73,18 @@ void Storage::additional_handleMessage(cMessage *msg)
         return;
     }
 
-    //Self messagge pulizia
+    // cleanup self message
+    // clean event and scheduling of next cleanup event
     if (msg == cleanupEvent) {
-        EV_INFO << "[Storage] Evento di pulizia attivato al tempo: " << simTime() << endl;
+        EV_INFO << "[Storage] Clean event at time: " << simTime() << endl;
 
-        // Calcoliamo la soglia di scadenza
         simtime_t expirationThreshold = simTime() - dataLifetime;
 
-        // Eseguiamo la pulizia per ogni ECU
-        for (int i = 1; i <= numEcu; ++i) {
+        for (int i = 1; i <= numECUs; ++i) {
             cleanupLogFile(i, "Public");
             cleanupLogFile(i, "Private");
         }
 
-        // Riprogrammiamo per la prossima volta
         scheduleAt(simTime() + checkInterval, cleanupEvent);
         return;
     }
@@ -103,8 +92,6 @@ void Storage::additional_handleMessage(cMessage *msg)
     Packet *packet = dynamic_cast<Packet *>(msg);
     if (!packet) {
         ECU::handleMessage(msg);
-        EV_ERROR << "[Storage] Errore: ricevuto un messaggio che non è di tipo Packet. Messaggio ignorato.\n";
-        //delete msg;
         return;
     }
 
@@ -112,18 +99,19 @@ void Storage::additional_handleMessage(cMessage *msg)
         switch(type) {
             case REQUEST_STORAGE: {
                 if (tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID) == nullptr) {
-                    EV_WARN << "[Storage " << id << "] Non ho ancora una chiave di sessione con l'HSM. Messaggio scartato";
+                    EV_WARN << "[Storage (ECU " << id << ")] no session key with source of packet";
                     return;
                 }
-                    storeData(packet);
+                storeData(packet);
                 }break;
             case REQUEST_STORAGE_DATA:{
+                EV << "[Storage (ECU" << id << ")] received a data read request" << std::endl;
                 packet = readDataFile(packet);
-                send(packet, "toGateway");
-            }break;
+                sendEncPacket(packet, packet->getDstId(), packet->getType());
+                }break;
             case PING_MSG:{
                 pingWithGateway(packet);
-            }break;
+                }break;
             default: {
 
                 }break;
@@ -131,127 +119,153 @@ void Storage::additional_handleMessage(cMessage *msg)
 }
 
 void Storage::pingWithGateway(Packet *package){
-
-    if (package->getType() == PING_MSG) {
-        EV << "[Storage " << getIndex() << "] Ricevuto Ping. Invio risposta.\n";
-        Packet *response = new Packet();
-        response->setType(PONG_MSG);
-        response->setSrcId(getIndex());
-        response->setDstId(package->getSrcId());
-        response->setData("true");
-        send(response, "toGateway");
-
-        return;
-    }
+    EV << "[Storage (ECU " << id << ")] Received Ping. Sending pong.\n";
+    Packet *response = new Packet("GATEWAY_PONG");
+    response->setType(PONG_MSG);
+    response->setSrcId(id);
+    response->setDstId(-1);             // number indicating that the destination is not a node.
+    response->setData(nullptr);         // the PONG message has no payload
+    send(response, "out");
 }
 
 void Storage::storeData(Packet *packet){
     int sourceId = packet->getSrcId();
-    std::string payload = packet->getData();
     PrivacyLevel privacy = 1; //packet->getPrivacyLevel();
 
-    EV << "[Storage] Ricevuto messaggio da ECU " << sourceId << " con payload: '" << payload << "'\n";
-
-    //Ricezione packet
     receiveEncPacket(packet, sourceId);
+    std::string payload = packet->getData();
 
-    //Cifratura payaload
+    std::cout << "[Storage] Received from ECU " << sourceId << " with payload: '" << payload << "'\n";
+
     AesEncryptedMessage aes_msg = encrypt_message_aes(
         (unsigned char*)payload.c_str(),
         payload.length(),
-        tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID)
+        tpm_access->getSelfKey()
     );
-        //Serializzazione
 
-        std::string iv_b64 = base64_encode(aes_msg.iv, IV_LEN);
-        std::string tag_b64 = base64_encode(aes_msg.tag, TAG_LEN);
-        std::string ciphertext_b64 = base64_encode(aes_msg.ciphertext, aes_msg.ciphertext_len);
+    std::string aad_b64 = base64_encode((const unsigned char*)aes_msg.aad, AAD_LEN);
+    std::string iv_b64 = base64_encode(aes_msg.iv, IV_LEN);
+    std::string tag_b64 = base64_encode(aes_msg.tag, TAG_LEN);
+    std::string ciphertext_b64 = base64_encode(aes_msg.ciphertext, aes_msg.ciphertext_len);
 
-        std::string storable_data = iv_b64 + ":" + tag_b64 + ":" + ciphertext_b64;
+    // std::string storable_data = iv_b64 + ":" + tag_b64 + ":" + ciphertext_b64;
+    std::string storable_data = "{\"time\":\"" + get_current_timestamp_iso8601() +
+                                "\", \"aad\":\"" + aad_b64 +
+                                "\", \"iv\":\"" + iv_b64 +
+                                "\", \"ciphertext\":\"" + ciphertext_b64 +
+                                "\", \"tag\":\"" + tag_b64 + "\"}";
 
-    std::fstream *targetStream = nullptr;
-    //Cerca il relativo file Publico o Privato
+    std::fstream targetStream;
     if (privacy == PUBLIC_DATA) {
-        auto it = publicFileStreams.find(sourceId);
-        if (it != publicFileStreams.end()) {
-            targetStream = &(it->second);
-        }
+        targetStream.open(publicFilePath[sourceId], std::ios::out | std::ios::app);
     } else if (privacy == PRIVATE_DATA) {
-        auto it = privateFileStreams.find(sourceId);
-        if (it != privateFileStreams.end()) {
-            targetStream = &(it->second);
-        }
+        targetStream.open(privateFilePath[sourceId], std::ios::out | std::ios::app);
     }
 
-    if (targetStream && targetStream->is_open()) {
-        *targetStream << simTime() << " | " << storable_data << std::endl;
+    if (targetStream.is_open()) {
+        targetStream << storable_data << std::endl;
     } else {
         EV_WARN << "[Storage] Ricevuto messaggio da ECU " << sourceId
                 << ", ma non è stato trovato un file di log corrispondente. Messaggio ignorato.\n";
     }
 
-    free(aes_msg.ciphertext);
 }
 
-Packet *Storage::readDataFile(Packet *packet){
+Packet *Storage::readDataFile(Packet *packet) {
+    if (!packet) {
+        EV_WARN << "[Storage] Received null packet. Request dropped." << std::endl;
+        return nullptr;
+    }
+
     int sourceId = packet->getSrcId();
-    PrivacyLevel privacy = 1;//packet->getPrivacyLevel();
-    std::string readFile = nullptr;
 
-    std::fstream *ReadStream = nullptr;
+    PrivacyLevel privacy = PRIVATE_DATA;
+    std::string lineContent;
+    std::string allFileContent;
+    std::fstream requested_file_stream;
+
+    EV << "here - Attempting to read data for sourceId: " << sourceId << std::endl;
+
+
+    int stream_id = -1;
     if (privacy == PUBLIC_DATA) {
-        auto it = publicFileStreams.find(sourceId);
-        if (it != publicFileStreams.end()) {
-            ReadStream = &(it->second);
-        }
+        requested_file_stream.open(publicFilePath[sourceId], std::ios::in);
+        /*if (it != publicFileStreams.end()) {
+             stream_id = sourceId;
+        }*/
     } else if (privacy == PRIVATE_DATA) {
-        auto it = privateFileStreams.find(sourceId);
-        if (it != privateFileStreams.end()) {
-            ReadStream = &(it->second);
-        }
-    }
-
-    if (ReadStream && ReadStream->is_open()) {
-       while(std::getline(*ReadStream, readFile));
+        requested_file_stream.open(privateFilePath[sourceId], std::ios::in);
+        /*if (it != privateFileStreams.end()) {
+            stream_id = sourceId;
+        }*/
     } else {
-        EV_WARN << "[Storage] Ricevuto messaggio da ECU " << sourceId
-                << ", ma non è stato trovato un file di log corrispondente. Messaggio ignorato.\n";
+        EV_WARN << "[Storage] Invalid privacy level for sourceId: " << sourceId << ". Request dropped." << std::endl;
+        packet->setSrcId(id);
+        packet->setDstId(sourceId);
+        packet->setData(""); // No data read
+        packet->setType(STORAGE_RETRIEVE_DATA_ERROR);
+        return packet;
     }
 
-   packet->setSrcId(id);
-   packet->setDstId(sourceId);
-   packet->setData(readFile.c_str());
-   packet->setType(STORAGE_RETRIEVE_DATA);
+    if (requested_file_stream.is_open()) {
+        requested_file_stream.clear();
+        requested_file_stream.seekg(0, std::ios::beg);
 
-   return packet;
+        while (std::getline(requested_file_stream, lineContent)) {
+            EV << "data read from storage: " << lineContent << std::endl;
+
+            rapidjson::Document doc;
+            if (doc.Parse(lineContent.c_str()).HasParseError())
+                handle_errors("[Store] invalid JSON");
+
+            size_t decrypted_record_size = 0;
+            unsigned char *decrypted_record = decrypt_message_aes(doc, decrypted_record_size, tpm_access->getSelfKey());
+            std::string decrypted_line((char *)decrypted_record, decrypted_record_size);
+
+
+            allFileContent += decrypted_line;
+        }
+    } else {
+        EV_WARN << "[Storage] Received request from ECU. " << sourceId
+                << " corresponding file stream could not be found or opened. Request dropped." << std::endl;
+        // Set packet data to empty message if no stream/data
+        packet->setSrcId(id);
+        packet->setDstId(sourceId);
+        packet->setData(""); // No data read
+        packet->setType(STORAGE_RETRIEVE_DATA_ERROR);
+        return packet;
+    }
+
+    packet->setSrcId(id);
+    packet->setDstId(sourceId);
+    packet->setData(allFileContent.c_str());
+    packet->setType(STORAGE_RETRIEVE_DATA);
+
+    return packet;
 }
-//Funzione clean
+
 void Storage::cleanupLogFile(int ecuId, const std::string& type) {
-    fs::path storageBasePath = "storage";
+    fs::path storageBasePath = ("storage/ecu" + std::to_string(id));
     fs::path ecuDirPath = storageBasePath / ("ecu" + std::to_string(ecuId));
     fs::path filePath;
     std::fstream* fileStream = nullptr;
 
     if (type == "Public") {
         filePath = ecuDirPath / "public_log.txt";
-        fileStream = &publicFileStreams.at(ecuId);
     } else if (type == "Private") {
         filePath = ecuDirPath / "private_log.txt";
-        fileStream = &privateFileStreams.at(ecuId);
     } else {
         return;
     }
-
-    EV_INFO << "[Storage] Inizio pulizia file: " << filePath << endl;
 
     if (fileStream->is_open()) {
         fileStream->close();
     }
 
-    // Apriamo per leggere e filtrare le righe
+
     std::ifstream inFile(filePath);
     if (!inFile.is_open()) {
-        EV_ERROR << "[Storage] Impossibile riaprire " << filePath << " per la lettura durante la pulizia.";
+        EV_ERROR << "[Storage] cannot open " << filePath << " during clenaup." << std::endl;
 
         fileStream->open(filePath, std::ios_base::app);
         return;
@@ -274,19 +288,18 @@ void Storage::cleanupLogFile(int ecuId, const std::string& type) {
             if (entryTime >= expirationThreshold) {
                 validLines.push_back(line);
             } else {
-                EV_DETAIL << "[Storage] Dato scaduto eliminato da " << filePath << ": " << line;
+                EV_DETAIL << "[Storage] expired record deleted from " << filePath << ": " << line << std::endl;
             }
         } catch (const cException& e) {
-            EV_WARN << "[Storage] Impossibile parsare la data nella riga: '" << line << "'. La riga sarà conservata.";
+            EV_WARN << "[Storage] cannot parse date in: '" << line << "'. the record will not be deleted." << std::endl;
             validLines.push_back(line);
         }
     }
     inFile.close();
 
-    //Riscriviamo il file con solo le righe valide
-    std::ofstream outFile(filePath, std::ios::trunc); // Cancella il contenuto
+    std::ofstream outFile(filePath, std::ios::trunc);
     if (!outFile.is_open()) {
-        EV_ERROR << "[Storage] Impossibile aprire " << filePath << " in scrittura per la pulizia!";
+        EV_ERROR << "[Storage] cannot open " << filePath << " for reading" << std::endl;
 
         fileStream->open(filePath, std::ios_base::app);
         return;
@@ -297,13 +310,15 @@ void Storage::cleanupLogFile(int ecuId, const std::string& type) {
     }
     outFile.close();
 
-    //Riapriamo lo stream originale in modalità append per la mappa
     fileStream->open(filePath, std::ios_base::app);
     if (!fileStream->is_open()) {
-         throw cRuntimeError("Fallimento critico: impossibile ripristinare lo stream del log per %s", filePath.c_str());
+         throw cRuntimeError("Failure: cannot open data stream from %s", filePath.c_str());
     }
 
-    EV_INFO << "[Storage] Pulizia file " << filePath << " completata. Righe valide: " << validLines.size() << std::endl;
+    if(validLines.size() > 0) {
+        EV_INFO << "[Storage] cleanup start: " << filePath << std::endl;
+        EV_INFO << "[Storage] Cleanup of " << filePath << " complete. Valid lines: " << validLines.size() << std::endl;
+    }
 }
 
 void Storage::initFailureState()
@@ -323,19 +338,9 @@ void Storage::initFailureState()
 void Storage::finish()
 {
 
-    EV << "[Storage] Simulazione terminata. Chiudo tutti i file di log.\n";
+    EV << "[Storage] Simulazione terminata. Chiudo tutti i file di log." << std::endl;
 
     cancelAndDelete(cleanupEvent);
 
-    for (auto& pair : publicFileStreams) {
-        if (pair.second.is_open()) {
-            pair.second.close();
-        }
-    }
-    for (auto& pair : privateFileStreams) {
-        if (pair.second.is_open()) {
-            pair.second.close();
-        }
-    }
     ECU::finish();
 }

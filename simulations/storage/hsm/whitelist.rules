@@ -22,3 +22,7 @@
 {"from":8, "to":4, "route":true}
 {"from":7, "to":8, "route":true}
 {"from":8, "to":7, "route":true}
+{"from":7, "to":-1, "route":true}
+{"from":8, "to":-1, "route":true}
+{"from":7, "to":-2, "route":true}
+{"from":8, "to":-2, "route":true}

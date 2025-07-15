@@ -27,8 +27,8 @@
   common/../include/rapidjson/writer.h \
   common/../include/rapidjson/internal/dtoa.h \
   common/../include/rapidjson/internal/itoa.h \
-  common/../include/rapidjson/error/en.h common/../def.h \
-  Communication_m.h Request_m.h Packet_m.h def.h
+  common/../include/rapidjson/error/en.h common/../def.h Request_m.h \
+  Packet_m.h def.h
 Gateway.h:
 /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h:
 common/common.h:
@@ -61,7 +61,6 @@ common/../include/rapidjson/internal/dtoa.h:
 common/../include/rapidjson/internal/itoa.h:
 common/../include/rapidjson/error/en.h:
 common/../def.h:
-Communication_m.h:
 Request_m.h:
 Packet_m.h:
 def.h:
