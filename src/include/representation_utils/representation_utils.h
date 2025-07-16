@@ -18,7 +18,8 @@ std::string base64_encode(const unsigned char* input, size_t len);
 size_t base64_decode(
     const std::string& input,
     unsigned char* output,
-    size_t max_len
+    size_t max_len,
+    std::string context = ""
 );
 
 }

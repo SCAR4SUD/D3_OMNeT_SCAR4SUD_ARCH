@@ -1,5 +1,5 @@
-../out/clang-debug/src/Communication_m.o: Communication_m.cc \
-  Communication_m.h \
+out/clang-debug//src/Communication_m.o: src/Communication_m.cc \
+  src/Communication_m.h \
   /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h
-Communication_m.h:
+src/Communication_m.h:
 /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h:

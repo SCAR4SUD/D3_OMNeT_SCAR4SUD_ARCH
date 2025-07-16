@@ -11,4 +11,4 @@
 #define AES_GCM_IV_SIZE 12
 #define AES_GCM_TAG_SIZE 16
 
-#define AAD_NIST_MAX_SIZE 8 
+#define AAD_SIZE 8

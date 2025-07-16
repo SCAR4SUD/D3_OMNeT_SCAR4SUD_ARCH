@@ -3,14 +3,21 @@
 
 #include "../common/common.h"
 #include "../crypto_utils/crypto_utils.h"
+#include "../aes/aes.h"
 //#include "socket_utils.h"
 
 extern const char* ECU_PRIVKEY_PATH;
 extern EVP_PKEY* ecu_privkey;
 
 
-std::string serialize_rsa_request(int id);
-void parse_rsa_response(const std::string& json_str, unsigned char* aes_key_enc, time_t& nonce, std::string& nonce_signature_b64);
+std::string serialize_rsa_request(int id, int nonce, EVP_PKEY* ecu_private_key, EVP_PKEY* hsm_public_key);
+void parse_rsa_response(
+    std::string& json_str,
+    EVP_PKEY* ecu_private_key,
+    EVP_PKEY* hsm_public_key,
+    unsigned char* aes_key_enc,
+    time_t& nonce
+);
 
 void rsa_exchange_with_hsm(const std::string& hsm_ip, int hsm_port);
 void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::string& receiver_rsa_id);

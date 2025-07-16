@@ -24,11 +24,16 @@ enum class KeyExchangeType {
 
 void init_keys(const char* path, EVP_PKEY*& ecu_priv_key);
 void init_public_keys(const char* path, EVP_PKEY*& ecu_publ_key);
+
 std::string base64_encode(const unsigned char* input, size_t len);
 size_t base64_decode(const std::string& input, unsigned char* output, size_t max_len);
+
 int rsa_encrypt_evp(EVP_PKEY* pubkey, const unsigned char* plaintext, size_t plaintext_len, unsigned char* ciphertext, size_t* ciphertext_len);
 int rsa_decrypt_evp(EVP_PKEY* privkey, const unsigned char* ciphertext, size_t ciphertext_len, unsigned char* plaintext, size_t* plaintext_len);
-bool check_signed_nonce(unsigned char* plain_data, size_t plain_data_len, unsigned char *signature, size_t signature_len, EVP_PKEY* public_key);
+
+unsigned char* rsa_sign_evp(const unsigned char* data, size_t data_len, EVP_PKEY* private_key_evp, size_t* signature_len);
+bool check_signature(unsigned char* plain_data, size_t plain_data_len, unsigned char *signature, size_t signature_len, EVP_PKEY* public_key);
+
 void random_nonce(unsigned char* nonce, size_t len);
 
 #endif

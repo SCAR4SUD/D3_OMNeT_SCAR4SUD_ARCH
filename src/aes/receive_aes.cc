@@ -35,7 +35,7 @@ std::string receive_message(int port) {
     return "test";
 }
 
-unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& out_len, unsigned char *aes_hsm_key) {
+unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& out_len, unsigned char *aes_hsm_key, bool is_aes_128) {
     if (!message.HasMember("iv") ||
         !message.HasMember("ciphertext") ||
         !message.HasMember("tag") ||
@@ -65,10 +65,18 @@ unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& o
         return nullptr;
     }
 
-    if (EVP_DecryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr) != 1){     // Accede al contesto, usa aes_gcm256
-        handle_errors("init decifratura");
-        return nullptr;
+    if(is_aes_128 == true) {
+        if (EVP_DecryptInit_ex(ctx, EVP_aes_128_gcm(), nullptr, nullptr, nullptr) != 1){     // Accede al contesto, usa aes_gcm256
+            handle_errors("init decifratura");
+            return nullptr;
+        }
+    }else {
+        if (EVP_DecryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr) != 1){     // Accede al contesto, usa aes_gcm256
+            handle_errors("init decifratura");
+            return nullptr;
+        }
     }
+
 
     if (EVP_DecryptInit_ex(ctx, nullptr, nullptr, aes_hsm_key, iv) != 1) {                  // Inserisce nel contesto iv e key
         handle_errors("init chiave/iv");
@@ -94,7 +102,7 @@ unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& o
 
     int ret = EVP_DecryptFinal_ex(ctx, plaintext + len, &len);
     if (ret != 1) {               // Finalizza decrypt verificando tag
-        handle_errors("verifica tag");
+        handle_errors("verifica tag (err="+std::to_string(ret)+")");
         return nullptr;
     }
 

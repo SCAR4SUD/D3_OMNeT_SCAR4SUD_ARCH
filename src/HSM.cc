@@ -196,12 +196,12 @@ std::string HSM::route_response(rapidjson::Document& doc, sca::Session& session)
     unsigned char iv[IV_LEN];
     unsigned char tag[TAG_LEN];
     unsigned char ciphertext[16384];
-    unsigned char aad[AAD_NIST_MAX_SIZE];
+    unsigned char aad[AAD_SIZE];
 
     sca::base64_decode(doc["iv"].GetString(),            iv,         IV_LEN);
     sca::base64_decode(doc["tag"].GetString(),           tag,        TAG_LEN);
     CK_ULONG ciphertext_len = sca::base64_decode(doc["ciphertext"].GetString(),    ciphertext, sizeof(ciphertext));
-    sca::base64_decode(doc["aad"].GetString(),           aad,        AAD_NIST_MAX_SIZE);
+    sca::base64_decode(doc["aad"].GetString(),           aad,        AAD_SIZE);
 
     CK_ULONG encrypted_data_len = IV_LEN + ciphertext_len + TAG_LEN;
     CK_BYTE_PTR encrypted_data = new CK_BYTE[encrypted_data_len];

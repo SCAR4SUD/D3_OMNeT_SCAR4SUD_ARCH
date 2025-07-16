@@ -66,7 +66,105 @@ int rsa_decrypt_evp(EVP_PKEY* privkey, const unsigned char* ciphertext, size_t c
     return 1;
 }
 
-bool check_signed_nonce(unsigned char* plain_data, size_t plain_data_len, unsigned char *signature, size_t signature_len, EVP_PKEY* public_key)
+unsigned char* rsa_sign_evp (
+    const unsigned char* data,
+    size_t data_len,
+    EVP_PKEY* private_key_evp,
+    size_t* signature_len
+) {
+    const EVP_MD* md_algorithm = EVP_sha256();
+    int rsa_padding_mode = RSA_PKCS1_PADDING;
+
+    unsigned char* signature = NULL;
+    EVP_MD_CTX* md_ctx = NULL;
+    EVP_PKEY_CTX* pkey_ctx = NULL;
+
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digest_len;
+    size_t temp_sig_len = 0;
+
+    if (private_key_evp == NULL) {
+        std::cerr << "Error: EVP_PKEY private key is NULL." << std::endl;
+        goto cleanup;
+    }
+    if (md_algorithm == NULL) {
+        std::cerr << "Error: Message digest algorithm is NULL." << std::endl;
+        goto cleanup;
+    }
+
+    md_ctx = EVP_MD_CTX_new();
+    if (md_ctx == NULL) {
+        std::cerr << "Error: Failed to create EVP_MD_CTX for hashing." << std::endl;
+        goto cleanup;
+    }
+
+    if (EVP_DigestInit_ex(md_ctx, md_algorithm, NULL) != 1) {
+        std::cerr << "Error: EVP_DigestInit_ex failed." << std::endl;
+        goto cleanup;
+    }
+
+    if (EVP_DigestUpdate(md_ctx, data, data_len) != 1) {
+        std::cerr << "Error: EVP_DigestUpdate failed." << std::endl;
+        goto cleanup;
+    }
+
+    if (EVP_DigestFinal_ex(md_ctx, digest, &digest_len) != 1) {
+        std::cerr << "Error: EVP_DigestFinal_ex failed." << std::endl;
+        goto cleanup;
+    }
+
+    pkey_ctx = EVP_PKEY_CTX_new(private_key_evp, NULL);
+    if (pkey_ctx == NULL) {
+        std::cerr << "Error: Failed to create EVP_PKEY_CTX for signing." << std::endl;
+        goto cleanup;
+    }
+
+    if (EVP_PKEY_sign_init(pkey_ctx) != 1) {
+        std::cerr << "Error: EVP_PKEY_sign_init failed." << std::endl;
+        goto cleanup;
+    }
+
+    if (EVP_PKEY_id(private_key_evp) == EVP_PKEY_RSA) {
+        if (EVP_PKEY_CTX_set_rsa_padding(pkey_ctx, rsa_padding_mode) != 1) {
+            std::cerr << "Error: Failed to set RSA padding mode." << std::endl;
+            goto cleanup;
+        }
+        if (EVP_PKEY_CTX_set_signature_md(pkey_ctx, md_algorithm) != 1) {
+            std::cerr << "Error: Failed to set signature message digest." << std::endl;
+            goto cleanup;
+        }
+    }
+
+    if (EVP_PKEY_sign(pkey_ctx, NULL, &temp_sig_len, digest, digest_len) != 1) {
+        std::cerr << "Error: EVP_PKEY_sign (size determination) failed." << std::endl;
+        goto cleanup;
+    }
+
+    signature = (unsigned char*)OPENSSL_malloc(temp_sig_len);
+    if (signature == NULL) {
+        std::cerr << "Error: Failed to allocate memory for signature." << std::endl;
+        goto cleanup;
+    }
+
+    // Perform the actual signing
+    if (EVP_PKEY_sign(pkey_ctx, signature, &temp_sig_len, digest, digest_len) != 1) {
+        std::cerr << "Error: EVP_PKEY_sign failed." << std::endl;
+        OPENSSL_free(signature); // Free on failure
+        signature = NULL;
+        goto cleanup;
+    }
+
+    *signature_len = temp_sig_len; // Set the actual signature length
+
+cleanup:
+    // Clean up allocated OpenSSL objects
+    if (md_ctx) EVP_MD_CTX_free(md_ctx);
+    if (pkey_ctx) EVP_PKEY_CTX_free(pkey_ctx);
+
+    return signature; // Return the dynamically allocated signature (or NULL on failure)
+}
+
+bool check_signature(unsigned char* plain_data, size_t plain_data_len, unsigned char *signature, size_t signature_len, EVP_PKEY* public_key)
 {
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     if (!ctx) {

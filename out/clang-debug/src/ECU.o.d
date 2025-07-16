@@ -1,86 +1,89 @@
-../out/clang-debug/src/ECU.o: ECU.cc ECU.h def.h \
+out/clang-debug//src/ECU.o: src/ECU.cc src/ECU.h src/def.h \
   /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h \
-  Packet_m.h common/common.h common/../include/rapidjson/document.h \
-  common/../include/rapidjson/reader.h \
-  common/../include/rapidjson/allocators.h \
-  common/../include/rapidjson/rapidjson.h \
-  common/../include/rapidjson/internal/meta.h \
-  common/../include/rapidjson/internal/../rapidjson.h \
-  common/../include/rapidjson/stream.h \
-  common/../include/rapidjson/encodings.h \
-  common/../include/rapidjson/encodedstream.h \
-  common/../include/rapidjson/memorystream.h \
-  common/../include/rapidjson/internal/clzll.h \
-  common/../include/rapidjson/internal/stack.h \
-  common/../include/rapidjson/internal/../allocators.h \
-  common/../include/rapidjson/internal/swap.h \
-  common/../include/rapidjson/internal/strtod.h \
-  common/../include/rapidjson/internal/ieee754.h \
-  common/../include/rapidjson/internal/biginteger.h \
-  common/../include/rapidjson/internal/diyfp.h \
-  common/../include/rapidjson/internal/pow10.h \
-  common/../include/rapidjson/error/error.h \
-  common/../include/rapidjson/error/../rapidjson.h \
-  common/../include/rapidjson/internal/strfunc.h \
-  common/../include/rapidjson/internal/../stream.h \
-  common/../include/rapidjson/stringbuffer.h \
-  common/../include/rapidjson/writer.h \
-  common/../include/rapidjson/internal/dtoa.h \
-  common/../include/rapidjson/internal/itoa.h \
-  common/../include/rapidjson/error/en.h common/../def.h TPM.h \
-  clock/Clock.h Communication_m.h rsa/rsa_exchange.h \
-  rsa/../common/common.h rsa/../crypto_utils/crypto_utils.h \
-  rsa/../crypto_utils/../common/common.h ns/ns_exchange.h \
-  ns/../common/common.h ns/../crypto_utils/crypto_utils.h \
-  ns/../aes/aes.h ns/../aes/../common/common.h \
-  ns/../aes/../crypto_utils/crypto_utils.h aes/aes.h \
-  crypto_utils/crypto_utils.h
-ECU.h:
-def.h:
+  src/Packet_m.h src/common/common.h \
+  src/common/../include/rapidjson/document.h \
+  src/common/../include/rapidjson/reader.h \
+  src/common/../include/rapidjson/allocators.h \
+  src/common/../include/rapidjson/rapidjson.h \
+  src/common/../include/rapidjson/internal/meta.h \
+  src/common/../include/rapidjson/internal/../rapidjson.h \
+  src/common/../include/rapidjson/stream.h \
+  src/common/../include/rapidjson/encodings.h \
+  src/common/../include/rapidjson/encodedstream.h \
+  src/common/../include/rapidjson/memorystream.h \
+  src/common/../include/rapidjson/internal/clzll.h \
+  src/common/../include/rapidjson/internal/stack.h \
+  src/common/../include/rapidjson/internal/../allocators.h \
+  src/common/../include/rapidjson/internal/swap.h \
+  src/common/../include/rapidjson/internal/strtod.h \
+  src/common/../include/rapidjson/internal/ieee754.h \
+  src/common/../include/rapidjson/internal/biginteger.h \
+  src/common/../include/rapidjson/internal/diyfp.h \
+  src/common/../include/rapidjson/internal/pow10.h \
+  src/common/../include/rapidjson/error/error.h \
+  src/common/../include/rapidjson/error/../rapidjson.h \
+  src/common/../include/rapidjson/internal/strfunc.h \
+  src/common/../include/rapidjson/internal/../stream.h \
+  src/common/../include/rapidjson/stringbuffer.h \
+  src/common/../include/rapidjson/writer.h \
+  src/common/../include/rapidjson/internal/dtoa.h \
+  src/common/../include/rapidjson/internal/itoa.h \
+  src/common/../include/rapidjson/error/en.h src/common/../def.h \
+  src/TPM.h src/clock/Clock.h src/Communication_m.h \
+  src/rsa/rsa_exchange.h src/rsa/../common/common.h \
+  src/rsa/../crypto_utils/crypto_utils.h \
+  src/rsa/../crypto_utils/../common/common.h src/rsa/../aes/aes.h \
+  src/rsa/../aes/../common/common.h \
+  src/rsa/../aes/../crypto_utils/crypto_utils.h src/ns/ns_exchange.h \
+  src/ns/../common/common.h src/ns/../crypto_utils/crypto_utils.h \
+  src/ns/../aes/aes.h src/aes/aes.h src/crypto_utils/crypto_utils.h
+src/ECU.h:
+src/def.h:
 /home/andrea/.build/omnetpp-6.1.0-linux-x86_64/omnetpp-6.1/include/omnetpp.h:
-Packet_m.h:
-common/common.h:
-common/../include/rapidjson/document.h:
-common/../include/rapidjson/reader.h:
-common/../include/rapidjson/allocators.h:
-common/../include/rapidjson/rapidjson.h:
-common/../include/rapidjson/internal/meta.h:
-common/../include/rapidjson/internal/../rapidjson.h:
-common/../include/rapidjson/stream.h:
-common/../include/rapidjson/encodings.h:
-common/../include/rapidjson/encodedstream.h:
-common/../include/rapidjson/memorystream.h:
-common/../include/rapidjson/internal/clzll.h:
-common/../include/rapidjson/internal/stack.h:
-common/../include/rapidjson/internal/../allocators.h:
-common/../include/rapidjson/internal/swap.h:
-common/../include/rapidjson/internal/strtod.h:
-common/../include/rapidjson/internal/ieee754.h:
-common/../include/rapidjson/internal/biginteger.h:
-common/../include/rapidjson/internal/diyfp.h:
-common/../include/rapidjson/internal/pow10.h:
-common/../include/rapidjson/error/error.h:
-common/../include/rapidjson/error/../rapidjson.h:
-common/../include/rapidjson/internal/strfunc.h:
-common/../include/rapidjson/internal/../stream.h:
-common/../include/rapidjson/stringbuffer.h:
-common/../include/rapidjson/writer.h:
-common/../include/rapidjson/internal/dtoa.h:
-common/../include/rapidjson/internal/itoa.h:
-common/../include/rapidjson/error/en.h:
-common/../def.h:
-TPM.h:
-clock/Clock.h:
-Communication_m.h:
-rsa/rsa_exchange.h:
-rsa/../common/common.h:
-rsa/../crypto_utils/crypto_utils.h:
-rsa/../crypto_utils/../common/common.h:
-ns/ns_exchange.h:
-ns/../common/common.h:
-ns/../crypto_utils/crypto_utils.h:
-ns/../aes/aes.h:
-ns/../aes/../common/common.h:
-ns/../aes/../crypto_utils/crypto_utils.h:
-aes/aes.h:
-crypto_utils/crypto_utils.h:
+src/Packet_m.h:
+src/common/common.h:
+src/common/../include/rapidjson/document.h:
+src/common/../include/rapidjson/reader.h:
+src/common/../include/rapidjson/allocators.h:
+src/common/../include/rapidjson/rapidjson.h:
+src/common/../include/rapidjson/internal/meta.h:
+src/common/../include/rapidjson/internal/../rapidjson.h:
+src/common/../include/rapidjson/stream.h:
+src/common/../include/rapidjson/encodings.h:
+src/common/../include/rapidjson/encodedstream.h:
+src/common/../include/rapidjson/memorystream.h:
+src/common/../include/rapidjson/internal/clzll.h:
+src/common/../include/rapidjson/internal/stack.h:
+src/common/../include/rapidjson/internal/../allocators.h:
+src/common/../include/rapidjson/internal/swap.h:
+src/common/../include/rapidjson/internal/strtod.h:
+src/common/../include/rapidjson/internal/ieee754.h:
+src/common/../include/rapidjson/internal/biginteger.h:
+src/common/../include/rapidjson/internal/diyfp.h:
+src/common/../include/rapidjson/internal/pow10.h:
+src/common/../include/rapidjson/error/error.h:
+src/common/../include/rapidjson/error/../rapidjson.h:
+src/common/../include/rapidjson/internal/strfunc.h:
+src/common/../include/rapidjson/internal/../stream.h:
+src/common/../include/rapidjson/stringbuffer.h:
+src/common/../include/rapidjson/writer.h:
+src/common/../include/rapidjson/internal/dtoa.h:
+src/common/../include/rapidjson/internal/itoa.h:
+src/common/../include/rapidjson/error/en.h:
+src/common/../def.h:
+src/TPM.h:
+src/clock/Clock.h:
+src/Communication_m.h:
+src/rsa/rsa_exchange.h:
+src/rsa/../common/common.h:
+src/rsa/../crypto_utils/crypto_utils.h:
+src/rsa/../crypto_utils/../common/common.h:
+src/rsa/../aes/aes.h:
+src/rsa/../aes/../common/common.h:
+src/rsa/../aes/../crypto_utils/crypto_utils.h:
+src/ns/ns_exchange.h:
+src/ns/../common/common.h:
+src/ns/../crypto_utils/crypto_utils.h:
+src/ns/../aes/aes.h:
+src/aes/aes.h:
+src/crypto_utils/crypto_utils.h:

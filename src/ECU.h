@@ -85,6 +85,7 @@ protected:
     void setStorageStatusDown(int id);      // sets the status of a storage device as down
 
     std::string *timestamp_b64;
+    std::time_t timestamp_hsm;
     std::unordered_map<std::tuple<std::time_t, int>, bool, TupleHash> used_nonces_rsa;  // structure holding used rsa messages nonces
     std::unordered_map<std::tuple<std::time_t, int>, bool, TupleHash> used_nonces_ns;   // structure holding used ns messages nonces
 

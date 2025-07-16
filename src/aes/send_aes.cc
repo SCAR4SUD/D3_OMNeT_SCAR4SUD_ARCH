@@ -1,7 +1,7 @@
 #include "aes.h"
 
 // Utilizzata per vecchia logica 
-AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t plaintext_len, unsigned char *aes_hsm_key) {
+AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t plaintext_len, unsigned char *aes_hsm_key, bool is_aes_128) {
     if (plaintext_len > MAX_PLAINTEXT_LEN)
         handle_errors("plaintext troppo lungo");
 
@@ -14,10 +14,15 @@ AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t p
 
     EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
     if (!ctx) handle_errors("allocazione EVP_CIPHER_CTX");
-
     int len;
-    if (EVP_EncryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr) != 1)
-        handle_errors("init AES GCM");
+
+    if(is_aes_128) {
+        if (EVP_EncryptInit_ex(ctx, EVP_aes_128_gcm(), nullptr, nullptr, nullptr) != 1)
+            handle_errors("init AES GCM 128");
+    }else {
+        if (EVP_EncryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr) != 1)
+            handle_errors("init AES GCM 256");
+    }
 
     if (EVP_EncryptInit_ex(ctx, nullptr, nullptr, aes_hsm_key, msg.iv) != 1)
         handle_errors("init chiave e IV");

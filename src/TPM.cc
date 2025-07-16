@@ -25,7 +25,7 @@ TPM::TPM(int id) {
         std::string self_key_b64;
         std::getline(file_public, self_key_b64);
 
-        std::cout << "self_key_b64: " << self_key_b64 << std::endl;
+        // std::cout << "self_key_b64: " << self_key_b64 << std::endl;
 
         base64_decode(self_key_b64, aes_self_key, AES_KEY_LEN);
     }

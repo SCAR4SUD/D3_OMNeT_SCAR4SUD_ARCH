@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250715-09:19:20-70362
+SB ov 1537 ev 2 rid General-0-20250716-20:18:10-157472
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -478,12 +478,6 @@ E # 38 t 0.004 m 9 ce 30 msg 49
 
 E # 39 t 0.004 m 10 ce 31 msg 50
 - INFO: [ECU-7] received session key from the HSM
-- INFO: [ECU-7] is sending Needham–Schroeder request to HSM to get session key with ECU-8
-CM id 56 tid 56 eid 56 etid 56 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_req m 10 pe 39
-SH sm 10 sg 3 pd 0.001
-ES id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_req sm 10 sg 3 st 0.004 am 2 ag 1048582 at 0.005 pe 39
-CL id 57 tid 56 eid 57 etid 56 c omnetpp::cMessage n hsm_ecu_key_req m 10 pe -1 cid 56
 
 E # 40 t 0.004 m 11 ce 32 msg 51
 - INFO: [ECU-8] received session key from the HSM
@@ -493,703 +487,630 @@ E # 41 t 0.005 m 2 ce 36 msg 52
 BS id 52 tid 52 eid 52 etid 52 c Packet n hsm_ecu_key_req m 2 pe 41
 SH sm 2 sg 5 pd 0.001
 ES id 52 tid 52 eid 52 etid 52 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 41
-CL id 57 tid 52 eid 57 etid 52 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 52
+CL id 56 tid 52 eid 56 etid 52 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 52
 
 E # 42 t 0.005 m 2 ce 36 msg 53
 - INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		4 -> 0[0m
 BS id 53 tid 53 eid 53 etid 53 c Packet n hsm_ecu_key_req m 2 pe 42
 SH sm 2 sg 5 pd 0.001
 ES id 53 tid 53 eid 53 etid 53 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 42
-CL id 57 tid 53 eid 57 etid 53 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 53
+CL id 56 tid 53 eid 56 etid 53 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 53
 
 E # 43 t 0.005 m 2 ce 36 msg 54
 - INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
 BS id 54 tid 54 eid 54 etid 54 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 43
 SH sm 2 sg 5 pd 0.001
 ES id 54 tid 54 eid 54 etid 54 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 43
-CL id 57 tid 54 eid 57 etid 54 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 54
+CL id 56 tid 54 eid 56 etid 54 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 54
 
 E # 44 t 0.005 m 2 ce 36 msg 55
 - INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
 BS id 55 tid 55 eid 55 etid 55 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 44
 SH sm 2 sg 5 pd 0.001
 ES id 55 tid 55 eid 55 etid 55 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 44
-CL id 57 tid 55 eid 57 etid 55 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 55
+CL id 56 tid 55 eid 56 etid 55 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 55
 
-E # 45 t 0.005 m 2 ce 39 msg 56
-- INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		7 -> 0[0m
-BS id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_req m 2 pe 45
-SH sm 2 sg 5 pd 0.001
-ES id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 45
-CL id 57 tid 56 eid 57 etid 56 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 56
+E # 45 t 0.006 m 3 ce 41 msg 52
+CM id 56 tid 56 eid 56 etid 56 c omnetpp::cMessage n hsm_ecu_key_res pe -1
+BS id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_res m 3 pe 45
+SH sm 3 sg 3 pd 0.001
+ES id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 45
+CL id 57 tid 56 eid 57 etid 56 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 56
+- INFO: HSM received ECU-ECU session key generation request from ECU-4
+DM id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 45
 
-E # 46 t 0.006 m 3 ce 41 msg 52
+E # 46 t 0.006 m 3 ce 42 msg 53
 CM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n hsm_ecu_key_res pe -1
 BS id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res m 3 pe 46
 SH sm 3 sg 3 pd 0.001
 ES id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 46
 CL id 58 tid 57 eid 58 etid 57 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 57
 - INFO: HSM received ECU-ECU session key generation request from ECU-4
-DM id 52 tid 52 eid 52 etid 52 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 46
+DM id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 46
 
-E # 47 t 0.006 m 3 ce 42 msg 53
-CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_res m 3 pe 47
+E # 47 t 0.006 m 3 ce 43 msg 54
+CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
+BS id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 47
 SH sm 3 sg 3 pd 0.001
-ES id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 47
-CL id 59 tid 58 eid 59 etid 58 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 58
-- INFO: HSM received ECU-ECU session key generation request from ECU-4
-DM id 53 tid 53 eid 53 etid 53 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 47
+ES id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 47
+CL id 59 tid 58 eid 59 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 58
+- INFO: HSM received route rule update from Infotainment
+DM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 47
 
-E # 48 t 0.006 m 3 ce 43 msg 54
+E # 48 t 0.006 m 3 ce 44 msg 55
 CM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
 BS id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 48
 SH sm 3 sg 3 pd 0.001
 ES id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 48
 CL id 60 tid 59 eid 60 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 59
 - INFO: HSM received route rule update from Infotainment
-DM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 48
+DM id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 48
 
-E # 49 t 0.006 m 3 ce 44 msg 55
-CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
-BS id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 49
-SH sm 3 sg 3 pd 0.001
-ES id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 49
-CL id 61 tid 60 eid 61 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 60
-- INFO: HSM received route rule update from Infotainment
-DM id 55 tid 55 eid 55 etid 55 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 49
-
-E # 50 t 0.006 m 3 ce 45 msg 56
-CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_res m 3 pe 50
-SH sm 3 sg 3 pd 0.001
-ES id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 50
-CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 61
-- INFO: HSM received ECU-ECU session key generation request from ECU-7
-DM id 56 tid 56 eid 56 etid 56 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 50
-
-E # 51 t 0.007 m 2 ce 46 msg 57
+E # 49 t 0.007 m 2 ce 45 msg 56
 - INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
-BS id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res m 2 pe 51
+BS id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_res m 2 pe 49
 SH sm 2 sg 2621443 pd 0.001
-ES id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 51
-CL id 62 tid 57 eid 62 etid 57 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 57
+ES id 56 tid 56 eid 56 etid 56 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 49
+CL id 60 tid 56 eid 60 etid 56 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 56
 
-E # 52 t 0.007 m 2 ce 47 msg 58
+E # 50 t 0.007 m 2 ce 46 msg 57
 - INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
-BS id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_res m 2 pe 52
+BS id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res m 2 pe 50
 SH sm 2 sg 2621443 pd 0.001
-ES id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 52
-CL id 62 tid 58 eid 62 etid 58 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 58
+ES id 57 tid 57 eid 57 etid 57 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 50
+CL id 60 tid 57 eid 60 etid 57 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 57
 
-E # 53 t 0.007 m 2 ce 48 msg 59
+E # 51 t 0.007 m 2 ce 47 msg 58
 - INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
 
-E # 54 t 0.007 m 2 ce 49 msg 60
+E # 52 t 0.007 m 2 ce 48 msg 59
 - INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
 
-E # 55 t 0.007 m 2 ce 50 msg 61
-- INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 7[0m
-BS id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_res m 2 pe 55
-SH sm 2 sg 2621446 pd 0.001
-ES id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_res sm 2 sg 2621446 st 0.007 am 10 ag 0 at 0.008 pe 55
-CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 61
-
-E # 56 t 0.008 m 7 ce 51 msg 57
-CM id 62 tid 62 eid 62 etid 62 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 62 tid 62 eid 62 etid 62 c Packet n ecu_ticket m 7 pe 56
+E # 53 t 0.008 m 7 ce 49 msg 56
+CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n ecu_ticket pe -1
+BS id 60 tid 60 eid 60 etid 60 c Packet n ecu_ticket m 7 pe 53
 SH sm 7 sg 1 pd 0.001
-ES id 62 tid 62 eid 62 etid 62 c Packet n ecu_ticket sm 7 sg 1 st 0.008 am 2 ag 1048579 at 0.009 pe 56
-CL id 63 tid 62 eid 63 etid 62 c omnetpp::cMessage n ecu_ticket m 7 pe -1 cid 62
+ES id 60 tid 60 eid 60 etid 60 c Packet n ecu_ticket sm 7 sg 1 st 0.008 am 2 ag 1048579 at 0.009 pe 53
+CL id 61 tid 60 eid 61 etid 60 c omnetpp::cMessage n ecu_ticket m 7 pe -1 cid 60
 - INFO: [ECU-4] received Needham–Schroeder session key with ECU-7
 - INFO: [ECU-4] is sending ticket to ECU-7
 
-E # 57 t 0.008 m 7 ce 52 msg 58
-CM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 63 tid 63 eid 63 etid 63 c Packet n ecu_ticket m 7 pe 57
+E # 54 t 0.008 m 7 ce 50 msg 57
+CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n ecu_ticket pe -1
+BS id 61 tid 61 eid 61 etid 61 c Packet n ecu_ticket m 7 pe 54
 SH sm 7 sg 1 pd 0.001
-ES id 63 tid 63 eid 63 etid 63 c Packet n ecu_ticket sm 7 sg 1 st 0.008 am 2 ag 1048579 at 0.009 pe 57
-CL id 64 tid 63 eid 64 etid 63 c omnetpp::cMessage n ecu_ticket m 7 pe -1 cid 63
+ES id 61 tid 61 eid 61 etid 61 c Packet n ecu_ticket sm 7 sg 1 st 0.008 am 2 ag 1048579 at 0.009 pe 54
+CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n ecu_ticket m 7 pe -1 cid 61
 - INFO: [ECU-4] received Needham–Schroeder session key with ECU-8
 - INFO: [ECU-4] is sending ticket to ECU-8
 
-E # 58 t 0.008 m 10 ce 55 msg 61
-CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n ecu_ticket pe -1
-BS id 64 tid 64 eid 64 etid 64 c Packet n ecu_ticket m 10 pe 58
-SH sm 10 sg 3 pd 0.001
-ES id 64 tid 64 eid 64 etid 64 c Packet n ecu_ticket sm 10 sg 3 st 0.008 am 2 ag 1048582 at 0.009 pe 58
-CL id 65 tid 64 eid 65 etid 64 c omnetpp::cMessage n ecu_ticket m 10 pe -1 cid 64
-- INFO: [ECU-7] received Needham–Schroeder session key with ECU-8
-- INFO: [ECU-7] is sending ticket to ECU-8
-
-E # 59 t 0.009 m 2 ce 56 msg 62
+E # 55 t 0.009 m 2 ce 53 msg 60
 - INFO: [36m[Gateway] packet "ecu_ticket"(4):		4 -> 7[0m
-BS id 62 tid 62 eid 62 etid 62 c Packet n ecu_ticket m 2 pe 59
+BS id 60 tid 60 eid 60 etid 60 c Packet n ecu_ticket m 2 pe 55
 SH sm 2 sg 2621446 pd 0.001
-ES id 62 tid 62 eid 62 etid 62 c Packet n ecu_ticket sm 2 sg 2621446 st 0.009 am 10 ag 0 at 0.01 pe 59
-CL id 65 tid 62 eid 65 etid 62 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 62
+ES id 60 tid 60 eid 60 etid 60 c Packet n ecu_ticket sm 2 sg 2621446 st 0.009 am 10 ag 0 at 0.01 pe 55
+CL id 62 tid 60 eid 62 etid 60 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 60
 
-E # 60 t 0.009 m 2 ce 57 msg 63
+E # 56 t 0.009 m 2 ce 54 msg 61
 - INFO: [36m[Gateway] packet "ecu_ticket"(4):		4 -> 8[0m
-BS id 63 tid 63 eid 63 etid 63 c Packet n ecu_ticket m 2 pe 60
+BS id 61 tid 61 eid 61 etid 61 c Packet n ecu_ticket m 2 pe 56
 SH sm 2 sg 2621447 pd 0.001
-ES id 63 tid 63 eid 63 etid 63 c Packet n ecu_ticket sm 2 sg 2621447 st 0.009 am 11 ag 0 at 0.01 pe 60
-CL id 65 tid 63 eid 65 etid 63 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 63
+ES id 61 tid 61 eid 61 etid 61 c Packet n ecu_ticket sm 2 sg 2621447 st 0.009 am 11 ag 0 at 0.01 pe 56
+CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 61
 
-E # 61 t 0.009 m 2 ce 58 msg 64
-- INFO: [36m[Gateway] packet "ecu_ticket"(4):		7 -> 8[0m
-BS id 64 tid 64 eid 64 etid 64 c Packet n ecu_ticket m 2 pe 61
-SH sm 2 sg 2621447 pd 0.001
-ES id 64 tid 64 eid 64 etid 64 c Packet n ecu_ticket sm 2 sg 2621447 st 0.009 am 11 ag 0 at 0.01 pe 61
-CL id 65 tid 64 eid 65 etid 64 c omnetpp::cMessage n ecu_ticket m 2 pe -1 cid 64
-
-E # 62 t 0.01 m 10 ce 59 msg 62
+E # 57 t 0.01 m 10 ce 55 msg 60
 - INFO: [ECU-7] received session key with ECU-4
 - INFO: [ECU-7] is sending challenge to ECU-4
-CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
-BS id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_REQUEST m 10 pe 62
+CM id 62 tid 62 eid 62 etid 62 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
+BS id 62 tid 62 eid 62 etid 62 c Packet n NS_CHALLENGE_REQUEST m 10 pe 57
 SH sm 10 sg 3 pd 0.001
-ES id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_REQUEST sm 10 sg 3 st 0.01 am 2 ag 1048582 at 0.011 pe 62
-CL id 66 tid 65 eid 66 etid 65 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 10 pe -1 cid 65
+ES id 62 tid 62 eid 62 etid 62 c Packet n NS_CHALLENGE_REQUEST sm 10 sg 3 st 0.01 am 2 ag 1048582 at 0.011 pe 57
+CL id 63 tid 62 eid 63 etid 62 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 10 pe -1 cid 62
 
-E # 63 t 0.01 m 11 ce 60 msg 63
+E # 58 t 0.01 m 11 ce 56 msg 61
 - INFO: [ECU-8] received session key with ECU-4
 - INFO: [ECU-8] is sending challenge to ECU-4
-CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
-BS id 66 tid 66 eid 66 etid 66 c Packet n NS_CHALLENGE_REQUEST m 11 pe 63
+CM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
+BS id 63 tid 63 eid 63 etid 63 c Packet n NS_CHALLENGE_REQUEST m 11 pe 58
 SH sm 11 sg 3 pd 0.001
-ES id 66 tid 66 eid 66 etid 66 c Packet n NS_CHALLENGE_REQUEST sm 11 sg 3 st 0.01 am 2 ag 1048583 at 0.011 pe 63
-CL id 67 tid 66 eid 67 etid 66 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 11 pe -1 cid 66
+ES id 63 tid 63 eid 63 etid 63 c Packet n NS_CHALLENGE_REQUEST sm 11 sg 3 st 0.01 am 2 ag 1048583 at 0.011 pe 58
+CL id 64 tid 63 eid 64 etid 63 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 11 pe -1 cid 63
 
-E # 64 t 0.01 m 11 ce 61 msg 64
-- INFO: [ECU-8] received session key with ECU-7
-- INFO: [ECU-8] is sending challenge to ECU-7
-CM id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n NS_CHALLENGE_REQUEST pe -1
-BS id 67 tid 67 eid 67 etid 67 c Packet n NS_CHALLENGE_REQUEST m 11 pe 64
-SH sm 11 sg 3 pd 0.001
-ES id 67 tid 67 eid 67 etid 67 c Packet n NS_CHALLENGE_REQUEST sm 11 sg 3 st 0.01 am 2 ag 1048583 at 0.011 pe 64
-CL id 68 tid 67 eid 68 etid 67 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 11 pe -1 cid 67
-
-E # 65 t 0.011 m 2 ce 62 msg 65
+E # 59 t 0.011 m 2 ce 57 msg 62
 - INFO: [36m[Gateway] packet "NS_CHALLENGE_REQUEST"(5):		7 -> 4[0m
-BS id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_REQUEST m 2 pe 65
+BS id 62 tid 62 eid 62 etid 62 c Packet n NS_CHALLENGE_REQUEST m 2 pe 59
 SH sm 2 sg 2621443 pd 0.001
-ES id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_REQUEST sm 2 sg 2621443 st 0.011 am 7 ag 2 at 0.012 pe 65
-CL id 68 tid 65 eid 68 etid 65 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe -1 cid 65
+ES id 62 tid 62 eid 62 etid 62 c Packet n NS_CHALLENGE_REQUEST sm 2 sg 2621443 st 0.011 am 7 ag 2 at 0.012 pe 59
+CL id 64 tid 62 eid 64 etid 62 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe -1 cid 62
 
-E # 66 t 0.011 m 2 ce 63 msg 66
+E # 60 t 0.011 m 2 ce 58 msg 63
 - INFO: [36m[Gateway] packet "NS_CHALLENGE_REQUEST"(5):		8 -> 4[0m
-BS id 66 tid 66 eid 66 etid 66 c Packet n NS_CHALLENGE_REQUEST m 2 pe 66
+BS id 63 tid 63 eid 63 etid 63 c Packet n NS_CHALLENGE_REQUEST m 2 pe 60
 SH sm 2 sg 2621443 pd 0.001
-ES id 66 tid 66 eid 66 etid 66 c Packet n NS_CHALLENGE_REQUEST sm 2 sg 2621443 st 0.011 am 7 ag 2 at 0.012 pe 66
-CL id 68 tid 66 eid 68 etid 66 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe -1 cid 66
+ES id 63 tid 63 eid 63 etid 63 c Packet n NS_CHALLENGE_REQUEST sm 2 sg 2621443 st 0.011 am 7 ag 2 at 0.012 pe 60
+CL id 64 tid 63 eid 64 etid 63 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe -1 cid 63
 
-E # 67 t 0.011 m 2 ce 64 msg 67
-- INFO: [36m[Gateway] packet "NS_CHALLENGE_REQUEST"(5):		8 -> 7[0m
-BS id 67 tid 67 eid 67 etid 67 c Packet n NS_CHALLENGE_REQUEST m 2 pe 67
-SH sm 2 sg 2621446 pd 0.001
-ES id 67 tid 67 eid 67 etid 67 c Packet n NS_CHALLENGE_REQUEST sm 2 sg 2621446 st 0.011 am 10 ag 0 at 0.012 pe 67
-CL id 68 tid 67 eid 68 etid 67 c omnetpp::cMessage n NS_CHALLENGE_REQUEST m 2 pe -1 cid 67
-
-E # 68 t 0.012 m 7 ce 65 msg 65
-CM id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
+E # 61 t 0.012 m 7 ce 59 msg 62
+CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
 - INFO: [ECU-4] is sending challenge response to ECU-7
-BS id 68 tid 68 eid 68 etid 68 c Packet n NS_CHALLENGE_RESPONSE m 7 pe 68
+BS id 64 tid 64 eid 64 etid 64 c Packet n NS_CHALLENGE_RESPONSE m 7 pe 61
 SH sm 7 sg 1 pd 0.001
-ES id 68 tid 68 eid 68 etid 68 c Packet n NS_CHALLENGE_RESPONSE sm 7 sg 1 st 0.012 am 2 ag 1048579 at 0.013 pe 68
-CL id 69 tid 68 eid 69 etid 68 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 7 pe -1 cid 68
-BS id 15 tid 15 eid 15 etid 15 c Packet n SELF_SendDataSignal sm 7 st 0.012 am 7 at 3.012 pe 68
-ES id 15 tid 15 eid 15 etid 15 c Packet n SELF_SendDataSignal sm 7 st 0.012 am 7 at 3.012 pe 68
+ES id 64 tid 64 eid 64 etid 64 c Packet n NS_CHALLENGE_RESPONSE sm 7 sg 1 st 0.012 am 2 ag 1048579 at 0.013 pe 61
+CL id 65 tid 64 eid 65 etid 64 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 7 pe -1 cid 64
+BS id 15 tid 15 eid 15 etid 15 c Packet n SELF_SendDataSignal sm 7 st 0.012 am 7 at 3.012 pe 61
+ES id 15 tid 15 eid 15 etid 15 c Packet n SELF_SendDataSignal sm 7 st 0.012 am 7 at 3.012 pe 61
 
-E # 69 t 0.012 m 7 ce 66 msg 66
-CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
+E # 62 t 0.012 m 7 ce 60 msg 63
+CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
 - INFO: [ECU-4] is sending challenge response to ECU-8
-BS id 69 tid 69 eid 69 etid 69 c Packet n NS_CHALLENGE_RESPONSE m 7 pe 69
+BS id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_RESPONSE m 7 pe 62
 SH sm 7 sg 1 pd 0.001
-ES id 69 tid 69 eid 69 etid 69 c Packet n NS_CHALLENGE_RESPONSE sm 7 sg 1 st 0.012 am 2 ag 1048579 at 0.013 pe 69
-CL id 70 tid 69 eid 70 etid 69 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 7 pe -1 cid 69
+ES id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_RESPONSE sm 7 sg 1 st 0.012 am 2 ag 1048579 at 0.013 pe 62
+CL id 66 tid 65 eid 66 etid 65 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 7 pe -1 cid 65
 
-E # 70 t 0.012 m 10 ce 67 msg 67
-CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE pe -1
-- INFO: [ECU-7] is sending challenge response to ECU-8
-BS id 70 tid 70 eid 70 etid 70 c Packet n NS_CHALLENGE_RESPONSE m 10 pe 70
-SH sm 10 sg 3 pd 0.001
-ES id 70 tid 70 eid 70 etid 70 c Packet n NS_CHALLENGE_RESPONSE sm 10 sg 3 st 0.012 am 2 ag 1048582 at 0.013 pe 70
-CL id 71 tid 70 eid 71 etid 70 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 10 pe -1 cid 70
-
-E # 71 t 0.013 m 2 ce 68 msg 68
+E # 63 t 0.013 m 2 ce 61 msg 64
 - INFO: [36m[Gateway] packet "NS_CHALLENGE_RESPONSE"(6):		4 -> 7[0m
-BS id 68 tid 68 eid 68 etid 68 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 71
+BS id 64 tid 64 eid 64 etid 64 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 63
 SH sm 2 sg 2621446 pd 0.001
-ES id 68 tid 68 eid 68 etid 68 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621446 st 0.013 am 10 ag 0 at 0.014 pe 71
-CL id 71 tid 68 eid 71 etid 68 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 68
+ES id 64 tid 64 eid 64 etid 64 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621446 st 0.013 am 10 ag 0 at 0.014 pe 63
+CL id 66 tid 64 eid 66 etid 64 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 64
 
-E # 72 t 0.013 m 2 ce 69 msg 69
+E # 64 t 0.013 m 2 ce 62 msg 65
 - INFO: [36m[Gateway] packet "NS_CHALLENGE_RESPONSE"(6):		4 -> 8[0m
-BS id 69 tid 69 eid 69 etid 69 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 72
+BS id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 64
 SH sm 2 sg 2621447 pd 0.001
-ES id 69 tid 69 eid 69 etid 69 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621447 st 0.013 am 11 ag 0 at 0.014 pe 72
-CL id 71 tid 69 eid 71 etid 69 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 69
+ES id 65 tid 65 eid 65 etid 65 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621447 st 0.013 am 11 ag 0 at 0.014 pe 64
+CL id 66 tid 65 eid 66 etid 65 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 65
 
-E # 73 t 0.013 m 2 ce 70 msg 70
-- INFO: [36m[Gateway] packet "NS_CHALLENGE_RESPONSE"(6):		7 -> 8[0m
-BS id 70 tid 70 eid 70 etid 70 c Packet n NS_CHALLENGE_RESPONSE m 2 pe 73
-SH sm 2 sg 2621447 pd 0.001
-ES id 70 tid 70 eid 70 etid 70 c Packet n NS_CHALLENGE_RESPONSE sm 2 sg 2621447 st 0.013 am 11 ag 0 at 0.014 pe 73
-CL id 71 tid 70 eid 71 etid 70 c omnetpp::cMessage n NS_CHALLENGE_RESPONSE m 2 pe -1 cid 70
-
-E # 74 t 0.014 m 10 ce 71 msg 68
+E # 65 t 0.014 m 10 ce 63 msg 64
 - INFO: [ECU-7] verified successful challenge from ECU-4
 
-E # 75 t 0.014 m 11 ce 72 msg 69
+E # 66 t 0.014 m 11 ce 64 msg 65
 - INFO: [ECU-8] verified successful challenge from ECU-4
 
-E # 76 t 0.014 m 11 ce 73 msg 70
-- INFO: [ECU-8] verified successful challenge from ECU-7
-
-E # 77 t 3.012 m 7 ce 68 msg 15
-CM id 71 tid 71 eid 71 etid 71 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"value":"data","tag":0,"date":"2025-07-15T09:19:27Z","privacy_level":1}
-CL id 72 tid 71 eid 72 etid 71 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 71
-BS id 71 tid 71 eid 71 etid 71 c Packet n DATA_STORE m 7 pe 77
+E # 67 t 3.012 m 7 ce 61 msg 15
+CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n DATA_STORE pe -1
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"value":"data","tag":0,"date":"2025-07-16T20:18:59Z","privacy_level":1}
+CL id 67 tid 66 eid 67 etid 66 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 66
+BS id 66 tid 66 eid 66 etid 66 c Packet n DATA_STORE m 7 pe 67
 SH sm 7 sg 1 pd 0.001
-ES id 71 tid 71 eid 71 etid 71 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 77
-CL id 73 tid 71 eid 73 etid 71 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 71
-BS id 72 tid 71 eid 72 etid 71 c Packet n DATA_STORE m 7 pe 77
+ES id 66 tid 66 eid 66 etid 66 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 67
+CL id 68 tid 66 eid 68 etid 66 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 66
+BS id 67 tid 66 eid 67 etid 66 c Packet n DATA_STORE m 7 pe 67
 SH sm 7 sg 1 pd 0.001
-ES id 72 tid 71 eid 72 etid 71 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 77
-CL id 73 tid 71 eid 73 etid 71 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 72
-BS id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 3.012 am 7 at 11.012 pe 77
-ES id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 3.012 am 7 at 11.012 pe 77
+ES id 67 tid 66 eid 67 etid 66 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 67
+CL id 68 tid 66 eid 68 etid 66 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 67
+BS id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 3.012 am 7 at 11.012 pe 67
+ES id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 3.012 am 7 at 11.012 pe 67
 
-E # 78 t 3.013 m 2 ce 77 msg 71
+E # 68 t 3.013 m 2 ce 67 msg 66
 - INFO: [36m[Gateway] packet "DATA_STORE"(9):		4 -> 7[0m
-CM id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n GATEWAY_PING pe -1
-BS id 73 tid 73 eid 73 etid 73 c Packet n GATEWAY_PING m 2 pe 78
+CM id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 68 tid 68 eid 68 etid 68 c Packet n GATEWAY_PING m 2 pe 68
 SH sm 2 sg 2621446 pd 0.001
-ES id 73 tid 73 eid 73 etid 73 c Packet n GATEWAY_PING sm 2 sg 2621446 st 3.013 am 10 ag 0 at 3.014 pe 78
-CL id 74 tid 73 eid 74 etid 73 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 73
-CL id 74 tid 0 eid 74 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
-BS id 74 tid 0 eid 74 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 78
-ES id 74 tid 0 eid 74 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 78
-BS id 71 tid 71 eid 71 etid 71 c Packet n DATA_STORE m 2 pe 78
+ES id 68 tid 68 eid 68 etid 68 c Packet n GATEWAY_PING sm 2 sg 2621446 st 3.013 am 10 ag 0 at 3.014 pe 68
+CL id 69 tid 68 eid 69 etid 68 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 68
+CL id 69 tid 0 eid 69 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 69 tid 0 eid 69 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 68
+ES id 69 tid 0 eid 69 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 68
+BS id 66 tid 66 eid 66 etid 66 c Packet n DATA_STORE m 2 pe 68
 SH sm 2 sg 2621446 pd 0.001
-ES id 71 tid 71 eid 71 etid 71 c Packet n DATA_STORE sm 2 sg 2621446 st 3.013 am 10 ag 0 at 3.014 pe 78
-CL id 75 tid 71 eid 75 etid 71 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 71
+ES id 66 tid 66 eid 66 etid 66 c Packet n DATA_STORE sm 2 sg 2621446 st 3.013 am 10 ag 0 at 3.014 pe 68
+CL id 70 tid 66 eid 70 etid 66 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 66
 
-E # 79 t 3.013 m 2 ce 77 msg 72
+E # 69 t 3.013 m 2 ce 67 msg 67
 - INFO: [36m[Gateway] packet "DATA_STORE"(9):		4 -> 8[0m
-CM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n GATEWAY_PING pe -1
-BS id 75 tid 75 eid 75 etid 75 c Packet n GATEWAY_PING m 2 pe 79
+CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 70 tid 70 eid 70 etid 70 c Packet n GATEWAY_PING m 2 pe 69
 SH sm 2 sg 2621447 pd 0.001
-ES id 75 tid 75 eid 75 etid 75 c Packet n GATEWAY_PING sm 2 sg 2621447 st 3.013 am 11 ag 0 at 3.014 pe 79
-CL id 76 tid 75 eid 76 etid 75 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 75
-CL id 76 tid 0 eid 76 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
-BS id 76 tid 0 eid 76 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 79
-ES id 76 tid 0 eid 76 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 79
-BS id 72 tid 71 eid 72 etid 71 c Packet n DATA_STORE m 2 pe 79
+ES id 70 tid 70 eid 70 etid 70 c Packet n GATEWAY_PING sm 2 sg 2621447 st 3.013 am 11 ag 0 at 3.014 pe 69
+CL id 71 tid 70 eid 71 etid 70 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 70
+CL id 71 tid 0 eid 71 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 71 tid 0 eid 71 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 69
+ES id 71 tid 0 eid 71 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 3.013 am 2 at 4.013 pe 69
+BS id 67 tid 66 eid 67 etid 66 c Packet n DATA_STORE m 2 pe 69
 SH sm 2 sg 2621447 pd 0.001
-ES id 72 tid 71 eid 72 etid 71 c Packet n DATA_STORE sm 2 sg 2621447 st 3.013 am 11 ag 0 at 3.014 pe 79
-CL id 77 tid 71 eid 77 etid 71 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 72
+ES id 67 tid 66 eid 67 etid 66 c Packet n DATA_STORE sm 2 sg 2621447 st 3.013 am 11 ag 0 at 3.014 pe 69
+CL id 72 tid 66 eid 72 etid 66 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 67
 
-E # 80 t 3.014 m 10 ce 78 msg 73
+E # 70 t 3.014 m 10 ce 68 msg 68
 - INFO: [Storage (ECU 7)] Received Ping. Sending pong.
-CM id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n GATEWAY_PONG pe -1
-BS id 77 tid 77 eid 77 etid 77 c Packet n GATEWAY_PONG m 10 pe 80
+CM id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 72 tid 72 eid 72 etid 72 c Packet n GATEWAY_PONG m 10 pe 70
 SH sm 10 sg 3 pd 0.001
-ES id 77 tid 77 eid 77 etid 77 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 am 2 ag 1048582 at 3.015 pe 80
-CL id 78 tid 77 eid 78 etid 77 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 77
+ES id 72 tid 72 eid 72 etid 72 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 am 2 ag 1048582 at 3.015 pe 70
+CL id 73 tid 72 eid 73 etid 72 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 72
 
-E # 81 t 3.014 m 10 ce 78 msg 71
+E # 71 t 3.014 m 10 ce 68 msg 66
 
-E # 82 t 3.014 m 11 ce 79 msg 75
+E # 72 t 3.014 m 11 ce 69 msg 70
 - INFO: [Storage (ECU 8)] Received Ping. Sending pong.
-CM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n GATEWAY_PONG pe -1
-BS id 78 tid 78 eid 78 etid 78 c Packet n GATEWAY_PONG m 11 pe 82
+CM id 73 tid 73 eid 73 etid 73 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 73 tid 73 eid 73 etid 73 c Packet n GATEWAY_PONG m 11 pe 72
 SH sm 11 sg 3 pd 0.001
-ES id 78 tid 78 eid 78 etid 78 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 am 2 ag 1048583 at 3.015 pe 82
-CL id 79 tid 78 eid 79 etid 78 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 78
+ES id 73 tid 73 eid 73 etid 73 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 am 2 ag 1048583 at 3.015 pe 72
+CL id 74 tid 73 eid 74 etid 73 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 73
 
-E # 83 t 3.014 m 11 ce 79 msg 72
+E # 73 t 3.014 m 11 ce 69 msg 67
 
-E # 84 t 3.015 m 2 ce 80 msg 77
+E # 74 t 3.015 m 2 ce 70 msg 72
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
 - INFO: [Gateway] received store (ECU 7) pong
 
-E # 85 t 3.015 m 2 ce 82 msg 78
+E # 75 t 3.015 m 2 ce 72 msg 73
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
 - INFO: [Gateway] received store (ECU 8) pong
 
-E # 86 t 4.013 m 2 ce 78 msg 74
+E # 76 t 4.013 m 2 ce 68 msg 69
 - INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		7 -> -2[0m
 - INFO: [Gateway] received store (ECU 7) pong
 
-E # 87 t 4.013 m 2 ce 79 msg 76
+E # 77 t 4.013 m 2 ce 69 msg 71
 - INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
 - INFO: [Gateway] received store (ECU 8) pong
 
-E # 88 t 9 m 10 ce 0 msg 29
+E # 78 t 9 m 10 ce 0 msg 29
 MDC id 10 d i=,red;p=835,721;is=m
 MDC id 10 d t=FAILED;i=,red;p=835,721;is=m
 MDC id 10 d t=FAILED,,red;i=,red;p=835,721;is=m
 CD sm 10 sg 3
 
-E # 89 t 10 m 4 ce 0 msg 2
+E # 79 t 10 m 4 ce 0 msg 2
 - INFO: [ECU-1] sent clock synchronization request to the HMS
-CM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST m 4 pe 89
+CM id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 74 tid 74 eid 74 etid 74 c Packet n SYNC_CLOCK_REQUEST m 4 pe 79
 SH sm 4 sg 1 pd 0.001
-ES id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 10 am 2 ag 1048576 at 10.001 pe 89
-CL id 80 tid 79 eid 80 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 79
-BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 10 am 4 at 15 pe 89
-ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 10 am 4 at 15 pe 89
+ES id 74 tid 74 eid 74 etid 74 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 10 am 2 ag 1048576 at 10.001 pe 79
+CL id 75 tid 74 eid 75 etid 74 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 74
+BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 10 am 4 at 15 pe 79
+ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 10 am 4 at 15 pe 79
 
-E # 90 t 10 m 5 ce 0 msg 6
+E # 80 t 10 m 5 ce 0 msg 6
 - INFO: [ECU-2] sent clock synchronization request to the HMS
-CM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST m 5 pe 90
+CM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 75 tid 75 eid 75 etid 75 c Packet n SYNC_CLOCK_REQUEST m 5 pe 80
 SH sm 5 sg 1 pd 0.001
-ES id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 10 am 2 ag 1048577 at 10.001 pe 90
-CL id 81 tid 80 eid 81 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 80
-BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 10 am 5 at 15 pe 90
-ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 10 am 5 at 15 pe 90
+ES id 75 tid 75 eid 75 etid 75 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 10 am 2 ag 1048577 at 10.001 pe 80
+CL id 76 tid 75 eid 76 etid 75 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 75
+BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 10 am 5 at 15 pe 80
+ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 10 am 5 at 15 pe 80
 
-E # 91 t 10 m 6 ce 0 msg 10
+E # 81 t 10 m 6 ce 0 msg 10
 - INFO: [ECU-3] sent clock synchronization request to the HMS
-CM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_REQUEST m 6 pe 91
+CM id 76 tid 76 eid 76 etid 76 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 76 tid 76 eid 76 etid 76 c Packet n SYNC_CLOCK_REQUEST m 6 pe 81
 SH sm 6 sg 1 pd 0.001
-ES id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 10 am 2 ag 1048578 at 10.001 pe 91
-CL id 82 tid 81 eid 82 etid 81 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 81
-BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 10 am 6 at 15 pe 91
-ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 10 am 6 at 15 pe 91
+ES id 76 tid 76 eid 76 etid 76 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 10 am 2 ag 1048578 at 10.001 pe 81
+CL id 77 tid 76 eid 77 etid 76 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 76
+BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 10 am 6 at 15 pe 81
+ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 10 am 6 at 15 pe 81
 
-E # 92 t 10 m 7 ce 0 msg 14
+E # 82 t 10 m 7 ce 0 msg 14
 - INFO: [ECU-4] sent clock synchronization request to the HMS
-CM id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_REQUEST m 7 pe 92
+CM id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 77 tid 77 eid 77 etid 77 c Packet n SYNC_CLOCK_REQUEST m 7 pe 82
 SH sm 7 sg 1 pd 0.001
-ES id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 10 am 2 ag 1048579 at 10.001 pe 92
-CL id 83 tid 82 eid 83 etid 82 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 82
-BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 10 am 7 at 15 pe 92
-ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 10 am 7 at 15 pe 92
+ES id 77 tid 77 eid 77 etid 77 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 10 am 2 ag 1048579 at 10.001 pe 82
+CL id 78 tid 77 eid 78 etid 77 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 77
+BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 10 am 7 at 15 pe 82
+ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 10 am 7 at 15 pe 82
 
-E # 93 t 10 m 8 ce 0 msg 18
+E # 83 t 10 m 8 ce 0 msg 18
 - INFO: [ECU-5] sent clock synchronization request to the HMS
-CM id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_REQUEST m 8 pe 93
+CM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 78 tid 78 eid 78 etid 78 c Packet n SYNC_CLOCK_REQUEST m 8 pe 83
 SH sm 8 sg 1 pd 0.001
-ES id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 10 am 2 ag 1048580 at 10.001 pe 93
-CL id 84 tid 83 eid 84 etid 83 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 83
-BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 10 am 8 at 15 pe 93
-ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 10 am 8 at 15 pe 93
+ES id 78 tid 78 eid 78 etid 78 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 10 am 2 ag 1048580 at 10.001 pe 83
+CL id 79 tid 78 eid 79 etid 78 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 78
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 10 am 8 at 15 pe 83
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 10 am 8 at 15 pe 83
 
-E # 94 t 10 m 9 ce 0 msg 22
+E # 84 t 10 m 9 ce 0 msg 22
 - INFO: [ECU-6] sent clock synchronization request to the HMS
-CM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_REQUEST m 9 pe 94
+CM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST m 9 pe 84
 SH sm 9 sg 1 pd 0.001
-ES id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 10 am 2 ag 1048581 at 10.001 pe 94
-CL id 85 tid 84 eid 85 etid 84 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 84
-BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 10 am 9 at 15 pe 94
-ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 10 am 9 at 15 pe 94
+ES id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 10 am 2 ag 1048581 at 10.001 pe 84
+CL id 80 tid 79 eid 80 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 79
+BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 10 am 9 at 15 pe 84
+ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 10 am 9 at 15 pe 84
 
-E # 95 t 10 m 10 ce 0 msg 26
+E # 85 t 10 m 10 ce 0 msg 26
 - INFO: [info] id: 7 is not receiving packets
 
-E # 96 t 10 m 11 ce 0 msg 32
+E # 86 t 10 m 11 ce 0 msg 32
 - INFO: [ECU-8] sent clock synchronization request to the HMS
-CM id 85 tid 85 eid 85 etid 85 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_REQUEST m 11 pe 96
+CM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST m 11 pe 86
 SH sm 11 sg 3 pd 0.001
-ES id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 10 am 2 ag 1048583 at 10.001 pe 96
-CL id 86 tid 85 eid 86 etid 85 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 85
-BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 10 am 11 at 15 pe 96
-ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 10 am 11 at 15 pe 96
+ES id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 10 am 2 ag 1048583 at 10.001 pe 86
+CL id 81 tid 80 eid 81 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 80
+BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 10 am 11 at 15 pe 86
+ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 10 am 11 at 15 pe 86
 
-E # 97 t 10.001 m 2 ce 89 msg 79
+E # 87 t 10.001 m 2 ce 79 msg 74
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		1 -> 0[0m
-BS id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST m 2 pe 97
+BS id 74 tid 74 eid 74 etid 74 c Packet n SYNC_CLOCK_REQUEST m 2 pe 87
 SH sm 2 sg 5 pd 0.001
-ES id 79 tid 79 eid 79 etid 79 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 97
-CL id 86 tid 79 eid 86 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 79
+ES id 74 tid 74 eid 74 etid 74 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 87
+CL id 81 tid 74 eid 81 etid 74 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 74
 
-E # 98 t 10.001 m 2 ce 90 msg 80
+E # 88 t 10.001 m 2 ce 80 msg 75
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		2 -> 0[0m
-BS id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST m 2 pe 98
+BS id 75 tid 75 eid 75 etid 75 c Packet n SYNC_CLOCK_REQUEST m 2 pe 88
 SH sm 2 sg 5 pd 0.001
-ES id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 98
-CL id 86 tid 80 eid 86 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 80
+ES id 75 tid 75 eid 75 etid 75 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 88
+CL id 81 tid 75 eid 81 etid 75 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 75
 
-E # 99 t 10.001 m 2 ce 91 msg 81
+E # 89 t 10.001 m 2 ce 81 msg 76
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		3 -> 0[0m
-BS id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_REQUEST m 2 pe 99
+BS id 76 tid 76 eid 76 etid 76 c Packet n SYNC_CLOCK_REQUEST m 2 pe 89
 SH sm 2 sg 5 pd 0.001
-ES id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 99
-CL id 86 tid 81 eid 86 etid 81 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 81
+ES id 76 tid 76 eid 76 etid 76 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 89
+CL id 81 tid 76 eid 81 etid 76 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 76
 
-E # 100 t 10.001 m 2 ce 92 msg 82
+E # 90 t 10.001 m 2 ce 82 msg 77
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		4 -> 0[0m
-BS id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_REQUEST m 2 pe 100
+BS id 77 tid 77 eid 77 etid 77 c Packet n SYNC_CLOCK_REQUEST m 2 pe 90
 SH sm 2 sg 5 pd 0.001
-ES id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 100
-CL id 86 tid 82 eid 86 etid 82 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 82
+ES id 77 tid 77 eid 77 etid 77 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 90
+CL id 81 tid 77 eid 81 etid 77 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 77
 
-E # 101 t 10.001 m 2 ce 93 msg 83
+E # 91 t 10.001 m 2 ce 83 msg 78
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		5 -> 0[0m
 - INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 5 and destination: 0
-DM id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 101
+DM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 91
 
-E # 102 t 10.001 m 2 ce 94 msg 84
+E # 92 t 10.001 m 2 ce 84 msg 79
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		6 -> 0[0m
 - INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 6 and destination: 0
-DM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 102
+DM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 92
 
-E # 103 t 10.001 m 2 ce 96 msg 85
+E # 93 t 10.001 m 2 ce 86 msg 80
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		8 -> 0[0m
-BS id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_REQUEST m 2 pe 103
+BS id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST m 2 pe 93
 SH sm 2 sg 5 pd 0.001
-ES id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 103
-CL id 86 tid 85 eid 86 etid 85 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 85
+ES id 80 tid 80 eid 80 etid 80 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 10.001 am 3 ag 0 at 10.002 pe 93
+CL id 81 tid 80 eid 81 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 80
 
-E # 104 t 10.002 m 3 ce 97 msg 79
-CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 86 tid 86 eid 86 etid 86 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 104
+E # 94 t 10.002 m 3 ce 87 msg 74
+CM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 94
 SH sm 3 sg 3 pd 0.001
-ES id 86 tid 86 eid 86 etid 86 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 104
-CL id 87 tid 86 eid 87 etid 86 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 86
+ES id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 94
+CL id 82 tid 81 eid 82 etid 81 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 81
 - INFO: HSM received clock synchronization request from ECU-1
-DM id 79 tid 79 eid 79 etid 79 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 104
+DM id 74 tid 74 eid 74 etid 74 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 94
 
-E # 105 t 10.002 m 3 ce 98 msg 80
-CM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 87 tid 87 eid 87 etid 87 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 105
+E # 95 t 10.002 m 3 ce 88 msg 75
+CM id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 95
 SH sm 3 sg 3 pd 0.001
-ES id 87 tid 87 eid 87 etid 87 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 105
-CL id 88 tid 87 eid 88 etid 87 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 87
+ES id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 95
+CL id 83 tid 82 eid 83 etid 82 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 82
 - INFO: HSM received clock synchronization request from ECU-2
-DM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 105
+DM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 95
 
-E # 106 t 10.002 m 3 ce 99 msg 81
-CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 88 tid 88 eid 88 etid 88 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 106
+E # 96 t 10.002 m 3 ce 89 msg 76
+CM id 83 tid 83 eid 83 etid 83 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 96
 SH sm 3 sg 3 pd 0.001
-ES id 88 tid 88 eid 88 etid 88 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 106
-CL id 89 tid 88 eid 89 etid 88 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 88
+ES id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 96
+CL id 84 tid 83 eid 84 etid 83 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 83
 - INFO: HSM received clock synchronization request from ECU-3
-DM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 106
+DM id 76 tid 76 eid 76 etid 76 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 96
 
-E # 107 t 10.002 m 3 ce 100 msg 82
-CM id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 89 tid 89 eid 89 etid 89 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 107
+E # 97 t 10.002 m 3 ce 90 msg 77
+CM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 97
 SH sm 3 sg 3 pd 0.001
-ES id 89 tid 89 eid 89 etid 89 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 107
-CL id 90 tid 89 eid 90 etid 89 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 89
+ES id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 97
+CL id 85 tid 84 eid 85 etid 84 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 84
 - INFO: HSM received clock synchronization request from ECU-4
-DM id 82 tid 82 eid 82 etid 82 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 107
+DM id 77 tid 77 eid 77 etid 77 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 97
 
-E # 108 t 10.002 m 3 ce 103 msg 85
-CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 90 tid 90 eid 90 etid 90 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 108
+E # 98 t 10.002 m 3 ce 93 msg 80
+CM id 85 tid 85 eid 85 etid 85 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 98
 SH sm 3 sg 3 pd 0.001
-ES id 90 tid 90 eid 90 etid 90 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 108
-CL id 91 tid 90 eid 91 etid 90 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 90
+ES id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 10.002 am 2 ag 6 at 10.003 pe 98
+CL id 86 tid 85 eid 86 etid 85 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 85
 - INFO: HSM received clock synchronization request from ECU-8
-DM id 85 tid 85 eid 85 etid 85 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 108
+DM id 80 tid 80 eid 80 etid 80 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 98
 
-E # 109 t 10.003 m 2 ce 104 msg 86
+E # 99 t 10.003 m 2 ce 94 msg 81
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 1[0m
-BS id 86 tid 86 eid 86 etid 86 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 109
+BS id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 99
 SH sm 2 sg 2621440 pd 0.001
-ES id 86 tid 86 eid 86 etid 86 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 10.003 am 4 ag 2 at 10.004 pe 109
-CL id 91 tid 86 eid 91 etid 86 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 86
+ES id 81 tid 81 eid 81 etid 81 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 10.003 am 4 ag 2 at 10.004 pe 99
+CL id 86 tid 81 eid 86 etid 81 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 81
 
-E # 110 t 10.003 m 2 ce 105 msg 87
+E # 100 t 10.003 m 2 ce 95 msg 82
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 2[0m
-BS id 87 tid 87 eid 87 etid 87 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 110
+BS id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 100
 SH sm 2 sg 2621441 pd 0.001
-ES id 87 tid 87 eid 87 etid 87 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 10.003 am 5 ag 2 at 10.004 pe 110
-CL id 91 tid 87 eid 91 etid 87 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 87
+ES id 82 tid 82 eid 82 etid 82 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 10.003 am 5 ag 2 at 10.004 pe 100
+CL id 86 tid 82 eid 86 etid 82 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 82
 
-E # 111 t 10.003 m 2 ce 106 msg 88
+E # 101 t 10.003 m 2 ce 96 msg 83
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 3[0m
-BS id 88 tid 88 eid 88 etid 88 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 111
+BS id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 101
 SH sm 2 sg 2621442 pd 0.001
-ES id 88 tid 88 eid 88 etid 88 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 10.003 am 6 ag 2 at 10.004 pe 111
-CL id 91 tid 88 eid 91 etid 88 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 88
+ES id 83 tid 83 eid 83 etid 83 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 10.003 am 6 ag 2 at 10.004 pe 101
+CL id 86 tid 83 eid 86 etid 83 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 83
 
-E # 112 t 10.003 m 2 ce 107 msg 89
+E # 102 t 10.003 m 2 ce 97 msg 84
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 4[0m
-BS id 89 tid 89 eid 89 etid 89 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 112
+BS id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 102
 SH sm 2 sg 2621443 pd 0.001
-ES id 89 tid 89 eid 89 etid 89 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 10.003 am 7 ag 2 at 10.004 pe 112
-CL id 91 tid 89 eid 91 etid 89 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 89
+ES id 84 tid 84 eid 84 etid 84 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 10.003 am 7 ag 2 at 10.004 pe 102
+CL id 86 tid 84 eid 86 etid 84 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 84
 
-E # 113 t 10.003 m 2 ce 108 msg 90
+E # 103 t 10.003 m 2 ce 98 msg 85
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 8[0m
-BS id 90 tid 90 eid 90 etid 90 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 113
+BS id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 103
 SH sm 2 sg 2621447 pd 0.001
-ES id 90 tid 90 eid 90 etid 90 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621447 st 10.003 am 11 ag 0 at 10.004 pe 113
-CL id 91 tid 90 eid 91 etid 90 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 90
+ES id 85 tid 85 eid 85 etid 85 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621447 st 10.003 am 11 ag 0 at 10.004 pe 103
+CL id 86 tid 85 eid 86 etid 85 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 85
 
-E # 114 t 10.004 m 4 ce 109 msg 86
+E # 104 t 10.004 m 4 ce 99 msg 81
 - INFO: [ECU-1] received clock synchronization response from HSM
 - INFO: [ECU-1] synchronized its internal clock
 
-E # 115 t 10.004 m 5 ce 110 msg 87
+E # 105 t 10.004 m 5 ce 100 msg 82
 - INFO: [ECU-2] received clock synchronization response from HSM
 - INFO: [ECU-2] synchronized its internal clock
 
-E # 116 t 10.004 m 6 ce 111 msg 88
+E # 106 t 10.004 m 6 ce 101 msg 83
 - INFO: [ECU-3] received clock synchronization response from HSM
 - INFO: [ECU-3] synchronized its internal clock
 
-E # 117 t 10.004 m 7 ce 112 msg 89
+E # 107 t 10.004 m 7 ce 102 msg 84
 - INFO: [ECU-4] received clock synchronization response from HSM
 - INFO: [ECU-4] synchronized its internal clock
 
-E # 118 t 10.004 m 11 ce 113 msg 90
+E # 108 t 10.004 m 11 ce 103 msg 85
 - INFO: [ECU-8] received clock synchronization response from HSM
 - INFO: [ECU-8] synchronized its internal clock
 
-E # 119 t 11.012 m 7 ce 77 msg 16
-CM id 91 tid 91 eid 91 etid 91 c omnetpp::cMessage n REQUEST_FROM_STORAGE pe -1
-BS id 91 tid 91 eid 91 etid 91 c Packet n REQUEST_FROM_STORAGE m 7 pe 119
+E # 109 t 11.012 m 7 ce 67 msg 16
+CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n REQUEST_FROM_STORAGE pe -1
+BS id 86 tid 86 eid 86 etid 86 c Packet n REQUEST_FROM_STORAGE m 7 pe 109
 SH sm 7 sg 1 pd 0.001
-ES id 91 tid 91 eid 91 etid 91 c Packet n REQUEST_FROM_STORAGE sm 7 sg 1 st 11.012 am 2 ag 1048579 at 11.013 pe 119
-CL id 92 tid 91 eid 92 etid 91 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 7 pe -1 cid 91
+ES id 86 tid 86 eid 86 etid 86 c Packet n REQUEST_FROM_STORAGE sm 7 sg 1 st 11.012 am 2 ag 1048579 at 11.013 pe 109
+CL id 87 tid 86 eid 87 etid 86 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 7 pe -1 cid 86
 
-E # 120 t 11.013 m 2 ce 119 msg 91
+E # 110 t 11.013 m 2 ce 109 msg 86
 - INFO: [36m[Gateway] packet "REQUEST_FROM_STORAGE"(10):		4 -> 7[0m
-CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n GATEWAY_PING pe -1
-BS id 92 tid 92 eid 92 etid 92 c Packet n GATEWAY_PING m 2 pe 120
+CM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 87 tid 87 eid 87 etid 87 c Packet n GATEWAY_PING m 2 pe 110
 SH sm 2 sg 2621446 pd 0.001
-ES id 92 tid 92 eid 92 etid 92 c Packet n GATEWAY_PING sm 2 sg 2621446 st 11.013 am 10 ag 0 at 11.014 pe 120
-CL id 93 tid 92 eid 93 etid 92 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 92
-CL id 93 tid 0 eid 93 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
-BS id 93 tid 0 eid 93 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 11.013 am 2 at 12.013 pe 120
-ES id 93 tid 0 eid 93 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 11.013 am 2 at 12.013 pe 120
-BS id 91 tid 91 eid 91 etid 91 c Packet n REQUEST_FROM_STORAGE m 2 pe 120
+ES id 87 tid 87 eid 87 etid 87 c Packet n GATEWAY_PING sm 2 sg 2621446 st 11.013 am 10 ag 0 at 11.014 pe 110
+CL id 88 tid 87 eid 88 etid 87 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 87
+CL id 88 tid 0 eid 88 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 88 tid 0 eid 88 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 11.013 am 2 at 12.013 pe 110
+ES id 88 tid 0 eid 88 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 11.013 am 2 at 12.013 pe 110
+BS id 86 tid 86 eid 86 etid 86 c Packet n REQUEST_FROM_STORAGE m 2 pe 110
 SH sm 2 sg 2621446 pd 0.001
-ES id 91 tid 91 eid 91 etid 91 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621446 st 11.013 am 10 ag 0 at 11.014 pe 120
-CL id 94 tid 91 eid 94 etid 91 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 91
+ES id 86 tid 86 eid 86 etid 86 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621446 st 11.013 am 10 ag 0 at 11.014 pe 110
+CL id 89 tid 86 eid 89 etid 86 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 86
 
-E # 121 t 11.014 m 10 ce 120 msg 92
+E # 111 t 11.014 m 10 ce 110 msg 87
 - INFO: [info] id: 7 is not receiving packets
 
-E # 122 t 11.014 m 10 ce 120 msg 91
+E # 112 t 11.014 m 10 ce 110 msg 86
 - INFO: [info] id: 7 is not receiving packets
 
-E # 123 t 12.013 m 2 ce 120 msg 93
+E # 113 t 12.013 m 2 ce 110 msg 88
 - INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		7 -> -2[0m
 - INFO: [Gateway] a storage device has failed
-CM id 94 tid 94 eid 94 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL pe -1
-CL id 95 tid 94 eid 95 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+CM id 89 tid 89 eid 89 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL pe -1
+CL id 90 tid 89 eid 90 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 1[0m
-BS id 95 tid 94 eid 95 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 90 tid 89 eid 90 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621440 pd 0.001
-ES id 95 tid 94 eid 95 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621440 st 12.013 am 4 ag 2 at 12.014 pe 123
-CL id 96 tid 94 eid 96 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 95
-CL id 96 tid 94 eid 96 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 90 tid 89 eid 90 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621440 st 12.013 am 4 ag 2 at 12.014 pe 113
+CL id 91 tid 89 eid 91 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 90
+CL id 91 tid 89 eid 91 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 2[0m
-BS id 96 tid 94 eid 96 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 91 tid 89 eid 91 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621441 pd 0.001
-ES id 96 tid 94 eid 96 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621441 st 12.013 am 5 ag 2 at 12.014 pe 123
-CL id 97 tid 94 eid 97 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 96
-CL id 97 tid 94 eid 97 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 91 tid 89 eid 91 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621441 st 12.013 am 5 ag 2 at 12.014 pe 113
+CL id 92 tid 89 eid 92 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 91
+CL id 92 tid 89 eid 92 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 3[0m
-BS id 97 tid 94 eid 97 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 92 tid 89 eid 92 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621442 pd 0.001
-ES id 97 tid 94 eid 97 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621442 st 12.013 am 6 ag 2 at 12.014 pe 123
-CL id 98 tid 94 eid 98 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 97
-CL id 98 tid 94 eid 98 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 92 tid 89 eid 92 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621442 st 12.013 am 6 ag 2 at 12.014 pe 113
+CL id 93 tid 89 eid 93 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 92
+CL id 93 tid 89 eid 93 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 4[0m
-BS id 98 tid 94 eid 98 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 93 tid 89 eid 93 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621443 pd 0.001
-ES id 98 tid 94 eid 98 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621443 st 12.013 am 7 ag 2 at 12.014 pe 123
-CL id 99 tid 94 eid 99 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 98
-CL id 99 tid 94 eid 99 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 93 tid 89 eid 93 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621443 st 12.013 am 7 ag 2 at 12.014 pe 113
+CL id 94 tid 89 eid 94 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 93
+CL id 94 tid 89 eid 94 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 5[0m
-BS id 99 tid 94 eid 99 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 94 tid 89 eid 94 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621444 pd 0.001
-ES id 99 tid 94 eid 99 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621444 st 12.013 am 8 ag 2 at 12.014 pe 123
-CL id 100 tid 94 eid 100 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 99
-CL id 100 tid 94 eid 100 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 94 tid 89 eid 94 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621444 st 12.013 am 8 ag 2 at 12.014 pe 113
+CL id 95 tid 89 eid 95 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+CL id 95 tid 89 eid 95 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 6[0m
-BS id 100 tid 94 eid 100 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 95 tid 89 eid 95 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621445 pd 0.001
-ES id 100 tid 94 eid 100 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621445 st 12.013 am 9 ag 2 at 12.014 pe 123
-CL id 101 tid 94 eid 101 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 100
-CL id 101 tid 94 eid 101 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 95 tid 89 eid 95 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621445 st 12.013 am 9 ag 2 at 12.014 pe 113
+CL id 96 tid 89 eid 96 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 95
+CL id 96 tid 89 eid 96 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 7[0m
-BS id 101 tid 94 eid 101 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 96 tid 89 eid 96 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621446 pd 0.001
-ES id 101 tid 94 eid 101 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621446 st 12.013 am 10 ag 0 at 12.014 pe 123
-CL id 102 tid 94 eid 102 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 101
-CL id 102 tid 94 eid 102 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 94
+ES id 96 tid 89 eid 96 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621446 st 12.013 am 10 ag 0 at 12.014 pe 113
+CL id 97 tid 89 eid 97 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 96
+CL id 97 tid 89 eid 97 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 89
 - INFO: [36m[Gateway] packet "STORAGE_DOWN_SIGNAL"(14):		-1 -> 8[0m
-BS id 102 tid 94 eid 102 etid 94 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 123
+BS id 97 tid 89 eid 97 etid 89 c Packet n STORAGE_DOWN_SIGNAL m 2 pe 113
 SH sm 2 sg 2621447 pd 0.001
-ES id 102 tid 94 eid 102 etid 94 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621447 st 12.013 am 11 ag 0 at 12.014 pe 123
-CL id 103 tid 94 eid 103 etid 94 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 102
+ES id 97 tid 89 eid 97 etid 89 c Packet n STORAGE_DOWN_SIGNAL sm 2 sg 2621447 st 12.013 am 11 ag 0 at 12.014 pe 113
+CL id 98 tid 89 eid 98 etid 89 c omnetpp::cMessage n STORAGE_DOWN_SIGNAL m 2 pe -1 cid 97
 
-E # 124 t 12.014 m 4 ce 123 msg 95
+E # 114 t 12.014 m 4 ce 113 msg 90
 - INFO: [ECU-1] received info that a storage device is down, changing active storage option
 
-E # 125 t 12.014 m 5 ce 123 msg 96
+E # 115 t 12.014 m 5 ce 113 msg 91
 - INFO: [ECU-2] received info that a storage device is down, changing active storage option
 
-E # 126 t 12.014 m 6 ce 123 msg 97
+E # 116 t 12.014 m 6 ce 113 msg 92
 - INFO: [ECU-3] received info that a storage device is down, changing active storage option
 
-E # 127 t 12.014 m 7 ce 123 msg 98
+E # 117 t 12.014 m 7 ce 113 msg 93
 - INFO: [ECU-4] received info that a storage device is down, changing active storage option
-BS id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 12.014 am 7 at 13.014 pe 127
-ES id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 12.014 am 7 at 13.014 pe 127
+BS id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 12.014 am 7 at 13.014 pe 117
+ES id 16 tid 16 eid 16 etid 16 c Packet n SELF_RetriveDataSignal sm 7 st 12.014 am 7 at 13.014 pe 117
 
-E # 128 t 12.014 m 8 ce 123 msg 99
+E # 118 t 12.014 m 8 ce 113 msg 94
 - INFO: [ECU-5] received info that a storage device is down, changing active storage option
 
-E # 129 t 12.014 m 9 ce 123 msg 100
+E # 119 t 12.014 m 9 ce 113 msg 95
 - INFO: [ECU-6] received info that a storage device is down, changing active storage option
 
-E # 130 t 12.014 m 10 ce 123 msg 101
+E # 120 t 12.014 m 10 ce 113 msg 96
 - INFO: [info] id: 7 is not receiving packets
 
-E # 131 t 12.014 m 11 ce 123 msg 102
+E # 121 t 12.014 m 11 ce 113 msg 97
 - INFO: [ECU-8] received info that a storage device is down, changing active storage option
 
-E # 132 t 13.014 m 7 ce 127 msg 16
-CM id 103 tid 103 eid 103 etid 103 c omnetpp::cMessage n REQUEST_FROM_STORAGE pe -1
-BS id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE m 7 pe 132
+E # 122 t 13.014 m 7 ce 117 msg 16
+CM id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n REQUEST_FROM_STORAGE pe -1
+BS id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE m 7 pe 122
 SH sm 7 sg 1 pd 0.001
-ES id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE sm 7 sg 1 st 13.014 am 2 ag 1048579 at 13.015 pe 132
-CL id 104 tid 103 eid 104 etid 103 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 7 pe -1 cid 103
+ES id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE sm 7 sg 1 st 13.014 am 2 ag 1048579 at 13.015 pe 122
+CL id 99 tid 98 eid 99 etid 98 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 7 pe -1 cid 98
 
-E # 133 t 13.015 m 2 ce 132 msg 103
+E # 123 t 13.015 m 2 ce 122 msg 98
 - INFO: [36m[Gateway] packet "REQUEST_FROM_STORAGE"(10):		4 -> 8[0m
-CM id 104 tid 104 eid 104 etid 104 c omnetpp::cMessage n GATEWAY_PING pe -1
-BS id 104 tid 104 eid 104 etid 104 c Packet n GATEWAY_PING m 2 pe 133
+CM id 99 tid 99 eid 99 etid 99 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 99 tid 99 eid 99 etid 99 c Packet n GATEWAY_PING m 2 pe 123
 SH sm 2 sg 2621447 pd 0.001
-ES id 104 tid 104 eid 104 etid 104 c Packet n GATEWAY_PING sm 2 sg 2621447 st 13.015 am 11 ag 0 at 13.016 pe 133
-CL id 105 tid 104 eid 105 etid 104 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 104
-CL id 105 tid 0 eid 105 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
-BS id 105 tid 0 eid 105 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 13.015 am 2 at 14.015 pe 133
-ES id 105 tid 0 eid 105 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 13.015 am 2 at 14.015 pe 133
-BS id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE m 2 pe 133
+ES id 99 tid 99 eid 99 etid 99 c Packet n GATEWAY_PING sm 2 sg 2621447 st 13.015 am 11 ag 0 at 13.016 pe 123
+CL id 100 tid 99 eid 100 etid 99 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 99
+CL id 100 tid 0 eid 100 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 100 tid 0 eid 100 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 13.015 am 2 at 14.015 pe 123
+ES id 100 tid 0 eid 100 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 13.015 am 2 at 14.015 pe 123
+BS id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE m 2 pe 123
 SH sm 2 sg 2621447 pd 0.001
-ES id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621447 st 13.015 am 11 ag 0 at 13.016 pe 133
-CL id 106 tid 103 eid 106 etid 103 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 103
+ES id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621447 st 13.015 am 11 ag 0 at 13.016 pe 123
+CL id 101 tid 98 eid 101 etid 98 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 98
 
-E # 134 t 13.016 m 11 ce 133 msg 104
+E # 124 t 13.016 m 11 ce 123 msg 99
 - INFO: [Storage (ECU 8)] Received Ping. Sending pong.
-CM id 106 tid 106 eid 106 etid 106 c omnetpp::cMessage n GATEWAY_PONG pe -1
-BS id 106 tid 106 eid 106 etid 106 c Packet n GATEWAY_PONG m 11 pe 134
+CM id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 101 tid 101 eid 101 etid 101 c Packet n GATEWAY_PONG m 11 pe 124
 SH sm 11 sg 3 pd 0.001
-ES id 106 tid 106 eid 106 etid 106 c Packet n GATEWAY_PONG sm 11 sg 3 st 13.016 am 2 ag 1048583 at 13.017 pe 134
-CL id 107 tid 106 eid 107 etid 106 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 106
+ES id 101 tid 101 eid 101 etid 101 c Packet n GATEWAY_PONG sm 11 sg 3 st 13.016 am 2 ag 1048583 at 13.017 pe 124
+CL id 102 tid 101 eid 102 etid 101 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 101
 
-E # 135 t 13.016 m 11 ce 133 msg 103
+E # 125 t 13.016 m 11 ce 123 msg 98
 - INFO: [Storage (ECU8)] received a data read request
 - INFO: here - Attempting to read data for sourceId: 4
 - INFO: data read from storage: {"time":"2025-07-15T01:16:08Z", "aad":"AAAAAAAAAAA=", "iv":"UFK1UwnvCUPN6HvY", "ciphertext":"67mCn1V7prrhQbIaNsH63YPATw/cSov01CoW/du0WTZXtPNVV1qo5Le2LFO9WZ5c38gB0SOtDRhVSlP+WgyW78SShGHXz/o5", "tag":"/IdX9QBHX9kllCLYH4MjFg=="}
@@ -1218,313 +1139,339 @@ E # 135 t 13.016 m 11 ce 133 msg 103
 - INFO: data read from storage: {"time":"2025-07-15T02:46:34Z", "aad":"AAAAAAAAAAA=", "iv":"j25bo6S2OOqO9Qb1", "ciphertext":"Np/sfGb/strJ2adPkldhr/YFtdzM1vwUJ9Ydiev31EwvXaDVLGplY0Wuvv3MDKLhZHeJpDffrZlxRLQLXUbW6le/4auQ58Of", "tag":"rfh9G00PRzj7+5xDvX1lvw=="}
 - INFO: data read from storage: {"time":"2025-07-15T02:48:19Z", "aad":"AAAAAAAAAAA=", "iv":"+niUBPGMFVMWaGrm", "ciphertext":"gBmvPMxoK42Pe8FgfXKj5x8lY7FYiToKAFZtgxwOGZ6zFD+AlsyJLQDXm8CsgM8ASOPBXBcOtz8T0ksPip6BLWx4wpMESdFF", "tag":"YsqqmTrN+ZkJ8jXVDPoSxQ=="}
 - INFO: data read from storage: {"time":"2025-07-15T09:19:28Z", "aad":"AAAAAAAAAAA=", "iv":"Y+4mRcgshd1/U6cD", "ciphertext":"UjivUwRMBkzF4N8AjGcujsNHqEiciUdwkErCQnekptKZ8uVOEIf/Hgg3Q2hNLPjvXS99uQ/OO2+EW/Z2MfxivGMF1O2tJMvT", "tag":"8/ZmCxrhQeC5AYU9eGFteA=="}
-BS id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE m 11 pe 135
+- INFO: data read from storage: {"time":"2025-07-15T10:24:52Z", "aad":"AAAAAAAAAAA=", "iv":"yIh20Ur2J3aiigOU", "ciphertext":"2LX61bnwNul8vBroDowafsIvYn0Ykq0coitoyJ9Shq+f5DqZt6mBK2cV+e5qvy5kSyvZYS5Bg8bkS82kPboYevIssWO8z9wY", "tag":"/KBmFO8b7v0So57BtSjV5A=="}
+- INFO: data read from storage: {"time":"2025-07-15T10:46:02Z", "aad":"AAAAAAAAAAA=", "iv":"DOuxVtdq5+Ck11zw", "ciphertext":"nBV5EfsAnCA9hAgzVX9bSaryoDWX5OKR8oAGwFjFy7353fRYYRMdnyjwiF+5MzkelyLr08A/9md1AOdKYFAIFNgnsxUUWbG2", "tag":"ez4MP2xQGiqNt79lftjnbg=="}
+- INFO: data read from storage: {"time":"2025-07-15T10:48:34Z", "aad":"AAAAAAAAAAA=", "iv":"m+I1SaaDydOLQLbn", "ciphertext":"SUXOVELhRSmAI2JCmTDc1y78vImQsrYy8r2SjXnw9+2+TWfGe9X+YpcrLRQ8Gx4/7UZRIwDXHKZcoNL+YhwHc6XhaGnl1lIR", "tag":"AvhUdbQZVgyDt4bPBgYJEw=="}
+- INFO: data read from storage: {"time":"2025-07-15T17:07:09Z", "aad":"AAAAAAAAAAA=", "iv":"3qvZHTMi94lMif9N", "ciphertext":"M5XoEYOPmLiXVKxuQ3ZWdbBhxc6XP34/xeT7u1aVFWL0oB99h7cCJv1d2yd0BMULL3sCBIKWSdyU7srtXT0PtoBz7UjIEJjY", "tag":"q68Kqp+Uoz392gYKZmeaDg=="}
+- INFO: data read from storage: {"time":"2025-07-15T17:48:49Z", "aad":"AAAAAAAAAAA=", "iv":"LckiAsSS5FHXYvmB", "ciphertext":"ej+1/R3sR/JiSdu+X5qcOgyIpEZxAeTz9+tesjHo5vbXCYQE1yTH1xTfM/+P4ArmM4CdTK9D+djCr4oU8Ktax2bbF8y2BlNl", "tag":"ghWThKc6HX9aCRII6skj9w=="}
+- INFO: data read from storage: {"time":"2025-07-15T17:49:20Z", "aad":"AAAAAAAAAAA=", "iv":"3l4bsMbIFEH9vsii", "ciphertext":"cU81fG0HXBqBaBRYNWMllMQuPTKny72y/QsT9P976CUqcmho5ysPSvaaYVqUvhdJFmmuLd4HCZdpoeQ7wQdyCZzH0zfYmWTz", "tag":"14oSXj1OAsF1KV0SysRV1Q=="}
+- INFO: data read from storage: {"time":"2025-07-15T18:36:46Z", "aad":"AAAAAAAAAAA=", "iv":"XC65PW9KHNBT+2Lw", "ciphertext":"8EzTrw8HF/gLAHzDs9cwIKLCzFuFnXDJ6RWxk0QMdbwIRqIMBpovwD5YnLExq0uAHJGcawyYk+ytH+21HNA/FA0Wb25dbUW0", "tag":"ZOPSyrN+PsKV4LE5QgSjvQ=="}
+- INFO: data read from storage: {"time":"2025-07-16T06:40:08Z", "aad":"AAAAAAAAAAA=", "iv":"Lwd9C1b09FK7oIXj", "ciphertext":"5GxSmo4UU9fMMl78TqihD/H5NUMMvsP4d6fCfHa95cXyiZDYhc2fjkO5xFL12C9SYbrzT7aRIHcMVAO5MiJV+Gw+yosyYIXk", "tag":"4JcWsbwc78pBwWgV7QaGZw=="}
+- INFO: data read from storage: {"time":"2025-07-16T06:55:52Z", "aad":"AAAAAAAAAAA=", "iv":"F+rQXC9etGAYKqZz", "ciphertext":"TkSnsAn9z1J66aDjHokyANoHPXratJH5kujQBJW5uPl6h4ecfSQEX9agznotsvWy+xlP2uYoX6rnPATziV5yyTIfHnB78GpQ", "tag":"oDRR26C7l40Bx7CKqYl2NA=="}
+- INFO: data read from storage: {"time":"2025-07-16T06:57:34Z", "aad":"AAAAAAAAAAA=", "iv":"LVEJLRdKq3pIdkvA", "ciphertext":"N+sQSQGgxIlvJJiXgGqduZiV+PDns6wX66nhrTwZ4zl8eBqAFpbEVcslM++DVxKNbSLTjZ1oBynNEAzseOvdr0SvWhsg5Bj/", "tag":"tQKRzqoFNk1EYqrQkLsvZg=="}
+- INFO: data read from storage: {"time":"2025-07-16T07:04:03Z", "aad":"AAAAAAAAAAA=", "iv":"MWYzCnRb1Mw2ZK+r", "ciphertext":"jHM1+Sc2jwfl7yWaqdHeH03GOEUIZFGrazbAcWUCFMvpYmOZSi/8tLEoFU8YaH7IsgDGX22VxABL4iHf+6ldZGUwHvAuJOlO", "tag":"T2pARqM6hyONnnhHDhDCmg=="}
+- INFO: data read from storage: {"time":"2025-07-16T07:14:11Z", "aad":"AAAAAAAAAAA=", "iv":"g/Nv3+Y1c3k1Xnrp", "ciphertext":"hR49VTHVwJNm6WxJ2m5kPpL/94cFHPYf9gqXdwiFZ1AlCmyGrWFDqUh0WnIN76gRXCnjHpZhVTTUYC3xlETnKs/NmaVEz1kS", "tag":"SpwoG4V8GKbKYMlU5t54ew=="}
+- INFO: data read from storage: {"time":"2025-07-16T07:14:55Z", "aad":"AAAAAAAAAAA=", "iv":"bvjxZxso/j3Mo6et", "ciphertext":"/0DPByFJ4nHAPIN16F1aWn+UWs+3c7twRKB5wCWk53rZpTc4JTaHLKwZ27HhJTkRuT0tyqaftmAaMsKXk5yDxSw0yrgGzUOF", "tag":"Lo7x8l582tu5zw9xMQ+vjA=="}
+- INFO: data read from storage: {"time":"2025-07-16T07:19:34Z", "aad":"AAAAAAAAAAA=", "iv":"s12yDJzk70IxW34B", "ciphertext":"qHuN/78F0SMyVft7A9fQrYhxLW5ujUbEP3diaYr5IN26n9MynKlxYgrU6e6v3b1nrBa5B446VRd5fZofiCFofhL5PUlxwG4M", "tag":"RujkDPFYffP/LP4/DcpAsg=="}
+- INFO: data read from storage: {"time":"2025-07-16T17:01:40Z", "aad":"AAAAAAAAAAA=", "iv":"Ygamhy7Y7mR2+XNn", "ciphertext":"QY+cRQQm183tKjuz89wQcGMEiQK6rQ+p7757nYbNrYsye/jZ9KKtgwNEHpfl6Q9NYstwzeQQpybePGf2jGIo/XQvOtkyLrVN", "tag":"a5WCPYfLVqd2rBlBa/I10Q=="}
+- INFO: data read from storage: {"time":"2025-07-16T17:03:17Z", "aad":"AAAAAAAAAAA=", "iv":"1vCuwsOHC5GVhDkp", "ciphertext":"Edo/1cOFCD7Tis8K4N2MHzukqLPF6XNPEqSX/h6cKf+aiVeSKKMuV43Rl2QJSCMYXi9PccRjJHfiXSrk7MzXMhv0m7Cr02+q", "tag":"z+Qipk9NPuUUFbeog6XH3A=="}
+- INFO: data read from storage: {"time":"2025-07-16T17:05:16Z", "aad":"AAAAAAAAAAA=", "iv":"5TBHUo3rqW2Zlnkc", "ciphertext":"JwrfEABet9QTRLOiWmv50fEONU6mmNffULrTgQR6cJq8JUkl45Y02+yiiunP8AgUO5CsBJAPf72yeg0auIvXAE3ICsjVWmuB", "tag":"ss46/vdpJZnxqf4rWAyryg=="}
+- INFO: data read from storage: {"time":"2025-07-16T17:30:11Z", "aad":"AAAAAAAAAAA=", "iv":"ifmkj2A65+tl8NUB", "ciphertext":"k/TUugNHkXP7Ch6Sd9S5+aa1ZYRkE54J4xmlHxYzOsrbuPcknPSBze1epLFr4QGtHK3aEMuIzeGm9hmToxxdlZT50LFpsjCN", "tag":"9uOQNPkj6nC7rQcXxJwEng=="}
+- INFO: data read from storage: {"time":"2025-07-16T18:10:53Z", "aad":"AAAAAAAAAAA=", "iv":"ZLO6HzbZ5bwW+jC9", "ciphertext":"CdRdAXCP4vREaw+coeo2aQQaeao+6d6oTybHADwD8uh+JHjs7aRWJhKCa5BSIZBl7c6mFBmBV0JCasZ0WvNJAs1SIQfiFV5m", "tag":"4Oxz69TqikXpHrVIz6imMA=="}
+- INFO: data read from storage: {"time":"2025-07-16T18:18:19Z", "aad":"AAAAAAAAAAA=", "iv":"rzHlBKDJtHR+KEfc", "ciphertext":"jNditZWs4iHXFCle8Pjf4EfxRrhYaEjLGctVn3L8DhCzHv3/XD1G7LhVaUbZKGOglsm0GD+z2gUUvQtJZ42FaZxhqjb8BuWp", "tag":"YUF9wRuWziwfTQi0fdXTyA=="}
+- INFO: data read from storage: {"time":"2025-07-16T18:19:51Z", "aad":"AAAAAAAAAAA=", "iv":"B61ACK5bI7uOmn08", "ciphertext":"MRFffEC2mwXzFGZSoWvm0mlsRc9aytot26VkEW+1vKFcO1Epkjs7eCAtk5tkHP/CQ3Wly1kEzmlB62vOhhOBY4/dUgNh4Y1P", "tag":"aBLOg/m/znU0IEJ04dtjXA=="}
+- INFO: data read from storage: {"time":"2025-07-16T18:20:31Z", "aad":"AAAAAAAAAAA=", "iv":"TramIXIXax5dsxh6", "ciphertext":"qWKxmeVtOzjBGc5gGuJb89M4ezqKEGCtTMe6Ar+8s4Nhs3ux3A6n4YxdxPkR0r5HxPwz4wv3+d/ryjCOLn3VmmO2kamHP7lm", "tag":"B6H0wzj2iqkNfR7t79WjTQ=="}
+- INFO: data read from storage: {"time":"2025-07-16T19:05:20Z", "aad":"AAAAAAAAAAA=", "iv":"QPbIYYHMV86UK6FD", "ciphertext":"w8jxo8IrIct56R747Iq7xeBsTjZWjkjQwpytGk4mPWTMpGs98/Z4D+m+5CuPGdO+2FPCK507WlzForlnzFuzHGURP6HXlEUH", "tag":"lTKAqlwrxr0vqAY/6YnLQA=="}
+- INFO: data read from storage: {"time":"2025-07-16T19:06:46Z", "aad":"AAAAAAAAAAA=", "iv":"4/UfYix3DMK2dkVv", "ciphertext":"9EO/TxZ3TeflT5mtSCH8zcFHFp5Y5QsiVR0ZNf919X5BScfdgml8vYHnqJA3tTw6twEcnwReq/DO+pNlwkjUYB7P33Us7hep", "tag":"/b87EhTDqfRCjF+9zXu2Gw=="}
+- INFO: data read from storage: {"time":"2025-07-16T20:09:49Z", "aad":"AAAAAAAAAAA=", "iv":"8wWR9M7l/cDrSnO3", "ciphertext":"bhbV7df87IDdAQlg0s3qrWJw0Lm8pSjXdnCUe7pPvvCr9+x7xaecWeJ0fwcYHgXzBjHYn1Hi3g0BoMnZIG4S170BaWx9UZlp", "tag":"r01RWB1do69N1PFFo6vvPg=="}
+- INFO: data read from storage: {"time":"2025-07-16T20:19:03Z", "aad":"AAAAAAAAAAA=", "iv":"KrZPjhFzHb8Mmq3h", "ciphertext":"+Z4INPxYPLJEomayWKEkaXhwchctuZpwQsU/+hsOnAykLFYAw78LisWosoWyrqVF6Sxx8gdT8Oo/BlCTG/328UtIxMrVsP6F", "tag":"X9i44n6gxyBg/OPWJ96pPQ=="}
+BS id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE m 11 pe 125
 SH sm 11 sg 3 pd 0.001
-ES id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE sm 11 sg 3 st 13.016 am 2 ag 1048583 at 13.017 pe 135
-CL id 107 tid 103 eid 107 etid 103 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 11 pe -1 cid 103
+ES id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE sm 11 sg 3 st 13.016 am 2 ag 1048583 at 13.017 pe 125
+CL id 102 tid 98 eid 102 etid 98 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 11 pe -1 cid 98
 
-E # 136 t 13.017 m 2 ce 134 msg 106
+E # 126 t 13.017 m 2 ce 124 msg 101
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
 - INFO: [Gateway] received store (ECU 8) pong
 
-E # 137 t 13.017 m 2 ce 135 msg 103
+E # 127 t 13.017 m 2 ce 125 msg 98
 - INFO: [36m[Gateway] packet "REQUEST_FROM_STORAGE"(11):		8 -> 4[0m
-BS id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE m 2 pe 137
+BS id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE m 2 pe 127
 SH sm 2 sg 2621443 pd 0.001
-ES id 103 tid 103 eid 103 etid 103 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621443 st 13.017 am 7 ag 2 at 13.018 pe 137
-CL id 107 tid 103 eid 107 etid 103 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 103
+ES id 98 tid 98 eid 98 etid 98 c Packet n REQUEST_FROM_STORAGE sm 2 sg 2621443 st 13.017 am 7 ag 2 at 13.018 pe 127
+CL id 102 tid 98 eid 102 etid 98 c omnetpp::cMessage n REQUEST_FROM_STORAGE m 2 pe -1 cid 98
 
-E # 138 t 13.018 m 7 ce 137 msg 103
-- INFO: [ECU-4] data retrived from storage: {"value":"data","tag":0,"date":"2025-07-15T02:11:27Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:12:22Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:16:22Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:19:02Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:20:32Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:23:23Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:32:37Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:34:14Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:34:54Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:39:10Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:40:15Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:42:24Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:44:07Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:46:34Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:48:18Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T09:19:27Z","privacy_level":1}
+E # 128 t 13.018 m 7 ce 127 msg 98
+- INFO: [ECU-4] data retrived from storage: {"value":"data","tag":0,"date":"2025-07-15T02:11:27Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:12:22Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:16:22Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:19:02Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:20:32Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:23:23Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:32:37Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:34:14Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:34:54Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:39:10Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:40:15Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:42:24Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:44:07Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:46:34Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T02:48:18Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T09:19:27Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T10:24:52Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T10:46:02Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T10:48:33Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T17:07:09Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T17:48:48Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T17:49:20Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-15T18:36:45Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T06:40:07Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T06:55:52Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T06:57:30Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T07:04:03Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T07:14:10Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T07:14:55Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T07:19:34Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T17:01:40Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T17:03:16Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T17:05:15Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T17:30:10Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T18:10:53Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T18:18:19Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T18:19:50Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T18:20:31Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T19:05:19Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T19:06:46Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T20:09:49Z","privacy_level":1}{"value":"data","tag":0,"date":"2025-07-16T20:18:59Z","privacy_level":1}
 
-E # 139 t 14.015 m 2 ce 133 msg 105
+E # 129 t 14.015 m 2 ce 123 msg 100
 - INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
 - INFO: [Gateway] received store (ECU 8) pong
 
-E # 140 t 15 m 4 ce 89 msg 2
+E # 130 t 15 m 4 ce 79 msg 2
 - INFO: [ECU-1] sent clock synchronization request to the HMS
-CM id 107 tid 107 eid 107 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST m 4 pe 140
+CM id 102 tid 102 eid 102 etid 102 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 102 tid 102 eid 102 etid 102 c Packet n SYNC_CLOCK_REQUEST m 4 pe 130
 SH sm 4 sg 1 pd 0.001
-ES id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 15 am 2 ag 1048576 at 15.001 pe 140
-CL id 108 tid 107 eid 108 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 107
-BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 15 am 4 at 20 pe 140
-ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 15 am 4 at 20 pe 140
+ES id 102 tid 102 eid 102 etid 102 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 15 am 2 ag 1048576 at 15.001 pe 130
+CL id 103 tid 102 eid 103 etid 102 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 102
+BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 15 am 4 at 20 pe 130
+ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 15 am 4 at 20 pe 130
 
-E # 141 t 15 m 5 ce 90 msg 6
+E # 131 t 15 m 5 ce 80 msg 6
 - INFO: [ECU-2] sent clock synchronization request to the HMS
-CM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST m 5 pe 141
+CM id 103 tid 103 eid 103 etid 103 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 103 tid 103 eid 103 etid 103 c Packet n SYNC_CLOCK_REQUEST m 5 pe 131
 SH sm 5 sg 1 pd 0.001
-ES id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 15 am 2 ag 1048577 at 15.001 pe 141
-CL id 109 tid 108 eid 109 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 108
-BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 15 am 5 at 20 pe 141
-ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 15 am 5 at 20 pe 141
+ES id 103 tid 103 eid 103 etid 103 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 15 am 2 ag 1048577 at 15.001 pe 131
+CL id 104 tid 103 eid 104 etid 103 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 103
+BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 15 am 5 at 20 pe 131
+ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 15 am 5 at 20 pe 131
 
-E # 142 t 15 m 6 ce 91 msg 10
+E # 132 t 15 m 6 ce 81 msg 10
 - INFO: [ECU-3] sent clock synchronization request to the HMS
-CM id 109 tid 109 eid 109 etid 109 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_REQUEST m 6 pe 142
+CM id 104 tid 104 eid 104 etid 104 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 104 tid 104 eid 104 etid 104 c Packet n SYNC_CLOCK_REQUEST m 6 pe 132
 SH sm 6 sg 1 pd 0.001
-ES id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 15 am 2 ag 1048578 at 15.001 pe 142
-CL id 110 tid 109 eid 110 etid 109 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 109
-BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 15 am 6 at 20 pe 142
-ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 15 am 6 at 20 pe 142
+ES id 104 tid 104 eid 104 etid 104 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 15 am 2 ag 1048578 at 15.001 pe 132
+CL id 105 tid 104 eid 105 etid 104 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 104
+BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 15 am 6 at 20 pe 132
+ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 15 am 6 at 20 pe 132
 
-E # 143 t 15 m 7 ce 92 msg 14
+E # 133 t 15 m 7 ce 82 msg 14
 - INFO: [ECU-4] sent clock synchronization request to the HMS
-CM id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_REQUEST m 7 pe 143
+CM id 105 tid 105 eid 105 etid 105 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 105 tid 105 eid 105 etid 105 c Packet n SYNC_CLOCK_REQUEST m 7 pe 133
 SH sm 7 sg 1 pd 0.001
-ES id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 15 am 2 ag 1048579 at 15.001 pe 143
-CL id 111 tid 110 eid 111 etid 110 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 110
-BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 15 am 7 at 20 pe 143
-ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 15 am 7 at 20 pe 143
+ES id 105 tid 105 eid 105 etid 105 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 15 am 2 ag 1048579 at 15.001 pe 133
+CL id 106 tid 105 eid 106 etid 105 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 105
+BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 15 am 7 at 20 pe 133
+ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 15 am 7 at 20 pe 133
 
-E # 144 t 15 m 8 ce 93 msg 18
+E # 134 t 15 m 8 ce 83 msg 18
 - INFO: [ECU-5] sent clock synchronization request to the HMS
-CM id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_REQUEST m 8 pe 144
+CM id 106 tid 106 eid 106 etid 106 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 106 tid 106 eid 106 etid 106 c Packet n SYNC_CLOCK_REQUEST m 8 pe 134
 SH sm 8 sg 1 pd 0.001
-ES id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 15 am 2 ag 1048580 at 15.001 pe 144
-CL id 112 tid 111 eid 112 etid 111 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 111
-BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 15 am 8 at 20 pe 144
-ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 15 am 8 at 20 pe 144
+ES id 106 tid 106 eid 106 etid 106 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 15 am 2 ag 1048580 at 15.001 pe 134
+CL id 107 tid 106 eid 107 etid 106 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 106
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 15 am 8 at 20 pe 134
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 15 am 8 at 20 pe 134
 
-E # 145 t 15 m 9 ce 94 msg 22
+E # 135 t 15 m 9 ce 84 msg 22
 - INFO: [ECU-6] sent clock synchronization request to the HMS
-CM id 112 tid 112 eid 112 etid 112 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_REQUEST m 9 pe 145
+CM id 107 tid 107 eid 107 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST m 9 pe 135
 SH sm 9 sg 1 pd 0.001
-ES id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 15 am 2 ag 1048581 at 15.001 pe 145
-CL id 113 tid 112 eid 113 etid 112 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 112
-BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 15 am 9 at 20 pe 145
-ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 15 am 9 at 20 pe 145
+ES id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 15 am 2 ag 1048581 at 15.001 pe 135
+CL id 108 tid 107 eid 108 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 107
+BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 15 am 9 at 20 pe 135
+ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 15 am 9 at 20 pe 135
 
-E # 146 t 15 m 11 ce 96 msg 32
+E # 136 t 15 m 11 ce 86 msg 32
 - INFO: [ECU-8] sent clock synchronization request to the HMS
-CM id 113 tid 113 eid 113 etid 113 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_REQUEST m 11 pe 146
+CM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST m 11 pe 136
 SH sm 11 sg 3 pd 0.001
-ES id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 15 am 2 ag 1048583 at 15.001 pe 146
-CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 113
-BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 15 am 11 at 20 pe 146
-ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 15 am 11 at 20 pe 146
+ES id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 15 am 2 ag 1048583 at 15.001 pe 136
+CL id 109 tid 108 eid 109 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 108
+BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 15 am 11 at 20 pe 136
+ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 15 am 11 at 20 pe 136
 
-E # 147 t 15.001 m 2 ce 140 msg 107
+E # 137 t 15.001 m 2 ce 130 msg 102
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		1 -> 0[0m
-BS id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST m 2 pe 147
+BS id 102 tid 102 eid 102 etid 102 c Packet n SYNC_CLOCK_REQUEST m 2 pe 137
 SH sm 2 sg 5 pd 0.001
-ES id 107 tid 107 eid 107 etid 107 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 147
-CL id 114 tid 107 eid 114 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 107
+ES id 102 tid 102 eid 102 etid 102 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 137
+CL id 109 tid 102 eid 109 etid 102 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 102
 
-E # 148 t 15.001 m 2 ce 141 msg 108
+E # 138 t 15.001 m 2 ce 131 msg 103
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		2 -> 0[0m
-BS id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST m 2 pe 148
+BS id 103 tid 103 eid 103 etid 103 c Packet n SYNC_CLOCK_REQUEST m 2 pe 138
 SH sm 2 sg 5 pd 0.001
-ES id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 148
-CL id 114 tid 108 eid 114 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 108
+ES id 103 tid 103 eid 103 etid 103 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 138
+CL id 109 tid 103 eid 109 etid 103 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 103
 
-E # 149 t 15.001 m 2 ce 142 msg 109
+E # 139 t 15.001 m 2 ce 132 msg 104
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		3 -> 0[0m
-BS id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_REQUEST m 2 pe 149
+BS id 104 tid 104 eid 104 etid 104 c Packet n SYNC_CLOCK_REQUEST m 2 pe 139
 SH sm 2 sg 5 pd 0.001
-ES id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 149
-CL id 114 tid 109 eid 114 etid 109 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 109
+ES id 104 tid 104 eid 104 etid 104 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 139
+CL id 109 tid 104 eid 109 etid 104 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 104
 
-E # 150 t 15.001 m 2 ce 143 msg 110
+E # 140 t 15.001 m 2 ce 133 msg 105
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		4 -> 0[0m
-BS id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_REQUEST m 2 pe 150
+BS id 105 tid 105 eid 105 etid 105 c Packet n SYNC_CLOCK_REQUEST m 2 pe 140
 SH sm 2 sg 5 pd 0.001
-ES id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 150
-CL id 114 tid 110 eid 114 etid 110 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 110
+ES id 105 tid 105 eid 105 etid 105 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 140
+CL id 109 tid 105 eid 109 etid 105 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 105
 
-E # 151 t 15.001 m 2 ce 144 msg 111
+E # 141 t 15.001 m 2 ce 134 msg 106
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		5 -> 0[0m
 - INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 5 and destination: 0
-DM id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 151
+DM id 106 tid 106 eid 106 etid 106 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 141
 
-E # 152 t 15.001 m 2 ce 145 msg 112
+E # 142 t 15.001 m 2 ce 135 msg 107
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		6 -> 0[0m
 - INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 6 and destination: 0
-DM id 112 tid 112 eid 112 etid 112 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 152
+DM id 107 tid 107 eid 107 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 142
 
-E # 153 t 15.001 m 2 ce 146 msg 113
+E # 143 t 15.001 m 2 ce 136 msg 108
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		8 -> 0[0m
-BS id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_REQUEST m 2 pe 153
+BS id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST m 2 pe 143
 SH sm 2 sg 5 pd 0.001
-ES id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 153
-CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 113
+ES id 108 tid 108 eid 108 etid 108 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 15.001 am 3 ag 0 at 15.002 pe 143
+CL id 109 tid 108 eid 109 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 108
 
-E # 154 t 15.002 m 3 ce 147 msg 107
-CM id 114 tid 114 eid 114 etid 114 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 154
+E # 144 t 15.002 m 3 ce 137 msg 102
+CM id 109 tid 109 eid 109 etid 109 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 144
 SH sm 3 sg 3 pd 0.001
-ES id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 154
-CL id 115 tid 114 eid 115 etid 114 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 114
+ES id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 144
+CL id 110 tid 109 eid 110 etid 109 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 109
 - INFO: HSM received clock synchronization request from ECU-1
-DM id 107 tid 107 eid 107 etid 107 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 154
+DM id 102 tid 102 eid 102 etid 102 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 144
 
-E # 155 t 15.002 m 3 ce 148 msg 108
-CM id 115 tid 115 eid 115 etid 115 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 155
+E # 145 t 15.002 m 3 ce 138 msg 103
+CM id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 145
 SH sm 3 sg 3 pd 0.001
-ES id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 155
-CL id 116 tid 115 eid 116 etid 115 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 115
+ES id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 145
+CL id 111 tid 110 eid 111 etid 110 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 110
 - INFO: HSM received clock synchronization request from ECU-2
-DM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 155
+DM id 103 tid 103 eid 103 etid 103 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 145
 
-E # 156 t 15.002 m 3 ce 149 msg 109
-CM id 116 tid 116 eid 116 etid 116 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 156
+E # 146 t 15.002 m 3 ce 139 msg 104
+CM id 111 tid 111 eid 111 etid 111 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 146
 SH sm 3 sg 3 pd 0.001
-ES id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 156
-CL id 117 tid 116 eid 117 etid 116 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 116
+ES id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 146
+CL id 112 tid 111 eid 112 etid 111 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 111
 - INFO: HSM received clock synchronization request from ECU-3
-DM id 109 tid 109 eid 109 etid 109 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 156
+DM id 104 tid 104 eid 104 etid 104 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 146
 
-E # 157 t 15.002 m 3 ce 150 msg 110
-CM id 117 tid 117 eid 117 etid 117 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 157
+E # 147 t 15.002 m 3 ce 140 msg 105
+CM id 112 tid 112 eid 112 etid 112 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 147
 SH sm 3 sg 3 pd 0.001
-ES id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 157
-CL id 118 tid 117 eid 118 etid 117 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 117
+ES id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 147
+CL id 113 tid 112 eid 113 etid 112 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 112
 - INFO: HSM received clock synchronization request from ECU-4
-DM id 110 tid 110 eid 110 etid 110 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 157
+DM id 105 tid 105 eid 105 etid 105 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 147
 
-E # 158 t 15.002 m 3 ce 153 msg 113
-CM id 118 tid 118 eid 118 etid 118 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
-BS id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 158
+E # 148 t 15.002 m 3 ce 143 msg 108
+CM id 113 tid 113 eid 113 etid 113 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 148
 SH sm 3 sg 3 pd 0.001
-ES id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 158
-CL id 119 tid 118 eid 119 etid 118 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 118
+ES id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 15.002 am 2 ag 6 at 15.003 pe 148
+CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 113
 - INFO: HSM received clock synchronization request from ECU-8
-DM id 113 tid 113 eid 113 etid 113 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 158
+DM id 108 tid 108 eid 108 etid 108 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 148
 
-E # 159 t 15.003 m 2 ce 154 msg 114
+E # 149 t 15.003 m 2 ce 144 msg 109
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 1[0m
-BS id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 159
+BS id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 149
 SH sm 2 sg 2621440 pd 0.001
-ES id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 15.003 am 4 ag 2 at 15.004 pe 159
-CL id 119 tid 114 eid 119 etid 114 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 114
+ES id 109 tid 109 eid 109 etid 109 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 15.003 am 4 ag 2 at 15.004 pe 149
+CL id 114 tid 109 eid 114 etid 109 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 109
 
-E # 160 t 15.003 m 2 ce 155 msg 115
+E # 150 t 15.003 m 2 ce 145 msg 110
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 2[0m
-BS id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 160
+BS id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 150
 SH sm 2 sg 2621441 pd 0.001
-ES id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 15.003 am 5 ag 2 at 15.004 pe 160
-CL id 119 tid 115 eid 119 etid 115 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 115
+ES id 110 tid 110 eid 110 etid 110 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 15.003 am 5 ag 2 at 15.004 pe 150
+CL id 114 tid 110 eid 114 etid 110 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 110
 
-E # 161 t 15.003 m 2 ce 156 msg 116
+E # 151 t 15.003 m 2 ce 146 msg 111
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 3[0m
-BS id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 161
+BS id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 151
 SH sm 2 sg 2621442 pd 0.001
-ES id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 15.003 am 6 ag 2 at 15.004 pe 161
-CL id 119 tid 116 eid 119 etid 116 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 116
+ES id 111 tid 111 eid 111 etid 111 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 15.003 am 6 ag 2 at 15.004 pe 151
+CL id 114 tid 111 eid 114 etid 111 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 111
 
-E # 162 t 15.003 m 2 ce 157 msg 117
+E # 152 t 15.003 m 2 ce 147 msg 112
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 4[0m
-BS id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 162
+BS id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 152
 SH sm 2 sg 2621443 pd 0.001
-ES id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 15.003 am 7 ag 2 at 15.004 pe 162
-CL id 119 tid 117 eid 119 etid 117 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 117
+ES id 112 tid 112 eid 112 etid 112 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 15.003 am 7 ag 2 at 15.004 pe 152
+CL id 114 tid 112 eid 114 etid 112 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 112
 
-E # 163 t 15.003 m 2 ce 158 msg 118
+E # 153 t 15.003 m 2 ce 148 msg 113
 - INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 8[0m
-BS id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 163
+BS id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 153
 SH sm 2 sg 2621447 pd 0.001
-ES id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621447 st 15.003 am 11 ag 0 at 15.004 pe 163
-CL id 119 tid 118 eid 119 etid 118 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 118
+ES id 113 tid 113 eid 113 etid 113 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621447 st 15.003 am 11 ag 0 at 15.004 pe 153
+CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 113
 
-E # 164 t 15.004 m 4 ce 159 msg 114
+E # 154 t 15.004 m 4 ce 149 msg 109
 - INFO: [ECU-1] received clock synchronization response from HSM
 - INFO: [ECU-1] synchronized its internal clock
 
-E # 165 t 15.004 m 5 ce 160 msg 115
+E # 155 t 15.004 m 5 ce 150 msg 110
 - INFO: [ECU-2] received clock synchronization response from HSM
 - INFO: [ECU-2] synchronized its internal clock
 
-E # 166 t 15.004 m 6 ce 161 msg 116
+E # 156 t 15.004 m 6 ce 151 msg 111
 - INFO: [ECU-3] received clock synchronization response from HSM
 - INFO: [ECU-3] synchronized its internal clock
 
-E # 167 t 15.004 m 7 ce 162 msg 117
+E # 157 t 15.004 m 7 ce 152 msg 112
 - INFO: [ECU-4] received clock synchronization response from HSM
 - INFO: [ECU-4] synchronized its internal clock
 
-E # 168 t 15.004 m 11 ce 163 msg 118
+E # 158 t 15.004 m 11 ce 153 msg 113
 - INFO: [ECU-8] received clock synchronization response from HSM
 - INFO: [ECU-8] synchronized its internal clock
 
-E # 169 t 20 m 4 ce 140 msg 2
+E # 159 t 20 m 4 ce 130 msg 2
 - INFO: [ECU-1] sent clock synchronization request to the HMS
-CM id 119 tid 119 eid 119 etid 119 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 119 tid 119 eid 119 etid 119 c Packet n SYNC_CLOCK_REQUEST m 4 pe 169
+CM id 114 tid 114 eid 114 etid 114 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_REQUEST m 4 pe 159
 SH sm 4 sg 1 pd 0.001
-ES id 119 tid 119 eid 119 etid 119 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 20 am 2 ag 1048576 at 20.001 pe 169
-CL id 120 tid 119 eid 120 etid 119 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 119
-BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 20 am 4 at 25 pe 169
-ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 20 am 4 at 25 pe 169
+ES id 114 tid 114 eid 114 etid 114 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 20 am 2 ag 1048576 at 20.001 pe 159
+CL id 115 tid 114 eid 115 etid 114 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 114
+BS id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 20 am 4 at 25 pe 159
+ES id 2 tid 2 eid 2 etid 2 c Packet n SELF_ClockSyncSignal sm 4 st 20 am 4 at 25 pe 159
 
-E # 170 t 20 m 5 ce 141 msg 6
+E # 160 t 20 m 5 ce 131 msg 6
 - INFO: [ECU-2] sent clock synchronization request to the HMS
-CM id 120 tid 120 eid 120 etid 120 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 120 tid 120 eid 120 etid 120 c Packet n SYNC_CLOCK_REQUEST m 5 pe 170
+CM id 115 tid 115 eid 115 etid 115 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_REQUEST m 5 pe 160
 SH sm 5 sg 1 pd 0.001
-ES id 120 tid 120 eid 120 etid 120 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 20 am 2 ag 1048577 at 20.001 pe 170
-CL id 121 tid 120 eid 121 etid 120 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 120
-BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 20 am 5 at 25 pe 170
-ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 20 am 5 at 25 pe 170
+ES id 115 tid 115 eid 115 etid 115 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 20 am 2 ag 1048577 at 20.001 pe 160
+CL id 116 tid 115 eid 116 etid 115 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 115
+BS id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 20 am 5 at 25 pe 160
+ES id 6 tid 6 eid 6 etid 6 c Packet n SELF_ClockSyncSignal sm 5 st 20 am 5 at 25 pe 160
 
-E # 171 t 20 m 6 ce 142 msg 10
+E # 161 t 20 m 6 ce 132 msg 10
 - INFO: [ECU-3] sent clock synchronization request to the HMS
-CM id 121 tid 121 eid 121 etid 121 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 121 tid 121 eid 121 etid 121 c Packet n SYNC_CLOCK_REQUEST m 6 pe 171
+CM id 116 tid 116 eid 116 etid 116 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_REQUEST m 6 pe 161
 SH sm 6 sg 1 pd 0.001
-ES id 121 tid 121 eid 121 etid 121 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 20 am 2 ag 1048578 at 20.001 pe 171
-CL id 122 tid 121 eid 122 etid 121 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 121
-BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 20 am 6 at 25 pe 171
-ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 20 am 6 at 25 pe 171
+ES id 116 tid 116 eid 116 etid 116 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 20 am 2 ag 1048578 at 20.001 pe 161
+CL id 117 tid 116 eid 117 etid 116 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 116
+BS id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 20 am 6 at 25 pe 161
+ES id 10 tid 10 eid 10 etid 10 c Packet n SELF_ClockSyncSignal sm 6 st 20 am 6 at 25 pe 161
 
-E # 172 t 20 m 7 ce 143 msg 14
+E # 162 t 20 m 7 ce 133 msg 14
 - INFO: [ECU-4] sent clock synchronization request to the HMS
-CM id 122 tid 122 eid 122 etid 122 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 122 tid 122 eid 122 etid 122 c Packet n SYNC_CLOCK_REQUEST m 7 pe 172
+CM id 117 tid 117 eid 117 etid 117 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_REQUEST m 7 pe 162
 SH sm 7 sg 1 pd 0.001
-ES id 122 tid 122 eid 122 etid 122 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 20 am 2 ag 1048579 at 20.001 pe 172
-CL id 123 tid 122 eid 123 etid 122 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 122
-BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 20 am 7 at 25 pe 172
-ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 20 am 7 at 25 pe 172
+ES id 117 tid 117 eid 117 etid 117 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 20 am 2 ag 1048579 at 20.001 pe 162
+CL id 118 tid 117 eid 118 etid 117 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 117
+BS id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 20 am 7 at 25 pe 162
+ES id 14 tid 14 eid 14 etid 14 c Packet n SELF_ClockSyncSignal sm 7 st 20 am 7 at 25 pe 162
 
-E # 173 t 20 m 8 ce 144 msg 18
+E # 163 t 20 m 8 ce 134 msg 18
 - INFO: [ECU-5] sent clock synchronization request to the HMS
-CM id 123 tid 123 eid 123 etid 123 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 123 tid 123 eid 123 etid 123 c Packet n SYNC_CLOCK_REQUEST m 8 pe 173
+CM id 118 tid 118 eid 118 etid 118 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_REQUEST m 8 pe 163
 SH sm 8 sg 1 pd 0.001
-ES id 123 tid 123 eid 123 etid 123 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 20 am 2 ag 1048580 at 20.001 pe 173
-CL id 124 tid 123 eid 124 etid 123 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 123
-BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 20 am 8 at 25 pe 173
-ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 20 am 8 at 25 pe 173
+ES id 118 tid 118 eid 118 etid 118 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 20 am 2 ag 1048580 at 20.001 pe 163
+CL id 119 tid 118 eid 119 etid 118 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 118
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 20 am 8 at 25 pe 163
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_ClockSyncSignal sm 8 st 20 am 8 at 25 pe 163
 
-E # 174 t 20 m 9 ce 145 msg 22
+E # 164 t 20 m 9 ce 135 msg 22
 - INFO: [ECU-6] sent clock synchronization request to the HMS
-CM id 124 tid 124 eid 124 etid 124 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 124 tid 124 eid 124 etid 124 c Packet n SYNC_CLOCK_REQUEST m 9 pe 174
+CM id 119 tid 119 eid 119 etid 119 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 119 tid 119 eid 119 etid 119 c Packet n SYNC_CLOCK_REQUEST m 9 pe 164
 SH sm 9 sg 1 pd 0.001
-ES id 124 tid 124 eid 124 etid 124 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 20 am 2 ag 1048581 at 20.001 pe 174
-CL id 125 tid 124 eid 125 etid 124 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 124
-BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 20 am 9 at 25 pe 174
-ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 20 am 9 at 25 pe 174
+ES id 119 tid 119 eid 119 etid 119 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 20 am 2 ag 1048581 at 20.001 pe 164
+CL id 120 tid 119 eid 120 etid 119 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 119
+BS id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 20 am 9 at 25 pe 164
+ES id 22 tid 22 eid 22 etid 22 c Packet n SELF_ClockSyncSignal sm 9 st 20 am 9 at 25 pe 164
 
-E # 175 t 20 m 11 ce 146 msg 32
+E # 165 t 20 m 11 ce 136 msg 32
 - INFO: [ECU-8] sent clock synchronization request to the HMS
-CM id 125 tid 125 eid 125 etid 125 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
-BS id 125 tid 125 eid 125 etid 125 c Packet n SYNC_CLOCK_REQUEST m 11 pe 175
+CM id 120 tid 120 eid 120 etid 120 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 120 tid 120 eid 120 etid 120 c Packet n SYNC_CLOCK_REQUEST m 11 pe 165
 SH sm 11 sg 3 pd 0.001
-ES id 125 tid 125 eid 125 etid 125 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 20 am 2 ag 1048583 at 20.001 pe 175
-CL id 126 tid 125 eid 126 etid 125 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 125
-BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 20 am 11 at 25 pe 175
-ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 20 am 11 at 25 pe 175
+ES id 120 tid 120 eid 120 etid 120 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 20 am 2 ag 1048583 at 20.001 pe 165
+CL id 121 tid 120 eid 121 etid 120 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 120
+BS id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 20 am 11 at 25 pe 165
+ES id 32 tid 32 eid 32 etid 32 c Packet n SELF_ClockSyncSignal sm 11 st 20 am 11 at 25 pe 165
 
 
-SE e 0 c 38 m "Simulation time limit reached -- at t=20s, event #176"
+SE e 0 c 38 m "Simulation time limit reached -- at t=20s, event #166"

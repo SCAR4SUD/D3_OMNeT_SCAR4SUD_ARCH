@@ -77,9 +77,6 @@ void ECU::handleMessage(cMessage *msg)
                 sendEcuSessionRequest(7);
                 sendEcuSessionRequest(8);
             }
-            if(id == 7) {
-                sendEcuSessionRequest(8);
-            }
             }break;
         case NS_RESPONSE_SENDER: {
             if(!handleEcuSessionKey(pkg))
@@ -108,11 +105,10 @@ void ECU::handleMessage(cMessage *msg)
             EV << "[ECU-" << id <<"] data retrived from storage: " << pkg->getData() << std::endl;
             }break;
         case STORAGE_DOWN: {
-            if(std::stoi(pkg->getData()) == 7) {
-                std::cout << "->" << pkg->getData() << "<-" << std::endl;
+            if(std::stoi(pkg->getData()) == 7)
                 id_active_storage = 8;
-            }
-            else id_active_storage = 7;
+            else
+                id_active_storage = 7;
             EV << "[ECU-" << id <<"] received info that a storage device is down, changing active storage option" << std::endl;
             if(id == 4) scheduleAt(simTime()+1, RetriveDataSignal);
             }break;
@@ -156,7 +152,14 @@ void ECU::sendHsmRsaRequest() {
     req->setType(RSA_REQUEST);
     req->setDstId(HSM_TOPOLOGICAL_ID);
     req->setSrcId(id);
-    std::string json_formatted_request = serialize_rsa_request(id);
+
+    timestamp_hsm = hw_clock.time_since_epoch();
+    std::string json_formatted_request = serialize_rsa_request(
+        id,
+        timestamp_hsm,
+        tpm_access->getPrivateKey(),
+        tpm_access->getPublicKey("hsm")
+    );
     const char *data = json_formatted_request.c_str();
     req->setData(data);
 
@@ -164,30 +167,40 @@ void ECU::sendHsmRsaRequest() {
 }
 
 bool ECU::setHsmSessionKey(Packet *res) {
-    EV << "[ECU-" << id << "] received session key from the HSM" << std::endl;
-    std::string json_response(res->getData());
+    std::string json_response = res->getData();
 
-    unsigned char aes_key_enc[AES_KEY_ENC_MAXLEN];
-    std::time_t nonce;
-    std::string nonce_signature_b64;
+    unsigned char aes_key[AES_KEY_ENC_MAXLEN];
+    std::time_t retrived_timestamp = 0;
 
-    parse_rsa_response(json_response, aes_key_enc, nonce, nonce_signature_b64);
-
-    unsigned char nonce_signature[2048];
-    size_t nonce_signature_len = base64_decode(nonce_signature_b64, nonce_signature, 2048);
-
-    if(!check_signed_nonce((unsigned char *)&nonce, sizeof(std::time_t), nonce_signature, nonce_signature_len, tpm_access->getPublicKey("hsm")))
-        return false;
+    parse_rsa_response(
+        json_response,
+        tpm_access->getPrivateKey(),
+        tpm_access->getPublicKey("hsm"),
+        aes_key,
+        retrived_timestamp
+    );
 
     size_t aes_key_len = AES_KEY_LEN;
-    rsa_decrypt_evp(tpm_access->getPrivateKey(), aes_key_enc, AES_KEY_ENC_MAXLEN, tpm_access->getSessionKeyHandle(0), &aes_key_len);
+    memcpy(tpm_access->getSessionKeyHandle(0), aes_key, AES_KEY_ENC_MAXLEN);
 
+    std::cout << "timestamp_hsm: \t\t" << timestamp_hsm << std::endl;
+    std::cout << "retrived_timestamp: \t\t" << retrived_timestamp << std::endl;
+
+
+    if(timestamp_hsm != retrived_timestamp) {
+        std::cerr << "[ECU-" << id << "] timestamp of response is invalid" << std::endl;
+        return false;
+    }else {
+        std::cout << "TIMESTAMP IS CORRECT" << std::endl;
+    }
 
     if (aes_key_len != AES_KEY_LEN) {
         EV << "[Error] key length is not right" << std::endl;
         EV << "with key len: " << aes_key_len << std::endl;
+        return false;
     }
 
+    EV << "[ECU-" << id << "] received session key from the HSM" << std::endl;
     hsm_connection_active = true;
     return true;
 }
@@ -271,7 +284,7 @@ bool ECU::handleEcuTicket(Packet *pkg)
     }else {
         used_nonces_ns[{nonce, sender_id}] = true;
     }
-    if(!check_signed_nonce((unsigned char *)&nonce, sizeof(std::time_t), nonce_signature, nonce_signature_len, tpm_access->getPublicKey("hsm"))) {
+    if(!check_signature((unsigned char *)&nonce, sizeof(std::time_t), nonce_signature, nonce_signature_len, tpm_access->getPublicKey("hsm"))) {
         EV << "[ECU-" << id << "] received invalid session key with ECU-" << sender_id << "; DROPPING" << std::endl;
         return false;
     }
@@ -298,6 +311,11 @@ void ECU::sendEncPacket(Packet *pkg, int other_ecu_id, int type)
     aes_message.AddMember(
         "type",
         type,
+        alloc_aes
+    );
+    aes_message.AddMember(
+        "id",
+        id,
         alloc_aes
     );
     aes_message.AddMember(

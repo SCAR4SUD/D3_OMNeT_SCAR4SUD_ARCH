@@ -12,7 +12,7 @@
 #define AES_GCM_IV_SIZE 12
 #define AES_GCM_TAG_SIZE 16
 
-#define AAD_NIST_MAX_SIZE 8
+#define AAD_SIZE 8
 
 namespace sca {
 
@@ -97,7 +97,7 @@ bool Session::loginAdmin(std::string pin) {
         admin_pin, 
         (pin.size())
     );
-    return_check(rv, "C_Login (Session::loginUser)");
+    return_check(rv, "C_Login (Session::loginAdmin)");
     if(rv != CKR_OK) 
         return false;
     else {
@@ -192,7 +192,7 @@ CK_BYTE Session::hexdigit_to_int(char ch)
     }
 }
 
-bool Session::createAesKey(std::string key_label, std::string key) {
+bool Session::createAesKey(std::string key_label, CK_BYTE_PTR key_value, CK_ULONG key_len) {
     CK_ULONG count{0};
     CK_OBJECT_HANDLE handle[512] = {0};
     findKey(key_label, handle, &count);
@@ -202,12 +202,6 @@ bool Session::createAesKey(std::string key_label, std::string key) {
         return false;
     }
 
-    CK_BYTE key_value[32];
-    for(unsigned short i = 0; i < 32; i++) {
-        key_value[i] =  hexdigit_to_int(key[i*2])*16 +\
-                        hexdigit_to_int(key[(i*2)+1]);
-    }
-
     CK_OBJECT_HANDLE key_handle;
 
     CK_OBJECT_CLASS object_class = CKO_SECRET_KEY;
@@ -215,17 +209,18 @@ bool Session::createAesKey(std::string key_label, std::string key) {
     CK_BBOOL no = CK_FALSE;
     CK_KEY_TYPE key_type = CKK_AES;
     CK_BYTE_PTR label = (CK_BYTE_PTR)key_label.c_str(); 
-    CK_ULONG key_size = 32;
+    CK_ULONG key_size = key_len;
 
     CK_ATTRIBUTE attributes[] = {
         {CKA_CLASS,         &object_class,  sizeof(object_class)},
         {CKA_KEY_TYPE,      &key_type,      sizeof(key_type)},
         {CKA_LABEL,         label,          strlen((const char *)label)},
+        {CKA_EXTRACTABLE,   &yes,           sizeof(CK_BBOOL)},
         {CKA_TOKEN,         &yes,           sizeof(CK_BBOOL)},
         {CKA_ENCRYPT,       &yes,           sizeof(CK_BBOOL)},
         {CKA_DECRYPT,       &yes,           sizeof(CK_BBOOL)},
         {CKA_SENSITIVE,     &no,            sizeof(CK_BBOOL)},
-        {CKA_VALUE,         &key_value,     key_size},
+        {CKA_VALUE,         key_value,      key_size}
     };
 
     CK_ULONG attributes_len = sizeof(attributes) / sizeof(CK_ATTRIBUTE);
@@ -242,6 +237,42 @@ bool Session::createAesKey(std::string key_label, std::string key) {
     else 
         return true;
 }
+
+bool Session::createAesKey(std::string key_label, CK_ULONG key_size) {
+    CK_ULONG count{0};
+    CK_OBJECT_HANDLE handle[256] = {0};
+    findKey(key_label, handle, &count);
+    if(count != 0) {
+        std::cerr   << "There is already a key labeled: "\
+                    << key_label << std::endl;
+        return false;
+    }
+
+    CK_OBJECT_HANDLE key_handle;
+
+    CK_BBOOL yes = CK_TRUE;
+    CK_BBOOL no = CK_FALSE;
+
+    CK_BYTE_PTR label = (CK_BYTE_PTR)key_label.c_str();
+
+    CK_ATTRIBUTE attributes[] = {
+        {CKA_SENSITIVE,     &no,                sizeof(CK_BBOOL)},
+        {CKA_EXTRACTABLE,   &yes,               sizeof(CK_BBOOL)},
+        {CKA_TOKEN,         &yes,               sizeof(CK_BBOOL)},
+        {CKA_LABEL,         label,              strlen((const char *)label)},
+        {CKA_VALUE_LEN,     &key_size,          sizeof(CK_ULONG)}
+    };
+
+    CK_MECHANISM mech = {CKM_AES_KEY_GEN, NULL, 0};
+    CK_RV rv = C_GenerateKey(*_session_handle, &mech, attributes,
+            sizeof(attributes)/sizeof(CK_ATTRIBUTE), &key_handle);
+
+    if(return_check(rv, "C_GenerateKey (Session::createAesKey)") != CKR_OK)
+        return false;
+    else
+        return true;
+}
+
 
 bool Session::createSessionKey(std::string key_label, CK_OBJECT_HANDLE_PTR key_handle) {
     CK_ULONG count{0};
@@ -302,6 +333,9 @@ bool Session::findKey(
     
     rv = C_FindObjectsFinal(*_session_handle);
     if(return_check(rv, "C_FindObjectsFinal (Session::findKey)") != CKR_OK) 
+        return false;
+
+    if(*object_count <= 0)
         return false;
 
     return true;
@@ -494,11 +528,6 @@ bool Session::generateRandom(CK_BYTE_PTR random, CK_ULONG random_len) {
     return true;
 }
 
-struct Info {
-    unsigned int    id;
-    unsigned int    age;
-};
-
 bool Session::encryptAesGCM( 
     CK_OBJECT_HANDLE key,
     CK_BYTE_PTR data, 
@@ -520,15 +549,15 @@ bool Session::encryptAesGCM(
     for(size_t i = 0; i < AES_GCM_IV_SIZE; ++i)
         generateRandom(iv + i, sizeof(CK_BYTE));
     
-    CK_BYTE aad[AAD_NIST_MAX_SIZE];
-    memset(aad, 0, AAD_NIST_MAX_SIZE);
-    strncpy((char *)aad, aad_str.c_str(), aad_str.length());
+    CK_BYTE aad[AAD_SIZE];
+    memset(aad, 0, AAD_SIZE);
+    strncpy((char *)aad, aad_str.c_str(), AAD_SIZE);
 
     parameters.pIv = iv;
     parameters.ulIvLen = AES_GCM_IV_SIZE;
     //parameters.ulIvBits = 0;  // pkcs#11 is unclear about this flag use
     parameters.pAAD = aad;
-    parameters.ulAADLen = AAD_NIST_MAX_SIZE;
+    parameters.ulAADLen = AAD_SIZE;
     parameters.ulTagBits = AES_GCM_TAG_SIZE * 8;
 
     mechanism.mechanism = CKM_AES_GCM;
@@ -592,15 +621,15 @@ bool Session::encryptAesGCMParam(
     for(size_t i = 0; i < AES_GCM_IV_SIZE; ++i)
         generateRandom(iv + i, sizeof(CK_BYTE));
     
-    aad = new CK_BYTE[AAD_NIST_MAX_SIZE];
-    memset(aad, 0, AAD_NIST_MAX_SIZE);
-    *aad_size = AAD_NIST_MAX_SIZE;
+    aad = new CK_BYTE[AAD_SIZE];
+    memset(aad, 0, AAD_SIZE);
+    *aad_size = AAD_SIZE;
 
     parameters.pIv = iv;
     parameters.ulIvLen = AES_GCM_IV_SIZE;
     parameters.ulIvBits = 96;  // pkcs#11 is unclear about this flag use
     parameters.pAAD = aad;
-    parameters.ulAADLen = AAD_NIST_MAX_SIZE;
+    parameters.ulAADLen = AAD_SIZE;
     parameters.ulTagBits = 128;//AES_GCM_TAG_SIZE * 8;
 
     mechanism.mechanism = CKM_AES_GCM;
@@ -659,15 +688,14 @@ bool Session::decryptAesGCM(
     for(size_t i = 0; i < AES_GCM_IV_SIZE; ++i)
         iv[i] = data[i];
 
-    CK_BYTE aad[AAD_NIST_MAX_SIZE];
-    memset(aad, 0, AAD_NIST_MAX_SIZE);
-    memcpy(aad, (void *)aad_str.c_str(), aad_str.length());
+    CK_BYTE aad[AAD_SIZE];
+    memset(aad, 0, AAD_SIZE);
+    memcpy(aad, (void *)aad_str.c_str(), AAD_SIZE);
 
     parameters.pIv = iv;  
     parameters.ulIvLen = AES_GCM_IV_SIZE;
     parameters.pAAD = aad;
-    //parameters.ulAADLen = AAD_NIST_MAX_SIZE;
-    parameters.ulAADLen = 8;
+    parameters.ulAADLen = AAD_SIZE;
     parameters.ulTagBits = AES_GCM_TAG_SIZE * 8;
 
     mechanism.mechanism = CKM_AES_GCM;
@@ -715,29 +743,32 @@ bool Session::encryptRsa(
     CK_ULONG_PTR encrypted_data_len
 ) {
     CK_RV rv;
-    // CK_MECHANISM mechanism = {CKM_RSA_X_509};
     CK_MECHANISM mechanism = {CKM_RSA_PKCS};
 
     rv = C_EncryptInit(*_session_handle, &mechanism, key);
     if(return_check(rv, "C_EncryptInit (Session::encryptRsa)") != CKR_OK)
         return false;
 
-    CK_BYTE_PTR padded_data = (CK_BYTE_PTR)malloc(256 * sizeof(CK_BYTE));
-    CK_ULONG padded_data_len = 256;
+    /*
+    CK_BYTE_PTR padded_data = (CK_BYTE_PTR)malloc((data_len) * sizeof(CK_BYTE));
+    CK_ULONG padded_data_len = (data_len);
 
     memset(padded_data, 0, padded_data_len); 
     memcpy(padded_data, data, data_len);
+    */
 
     rv = C_Encrypt(
         *_session_handle,
-        padded_data,
-        padded_data_len,
+        data,
+        data_len,
         encrypted_data,
         encrypted_data_len
     );
 
     if(return_check(rv, "C_Encrypt (Session::encryptRsa)") != CKR_OK)
         return false;
+
+    std::cout << "\t\tRSA SIZE: " << *encrypted_data_len << std::endl;
 
     encrypted_data = (CK_BYTE_PTR)malloc(*encrypted_data_len);
     memset(encrypted_data, 0, *encrypted_data_len);
@@ -764,8 +795,11 @@ bool Session::decryptRsa(
     CK_ULONG_PTR decrypted_data_len
 ) {
     CK_RV rv;
-    //CK_MECHANISM mechanism = {CKM_RSA_X_509};
-    CK_MECHANISM mechanism = {CKM_RSA_PKCS};
+    CK_MECHANISM mechanism;
+
+    mechanism.mechanism = CKM_RSA_PKCS;
+    mechanism.pParameter = NULL_PTR; // No parameters needed for CKM_RSA_PKCS
+    mechanism.ulParameterLen = 0;
 
     rv = C_DecryptInit(*_session_handle, &mechanism, key);
     if(return_check(rv, "C_DecryptInit (Session::decryptRsa)") != CKR_OK)
@@ -851,7 +885,7 @@ bool Session::verifyRsa(
     CK_ULONG signature_len
 ) {
     CK_RV rv;
-    CK_MECHANISM mechanism = {CKM_SHA512_RSA_PKCS};
+    CK_MECHANISM mechanism = {CKM_SHA256_RSA_PKCS};
 
     rv = C_VerifyInit(*_session_handle, &mechanism, key);
     if(return_check(rv, "C_VerifyInit (Session::verifyRsa)") != CKR_OK) 

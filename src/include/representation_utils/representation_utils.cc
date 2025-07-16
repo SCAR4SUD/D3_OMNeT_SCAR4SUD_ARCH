@@ -21,7 +21,8 @@ std::string base64_encode(const unsigned char* input, size_t len) {
 size_t base64_decode(
     const std::string& input, 
     unsigned char* output, 
-    size_t max_len
+    size_t max_len,
+    std::string context
 ) {
     BIO* bio = BIO_new_mem_buf(input.data(), input.length());
     BIO* b64 = BIO_new(BIO_f_base64());
@@ -30,7 +31,7 @@ size_t base64_decode(
     int decoded_len = BIO_read(bio, output, max_len);
     BIO_free_all(bio);
     if (decoded_len <= 0) {
-        std::cerr << "Errore decodifica Base64" << std::endl;
+        std::cerr << "Errore decodifica Base64: " << context << std::endl;
         return -1;
     }
     if (static_cast<size_t>(decoded_len) > max_len) {

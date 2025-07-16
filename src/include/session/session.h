@@ -37,7 +37,8 @@ public:
     );
     bool destroyObject(CK_OBJECT_HANDLE_PTR object_handle);
 
-    bool createAesKey(std::string key_label, std::string key);
+    bool createAesKey(std::string key_label, CK_BYTE_PTR key_value, CK_ULONG key_len);
+    bool createAesKey(std::string key_label, CK_ULONG key_size);
     bool createSessionKey(std::string key_label, CK_OBJECT_HANDLE_PTR key_handle);
     bool generateKeyPair(
         CK_OBJECT_HANDLE& public_key, 
