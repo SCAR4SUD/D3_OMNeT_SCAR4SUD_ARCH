@@ -45,7 +45,7 @@ void ECU::initialize()
     //scheduleAt(simTime()+10.0, SendDataSignal);
 
     RetriveDataSignal = new Packet("SELF_RetriveDataSignal");
-    // RetriveDataSignal->setType(ECU_SEND_DATA_SIGNAL);
+    RetriveDataSignal->setType(ECU_SEND_DATA_SIGNAL);
 
     additional_initialize();
 }
@@ -94,7 +94,7 @@ void ECU::handleMessage(cMessage *msg)
             acceptChallenge(pkg);
             if(id == 4 && once) {
                 once = false;
-                scheduleAt(simTime()+3, SendDataSignal);
+                scheduleAt(simTime()+3.0, SendDataSignal);
             }
             }break;
         case NS_CHALLENGE_RESPONSE: {
@@ -102,7 +102,7 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case STORAGE_RETRIEVE_DATA: {
             receiveEncPacket(pkg, id_active_storage);
-            EV << "[ECU-" << id <<"] data retrived from storage: " << pkg->getData() << std::endl;
+            EV << "[ECU-" << id <<"] data retrived from storage: \n" << pkg->getData() << std::endl;
             }break;
         case STORAGE_DOWN: {
             if(std::stoi(pkg->getData()) == 7)
@@ -110,27 +110,32 @@ void ECU::handleMessage(cMessage *msg)
             else
                 id_active_storage = 7;
             EV << "[ECU-" << id <<"] received info that a storage device is down, changing active storage option" << std::endl;
-            if(id == 4) scheduleAt(simTime()+1, RetriveDataSignal);
+            }break;
+        case STORAGE_ERROR: {
+            receiveEncPacket(pkg, id_active_storage);
+            EV << "[ECU-" << id <<"] received the following error: \n" << pkg->getData() << std::endl;
             }break;
         default: {
             }break;
     }
+    /*
     if(pkg == SendDataSignal) {
-        std::cout << "sending storage data..." << std::endl;
+        // std::cout << "sending storage data..." << std::endl;
         Packet *pkg_to_send = new Packet("DATA_STORE");
         pkg_to_send->setSrcId(id);
         pkg_to_send->setDstId(id_active_storage);
         pkg_to_send->setType(REQUEST_STORAGE);
-        std::string data_to_send = "data";
+        std::string data_to_send = "{\"height\":15}";
         pkg_to_send->setData(data_to_send.c_str());
-        sendDataToStorage(pkg_to_send, PRIVATE_DATA, DATI_ANAGRAFICI);
+        sendDataToStorage(pkg_to_send, "SEATING_HEIGHT", STORAGE_WRITE, PRIVATE_DATA, USER_PREFERENCES);
         scheduleAt(simTime()+8, RetriveDataSignal);
     }
-
+    */
+    /*
     if(pkg == RetriveDataSignal) {
-        std::cout << "sending data request to STORAGE" << std::endl;
-        sendRequestToStorage();
+        sendRequestToStorage(PRIVATE_DATA, "SEATING_HEIGHT", id);
     }
+    */
     additional_handleMessage(msg);
 }
 
@@ -183,15 +188,10 @@ bool ECU::setHsmSessionKey(Packet *res) {
     size_t aes_key_len = AES_KEY_LEN;
     memcpy(tpm_access->getSessionKeyHandle(0), aes_key, AES_KEY_ENC_MAXLEN);
 
-    std::cout << "timestamp_hsm: \t\t" << timestamp_hsm << std::endl;
-    std::cout << "retrived_timestamp: \t\t" << retrived_timestamp << std::endl;
-
 
     if(timestamp_hsm != retrived_timestamp) {
         std::cerr << "[ECU-" << id << "] timestamp of response is invalid" << std::endl;
         return false;
-    }else {
-        std::cout << "TIMESTAMP IS CORRECT" << std::endl;
     }
 
     if (aes_key_len != AES_KEY_LEN) {
@@ -358,8 +358,11 @@ void ECU::receiveEncPacket(Packet *pkg, int other_ecu_id)
 
     unsigned long plain_len{0};
     unsigned char* plaintext = decrypt_message_aes(doc, plain_len, tpm_access->getSessionKeyHandle(other_ecu_id));    // Decrypt ticket
-    if(plaintext == nullptr)
-        std::cerr << "receiveEncPacket failed" << std::endl;
+    if(plaintext == nullptr) {
+        //std::cerr << "receiveEncPacket failed" << std::endl;
+        EV << "[ECU-" << id << "] received a packet that it failed to decrytp" << std::endl;
+        pkg->setData("");
+    }
     std::string dec_msg((const char*)plaintext, plain_len);
 
     pkg->setData(dec_msg.c_str());
@@ -504,7 +507,7 @@ void ECU::handleClockSync(Packet *pkg)
     }
 }
 
-void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, stateData data_state){
+void ECU::sendDataToStorage(Packet *logPacket, int user_id, std::string record_name, int request_type, PrivacyLevel privacy_level, stateData data_state, int affected_id){
     std::string value = logPacket->getData();
     std::string date = get_current_timestamp_iso8601();
     logPacket->setSrcId(id);
@@ -515,6 +518,29 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, state
     store_message.SetObject();
     auto& store_alloc = store_message.GetAllocator();
 
+    if(affected_id == UNSPECIFIED_STORE)
+        affected_id = id;
+
+    store_message.AddMember(
+        "store_id",
+        affected_id,
+        store_alloc
+    );
+    store_message.AddMember(
+        "user_id",
+        user_id,
+        store_alloc
+    );
+    store_message.AddMember(
+        "type",
+        request_type,
+        store_alloc
+    );
+    store_message.AddMember(
+        "name",
+        rapidjson::Value().SetString(record_name.c_str(), record_name.length()),
+        store_alloc
+    );
     store_message.AddMember(
         "value",
         rapidjson::Value().SetString(value.c_str(), value.length()),
@@ -526,13 +552,13 @@ void ECU::sendDataToStorage(Packet *logPacket, PrivacyLevel privacy_level, state
         store_alloc
     );
     store_message.AddMember(
-        "date",
-        rapidjson::Value().SetString(date.c_str(), date.length()),
+        "privacy_level",
+        privacy_level,
         store_alloc
     );
     store_message.AddMember(
-        "privacy_level",
-        privacy_level,
+        "date",
+        rapidjson::Value().SetString(date.c_str(), date.length()),
         store_alloc
     );
 
@@ -559,17 +585,203 @@ std::string ECU::get_current_timestamp_iso8601()
 {
     time_t now_c = hw_clock.time_since_epoch();
     std::stringstream ss;
-    ss<<std::put_time(localtime(&now_c), "%Y-%m-%dT%H:%M:%SZ"); //formato iso 8601
+    ss << std::put_time(localtime(&now_c), "%Y-%m-%dT%H:%M:%SZ"); // iso 8601 format
     return ss.str();
 }
 
-void ECU::sendRequestToStorage(){
-    Packet *packet = new Packet("REQUEST_FROM_STORAGE");
+void ECU::sendEditToStorage(
+    PrivacyLevel privacy_level,
+    std::string record_name,
+    int user_id,
+    int resource_id
+){
+    Packet *packet = new Packet("EDIT_TO_STORAGE");
     packet->setDstId(id_active_storage);
     packet->setSrcId(id);
-    packet->setData(nullptr);
     packet->setType(REQUEST_STORAGE_DATA);
+
+    rapidjson::Document store_request;
+    store_request.SetObject();
+    auto& alloc = store_request.GetAllocator();
+
+    store_request.AddMember(
+        "type",
+        STORAGE_EDIT,
+        alloc
+    );
+    store_request.AddMember(
+        "privacy_level",
+        privacy_level,
+        alloc
+    );
+    store_request.AddMember(
+        "name",
+        rapidjson::Value().SetString(record_name.c_str(), record_name.length()),
+        alloc
+    );
+    store_request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+    store_request.AddMember(
+        "id",
+        resource_id,
+        alloc
+    );
+
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    store_request.Accept(writer);
+
+    packet->setData(buffer.GetString());
+
     sendEncPacket(packet, id_active_storage, REQUEST_STORAGE_DATA);
+}
+
+
+void ECU::requestAccessToData(
+    int user_id,
+    int type
+) {
+    Packet *packet = new Packet("REQUEST_TO_STORAGE");
+    packet->setDstId(id_active_storage);
+    packet->setSrcId(id);
+    packet->setType(STORAGE_DATA_ACCESS);
+
+    rapidjson::Document store_request;
+    store_request.SetObject();
+    auto& alloc = store_request.GetAllocator();
+
+    store_request.AddMember(
+        "type",
+        type,
+        alloc
+    );
+    store_request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    store_request.Accept(writer);
+
+    packet->setData(buffer.GetString());
+
+    sendEncPacket(packet, id_active_storage, STORAGE_DATA_ACCESS);
+}
+
+void ECU::requestAccessToDataPortable(
+    int user_id
+) {
+    Packet *packet = new Packet("REQUEST_TO_STORAGE");
+    packet->setDstId(id_active_storage);
+    packet->setSrcId(id);
+    packet->setType(STORAGE_DATA_ACCESS);
+
+    rapidjson::Document store_request;
+    store_request.SetObject();
+    auto& alloc = store_request.GetAllocator();
+
+    store_request.AddMember(
+        "type",
+        STORAGE_DATA_ACCESS_PORTABLE,
+        alloc
+    );
+    store_request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    store_request.Accept(writer);
+
+    packet->setData(buffer.GetString());
+
+    sendEncPacket(packet, id_active_storage, STORAGE_DATA_ACCESS);
+}
+
+void ECU::deleteData(
+    PrivacyLevel privacy_level,
+    std::string record_name,
+    int user_id,
+    int resource_id
+) {
+    Packet *packet = new Packet("EDIT_TO_STORAGE");
+    packet->setDstId(id_active_storage);
+    packet->setSrcId(id);
+    packet->setType(REQUEST_STORAGE_DATA);
+
+    rapidjson::Document store_request;
+    store_request.SetObject();
+    auto& alloc = store_request.GetAllocator();
+
+    store_request.AddMember(
+        "type",
+        STORAGE_DELETE,
+        alloc
+    );
+    store_request.AddMember(
+        "name",
+        rapidjson::Value().SetString(record_name.c_str(), record_name.length()),
+        alloc
+    );
+    store_request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+    store_request.AddMember(
+        "id",
+        resource_id,
+        alloc
+    );
+
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    store_request.Accept(writer);
+
+    packet->setData(buffer.GetString());
+
+    sendEncPacket(packet, id_active_storage, REQUEST_STORAGE_DATA);
+}
+
+void ECU::deleteUserData(
+    int user_id
+) {
+    Packet *packet = new Packet("EDIT_TO_STORAGE");
+    packet->setDstId(id_active_storage);
+    packet->setSrcId(id);
+    packet->setType(STORAGE_DELETE_USER);
+
+    rapidjson::Document store_request;
+    store_request.SetObject();
+    auto& alloc = store_request.GetAllocator();
+
+    store_request.AddMember(
+        "type",
+        STORAGE_DELETE_USER,
+        alloc
+    );
+    store_request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    store_request.Accept(writer);
+
+    packet->setData(buffer.GetString());
+
+    sendEncPacket(packet, id_active_storage, STORAGE_DELETE_USER);
 }
 
 void ECU::finish()

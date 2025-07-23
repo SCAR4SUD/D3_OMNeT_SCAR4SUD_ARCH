@@ -26,3 +26,4 @@
 {"from":8, "to":-1, "route":true}
 {"from":7, "to":-2, "route":true}
 {"from":8, "to":-2, "route":true}
+{"from":-2, "to":-2, "route":true}

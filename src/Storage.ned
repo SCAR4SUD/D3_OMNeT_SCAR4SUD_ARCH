@@ -8,7 +8,8 @@ simple Storage
         int numECUs;
         double sendInterval @unit(s);
         int checkInterval;
-        int dataLifeTime; 
+        int dataLifeTime;
+        int clean_files; 
         int storage1_id;
         int storage2_id;
         

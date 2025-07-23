@@ -1,8 +1,8 @@
 version 3
-run General-0-20250716-20:18:10-157472
+run General-0-20250723-17:10:19-88784
 attr configname General
-attr datetime 20250716-20:18:10
-attr datetimef 20250716-201810
+attr datetime 20250723-17:10:19
+attr datetimef 20250723-171019
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Rete_def
-attr processid 157472
+attr processid 88784
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -18,7 +18,7 @@ attr runnumber 0
 attr seedset 0
 config network Rete_def
 config record-eventlog true
-config sim-time-limit 20s
+config sim-time-limit 30s
 config repeat 1
 config output-scalar-file results/Progetto.sca
 
@@ -176,7 +176,8 @@ par Rete_def.storage1 numECUs 8
 par Rete_def.storage1 sendInterval 2.08977s
 attr unit s
 par Rete_def.storage1 checkInterval 8
-par Rete_def.storage1 dataLifeTime 16
+par Rete_def.storage1 dataLifeTime 172800
+par Rete_def.storage1 clean_files 1
 par Rete_def.storage1 storage1_id 7
 par Rete_def.storage1 storage2_id 8
 par Rete_def.storage2 typename "\"progetto.Storage\""
@@ -185,7 +186,8 @@ par Rete_def.storage2 numECUs 8
 par Rete_def.storage2 sendInterval 2.6945s
 attr unit s
 par Rete_def.storage2 checkInterval 8
-par Rete_def.storage2 dataLifeTime 16
+par Rete_def.storage2 dataLifeTime 172800
+par Rete_def.storage2 clean_files 1
 par Rete_def.storage2 storage1_id 7
 par Rete_def.storage2 storage2_id 8
 par Rete_def typename "\"progetto.simulations.Rete_def\""

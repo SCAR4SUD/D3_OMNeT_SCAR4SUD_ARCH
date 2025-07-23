@@ -29,6 +29,8 @@ private:
     std::unordered_map<std::tuple<int, int>, bool, TupleHash> approved_routes;
     bool *pending_ping;
 
+    Packet* ping_reminder;
+
     Packet *self{nullptr};
 
 

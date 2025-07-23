@@ -90,8 +90,9 @@ network Rete_def
                 sendInterval = uniform(1s, 3s);
                 storage1_id = parent.storage1_id;
                 storage2_id = parent.storage2_id;
+                clean_files = 1;
                 checkInterval = 8;
-                dataLifeTime = 16; 
+                dataLifeTime = 172800; 
                 @display("p=835,721;is=m");
         }
         storage2: Storage {
@@ -101,8 +102,9 @@ network Rete_def
                 sendInterval = uniform(1s, 3s);
                 storage1_id = parent.storage1_id;
                 storage2_id = parent.storage2_id;
+                clean_files = 1;
                 checkInterval = 8;
-                dataLifeTime = 16; 
+                dataLifeTime = 172800; 
                 @display("p=695,837;is=m");
         }
 

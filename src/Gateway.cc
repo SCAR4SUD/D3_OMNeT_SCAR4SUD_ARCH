@@ -20,6 +20,11 @@ void Gateway::initialize()
     memset(pending_ping, false, numECUs);
 
     self = new Packet("SELF_PONG_CHECK");
+
+    ping_reminder = new Packet("PERIODIC_PING");
+    ping_reminder->setSrcId(-2);
+    ping_reminder->setDstId(-2);
+    // scheduleAt(simTime()+5, ping_reminder);
 }
 
 bool Gateway::loadFilterRules()
@@ -71,6 +76,17 @@ void Gateway::handleMessage(cMessage *msg)
         return;
     }
 
+    if(pkg == ping_reminder) {
+        sendStoragePing(7);
+        sendStoragePing(8);
+        scheduleAt(simTime()+5, ping_reminder);
+        return;
+    }
+
+    if(pkg->getDstId() == 7 || pkg->getDstId() == 8) {
+        sendStoragePing(pkg->getDstId());
+    }
+
     int type = pkg->getType();
     switch(type) {
         case RSA_REQUEST: {
@@ -95,20 +111,19 @@ void Gateway::handleMessage(cMessage *msg)
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case REQUEST_STORAGE: {
-            sendStoragePing(pkg->getDstId());
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case REQUEST_STORAGE_DATA: {
-            sendStoragePing(pkg->getDstId());
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case STORAGE_RETRIEVE_DATA: {
             send(msg, "ecuOut", pkg->getDstId()-1);
             }break;
         case PONG_MSG: {
+            // std::cout << "[Gateway] cheking pong message" << std::endl;
             if(pkg->getDstId() != GATEWAY_STORAGE_SELF_PONG)
                 pending_ping[pkg->getSrcId()-1] = false;
-            checkStoragePong(pkg->getSrcId());
+                checkStoragePong(pkg->getSrcId());
             }break;
         case GATEWAY_ROUTE_UPDATE: {
             send(msg, "toHsm", pkg->getDstId()-1);
@@ -158,6 +173,7 @@ void Gateway::checkStoragePong(int src_id){
 }
 
 void Gateway::sendBroadcastStorageDownSignal(int storage_id) {
+    EV << "[Gateway] sending broadcast down signal" << std::endl;
     Packet *broadcast_message = new Packet("STORAGE_DOWN_SIGNAL");
 
     broadcast_message->setSrcId(-1);

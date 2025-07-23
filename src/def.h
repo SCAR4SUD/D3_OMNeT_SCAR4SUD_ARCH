@@ -1,13 +1,26 @@
 #ifndef SCAR_DEF_H
 #define SCAR_DEF_H
 
+#include <string>
+
 enum stateData{
-    DATI_ANAGRAFICI,
-    PREFERENZE_UTENTE,
-    DATO_TEMPORALE,
-    PREFERENZE_AUTOVETTURA,
-    NON_CATEGORIZZATO
+    PERSONAL_DATA,
+    USER_PREFERENCES,
+    TEMPORAL_DATA,
+    VEHICLE_PREFERENCES,
+    UNCATEGORIZED
 };
+
+inline std::string stateToString(stateData currentState){
+    switch(currentState){
+    case stateData::PERSONAL_DATA: return "PERSONAL_DATA";
+    case stateData::USER_PREFERENCES: return "USER_PREFERENCES";
+    case stateData::TEMPORAL_DATA: return "TEMPORAL_DATA";
+    case stateData::VEHICLE_PREFERENCES: return "VEHICLE_PREFERENCES";
+    case stateData::UNCATEGORIZED: return "UNCATEGORIZED";
+    default: return "ERROR_UNKNOWN";
+    }
+}
 
 #define HSM_TOPOLOGICAL_ID              0
 #define INFOTAINMENT_ID                 4
@@ -36,6 +49,7 @@ enum stateData{
 #define STORAGE_NACK                    13
 #define STORAGE_DOWN                    14
 #define STORAGE_RETRIEVE_DATA_ERROR     15
+#define STORAFE_DELETE_DATA_ERROR       16
 
 //Ping Gateway<->Storage
 #define PING_MSG                        100
@@ -49,10 +63,25 @@ enum stateData{
 #define GATEWAY_ROUTE_UPDATE_INTERNAL   202
 #define STORAGE_ECU_DOWN                203
 
+#define STORAGE_ERROR                   600
 
-#define PRIVATE_DATA                    1
+#define STORAGE_WRITE                   601
+#define STORAGE_EDIT                    602
+#define STORAGE_DELETE                  603
+
+#define STORAGE_DELETE_USER             604
+
+#define STORAGE_DATA_ACCESS             605
+#define STORAGE_DATA_ACCESS_PORTABLE    606
+
+#define STORAGE_DATA_EXPORT_23          607
+
+
 #define PUBLIC_DATA                     0
+#define PRIVATE_DATA                    1
 typedef int PrivacyLevel;
+
+#define UNSPECIFIED_STORE               -1
 
 #endif
 

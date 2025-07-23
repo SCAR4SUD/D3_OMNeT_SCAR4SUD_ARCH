@@ -85,8 +85,6 @@ std::string serialize_rsa_request(int id, int nonce, EVP_PKEY* ecu_private_key, 
     rapidjson::Writer<rapidjson::StringBuffer> message_writer(message_buffer);
     message.Accept(message_writer);
 
-    // std::cout << "message_buffer.getString(): " << message_buffer.GetString() << std::endl;
-
     return message_buffer.GetString();
 }
 
@@ -103,8 +101,6 @@ void parse_rsa_response(
         return;
     }
 
-    std::cout << "RSA_RESPONSE: " << json_str << std::endl;
-
     if (
             !doc.HasMember("aad")           || !doc["aad"].IsString()           ||
             !doc.HasMember("iv")            || !doc["iv"].IsString()            ||
@@ -115,8 +111,6 @@ void parse_rsa_response(
         handle_errors("missing camps");
         return;
     }
-
-    std::cout << "sefault: " << json_str << std::endl;
 
     std::string to_verify;
     to_verify.append(doc["aad"].GetString());
@@ -143,8 +137,6 @@ void parse_rsa_response(
         handle_errors("Error parsing JSON in parse_rsa_response");
         return;
     }
-
-    std::cout << "response_json: " << response_json << std::endl;
 
     std::string session_key_b64 = response["key"].GetString();
 

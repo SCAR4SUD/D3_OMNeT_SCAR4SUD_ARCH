@@ -45,6 +45,8 @@ OBJS = \
     $O/clock/Clock.o \
     $O/common/common.o \
     $O/crypto_utils/crypto_utils.o \
+    $O/gdpr/gdpr_client.o \
+    $O/gdpr/gdpr_server.o \
     $O/include/hsm/hsm.o \
     $O/include/ns_handling/ns.o \
     $O/include/representation_utils/representation_utils.o \

@@ -263,7 +263,6 @@ std::string rsa_response(rapidjson::Document& message, sca::Session& session) {
         std::cerr << "[HSM] failed to delete temporary AES key" << std::endl;
     }
 
-    std::cout << "[HSM] hsm_aes_key_value_enc_len: " << hsm_aes_key_value_enc_len << std::endl;
 
     std::string hsm_aes_key_value_enc_b64 = sca::base64_encode(hsm_aes_key_value_enc, hsm_aes_key_value_enc_len);
 

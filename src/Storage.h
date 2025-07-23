@@ -14,6 +14,12 @@
 #include "def.h"
 using namespace omnetpp;
 
+struct RetentionPolicy
+{
+    std::time_t min_retention_s; // tempo minimo di conservazione in secondi
+    std::time_t max_retention_s; // tempo massimo di conservazione in secondi
+};
+
 class Storage : public ECU
 {
   protected:
@@ -26,10 +32,15 @@ class Storage : public ECU
 
     void storeData(Packet *package);
     void pingWithGateway(Packet *package);
-
     Packet *readDataFile(Packet *package);
+    Packet *exportDataUser(Packet *packet);
+
+    void deleteData(int ecuId, int source_id, const int& type, const std::string& name,  bool ignore_min_retention = false);
+    Packet* deleteUserData(Packet *packet);
+
     void cleanupLogFile(int ecuId, const std::string& type);
     void initFailureState();
+    void initialize_retention_policies();
 
     virtual void finish() override;
 
@@ -38,9 +49,10 @@ class Storage : public ECU
     //map per i file txt
     std::map<int, std::string> privateFilePath;
     std::map<int, std::string> publicFilePath;
+    std::map<stateData, RetentionPolicy> data_retention_policies;
 
     simtime_t checkInterval;
-    simtime_t dataLifetime;
+    unsigned int dataLifetime;
     Packet *cleanupEvent = nullptr;
     Packet *failureEvent = nullptr;
 

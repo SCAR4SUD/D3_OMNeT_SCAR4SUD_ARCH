@@ -67,21 +67,44 @@ protected:
     void receiveEncPacket(Packet *pkg, int other_ecu_id);       // function encapsulating the process of receiving a
                                                                 // message trough the ECU-ECU encrypted channel
 
-    void sendDataToStorage(Packet *pkg, PrivacyLevel privacyData, stateData data_state);
-    void sendRequestToStorage();
+    void sendDataToStorage(
+        Packet *logPacket,
+        int user_id,
+        std::string record_name,
+        int request_type,
+        PrivacyLevel privacy_level,
+        stateData data_state,
+        int affected_id = UNSPECIFIED_STORE
+    );
+    void sendRequestToStorage(
+        PrivacyLevel privacy_level,
+        std::string record_name,
+        int user_id,
+        int resource_id
+    );
+    void sendEditToStorage(
+        PrivacyLevel privacy_level,
+        std::string record_name,
+        int user_id,
+        int resource_id
+    );
+    void requestAccessToDataPortable(
+        int user_id
+    );
+    void deleteData(
+        PrivacyLevel privacy_level,
+        std::string record_name,
+        int user_id,
+        int resource_id
+    );
+    void deleteUserData(
+        int user_id
+    );
+    void requestAccessToData(int user_id, int type = STORAGE_DATA_ACCESS);
+
 
     std::string get_current_timestamp_iso8601();                // function for getting the timestamp in the ISO format
 
-    inline std::string stateToString(stateData currentState){
-        switch(currentState){
-        case stateData::DATI_ANAGRAFICI: return "DATI_ANAGRAFICI";
-        case stateData::PREFERENZE_UTENTE: return "PREFERENZE_UTENTE";
-        case stateData::DATO_TEMPORALE: return "DATO_TEMPORALE";
-        case stateData::PREFERENZE_AUTOVETTURA: return "PREFERENZE_AUTOVETTURA";
-        case stateData::NON_CATEGORIZZATO: return "NON_CATEGORIZZATO";
-        default: return "ERROR_SCONOSCIUTO";
-        }
-    }
     void setStorageStatusDown(int id);      // sets the status of a storage device as down
 
     std::string *timestamp_b64;
