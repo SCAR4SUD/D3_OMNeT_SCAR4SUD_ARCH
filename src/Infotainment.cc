@@ -107,7 +107,6 @@ void Infotainment::additional_handleMessage(cMessage *msg)
 }
 
 void Infotainment::test_gdpr_requests(Packet *pkg) {
-    std::cout << "pkg->getData(): " << pkg->getData() << std::endl;
     int gdpr_right_req = std::atoi(pkg->getData());
 
     std::string email = "mario.rossi@provider.com";
@@ -231,7 +230,7 @@ std::string Infotainment::hash_password(const std::string& password) {
 
 void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_json) {
     rapidjson::Document params;
-    std::cout << "GDPR_request_handler parameters: " << params_json << std::endl;
+    // std::cout << "GDPR_request_handler parameters: " << params_json << std::endl;
     if (params.Parse(params_json.c_str()).HasParseError()) {
         handle_errors("invalid json formatted request sent to Infotainment");
         return;
@@ -245,7 +244,7 @@ void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_j
 
     switch(gdpr_rigth_req) {
         case 15: {              // 15. Right of access by the data subject
-            requestAccessToData(user_id);
+            handle_article_15_access(user_id);
         }break;
         case 16: {              // 16. Right to rectification
             Packet *pkg = new Packet("DATA_STORE");
@@ -254,10 +253,10 @@ void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_j
             pkg->setType(REQUEST_STORAGE);
             std::string data_to_send = createTaggedData("Via dell'anticorso 2, Milano", PERSONAL_DATA, get_current_timestamp_iso8601());
             pkg->setData(data_to_send.c_str());
-            sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "address", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+            handle_article_16_rectification(pkg, email, hashed_password);
         }break;
         case 17: {              // 17. Right to erasure
-            deleteUserData(user_data_store[{email, hashed_password}]);
+            handle_article_17_erasure_with_check(email, hashed_password);
         }break;
         case 18: {              // 18. Right to restriction of processing
             Packet *pkg = new Packet("DATA_STORE");
@@ -267,10 +266,10 @@ void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_j
             std::string value = params["value"].GetString();
             std::string data_to_send = createTaggedData(value + "," + params["reason"].GetString(), PERSONAL_DATA, get_current_timestamp_iso8601());
             pkg->setData(data_to_send.c_str());
-            sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "restriction", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+            handle_article_18_restriction(pkg, email, hashed_password);
         }break;
         case 20: {              // 20. Right to data portability
-            requestAccessToData(user_id, STORAGE_DATA_ACCESS_PORTABLE);
+            handle_article_20_portability(user_id);
         }break;
         case 21: {              // 21. Right to object
             Packet *pkg = new Packet("DATA_STORE");
@@ -280,8 +279,7 @@ void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_j
             std::string value = params["value"].GetString();
             std::string data_to_send = createTaggedData(value + "," + params["reason"].GetString(), PERSONAL_DATA, get_current_timestamp_iso8601());
             pkg->setData(data_to_send.c_str());
-            sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "marketing_cosent", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
-
+            handle_article_21_objection(pkg, email, hashed_password);
         }break;
         case 22: {              // 22. Automated individual decision-making, including profiling
             Packet *pkg = new Packet("DATA_STORE");
@@ -290,15 +288,47 @@ void Infotainment::GDPR_request_handler(int gdpr_rigth_req, std::string params_j
             pkg->setType(REQUEST_STORAGE);
             std::string data_to_send = createTaggedData("false", PERSONAL_DATA, get_current_timestamp_iso8601());
             pkg->setData(data_to_send.c_str());
-            sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "automated_decision", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+            handle_article_22_automated_decision(pkg, email, hashed_password);
         }break;
         case 23: {
-            pending_email = email;
-            requestAccessToData(user_id, STORAGE_DATA_EXPORT_23);
+            handle_article_23_data_export(user_id, email);
         }break;
     }
 
     return;
+}
+
+void Infotainment::handle_article_15_access(int user_id) {
+    requestAccessToData(user_id);
+}
+
+void Infotainment::handle_article_16_rectification(Packet* pkg, std::string email, std::string hashed_password) {
+    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "address", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+}
+
+void Infotainment::handle_article_17_erasure_with_check(std::string email, std::string hashed_password) {
+    deleteUserData(user_data_store[{email, hashed_password}]);
+}
+
+void Infotainment::handle_article_18_restriction(Packet* pkg, std::string email, std::string hashed_password) {
+    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "restriction", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+}
+
+void Infotainment::handle_article_20_portability(int user_id) {
+    requestAccessToData(user_id, STORAGE_DATA_ACCESS_PORTABLE);
+}
+
+void Infotainment::handle_article_21_objection(Packet* pkg, std::string email, std::string hashed_password) {
+    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "marketing_cosent", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+}
+
+void Infotainment::handle_article_22_automated_decision(Packet* pkg, std::string email, std::string hashed_password) {
+    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "automated_decision", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+}
+
+void Infotainment::handle_article_23_data_export(int user_id, std::string email) {
+    pending_email = email;
+    requestAccessToData(user_id, STORAGE_DATA_EXPORT_23);
 }
 
 void Infotainment::initialize_sample_data() {

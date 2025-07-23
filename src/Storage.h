@@ -38,7 +38,7 @@ class Storage : public ECU
     void deleteData(int ecuId, int source_id, const int& type, const std::string& name,  bool ignore_min_retention = false);
     Packet* deleteUserData(Packet *packet);
 
-    void cleanupLogFile(int ecuId, const std::string& type);
+    void cleanUpFile(int ecuId, const std::string& type);
     void initFailureState();
     void initialize_retention_policies();
 

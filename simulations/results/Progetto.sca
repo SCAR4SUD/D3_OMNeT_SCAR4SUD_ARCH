@@ -1,8 +1,8 @@
 version 3
-run General-0-20250723-17:10:19-88784
+run General-0-20250723-18:06:04-92249
 attr configname General
-attr datetime 20250723-17:10:19
-attr datetimef 20250723-171019
+attr datetime 20250723-18:06:04
+attr datetimef 20250723-180604
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Rete_def
-attr processid 88784
+attr processid 92249
 attr repetition 0
 attr replication #0
 attr resultdir results

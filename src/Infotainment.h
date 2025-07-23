@@ -32,6 +32,16 @@ protected:
     void additional_initialize() override;
     void additional_handleMessage(cMessage *msg) override;
 
+    void handle_article_15_access(int user_id);
+    void handle_article_16_rectification(Packet* pkg, std::string email, std::string hashed_password);
+    void handle_article_17_erasure_with_check(std::string email, std::string hashed_password);
+    void handle_article_18_restriction(Packet* pkg, std::string email, std::string hashed_password);
+    void handle_article_20_portability(int user_id);
+    void handle_article_21_objection(Packet* pkg, std::string email, std::string hashed_password);
+    void handle_article_22_automated_decision(Packet* pkg, std::string email, std::string hashed_password);
+    void handle_article_23_data_export(int user_id, std::string email);
+
+
     void initialize_sample_data();
     std::string hash_password(const std::string& password);
 };

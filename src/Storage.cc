@@ -102,8 +102,8 @@ void Storage::additional_handleMessage(cMessage *msg)
         // simtime_t expirationThreshold = simTime() - dataLifetime;
 
         for (int i = 1; i <= numECUs; ++i) {
-            cleanupLogFile(i, "Public");
-            cleanupLogFile(i, "Private");
+            cleanUpFile(i, "Public");
+            cleanUpFile(i, "Private");
         }
 
         scheduleAt(simTime() + checkInterval, cleanupEvent);
@@ -166,7 +166,7 @@ void Storage::storeData(Packet *packet){
     receiveEncPacket(packet, sourceId);
     std::string payload = packet->getData();
 
-    std::cout << "[Storage] Received from ECU " << sourceId << " with payload: '" << payload << "'\n";
+    // std::cout << "[Storage] Received from ECU " << sourceId << " with payload: '" << payload << "'\n";
 
     rapidjson::Document doc;
     if (doc.Parse(payload.c_str()).HasParseError())
@@ -453,7 +453,7 @@ Packet* Storage::exportDataUser(Packet *packet) {
 
 }
 
-void Storage::cleanupLogFile(int ecuId, const std::string& type) {
+void Storage::cleanUpFile(int ecuId, const std::string& type) {
     std::string storageBasePath = ("storage/ecu" + std::to_string(id));
     std::string ecuDirPath = storageBasePath + ("/ecu" + std::to_string(ecuId));
     fs::path filePath;
@@ -719,7 +719,7 @@ Packet* Storage::deleteUserData(Packet *packet) {
     }
 
     if(!canDelete) {
-        packet->setData("{\"error\":\"could not delete user data: minimum retention time has not elapsed\"}");
+        packet->setData("{\"status\":\"error\",\"message\":\"could not delete user data: minimum retention time has not elapsed\"}");
         packet->setType(STORAGE_ERROR);
     }
 
