@@ -88,14 +88,14 @@ protected:
         int user_id,
         int resource_id
     );
-    void requestAccessToDataPortable(
-        int user_id
-    );
     void deleteData(
         PrivacyLevel privacy_level,
         std::string record_name,
         int user_id,
         int resource_id
+    );
+    void requestAccessToDataPortable(
+        int user_id
     );
     void deleteUserData(
         int user_id

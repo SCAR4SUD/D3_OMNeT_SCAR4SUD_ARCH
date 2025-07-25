@@ -90,6 +90,17 @@ void Infotainment::additional_handleMessage(cMessage *msg)
 
     int type = pkg->getType();
     switch(type) {
+        case RSA_RESPONSE:{
+            sendEcuSessionRequest(7);
+            sendEcuSessionRequest(8);
+            }break;
+        case NS_CHALLENGE_REQUEST:{
+            static bool once = true;
+            if(once) {
+                once = false;
+                scheduleAt(simTime()+3.0, SendDataSignal);
+            }
+            }break;
         case STORAGE_DOWN:{
             EV << "[Infotainment] request to storage was lost. Resending the request" << std::endl;
             int req_num = std::atoi(gdpr_test->getData());

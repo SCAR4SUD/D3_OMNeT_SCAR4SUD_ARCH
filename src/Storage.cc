@@ -120,7 +120,7 @@ void Storage::additional_handleMessage(cMessage *msg)
     int type = packet->getType();
         switch(type) {
             case REQUEST_STORAGE: {
-                if (tpm_access->getSessionKeyHandle(HSM_TOPOLOGICAL_ID) == nullptr) {
+                if (tpm_access->getSessionKeyHandle(packet->getSrcId()) == nullptr) {
                     EV_WARN << "[Storage (ECU " << id << ")] no session key with source of packet";
                     return;
                 }
@@ -161,13 +161,13 @@ void Storage::pingWithGateway(Packet *package){
 }
 
 void Storage::storeData(Packet *packet){
-    int sourceId = packet->getSrcId();
+    int sourceId = packet->getSrcId();          // id of the ECU that sent this packet
 
-    receiveEncPacket(packet, sourceId);
-    std::string payload = packet->getData();
+    receiveEncPacket(packet, sourceId);         // it decrypts the content of the payload with the session key
+                                                // that it shares with the sending ECU
+    std::string payload = packet->getData();    // decrypted payload
 
-    // std::cout << "[Storage] Received from ECU " << sourceId << " with payload: '" << payload << "'\n";
-
+    // parsing of the store request
     rapidjson::Document doc;
     if (doc.Parse(payload.c_str()).HasParseError())
         handle_errors("[Store] received invalid JSON to store");
@@ -179,13 +179,17 @@ void Storage::storeData(Packet *packet){
     std::string record_name = doc["name"].GetString();
     stateData state_data = (stateData)doc["tag"].GetInt();
 
-
+    // switch on the type of the request, this functions supports also deleting
+    // and editing records
     switch(type) {
         case STORAGE_WRITE:{
             // nothing
             EV << "[Storage] writing the following data to storage: " << payload << std::endl;
             }break;
         case STORAGE_DELETE:{
+            // this functionality is here and not in another function to have all the request
+            // that modify the state of the Storage (write, edit, delete) to both the ECUs
+            // in the Storage cluster.
             deleteData(store_id, sourceId, privacy, record_name);
             return;
             }break;
@@ -196,19 +200,30 @@ void Storage::storeData(Packet *packet){
 
     }
 
+    // removing type member from the request that will be stored as it is no longer useful
+    doc.EraseMember("type");
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    doc.Accept(writer);
 
+    payload = buffer.GetString();   // payload has been updated to not contain the erased members
+
+    // structure containing the AES GCM 256 aad, iv, ciphertext and tag of the record
+    // to be stored
     AesEncryptedMessage aes_msg = encrypt_message_aes(
         (unsigned char*)payload.c_str(),
         payload.length(),
         tpm_access->getSelfKey()
     );
 
+    // converting the AES GCM 256 parameters from binary to base64
     std::string aad_b64 = base64_encode((const unsigned char*)aes_msg.aad, AAD_LEN);
     std::string iv_b64 = base64_encode(aes_msg.iv, IV_LEN);
     std::string tag_b64 = base64_encode(aes_msg.tag, TAG_LEN);
     std::string ciphertext_b64 = base64_encode(aes_msg.ciphertext, aes_msg.ciphertext_len);
 
-    // std::string storable_data = iv_b64 + ":" + tag_b64 + ":" + ciphertext_b64;
+    // format of the record that will be saved to file. Its saved in json format for
+    // easier reading and testing
     std::string storable_data = "{\"time\":\"" + get_current_timestamp_iso8601() +
                                 "\", \"user_id\":" + std::to_string(user_id) +
                                   ", \"record_name\":\"" + record_name +
@@ -218,6 +233,8 @@ void Storage::storeData(Packet *packet){
                                 "\", \"tag\":\"" + tag_b64 +
                                 "\", \"data_tag\":" + std::to_string((int)state_data) + "}";
 
+    // depending on the value of the privacy parameter of the request the record will be saved
+    // in the public store file or in the private store file of the corresponding ECU section
     std::fstream targetStream;
     if (privacy == PUBLIC_DATA) {
         targetStream.open(publicFilePath[store_id], std::ios::out | std::ios::app);
@@ -225,13 +242,13 @@ void Storage::storeData(Packet *packet){
         targetStream.open(privateFilePath[store_id], std::ios::out | std::ios::app);
     }
 
+    // writing to file
     if (targetStream.is_open()) {
         targetStream << storable_data << std::endl;
     } else {
         EV_WARN << "[Storage] request from ECU-" << sourceId
                 << ", Corresponding storage not found. Dropping request\n";
     }
-
 }
 
 Packet *Storage::readDataFile(Packet *packet) {
@@ -428,13 +445,6 @@ Packet* Storage::exportDataUser(Packet *packet) {
             } else {
                 std::cerr << "[Storage] Received request from ECU: " << sourceId
                         << ". corresponding file stream (" << i << ") could not be found or opened. Request dropped." << std::endl;
-                /*
-                packet->setSrcId(id);
-                packet->setDstId(sourceId);
-                packet->setData(""); // No data read
-                packet->setType(STORAGE_RETRIEVE_DATA_ERROR);
-                return packet;
-                */
             }
             isPublic = false;
             requested_file_stream.close();
@@ -484,12 +494,9 @@ void Storage::cleanUpFile(int ecuId, const std::string& type) {
 
     std::string line;
     std::vector<std::string> validLines;
-    std::time_t expirationThreshold; // = hw_clock.time_since_epoch() - dataLifetime;
-
-    // EV << "[Storage (ECU-" << id << ")] clean up" << std::endl;
+    std::time_t expirationThreshold;
 
     while (std::getline(inFile, line)) {
-        // std::cout << "\t\tline: " << line << std::endl;
         rapidjson::Document doc;
         if (doc.Parse(line.c_str()).HasParseError())
             handle_errors("invalid json in internal store");
@@ -620,11 +627,6 @@ void Storage::deleteData(int ecuId, int source_id, const int& type, const std::s
     fileStream->open(filePath, std::ios_base::app);
     if (!fileStream->is_open()) {
          throw cRuntimeError("Failure: cannot open data stream from %s", filePath.c_str());
-    }
-
-    if(validLines.size() > 0) {
-        EV_INFO << "[Storage] cleanup start: " << filePath << std::endl;
-        EV_INFO << "[Storage] Cleanup of " << filePath << " complete. Valid lines: " << validLines.size() << std::endl;
     }
 }
 

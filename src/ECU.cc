@@ -72,11 +72,6 @@ void ECU::handleMessage(cMessage *msg)
             }break;
         case RSA_RESPONSE: {
             setHsmSessionKey(pkg);
-            //sendClockSyncRequest();
-            if(id == 4) {
-                sendEcuSessionRequest(7);
-                sendEcuSessionRequest(8);
-            }
             }break;
         case NS_RESPONSE_SENDER: {
             if(!handleEcuSessionKey(pkg))
@@ -90,12 +85,7 @@ void ECU::handleMessage(cMessage *msg)
             handleClockSync(pkg);
             }break;
         case NS_CHALLENGE_REQUEST: {
-            static bool once = true;
             acceptChallenge(pkg);
-            if(id == 4 && once) {
-                once = false;
-                scheduleAt(simTime()+3.0, SendDataSignal);
-            }
             }break;
         case NS_CHALLENGE_RESPONSE: {
             checkChallenge(pkg);
@@ -133,9 +123,10 @@ void ECU::handleMessage(cMessage *msg)
     */
     /*
     if(pkg == RetriveDataSignal) {
-        sendRequestToStorage(PRIVATE_DATA, "SEATING_HEIGHT", id);
+    sendRequestToStorage(PRIVATE_DATA, "SEATING_HEIGHT", id, 4);
     }
     */
+
     additional_handleMessage(msg);
 }
 
@@ -507,65 +498,78 @@ void ECU::handleClockSync(Packet *pkg)
     }
 }
 
-void ECU::sendDataToStorage(Packet *logPacket, int user_id, std::string record_name, int request_type, PrivacyLevel privacy_level, stateData data_state, int affected_id){
-    std::string value = logPacket->getData();
-    std::string date = get_current_timestamp_iso8601();
+void ECU::sendDataToStorage(
+    Packet *logPacket,          // base packet to modify before sending to Storage
+    int user_id,                // id of the user owner of this data
+    std::string record_name,    // name of the record
+    int request_type,           // type of request
+    PrivacyLevel privacy_level, // privacy level representing which ECU can access this record
+    stateData data_state,       // type of record data, used for the tag camp
+    int affected_id              // on which corresponding ECU section of the Storage the record will be saved
+){
+    std::string value = logPacket->getData();               // payload is set as the Data argument of the Packet to modify
+    std::string date = get_current_timestamp_iso8601();     // time at which this record is being sent
     logPacket->setSrcId(id);
-    logPacket->setDstId(id_active_storage);
+    logPacket->setDstId(id_active_storage);                 // set the destination as the current active storage in the storage cluster
     logPacket->setType(REQUEST_STORAGE);
 
+    // needed to construct json formatted request to Storage
     rapidjson::Document store_message;
     store_message.SetObject();
     auto& store_alloc = store_message.GetAllocator();
 
+    // the id of the ECU that owns this record. By default affected_id is set to UNSPECIFIED_STORE
+    // in such a case the record is assumed to be owned by the ECU calling this method.
     if(affected_id == UNSPECIFIED_STORE)
         affected_id = id;
 
-    store_message.AddMember(
-        "store_id",
-        affected_id,
-        store_alloc
-    );
-    store_message.AddMember(
-        "user_id",
-        user_id,
-        store_alloc
-    );
-    store_message.AddMember(
+    store_message.AddMember(        // type of request
         "type",
         request_type,
         store_alloc
     );
-    store_message.AddMember(
+    store_message.AddMember(        // the id of the ECU that owns this record
+        "store_id",
+        affected_id,
+        store_alloc
+    );
+    store_message.AddMember(        // id of the user that possesses this data
+        "user_id",
+        user_id,
+        store_alloc
+    );
+    store_message.AddMember(        // name of record
         "name",
         rapidjson::Value().SetString(record_name.c_str(), record_name.length()),
         store_alloc
     );
-    store_message.AddMember(
+    store_message.AddMember(        // value associated with record name (itself json formatted)
         "value",
         rapidjson::Value().SetString(value.c_str(), value.length()),
         store_alloc
     );
-    store_message.AddMember(
+    store_message.AddMember(        // tag of the record
         "tag",
         data_state,
         store_alloc
     );
-    store_message.AddMember(
+    store_message.AddMember(        // privacy level representing which ECU can access this record
         "privacy_level",
         privacy_level,
         store_alloc
     );
-    store_message.AddMember(
+    store_message.AddMember(        // time at which this record is being sent
         "date",
         rapidjson::Value().SetString(date.c_str(), date.length()),
         store_alloc
     );
 
+    // objects needed to extract std::string from json object
     rapidjson::StringBuffer buffer_aes_message;
     rapidjson::Writer<rapidjson::StringBuffer> aes_writer(buffer_aes_message);
     store_message.Accept(aes_writer);
 
+    // data to send is set to the previously constructed request, containing value to store
     std::string data_to_send = buffer_aes_message.GetString();
     logPacket->setData(data_to_send.c_str());
 
@@ -573,12 +577,57 @@ void ECU::sendDataToStorage(Packet *logPacket, int user_id, std::string record_n
        << (privacy_level == PUBLIC_DATA ? "PUBLIC" : "PRIVATE")
        << ": " << logPacket->getData() << "\n";
 
+    // redundant packet for sending the same record to both Storage ECUs in the cluster
     Packet* redundant_logPacket = logPacket->dup();
-    redundant_logPacket->setDstId(8);
-    // std::cout << "logPacket->getData(): " << logPacket->getData() << std::endl;
-    if(id_active_storage == 7) sendEncPacket(logPacket, 7, REQUEST_STORAGE);
-    sendEncPacket(redundant_logPacket, 8, REQUEST_STORAGE);
+    redundant_logPacket->setDstId(SECONDARY_STORAGE);
 
+    if(id_active_storage == PRIMARY_STORAGE) sendEncPacket(logPacket, PRIMARY_STORAGE, REQUEST_STORAGE);
+    sendEncPacket(redundant_logPacket, SECONDARY_STORAGE, logPacket->getType()); // method for sending a packet with its payload (Data) encrypted
+                                                                                 // to an ECU with which a common session key has been established
+}
+
+void ECU::sendRequestToStorage(
+    PrivacyLevel privacy_level,
+    std::string record_name,
+    int user_id,
+    int resource_id
+) {
+    Packet *packet = new Packet("REQUEST_FROM_STORAGE");
+    packet->setDstId(id_active_storage);
+    packet->setSrcId(id);
+
+    rapidjson::Document request;
+    request.SetObject();
+    auto& alloc = request.GetAllocator();
+
+    request.AddMember(
+        "privacy_level",
+        privacy_level,
+        alloc
+    );
+    request.AddMember(
+        "user_id",
+        user_id,
+        alloc
+    );
+    request.AddMember(
+        "name",
+        rapidjson::Value().SetString(record_name.c_str(), record_name.length()),
+        alloc
+    );
+    request.AddMember(
+        "id",
+        resource_id,
+        alloc
+    );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    request.Accept(writer);
+
+    packet->setData(request.GetString());
+    packet->setType(REQUEST_STORAGE_DATA);
+    sendEncPacket(packet, id_active_storage, REQUEST_STORAGE_DATA);
 }
 
 std::string ECU::get_current_timestamp_iso8601()

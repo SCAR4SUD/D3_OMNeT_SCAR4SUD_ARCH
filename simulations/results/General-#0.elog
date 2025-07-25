@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250723-18:06:04-92249
+SB ov 1537 ev 2 rid General-0-20250725-04:41:06-18238
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -469,28 +469,28 @@ E # 35 t 0.004 m 6 ce 27 msg 48
 
 E # 36 t 0.004 m 7 ce 28 msg 49
 - INFO: [ECU-4] received session key from the HSM
+CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
+BS id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE m 7 pe 36
+SH sm 7 sg 1 pd 0.001
+ES id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
+CL id 59 tid 58 eid 59 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 7 pe -1 cid 58
+CM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
+BS id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE m 7 pe 36
+SH sm 7 sg 1 pd 0.001
+ES id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
+CL id 60 tid 59 eid 60 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 7 pe -1 cid 59
 - INFO: [ECU-4] is sending Needham–Schroeder request to HSM to get session key with ECU-7
-CM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_req m 7 pe 36
+CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n hsm_ecu_key_req pe -1
+BS id 60 tid 60 eid 60 etid 60 c Packet n hsm_ecu_key_req m 7 pe 36
 SH sm 7 sg 1 pd 0.001
-ES id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
-CL id 59 tid 58 eid 59 etid 58 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 58
+ES id 60 tid 60 eid 60 etid 60 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
+CL id 61 tid 60 eid 61 etid 60 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 60
 - INFO: [ECU-4] is sending Needham–Schroeder request to HSM to get session key with ECU-8
-CM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n hsm_ecu_key_req pe -1
-BS id 59 tid 59 eid 59 etid 59 c Packet n hsm_ecu_key_req m 7 pe 36
+CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n hsm_ecu_key_req pe -1
+BS id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_req m 7 pe 36
 SH sm 7 sg 1 pd 0.001
-ES id 59 tid 59 eid 59 etid 59 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
-CL id 60 tid 59 eid 60 etid 59 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 59
-CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
-BS id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE m 7 pe 36
-SH sm 7 sg 1 pd 0.001
-ES id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
-CL id 61 tid 60 eid 61 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 7 pe -1 cid 60
-CM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
-BS id 61 tid 61 eid 61 etid 61 c Packet n GATEWAY_ROUTE_UPDATE m 7 pe 36
-SH sm 7 sg 1 pd 0.001
-ES id 61 tid 61 eid 61 etid 61 c Packet n GATEWAY_ROUTE_UPDATE sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
-CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 7 pe -1 cid 61
+ES id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_req sm 7 sg 1 st 0.004 am 2 ag 1048579 at 0.005 pe 36
+CL id 62 tid 61 eid 62 etid 61 c omnetpp::cMessage n hsm_ecu_key_req m 7 pe -1 cid 61
 
 E # 37 t 0.004 m 8 ce 29 msg 50
 - INFO: [ECU-5] received session key from the HSM
@@ -521,32 +521,32 @@ E # 42 t 0.004 m 11 ce 32 msg 53
 - INFO: [ECU-8] received session key from the HSM
 
 E # 43 t 0.005 m 2 ce 36 msg 58
-- INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		4 -> 0[0m
-BS id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_req m 2 pe 43
+- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
+BS id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 43
 SH sm 2 sg 5 pd 0.001
-ES id 58 tid 58 eid 58 etid 58 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 43
-CL id 64 tid 58 eid 64 etid 58 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 58
+ES id 58 tid 58 eid 58 etid 58 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 43
+CL id 64 tid 58 eid 64 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 58
 
 E # 44 t 0.005 m 2 ce 36 msg 59
-- INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		4 -> 0[0m
-BS id 59 tid 59 eid 59 etid 59 c Packet n hsm_ecu_key_req m 2 pe 44
+- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
+BS id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 44
 SH sm 2 sg 5 pd 0.001
-ES id 59 tid 59 eid 59 etid 59 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 44
-CL id 64 tid 59 eid 64 etid 59 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 59
+ES id 59 tid 59 eid 59 etid 59 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 44
+CL id 64 tid 59 eid 64 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 59
 
 E # 45 t 0.005 m 2 ce 36 msg 60
-- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
-BS id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 45
+- INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		4 -> 0[0m
+BS id 60 tid 60 eid 60 etid 60 c Packet n hsm_ecu_key_req m 2 pe 45
 SH sm 2 sg 5 pd 0.001
-ES id 60 tid 60 eid 60 etid 60 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 45
-CL id 64 tid 60 eid 64 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 60
+ES id 60 tid 60 eid 60 etid 60 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 45
+CL id 64 tid 60 eid 64 etid 60 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 60
 
 E # 46 t 0.005 m 2 ce 36 msg 61
-- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(201):		4 -> 0[0m
-BS id 61 tid 61 eid 61 etid 61 c Packet n GATEWAY_ROUTE_UPDATE m 2 pe 46
+- INFO: [36m[Gateway] packet "hsm_ecu_key_req"(2):		4 -> 0[0m
+BS id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_req m 2 pe 46
 SH sm 2 sg 5 pd 0.001
-ES id 61 tid 61 eid 61 etid 61 c Packet n GATEWAY_ROUTE_UPDATE sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 46
-CL id 64 tid 61 eid 64 etid 61 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 2 pe -1 cid 61
+ES id 61 tid 61 eid 61 etid 61 c Packet n hsm_ecu_key_req sm 2 sg 5 st 0.005 am 3 ag 0 at 0.006 pe 46
+CL id 64 tid 61 eid 64 etid 61 c omnetpp::cMessage n hsm_ecu_key_req m 2 pe -1 cid 61
 
 E # 47 t 0.005 m 2 ce 39 msg 62
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -557,62 +557,62 @@ E # 48 t 0.005 m 2 ce 41 msg 63
 - INFO: [Gateway] received store (ECU 8) pong
 
 E # 49 t 0.006 m 3 ce 43 msg 58
-CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 64 tid 64 eid 64 etid 64 c Packet n hsm_ecu_key_res m 3 pe 49
+CM id 64 tid 64 eid 64 etid 64 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
+BS id 64 tid 64 eid 64 etid 64 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 49
 SH sm 3 sg 3 pd 0.001
-ES id 64 tid 64 eid 64 etid 64 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 49
-CL id 65 tid 64 eid 65 etid 64 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 64
-- INFO: HSM received ECU-ECU session key generation request from ECU-4
-DM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 49
+ES id 64 tid 64 eid 64 etid 64 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 49
+CL id 65 tid 64 eid 65 etid 64 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 64
+- INFO: HSM received route rule update from Infotainment
+DM id 58 tid 58 eid 58 etid 58 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 49
 
 E # 50 t 0.006 m 3 ce 44 msg 59
-CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n hsm_ecu_key_res pe -1
-BS id 65 tid 65 eid 65 etid 65 c Packet n hsm_ecu_key_res m 3 pe 50
+CM id 65 tid 65 eid 65 etid 65 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
+BS id 65 tid 65 eid 65 etid 65 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 50
 SH sm 3 sg 3 pd 0.001
-ES id 65 tid 65 eid 65 etid 65 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 50
-CL id 66 tid 65 eid 66 etid 65 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 65
-- INFO: HSM received ECU-ECU session key generation request from ECU-4
-DM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 50
+ES id 65 tid 65 eid 65 etid 65 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 50
+CL id 66 tid 65 eid 66 etid 65 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 65
+- INFO: HSM received route rule update from Infotainment
+DM id 59 tid 59 eid 59 etid 59 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 50
 
 E # 51 t 0.006 m 3 ce 45 msg 60
-CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
-BS id 66 tid 66 eid 66 etid 66 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 51
+CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n hsm_ecu_key_res pe -1
+BS id 66 tid 66 eid 66 etid 66 c Packet n hsm_ecu_key_res m 3 pe 51
 SH sm 3 sg 3 pd 0.001
-ES id 66 tid 66 eid 66 etid 66 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 51
-CL id 67 tid 66 eid 67 etid 66 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 66
-- INFO: HSM received route rule update from Infotainment
-DM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 51
+ES id 66 tid 66 eid 66 etid 66 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 51
+CL id 67 tid 66 eid 67 etid 66 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 66
+- INFO: HSM received ECU-ECU session key generation request from ECU-4
+DM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 51
 
 E # 52 t 0.006 m 3 ce 46 msg 61
-CM id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE pe -1
-BS id 67 tid 67 eid 67 etid 67 c Packet n GATEWAY_ROUTE_UPDATE m 3 pe 52
+CM id 67 tid 67 eid 67 etid 67 c omnetpp::cMessage n hsm_ecu_key_res pe -1
+BS id 67 tid 67 eid 67 etid 67 c Packet n hsm_ecu_key_res m 3 pe 52
 SH sm 3 sg 3 pd 0.001
-ES id 67 tid 67 eid 67 etid 67 c Packet n GATEWAY_ROUTE_UPDATE sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 52
-CL id 68 tid 67 eid 68 etid 67 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe -1 cid 67
-- INFO: HSM received route rule update from Infotainment
-DM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n GATEWAY_ROUTE_UPDATE m 3 pe 52
+ES id 67 tid 67 eid 67 etid 67 c Packet n hsm_ecu_key_res sm 3 sg 3 st 0.006 am 2 ag 6 at 0.007 pe 52
+CL id 68 tid 67 eid 68 etid 67 c omnetpp::cMessage n hsm_ecu_key_res m 3 pe -1 cid 67
+- INFO: HSM received ECU-ECU session key generation request from ECU-4
+DM id 61 tid 61 eid 61 etid 61 c omnetpp::cMessage n hsm_ecu_key_req m 3 pe 52
 
 E # 53 t 0.007 m 2 ce 49 msg 64
-- INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
-BS id 64 tid 64 eid 64 etid 64 c Packet n hsm_ecu_key_res m 2 pe 53
-SH sm 2 sg 2621443 pd 0.001
-ES id 64 tid 64 eid 64 etid 64 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 53
-CL id 68 tid 64 eid 68 etid 64 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 64
+- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
 
 E # 54 t 0.007 m 2 ce 50 msg 65
-- INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
-BS id 65 tid 65 eid 65 etid 65 c Packet n hsm_ecu_key_res m 2 pe 54
-SH sm 2 sg 2621443 pd 0.001
-ES id 65 tid 65 eid 65 etid 65 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 54
-CL id 68 tid 65 eid 68 etid 65 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 65
+- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
 
 E # 55 t 0.007 m 2 ce 51 msg 66
-- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
+- INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
+BS id 66 tid 66 eid 66 etid 66 c Packet n hsm_ecu_key_res m 2 pe 55
+SH sm 2 sg 2621443 pd 0.001
+ES id 66 tid 66 eid 66 etid 66 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 55
+CL id 68 tid 66 eid 68 etid 66 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 66
 
 E # 56 t 0.007 m 2 ce 52 msg 67
-- INFO: [36m[Gateway] packet "GATEWAY_ROUTE_UPDATE"(202):		0 -> 4[0m
+- INFO: [36m[Gateway] packet "hsm_ecu_key_res"(3):		0 -> 4[0m
+BS id 67 tid 67 eid 67 etid 67 c Packet n hsm_ecu_key_res m 2 pe 56
+SH sm 2 sg 2621443 pd 0.001
+ES id 67 tid 67 eid 67 etid 67 c Packet n hsm_ecu_key_res sm 2 sg 2621443 st 0.007 am 7 ag 2 at 0.008 pe 56
+CL id 68 tid 67 eid 68 etid 67 c omnetpp::cMessage n hsm_ecu_key_res m 2 pe -1 cid 67
 
-E # 57 t 0.008 m 7 ce 53 msg 64
+E # 57 t 0.008 m 7 ce 55 msg 66
 CM id 68 tid 68 eid 68 etid 68 c omnetpp::cMessage n ecu_ticket pe -1
 BS id 68 tid 68 eid 68 etid 68 c Packet n ecu_ticket m 7 pe 57
 SH sm 7 sg 1 pd 0.001
@@ -621,7 +621,7 @@ CL id 69 tid 68 eid 69 etid 68 c omnetpp::cMessage n ecu_ticket m 7 pe -1 cid 68
 - INFO: [ECU-4] received Needham–Schroeder session key with ECU-7
 - INFO: [ECU-4] is sending ticket to ECU-7
 
-E # 58 t 0.008 m 7 ce 54 msg 65
+E # 58 t 0.008 m 7 ce 56 msg 67
 CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n ecu_ticket pe -1
 BS id 69 tid 69 eid 69 etid 69 c Packet n ecu_ticket m 7 pe 58
 SH sm 7 sg 1 pd 0.001
@@ -820,7 +820,7 @@ E # 84 t 1.013 m 2 ce 72 msg 83
 
 E # 85 t 3.012 m 7 ce 69 msg 16
 CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":601,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 CL id 87 tid 86 eid 87 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 86
 BS id 86 tid 86 eid 86 etid 86 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -831,7 +831,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 87 tid 86 eid 87 etid 86 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 88 tid 86 eid 88 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 87
 CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":601,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 CL id 89 tid 88 eid 89 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 88
 BS id 88 tid 88 eid 88 etid 88 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -842,7 +842,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 89 tid 88 eid 89 etid 88 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 90 tid 88 eid 90 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 89
 CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":601,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 CL id 91 tid 90 eid 91 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 90
 BS id 90 tid 90 eid 90 etid 90 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -853,7 +853,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 91 tid 90 eid 91 etid 90 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 92 tid 90 eid 92 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 91
 CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":601,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 CL id 93 tid 92 eid 93 etid 92 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 92
 BS id 92 tid 92 eid 92 etid 92 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -995,7 +995,7 @@ ES id 110 tid 110 eid 110 etid 110 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 111 tid 110 eid 111 etid 110 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 110
 
 E # 95 t 3.014 m 10 ce 86 msg 86
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 96 t 3.014 m 11 ce 87 msg 96
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1006,7 +1006,7 @@ ES id 111 tid 111 eid 111 etid 111 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 112 tid 111 eid 112 etid 111 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 111
 
 E # 97 t 3.014 m 11 ce 87 msg 87
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 98 t 3.014 m 10 ce 88 msg 98
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1017,7 +1017,7 @@ ES id 112 tid 112 eid 112 etid 112 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 113 tid 112 eid 113 etid 112 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 112
 
 E # 99 t 3.014 m 10 ce 88 msg 88
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 100 t 3.014 m 11 ce 89 msg 100
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1028,7 +1028,7 @@ ES id 113 tid 113 eid 113 etid 113 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 113
 
 E # 101 t 3.014 m 11 ce 89 msg 89
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 102 t 3.014 m 10 ce 90 msg 102
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1039,7 +1039,7 @@ ES id 114 tid 114 eid 114 etid 114 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 115 tid 114 eid 115 etid 114 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 114
 
 E # 103 t 3.014 m 10 ce 90 msg 90
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 104 t 3.014 m 11 ce 91 msg 104
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1050,7 +1050,7 @@ ES id 115 tid 115 eid 115 etid 115 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 116 tid 115 eid 116 etid 115 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 115
 
 E # 105 t 3.014 m 11 ce 91 msg 91
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 106 t 3.014 m 10 ce 92 msg 106
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1061,7 +1061,7 @@ ES id 116 tid 116 eid 116 etid 116 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 117 tid 116 eid 117 etid 116 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 116
 
 E # 107 t 3.014 m 10 ce 92 msg 92
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 108 t 3.014 m 11 ce 93 msg 108
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1072,7 +1072,7 @@ ES id 117 tid 117 eid 117 etid 117 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 118 tid 117 eid 118 etid 117 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 117
 
 E # 109 t 3.014 m 11 ce 93 msg 93
-- INFO: [Storage] writing the following data to storage: {"store_id":4,"user_id":1001,"type":601,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 
 E # 110 t 3.015 m 2 ce 94 msg 110
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -1187,10 +1187,10 @@ E # 131 t 8.014 m 10 ce 129 msg 118
 - INFO: [Storage (ECU-7)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 - INFO: 
 BS id 118 tid 118 eid 118 etid 118 c Packet n REQUEST_TO_STORAGE m 10 pe 131
 SH sm 10 sg 3 pd 0.001
@@ -1210,10 +1210,10 @@ CL id 122 tid 118 eid 122 etid 118 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 
 
 E # 134 t 8.016 m 7 ce 133 msg 118
 - INFO: [ECU-4] data retrived from storage: 
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":601,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}","tag":1,"privacy_level":1,"date":"2025-07-23T18:06:16Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}","tag":1,"privacy_level":1,"date":"2025-07-25T04:41:14Z"}
 - INFO: 
 
 E # 135 t 9.013 m 2 ce 129 msg 120
@@ -1515,7 +1515,7 @@ E # 173 t 10.005 m 2 ce 170 msg 141
 E # 174 t 10.012 m 7 ce 128 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 16[0m
 CM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":602,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:27Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:25Z"}
 CL id 143 tid 142 eid 143 etid 142 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 142
 BS id 142 tid 142 eid 142 etid 142 c Packet n DATA_STORE m 7 pe 174
 SH sm 7 sg 1 pd 0.001
@@ -1567,9 +1567,7 @@ ES id 148 tid 148 eid 148 etid 148 c Packet n GATEWAY_PONG sm 10 sg 3 st 10.014 
 CL id 149 tid 148 eid 149 etid 148 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 148
 
 E # 178 t 10.014 m 10 ce 175 msg 142
-- INFO: [Storage] cleanup start: "storage/ecu7/ecu4/private_log.txt"
-- INFO: [Storage] Cleanup of "storage/ecu7/ecu4/private_log.txt" complete. Valid lines: 3
-- INFO: [Storage] editing the following data to storage: {"store_id":4,"user_id":1001,"type":602,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:27Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:25Z"}
 
 E # 179 t 10.014 m 11 ce 176 msg 146
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1580,9 +1578,7 @@ ES id 149 tid 149 eid 149 etid 149 c Packet n GATEWAY_PONG sm 11 sg 3 st 10.014 
 CL id 150 tid 149 eid 150 etid 149 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 149
 
 E # 180 t 10.014 m 11 ce 176 msg 143
-- INFO: [Storage] cleanup start: "storage/ecu8/ecu4/private_log.txt"
-- INFO: [Storage] Cleanup of "storage/ecu8/ecu4/private_log.txt" complete. Valid lines: 3
-- INFO: [Storage] editing the following data to storage: {"store_id":4,"user_id":1001,"type":602,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:27Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:25Z"}
 
 E # 181 t 10.015 m 2 ce 177 msg 148
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -2060,7 +2056,7 @@ E # 246 t 17.015 m 2 ce 241 msg 182
 E # 247 t 18.012 m 7 ce 236 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 18[0m
 CM id 184 tid 184 eid 184 etid 184 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":602,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:37Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:37Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:35Z"}
 CL id 185 tid 184 eid 185 etid 184 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 184
 BS id 185 tid 184 eid 185 etid 184 c Packet n DATA_STORE m 7 pe 247
 SH sm 7 sg 1 pd 0.001
@@ -2093,9 +2089,7 @@ ES id 188 tid 188 eid 188 etid 188 c Packet n GATEWAY_PONG sm 11 sg 3 st 18.014 
 CL id 189 tid 188 eid 189 etid 188 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 188
 
 E # 250 t 18.014 m 11 ce 248 msg 185
-- INFO: [Storage] cleanup start: "storage/ecu8/ecu4/private_log.txt"
-- INFO: [Storage] Cleanup of "storage/ecu8/ecu4/private_log.txt" complete. Valid lines: 3
-- INFO: [Storage] editing the following data to storage: {"store_id":4,"user_id":1001,"type":602,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:37Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:37Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:35Z"}
 
 E # 251 t 18.015 m 2 ce 249 msg 188
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2377,10 +2371,10 @@ E # 287 t 20.014 m 11 ce 285 msg 204
 - INFO: [Storage (ECU-8)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}"}
-- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}"}
-- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}"}
-- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:37Z\"}"}
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}"}
+- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:35Z\"}"}
 - INFO: 
 BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 11 pe 287
 SH sm 11 sg 3 pd 0.001
@@ -2400,10 +2394,10 @@ CL id 208 tid 204 eid 208 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 
 
 E # 290 t 20.016 m 7 ce 289 msg 204
 - INFO: [ECU-4] data retrived from storage: 
-- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}"}
-- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-23T18:06:16Z\"}"}
-- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}"}
-- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:37Z\"}"}
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}"}
+- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-25T04:41:14Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:35Z\"}"}
 - INFO: 
 
 E # 291 t 21.003 m 2 ce 276 msg 202
@@ -2417,7 +2411,7 @@ E # 292 t 21.013 m 2 ce 285 msg 206
 E # 293 t 22.012 m 7 ce 284 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 21[0m
 CM id 208 tid 208 eid 208 etid 208 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":602,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:44Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:44Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
 CL id 209 tid 208 eid 209 etid 208 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 208
 BS id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE m 7 pe 293
 SH sm 7 sg 1 pd 0.001
@@ -2450,9 +2444,7 @@ ES id 212 tid 212 eid 212 etid 212 c Packet n GATEWAY_PONG sm 11 sg 3 st 22.014 
 CL id 213 tid 212 eid 213 etid 212 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 212
 
 E # 296 t 22.014 m 11 ce 294 msg 209
-- INFO: [Storage] cleanup start: "storage/ecu8/ecu4/private_log.txt"
-- INFO: [Storage] Cleanup of "storage/ecu8/ecu4/private_log.txt" complete. Valid lines: 3
-- INFO: [Storage] editing the following data to storage: {"store_id":4,"user_id":1001,"type":602,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:44Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:44Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
 
 E # 297 t 22.015 m 2 ce 295 msg 212
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2471,7 +2463,7 @@ ES id 37 tid 37 eid 37 etid 37 c Packet n periodicCleanup sm 11 st 24 am 11 at 3
 E # 300 t 24.012 m 7 ce 293 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 22[0m
 CM id 213 tid 213 eid 213 etid 213 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"store_id":4,"user_id":1001,"type":602,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:45Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:45Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
 CL id 214 tid 213 eid 214 etid 213 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 213
 BS id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE m 7 pe 300
 SH sm 7 sg 1 pd 0.001
@@ -2504,9 +2496,7 @@ ES id 217 tid 217 eid 217 etid 217 c Packet n GATEWAY_PONG sm 11 sg 3 st 24.014 
 CL id 218 tid 217 eid 218 etid 217 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 217
 
 E # 303 t 24.014 m 11 ce 301 msg 214
-- INFO: [Storage] cleanup start: "storage/ecu8/ecu4/private_log.txt"
-- INFO: [Storage] Cleanup of "storage/ecu8/ecu4/private_log.txt" complete. Valid lines: 3
-- INFO: [Storage] editing the following data to storage: {"store_id":4,"user_id":1001,"type":602,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:45Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:45Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
 
 E # 304 t 24.015 m 2 ce 302 msg 217
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2790,10 +2780,10 @@ E # 341 t 26.014 m 11 ce 339 msg 233
 - INFO: [Storage (ECU-8)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"store_id":4,"user_id":1001,"type":602,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:27Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":602,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:37Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:37Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":602,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:44Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:44Z"}
-- INFO: {"store_id":4,"user_id":1001,"type":602,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-23T18:06:45Z\"}","tag":0,"privacy_level":1,"date":"2025-07-23T18:06:45Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:25Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:35Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-25T04:41:38Z\"}","tag":0,"privacy_level":1,"date":"2025-07-25T04:41:38Z"}
 - INFO: 
 BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 11 pe 341
 SH sm 11 sg 3 pd 0.001
