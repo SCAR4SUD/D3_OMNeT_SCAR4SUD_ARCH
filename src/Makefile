@@ -1,13 +1,13 @@
 #
-# OMNeT++/OMNEST Makefile for Progetto
+# OMNeT++/OMNEST Makefile for scar4sud-arch
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep
+#  opp_makemake -f --deep -lssl -lcrypto -lsofthsm2
 #
 
 # Name of target to be created (-o option)
 TARGET_DIR = .
-TARGET_NAME = Progetto$(D)
+TARGET_NAME = scar4sud-arch$(D)
 TARGET = $(TARGET_NAME)$(EXE_SUFFIX)
 TARGET_IMPLIB = $(TARGET_NAME)$(IMPLIB_SUFFIX)
 TARGET_IMPDEF = $(TARGET_NAME)$(IMPDEF_SUFFIX)
@@ -25,7 +25,7 @@ INCLUDE_PATH =
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS =  -lssl -lcrypto -lsofthsm2
 
 # Output directory
 PROJECT_OUTPUT_DIR = ../out
@@ -103,8 +103,6 @@ endif
 
 #------------------------------------------------------------------------------
 # User-supplied makefile fragment(s)
--include makefrag
-
 #------------------------------------------------------------------------------
 
 # Main target

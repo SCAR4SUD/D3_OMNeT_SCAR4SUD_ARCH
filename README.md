@@ -6,10 +6,15 @@ This is an OMNeT++ project that simulates secure communication between component
 
 This projects need the following dependencies:
 
-- openssl (version >= 1.0)
-- softhsm2
+- OpenSSL (version >= 1.0)
+- SoftHSMv2
+- pkcs11-tool (for `util.sh` config utility)
 
-> Note on Debian based environments install also the dev version of this libraries
+> [!NOTE]
+>
+> On Debian based environments install also the `dev` version of this libraries.
+>
+> Building SoftHSMv2 from source gives more reliable results in terms of assuring its functionality.
 
 To compile the simulation run in `Progetto/src`:
 
@@ -19,18 +24,31 @@ $ make clean
 $ make
 ```
 
-To initialize the SoftHSMv2 library for use with this project drop the contents of `util/hsm_object_store` into the where softhsm tokens are stored. By default it can be found in: `/var/lib/softhsm/tokens/[token_id]/`.
+To initialize the SoftHSMv2 library for use with this project execute the `util.sh` script in the `util/hsm_key_setup` directory. It will create a new SoftHSMv2 token called `car-token` and it will populate it with the ECU public keys and HSM private key that are found in  `hsm_key_setup`. 
+The scripts assumes that the `libsofthsm2.so` library file is found at `/usr/lib/softhsm`. It also depends on `pkcs11-tool` for entering the keys into SoftHSMv2.
 
-## Structure
 
-### src
+
+If SoftHSMv2 has been installed with its default setting the objects stored by SoftHSM will be found at `/var/lib/softhsm/tokens`. 
+
+## Directory Structure
+
+### `simulations`
+
+Contains the running environment of the simulation:
+
+- `.ned` and `.ini` configuration files defining parameters of the simulations, of its nodes and of their connections.
+- `storage` a directory that contains folders representing the local storage of each ECU.
+- `tpm_storage` a directory that contains folders representing the contents of each ECU TPM.
+
+### `src`
 
 Contains the simulation source files:
 
 -  The NED language defined network modules and their c++ class implementations. 
-- Collection of c++ functions for simulating ECU and TPM crypto behavior.
-- Collection of c++ classes, and function for simulating HSM behaviour.
+- Collection of c++ functions for simulating ECU and TPM crypto behavior via openssl functions.
+- Collection of c++ classes, and function for simulating HSM behavior via SoftHSM PKCS#11 simulated interface.
 
-### storage
+### `util`
 
-Contains folder representing all nodes in the network that have for the sake of the simulation a storage. The ECU "storages" thus follow the id of the various lords. 
+Contains the key that are to be used by the HSM and a script `util.sh` for inserting them in a SoftHSM token.
