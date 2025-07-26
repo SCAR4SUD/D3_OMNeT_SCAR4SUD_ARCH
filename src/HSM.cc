@@ -60,9 +60,9 @@ void HSM::handle_request(Packet *pkg, int response_type, const char* ret_pkg_nam
 
     rapidjson::Document doc;
     if (doc.Parse(json_request.c_str()).HasParseError())
-        std::cerr << "Errore parsing JSON" << std::endl;
+        std::cerr << "Error parsing JSON" << std::endl;
     if (!doc.HasMember("type") || !doc["type"].IsInt())
-        std::cerr << "Errore parsing JSON" << std::endl;
+        std::cerr << "Error parsing JSON" << std::endl;
 
     std::string json_response;
     switch(doc["type"].GetInt()) {
@@ -222,7 +222,6 @@ std::string HSM::route_response(rapidjson::Document& doc, sca::Session& session)
         std::cerr << "\033[1;31m[ERROR] failed new rules decryption\033[0m" << std::endl;
 
     std::string aes_message_str((char *)decrypted_data, decrypted_data_len);
-    //std::cout << "aes_message_str: " << aes_message_str << std::endl;
 
     return aes_message_str;
 }

@@ -1,6 +1,5 @@
 #include "aes.h"
 
-// Utilizzata per vecchia logica 
 AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t plaintext_len, unsigned char *aes_hsm_key, bool is_aes_128) {
     if (plaintext_len > MAX_PLAINTEXT_LEN)
         handle_errors("plaintext troppo lungo");
@@ -9,8 +8,8 @@ AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t p
     if (RAND_bytes(msg.iv, IV_LEN) != 1)
         handle_errors("generazione IV");
 
-    strncpy(msg.aad, local_ecu_id.c_str(), ECUID_LEN);
-    msg.aad[ECUID_LEN - 1] = '\0';
+    memset(msg.aad, 0, AAD_LEN);
+    // msg.aad[ECUID_LEN - 1] = '\0';
 
     EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
     if (!ctx) handle_errors("allocazione EVP_CIPHER_CTX");
@@ -27,7 +26,7 @@ AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t p
     if (EVP_EncryptInit_ex(ctx, nullptr, nullptr, aes_hsm_key, msg.iv) != 1)
         handle_errors("init chiave e IV");
 
-    if (EVP_EncryptUpdate(ctx, nullptr, &len, reinterpret_cast<const unsigned char*>(msg.aad), ECUID_LEN) != 1)
+    if (EVP_EncryptUpdate(ctx, nullptr, &len, reinterpret_cast<const unsigned char*>(msg.aad), AAD_LEN) != 1)
         handle_errors("AAD");
 
     if (EVP_EncryptUpdate(ctx, msg.ciphertext, &len, plaintext, plaintext_len) != 1)
@@ -71,26 +70,3 @@ AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t p
     return buf.GetString();
 }
 
-
-void send_message(const std::string& ip, int port, const std::string& json_msg) {
-    /*
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) handle_errors("socket");
-
-    sockaddr_in serv_addr{};
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(port);
-
-    if (inet_pton(AF_INET, ip.c_str(), &serv_addr.sin_addr) <= 0)
-        handle_errors("IP non valido");
-
-    if (connect(sock, (sockaddr*)&serv_addr, sizeof(serv_addr)) < 0)
-        handle_errors("connessione");
-
-    ssize_t sent = send(sock, json_msg.c_str(), json_msg.size(), 0);
-    if (sent != (ssize_t)json_msg.size())
-        handle_errors("invio incompleto");
-
-    close(sock);
-    */
-}

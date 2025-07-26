@@ -19,12 +19,6 @@ void parse_rsa_response(
     time_t& nonce
 );
 
-void rsa_exchange_with_hsm(const std::string& hsm_ip, int hsm_port);
-void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::string& receiver_rsa_id);
-void send_ticket_to_peer(const std::string& ecu2_ip, int port, const std::string& ticket_base64);
-std::string ns_listen_for_ticket(int listen_port);
-void ns_receive_ticket(const std::string& ticket_json_b64);
-
 #endif
 
 // RSA_EXCHANGE AUTH

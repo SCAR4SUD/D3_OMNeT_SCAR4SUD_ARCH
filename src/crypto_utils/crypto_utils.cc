@@ -4,28 +4,28 @@ const char* ECU_PRIVKEY_PATH = "keys/ecu_private.pem";
 EVP_PKEY* ecu_privkey = nullptr;
 
 void random_nonce(unsigned char* nonce, size_t len) {
-    if (RAND_bytes(nonce, len) != 1) handle_errors("Errore generazione nonce");
+    if (RAND_bytes(nonce, len) != 1) handle_errors("generating nonce failed");
 }
 
 void init_keys(const char* path, EVP_PKEY*& ecu_priv_key) {
     FILE* f_priv = fopen(path, "r");
-    if (!f_priv) handle_errors("apertura chiave privata ECU");
+    if (!f_priv) handle_errors("opening private key");
     ecu_priv_key = PEM_read_PrivateKey(f_priv, nullptr, nullptr, nullptr);
     fclose(f_priv);
-    if (!ecu_priv_key) handle_errors("lettura chiave privata ECU");
+    if (!ecu_priv_key) handle_errors("reading private key");
 }
 
 void init_public_keys(const char* path, EVP_PKEY*& ecu_publ_key) {
     FILE* f_publ = fopen(path, "r");
-    if (!f_publ) handle_errors("apertura chiave pubblica");
+    if (!f_publ) handle_errors("opening public key");
     ecu_publ_key = PEM_read_PUBKEY(f_publ, nullptr, nullptr, nullptr);
     fclose(f_publ);
-    if (!ecu_publ_key) handle_errors("lettura chiave pubblica");
+    if (!ecu_publ_key) handle_errors("reading public keys");
 }
 
 int rsa_encrypt_evp(EVP_PKEY* pubkey, const unsigned char* plaintext, size_t plaintext_len, unsigned char* ciphertext, size_t* ciphertext_len) {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(pubkey, nullptr);
-    if (!ctx) handle_errors("allocazione EVP_PKEY_CTX");
+    if (!ctx) handle_errors("allocating EVP_PKEY_CTX");
 
     if (EVP_PKEY_encrypt_init(ctx) <= 0)
         handle_errors("encrypt_init");
@@ -45,7 +45,7 @@ int rsa_encrypt_evp(EVP_PKEY* pubkey, const unsigned char* plaintext, size_t pla
 
 int rsa_decrypt_evp(EVP_PKEY* privkey, const unsigned char* ciphertext, size_t ciphertext_len, unsigned char* plaintext, size_t* plaintext_len) {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(privkey, nullptr);
-    if (!ctx) handle_errors("allocazione EVP_PKEY_CTX (decrypt)");
+    if (!ctx) handle_errors("allocating EVP_PKEY_CTX (decrypt)");
 
     if (EVP_PKEY_decrypt_init(ctx) <= 0)
         handle_errors("decrypt_init");
@@ -223,10 +223,10 @@ size_t base64_decode(const std::string& input, unsigned char* output, size_t max
     int decoded_len = BIO_read(bio, output, max_len);
     BIO_free_all(bio);
     if (decoded_len <= 0) {
-        handle_errors("Errore decodifica Base64");
+        handle_errors("Error while encoding in Base64");
     }
     if (static_cast<size_t>(decoded_len) > max_len) {
-        handle_errors("Decodifica Base64 troppo lunga per il buffer");
+        handle_errors("Base 64 decoding, buffer too small");
     }
     return static_cast<size_t>(decoded_len);
 }

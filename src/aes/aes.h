@@ -20,9 +20,7 @@ struct AesEncryptedMessage {
 
 
 AesEncryptedMessage encrypt_message_aes(const unsigned char* plaintext, size_t plaintext_len, unsigned char *aes_hsm_key, bool is_aes_128 = false);
-void send_message(const std::string& ip, int port, const std::string& json_msg);
 std::string serialize_aes_message(const AesEncryptedMessage& msg, int sender_id, int receiver_id, int type);
-std::string receive_message(int port);
 unsigned char* decrypt_message_aes(const rapidjson::Document& message, size_t& out_len, unsigned char *aes_hsm_key, bool is_aes_128 = false);
 
 #endif 

@@ -150,23 +150,4 @@ void parse_rsa_response(
 }
 
 
-// Scambio chiave di sessione ECU-HSM
-void rsa_exchange_with_hsm() { // Funzione rsa_exchange con hsm
-    /*
-    std::string json_msg = serialize_rsa_request(); // Crea chiamata per inizio rsa_exchange
-    std::string json_response = send_receive_json(hsm_ip, hsm_port, json_msg); // Manda chiamata e riceve chiave crittografata
-
-    unsigned char aes_key_enc[AES_KEY_ENC_MAXLEN]; 
-    parse_rsa_response(json_response, aes_key_enc); // Estrae chiave crittografata dal pacchetto
-
-    size_t aes_key_len = AES_KEY_LEN;
-    rsa_decrypt_evp(ecu_privkey, aes_key_enc, AES_KEY_ENC_MAXLEN, aes_hsm_key, &aes_key_len); // Decrypt chiave
-
-    if (aes_key_len != AES_KEY_LEN)
-        handle_errors("Chiave ricevuta con lunghezza errata");
-
-    std::cout << "[" << local_ecu_id << "] Chiave ricevuta e decifrata con successo (HSM).\n";
-    */
-}
-
 

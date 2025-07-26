@@ -105,7 +105,7 @@ void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::
 
     unsigned char nonce[NONCE_LEN];
     random_nonce(nonce, NONCE_LEN); // Generazione nonce
-    
+
     std::string nonce_b64 = base64_encode(nonce, NONCE_LEN); // Serializzazione per invio
     std::string json_msg = serialize_ns_session_request(local_ecu_id, receiver_ns_id, nonce_b64); // Serializzazione per invio
 
@@ -115,7 +115,7 @@ void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::
     parse_ns_response_aes(json_response, nonce_b64_resp, ns_session_key_b64, ticket_b64, resp_receiver_id); // Parse e decrypt annidato della risposta
 
     if (resp_receiver_id != receiver_ns_id) {                                           // Confronto receiver originale, con resp_receiver
-        handle_errors("Receiver ID dalla risposta non corrisponde a quello richiesto");  
+        handle_errors("Receiver ID dalla risposta non corrisponde a quello richiesto");
     }
 
     unsigned char nonce_resp[NONCE_LEN];
@@ -134,7 +134,7 @@ void ns_request_session_key(const std::string& hsm_ip, int hsm_port, const std::
 }
 
 void ns_receive_ticket(std::string ticket_json_str, int& sender_id, std::string& ns_session_key_b64, time_t& nonce, std::string& nonce_signature_b64, unsigned char *aes_hsm_key) {
-    rapidjson::Document ticket;                                           // Parsing ticket 
+    rapidjson::Document ticket;                                           // Parsing ticket
     if (ticket.Parse(ticket_json_str.c_str()).HasParseError()) {
         handle_errors("Ticket JSON non valido");
     }
