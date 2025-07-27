@@ -95,10 +95,7 @@ void ECU::handleMessage(cMessage *msg)
             EV << "[ECU-" << id <<"] data retrived from storage: \n" << pkg->getData() << std::endl;
             }break;
         case STORAGE_DOWN: {
-            if(std::stoi(pkg->getData()) == 7)
-                id_active_storage = 8;
-            else
-                id_active_storage = 7;
+            setStorageStatusDown(std::stoi(pkg->getData()));
             EV << "[ECU-" << id <<"] received info that a storage device is down, changing active storage option" << std::endl;
             }break;
         case STORAGE_ERROR: {
@@ -108,26 +105,16 @@ void ECU::handleMessage(cMessage *msg)
         default: {
             }break;
     }
-    /*
-    if(pkg == SendDataSignal) {
-        // std::cout << "sending storage data..." << std::endl;
-        Packet *pkg_to_send = new Packet("DATA_STORE");
-        pkg_to_send->setSrcId(id);
-        pkg_to_send->setDstId(id_active_storage);
-        pkg_to_send->setType(REQUEST_STORAGE);
-        std::string data_to_send = "{\"height\":15}";
-        pkg_to_send->setData(data_to_send.c_str());
-        sendDataToStorage(pkg_to_send, "SEATING_HEIGHT", STORAGE_WRITE, PRIVATE_DATA, USER_PREFERENCES);
-        scheduleAt(simTime()+8, RetriveDataSignal);
-    }
-    */
-    /*
-    if(pkg == RetriveDataSignal) {
-    sendRequestToStorage(PRIVATE_DATA, "SEATING_HEIGHT", id, 4);
-    }
-    */
 
     additional_handleMessage(msg);
+}
+
+void ECU::setStorageStatusDown(int ecu_id)
+{
+    if(ecu_id == PRIMARY_STORAGE)
+        id_active_storage = SECONDARY_STORAGE;
+    else
+        id_active_storage = PRIMARY_STORAGE;
 }
 
 void ECU::additional_handleMessage(cMessage *msg)
@@ -457,8 +444,8 @@ void ECU::sendClockSyncRequest()
     doc.SetObject();
     auto& alloc = doc.GetAllocator();
 
-    doc.AddMember("type", CLOCK_SYNC_REQUEST, alloc);
-    doc.AddMember("id", id, alloc);
+    doc.AddMember("type", CLOCK_SYNC_REQUEST, alloc);               // type of request for clock synchronization
+    doc.AddMember("id", id, alloc);                                 // requesting ECU id
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
 
