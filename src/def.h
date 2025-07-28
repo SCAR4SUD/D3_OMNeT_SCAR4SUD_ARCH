@@ -83,6 +83,7 @@ typedef int PrivacyLevel;
 
 #define UNSPECIFIED_STORE               -1
 
+#define INFOTAINMENT_ECU                4
 #define PRIMARY_STORAGE                 7
 #define SECONDARY_STORAGE               8
 

@@ -15,7 +15,7 @@ void Storage::initialize_retention_policies()
     data_retention_policies[USER_PREFERENCES] = {(30 * 86400LL), (2 * 31536000LL)};
     data_retention_policies[TEMPORAL_DATA]= {(1 * 31536000LL), (5 * 31536000LL)};
     data_retention_policies[VEHICLE_PREFERENCES] = {(90 * 86400LL), (3 * 31536000LL)};
-    data_retention_policies[UNCATEGORIZED] = {(0), (10 * 31536000LL)}; // default for tag less data
+    data_retention_policies[UNCATEGORIZED] = {(0), (10 * 31536000LL)}; // default for tag-less data
 }
 
 void Storage::additional_initialize()
@@ -394,15 +394,12 @@ Packet* Storage::exportDataUser(Packet *packet) {
             else
                 requested_file_stream.open(privateFilePath[i]);
 
-            // std::cout << "[Storage] privateFilePath: " << privateFilePath[i] << std::endl;
-
             rapidjson::Document line_json;
             if (requested_file_stream.is_open()) {
                 requested_file_stream.clear();
                 requested_file_stream.seekg(0, std::ios::beg);
 
                 while (std::getline(requested_file_stream, lineContent)) {
-                    // std::cout << "data read from storage: " << lineContent << std::endl;
 
                     rapidjson::Document doc;
                     if (doc.Parse(lineContent.c_str()).HasParseError())
