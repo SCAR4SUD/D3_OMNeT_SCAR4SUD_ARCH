@@ -31,6 +31,14 @@ The scripts assumes that the `libsofthsm2.so` library file is found at `/usr/lib
 
 If SoftHSMv2 has been installed with its default setting the objects stored by SoftHSM will be found at `/var/lib/softhsm/tokens`. 
 
+### Tips for running the simulation
+
+By default the OMNeT IDE could try to run the executable from the incorrect directory. The compiling process described in the previous section should produce the executable in the `/Progetto/out/clang-release/Progetto` file path. If the Run Configuration points to another directory go to: OMNeT++ Simulation -> [simulation_name] (auto generated `simulation`) -> Main -> Simulation:
+
+- Executable: change value to `Other` (if set to `opp_run`) and change the file path to `/Progetto/out/clang-release/Progetto` .
+- Working dir: change to `/Progetto/simulations`.
+- ini file(s): change to `omnetpp.ini`.
+
 ## Directory Structure
 
 ### `simulations`

@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250729-11:56:07-74993
+SB ov 1537 ev 2 rid General-0-20250729-12:46:42-75969
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -820,7 +820,7 @@ E # 84 t 1.013 m 2 ce 72 msg 83
 
 E # 85 t 3.012 m 7 ce 69 msg 16
 CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 CL id 87 tid 86 eid 87 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 86
 BS id 86 tid 86 eid 86 etid 86 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -831,7 +831,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 87 tid 86 eid 87 etid 86 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 88 tid 86 eid 88 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 87
 CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 CL id 89 tid 88 eid 89 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 88
 BS id 88 tid 88 eid 88 etid 88 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -842,7 +842,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 89 tid 88 eid 89 etid 88 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 90 tid 88 eid 90 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 89
 CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 CL id 91 tid 90 eid 91 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 90
 BS id 90 tid 90 eid 90 etid 90 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -853,7 +853,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 91 tid 90 eid 91 etid 90 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 92 tid 90 eid 92 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 91
 CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 CL id 93 tid 92 eid 93 etid 92 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 92
 BS id 92 tid 92 eid 92 etid 92 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -995,7 +995,7 @@ ES id 110 tid 110 eid 110 etid 110 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 111 tid 110 eid 111 etid 110 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 110
 
 E # 95 t 3.014 m 10 ce 86 msg 86
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 96 t 3.014 m 11 ce 87 msg 96
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1006,7 +1006,7 @@ ES id 111 tid 111 eid 111 etid 111 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 112 tid 111 eid 112 etid 111 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 111
 
 E # 97 t 3.014 m 11 ce 87 msg 87
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 98 t 3.014 m 10 ce 88 msg 98
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1017,7 +1017,7 @@ ES id 112 tid 112 eid 112 etid 112 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 113 tid 112 eid 113 etid 112 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 112
 
 E # 99 t 3.014 m 10 ce 88 msg 88
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 100 t 3.014 m 11 ce 89 msg 100
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1028,7 +1028,7 @@ ES id 113 tid 113 eid 113 etid 113 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 113
 
 E # 101 t 3.014 m 11 ce 89 msg 89
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 102 t 3.014 m 10 ce 90 msg 102
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1039,7 +1039,7 @@ ES id 114 tid 114 eid 114 etid 114 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 115 tid 114 eid 115 etid 114 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 114
 
 E # 103 t 3.014 m 10 ce 90 msg 90
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 104 t 3.014 m 11 ce 91 msg 104
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1050,7 +1050,7 @@ ES id 115 tid 115 eid 115 etid 115 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 116 tid 115 eid 116 etid 115 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 115
 
 E # 105 t 3.014 m 11 ce 91 msg 91
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 106 t 3.014 m 10 ce 92 msg 106
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1061,7 +1061,7 @@ ES id 116 tid 116 eid 116 etid 116 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 117 tid 116 eid 117 etid 116 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 116
 
 E # 107 t 3.014 m 10 ce 92 msg 92
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 108 t 3.014 m 11 ce 93 msg 108
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1072,7 +1072,7 @@ ES id 117 tid 117 eid 117 etid 117 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 118 tid 117 eid 118 etid 117 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 117
 
 E # 109 t 3.014 m 11 ce 93 msg 93
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 
 E # 110 t 3.015 m 2 ce 94 msg 110
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -1187,10 +1187,10 @@ E # 131 t 8.014 m 10 ce 129 msg 118
 - INFO: [Storage (ECU-7)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 - INFO: 
 BS id 118 tid 118 eid 118 etid 118 c Packet n REQUEST_TO_STORAGE m 10 pe 131
 SH sm 10 sg 3 pd 0.001
@@ -1210,10 +1210,10 @@ CL id 122 tid 118 eid 122 etid 118 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 
 
 E # 134 t 8.016 m 7 ce 133 msg 118
 - INFO: [ECU-4] data retrived from storage: 
-- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T11:56:15Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T12:46:48Z"}
 - INFO: 
 
 E # 135 t 9.013 m 2 ce 129 msg 120
@@ -1515,7 +1515,7 @@ E # 173 t 10.005 m 2 ce 170 msg 141
 E # 174 t 10.012 m 7 ce 128 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 16[0m
 CM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:25Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:57Z"}
 CL id 143 tid 142 eid 143 etid 142 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 142
 BS id 142 tid 142 eid 142 etid 142 c Packet n DATA_STORE m 7 pe 174
 SH sm 7 sg 1 pd 0.001
@@ -1567,7 +1567,7 @@ ES id 148 tid 148 eid 148 etid 148 c Packet n GATEWAY_PONG sm 10 sg 3 st 10.014 
 CL id 149 tid 148 eid 149 etid 148 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 148
 
 E # 178 t 10.014 m 10 ce 175 msg 142
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:25Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:57Z"}
 
 E # 179 t 10.014 m 11 ce 176 msg 146
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1578,7 +1578,7 @@ ES id 149 tid 149 eid 149 etid 149 c Packet n GATEWAY_PONG sm 11 sg 3 st 10.014 
 CL id 150 tid 149 eid 150 etid 149 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 149
 
 E # 180 t 10.014 m 11 ce 176 msg 143
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:25Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:57Z"}
 
 E # 181 t 10.015 m 2 ce 177 msg 148
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -2056,7 +2056,7 @@ E # 246 t 17.015 m 2 ce 241 msg 182
 E # 247 t 18.012 m 7 ce 236 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 18[0m
 CM id 184 tid 184 eid 184 etid 184 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:35Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:05Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:05Z"}
 CL id 185 tid 184 eid 185 etid 184 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 184
 BS id 185 tid 184 eid 185 etid 184 c Packet n DATA_STORE m 7 pe 247
 SH sm 7 sg 1 pd 0.001
@@ -2089,7 +2089,7 @@ ES id 188 tid 188 eid 188 etid 188 c Packet n GATEWAY_PONG sm 11 sg 3 st 18.014 
 CL id 189 tid 188 eid 189 etid 188 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 188
 
 E # 250 t 18.014 m 11 ce 248 msg 185
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:35Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:05Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:05Z"}
 
 E # 251 t 18.015 m 2 ce 249 msg 188
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2371,10 +2371,10 @@ E # 287 t 20.014 m 11 ce 285 msg 204
 - INFO: [Storage (ECU-8)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}"}
-- INFO: {"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}"}
-- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}"}
-- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:35Z\"}"}
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}"}
+- INFO: {"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:05Z\"}"}
 - INFO: 
 BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 11 pe 287
 SH sm 11 sg 3 pd 0.001
@@ -2394,10 +2394,10 @@ CL id 208 tid 204 eid 208 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 
 
 E # 290 t 20.016 m 7 ce 289 msg 204
 - INFO: [ECU-4] data retrived from storage: 
-- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}"}
-- INFO: {"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T11:56:15Z\"}"}
-- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}"}
-- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:35Z\"}"}
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}"}
+- INFO: {"name":"processing","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T12:46:48Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:05Z\"}"}
 - INFO: 
 
 E # 291 t 21.003 m 2 ce 276 msg 202
@@ -2411,7 +2411,7 @@ E # 292 t 21.013 m 2 ce 285 msg 206
 E # 293 t 22.012 m 7 ce 284 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 21[0m
 CM id 208 tid 208 eid 208 etid 208 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:40Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:40Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:10Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:10Z"}
 CL id 209 tid 208 eid 209 etid 208 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 208
 BS id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE m 7 pe 293
 SH sm 7 sg 1 pd 0.001
@@ -2444,7 +2444,7 @@ ES id 212 tid 212 eid 212 etid 212 c Packet n GATEWAY_PONG sm 11 sg 3 st 22.014 
 CL id 213 tid 212 eid 213 etid 212 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 212
 
 E # 296 t 22.014 m 11 ce 294 msg 209
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:40Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:40Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:10Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:10Z"}
 
 E # 297 t 22.015 m 2 ce 295 msg 212
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2463,7 +2463,7 @@ ES id 37 tid 37 eid 37 etid 37 c Packet n periodicCleanup sm 11 st 24 am 11 at 3
 E # 300 t 24.012 m 7 ce 293 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 22[0m
 CM id 213 tid 213 eid 213 etid 213 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:41Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:41Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:11Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:11Z"}
 CL id 214 tid 213 eid 214 etid 213 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 213
 BS id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE m 7 pe 300
 SH sm 7 sg 1 pd 0.001
@@ -2496,7 +2496,7 @@ ES id 217 tid 217 eid 217 etid 217 c Packet n GATEWAY_PONG sm 11 sg 3 st 24.014 
 CL id 218 tid 217 eid 218 etid 217 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 217
 
 E # 303 t 24.014 m 11 ce 301 msg 214
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:41Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:41Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:11Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:11Z"}
 
 E # 304 t 24.015 m 2 ce 302 msg 217
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2780,10 +2780,10 @@ E # 341 t 26.014 m 11 ce 339 msg 233
 - INFO: [Storage (ECU-8)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:25Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:25Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:35Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:35Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:40Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:40Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T11:56:41Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T11:56:41Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:46:57Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:46:57Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:05Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:05Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"processing","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:10Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:10Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T12:47:11Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T12:47:11Z"}
 - INFO: 
 BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 11 pe 341
 SH sm 11 sg 3 pd 0.001
