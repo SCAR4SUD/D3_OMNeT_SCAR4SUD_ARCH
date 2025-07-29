@@ -330,7 +330,7 @@ void Infotainment::handle_article_20_portability(int user_id) {
 }
 
 void Infotainment::handle_article_21_objection(Packet* pkg, std::string email, std::string hashed_password) {
-    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "marketing_cosent", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
+    sendDataToStorage(pkg, user_data_store[{email, hashed_password}], "processing", STORAGE_EDIT, PRIVATE_DATA, PERSONAL_DATA);
 }
 
 void Infotainment::handle_article_22_automated_decision(Packet* pkg, std::string email, std::string hashed_password) {
@@ -371,7 +371,7 @@ void Infotainment::initialize_sample_data() {
     pkg_3->setType(REQUEST_STORAGE);
     data_to_send = createTaggedData("true", USER_PREFERENCES, timestamp);
     pkg_3->setData(data_to_send.c_str());
-    sendDataToStorage(pkg_3, user_data_store[{email, hashed_password}], "marketing_cosent", STORAGE_WRITE, PRIVATE_DATA, USER_PREFERENCES);
+    sendDataToStorage(pkg_3, user_data_store[{email, hashed_password}], "processing", STORAGE_WRITE, PRIVATE_DATA, USER_PREFERENCES);
 
     Packet *pkg_4 = new Packet("DATA_STORE");
     pkg_4->setSrcId(id);
