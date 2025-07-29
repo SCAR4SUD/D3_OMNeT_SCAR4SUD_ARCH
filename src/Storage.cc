@@ -134,6 +134,7 @@ void Storage::additional_handleMessage(cMessage *msg)
             case STORAGE_DATA_ACCESS:{
                 EV << "[Storage (ECU-" << id << ")] received a data access request" << std::endl;
                 packet = exportDataUser(packet);
+                if(packet == nullptr) break;
                 sendEncPacket(packet, packet->getDstId(), packet->getType());
                 }break;
             case STORAGE_DELETE_USER:{
@@ -359,6 +360,10 @@ Packet* Storage::exportDataUser(Packet *packet) {
     EV << "[Storage] exportDataUser requested" << std::endl;
     if (!packet) {
         EV_WARN << "[Storage] Received null packet. Request dropped." << std::endl;
+        return nullptr;
+    }
+
+    if(packet->getSrcId() != INFOTAINMENT_ECU) {
         return nullptr;
     }
 
