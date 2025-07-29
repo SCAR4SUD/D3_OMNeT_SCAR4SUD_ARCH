@@ -1,4 +1,4 @@
-SB ov 1537 ev 2 rid General-0-20250728-21:56:28-69197
+SB ov 1537 ev 2 rid General-0-20250729-10:39:09-73342
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t progetto.simulations.Rete_def n Rete_def cm 1
@@ -820,7 +820,7 @@ E # 84 t 1.013 m 2 ce 72 msg 83
 
 E # 85 t 3.012 m 7 ce 69 msg 16
 CM id 86 tid 86 eid 86 etid 86 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 CL id 87 tid 86 eid 87 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 86
 BS id 86 tid 86 eid 86 etid 86 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -831,7 +831,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 87 tid 86 eid 87 etid 86 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 88 tid 86 eid 88 etid 86 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 87
 CM id 88 tid 88 eid 88 etid 88 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 CL id 89 tid 88 eid 89 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 88
 BS id 88 tid 88 eid 88 etid 88 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -842,7 +842,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 89 tid 88 eid 89 etid 88 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 90 tid 88 eid 90 etid 88 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 89
 CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 CL id 91 tid 90 eid 91 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 90
 BS id 90 tid 90 eid 90 etid 90 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -853,7 +853,7 @@ SH sm 7 sg 1 pd 0.001
 ES id 91 tid 90 eid 91 etid 90 c Packet n DATA_STORE sm 7 sg 1 st 3.012 am 2 ag 1048579 at 3.013 pe 85
 CL id 92 tid 90 eid 92 etid 90 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 91
 CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 CL id 93 tid 92 eid 93 etid 92 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 92
 BS id 92 tid 92 eid 92 etid 92 c Packet n DATA_STORE m 7 pe 85
 SH sm 7 sg 1 pd 0.001
@@ -995,7 +995,7 @@ ES id 110 tid 110 eid 110 etid 110 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 111 tid 110 eid 111 etid 110 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 110
 
 E # 95 t 3.014 m 10 ce 86 msg 86
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 96 t 3.014 m 11 ce 87 msg 96
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1006,7 +1006,7 @@ ES id 111 tid 111 eid 111 etid 111 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 112 tid 111 eid 112 etid 111 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 111
 
 E # 97 t 3.014 m 11 ce 87 msg 87
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 98 t 3.014 m 10 ce 88 msg 98
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1017,7 +1017,7 @@ ES id 112 tid 112 eid 112 etid 112 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 113 tid 112 eid 113 etid 112 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 112
 
 E # 99 t 3.014 m 10 ce 88 msg 88
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 100 t 3.014 m 11 ce 89 msg 100
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1028,7 +1028,7 @@ ES id 113 tid 113 eid 113 etid 113 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 114 tid 113 eid 114 etid 113 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 113
 
 E # 101 t 3.014 m 11 ce 89 msg 89
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 102 t 3.014 m 10 ce 90 msg 102
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1039,7 +1039,7 @@ ES id 114 tid 114 eid 114 etid 114 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 115 tid 114 eid 115 etid 114 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 114
 
 E # 103 t 3.014 m 10 ce 90 msg 90
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 104 t 3.014 m 11 ce 91 msg 104
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1050,7 +1050,7 @@ ES id 115 tid 115 eid 115 etid 115 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 116 tid 115 eid 116 etid 115 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 115
 
 E # 105 t 3.014 m 11 ce 91 msg 91
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 106 t 3.014 m 10 ce 92 msg 106
 - INFO: [Storage (ECU-7)] Received Ping. Sending pong.
@@ -1061,7 +1061,7 @@ ES id 116 tid 116 eid 116 etid 116 c Packet n GATEWAY_PONG sm 10 sg 3 st 3.014 a
 CL id 117 tid 116 eid 117 etid 116 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 116
 
 E # 107 t 3.014 m 10 ce 92 msg 92
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 108 t 3.014 m 11 ce 93 msg 108
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1072,7 +1072,7 @@ ES id 117 tid 117 eid 117 etid 117 c Packet n GATEWAY_PONG sm 11 sg 3 st 3.014 a
 CL id 118 tid 117 eid 118 etid 117 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 117
 
 E # 109 t 3.014 m 11 ce 93 msg 93
-- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: [Storage] writing the following data to storage: {"type":601,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 
 E # 110 t 3.015 m 2 ce 94 msg 110
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -1187,10 +1187,10 @@ E # 131 t 8.014 m 10 ce 129 msg 118
 - INFO: [Storage (ECU-7)] received a data access request
 - INFO: [Storage] exportDataUser requested
 - INFO: [Storage] retrived info: 
-- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 - INFO: 
 BS id 118 tid 118 eid 118 etid 118 c Packet n REQUEST_TO_STORAGE m 10 pe 131
 SH sm 10 sg 3 pd 0.001
@@ -1210,10 +1210,10 @@ CL id 122 tid 118 eid 122 etid 118 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 
 
 E # 134 t 8.016 m 7 ce 133 msg 118
 - INFO: [ECU-4] data retrived from storage: 
-- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
-- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-28T21:56:36Z\"}","tag":1,"privacy_level":1,"date":"2025-07-28T21:56:36Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via del corso 1, Roma\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"false\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}","tag":1,"privacy_level":1,"date":"2025-07-29T10:39:17Z"}
 - INFO: 
 
 E # 135 t 9.013 m 2 ce 129 msg 120
@@ -1515,7 +1515,7 @@ E # 173 t 10.005 m 2 ce 170 msg 141
 E # 174 t 10.012 m 7 ce 128 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 16[0m
 CM id 142 tid 142 eid 142 etid 142 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:48Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:27Z"}
 CL id 143 tid 142 eid 143 etid 142 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 142
 BS id 142 tid 142 eid 142 etid 142 c Packet n DATA_STORE m 7 pe 174
 SH sm 7 sg 1 pd 0.001
@@ -1567,7 +1567,7 @@ ES id 148 tid 148 eid 148 etid 148 c Packet n GATEWAY_PONG sm 10 sg 3 st 10.014 
 CL id 149 tid 148 eid 149 etid 148 c omnetpp::cMessage n GATEWAY_PONG m 10 pe -1 cid 148
 
 E # 178 t 10.014 m 10 ce 175 msg 142
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:48Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:27Z"}
 
 E # 179 t 10.014 m 11 ce 176 msg 146
 - INFO: [Storage (ECU-8)] Received Ping. Sending pong.
@@ -1578,7 +1578,7 @@ ES id 149 tid 149 eid 149 etid 149 c Packet n GATEWAY_PONG sm 11 sg 3 st 10.014 
 CL id 150 tid 149 eid 150 etid 149 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 149
 
 E # 180 t 10.014 m 11 ce 176 msg 143
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:48Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:48Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:27Z"}
 
 E # 181 t 10.015 m 2 ce 177 msg 148
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		7 -> -1[0m
@@ -2039,7 +2039,7 @@ CL id 184 tid 183 eid 184 etid 183 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1
 
 E # 243 t 16.016 m 11 ce 241 msg 177
 - INFO: [ECU-8] received the following error: 
-- INFO: 
+- INFO: {"status":"error","message":"could not delete user data: minimum retention time has not elapsed"}
 
 E # 244 t 16.017 m 2 ce 242 msg 183
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2056,7 +2056,7 @@ E # 246 t 17.015 m 2 ce 241 msg 182
 E # 247 t 18.012 m 7 ce 236 msg 18
 - INFO: [34m[Infotainment] GDPR right to exercise: 18[0m
 CM id 184 tid 184 eid 184 etid 184 c omnetpp::cMessage n DATA_STORE pe -1
-- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:58Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:58Z"}
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:36Z"}
 CL id 185 tid 184 eid 185 etid 184 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 184
 BS id 185 tid 184 eid 185 etid 184 c Packet n DATA_STORE m 7 pe 247
 SH sm 7 sg 1 pd 0.001
@@ -2089,7 +2089,7 @@ ES id 188 tid 188 eid 188 etid 188 c Packet n GATEWAY_PONG sm 11 sg 3 st 18.014 
 CL id 189 tid 188 eid 189 etid 188 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 188
 
 E # 250 t 18.014 m 11 ce 248 msg 185
-- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:56:58Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:56:58Z"}
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:36Z"}
 
 E # 251 t 18.015 m 2 ce 249 msg 188
 - INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
@@ -2306,4 +2306,576 @@ E # 277 t 20.004 m 4 ce 272 msg 196
 - INFO: [ECU-1] received clock synchronization response from HSM
 - INFO: [ECU-1] synchronized its internal clock
 
-SE e 0 c -1 m ""
+E # 278 t 20.004 m 5 ce 273 msg 197
+- INFO: [ECU-2] received clock synchronization response from HSM
+- INFO: [ECU-2] synchronized its internal clock
+
+E # 279 t 20.004 m 6 ce 274 msg 198
+- INFO: [ECU-3] received clock synchronization response from HSM
+- INFO: [ECU-3] synchronized its internal clock
+
+E # 280 t 20.004 m 7 ce 275 msg 199
+- INFO: [ECU-4] received clock synchronization response from HSM
+- INFO: [ECU-4] synchronized its internal clock
+
+E # 281 t 20.004 m 11 ce 276 msg 201
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 203 tid 203 eid 203 etid 203 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 203 tid 203 eid 203 etid 203 c Packet n GATEWAY_PONG m 11 pe 281
+SH sm 11 sg 3 pd 0.001
+ES id 203 tid 203 eid 203 etid 203 c Packet n GATEWAY_PONG sm 11 sg 3 st 20.004 am 2 ag 1048583 at 20.005 pe 281
+CL id 204 tid 203 eid 204 etid 203 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 203
+
+E # 282 t 20.004 m 11 ce 276 msg 200
+- INFO: [ECU-8] received clock synchronization response from HSM
+- INFO: [ECU-8] synchronized its internal clock
+
+E # 283 t 20.005 m 2 ce 281 msg 203
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 284 t 20.012 m 7 ce 247 msg 18
+- INFO: [34m[Infotainment] GDPR right to exercise: 20[0m
+CM id 204 tid 204 eid 204 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE pe -1
+BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 7 pe 284
+SH sm 7 sg 1 pd 0.001
+ES id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE sm 7 sg 1 st 20.012 am 2 ag 1048579 at 20.013 pe 284
+CL id 205 tid 204 eid 205 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 7 pe -1 cid 204
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 20.012 am 7 at 22.012 pe 284
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 20.012 am 7 at 22.012 pe 284
+
+E # 285 t 20.013 m 2 ce 284 msg 204
+- INFO: [36m[Gateway] packet "REQUEST_TO_STORAGE"(605):		4 -> 8[0m
+CM id 205 tid 205 eid 205 etid 205 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 205 tid 205 eid 205 etid 205 c Packet n GATEWAY_PING m 2 pe 285
+SH sm 2 sg 2621447 pd 0.001
+ES id 205 tid 205 eid 205 etid 205 c Packet n GATEWAY_PING sm 2 sg 2621447 st 20.013 am 11 ag 0 at 20.014 pe 285
+CL id 206 tid 205 eid 206 etid 205 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 205
+CL id 206 tid 0 eid 206 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 206 tid 0 eid 206 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 20.013 am 2 at 21.013 pe 285
+ES id 206 tid 0 eid 206 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 20.013 am 2 at 21.013 pe 285
+BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 2 pe 285
+SH sm 2 sg 2621447 pd 0.001
+ES id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE sm 2 sg 2621447 st 20.013 am 11 ag 0 at 20.014 pe 285
+CL id 207 tid 204 eid 207 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 pe -1 cid 204
+
+E # 286 t 20.014 m 11 ce 285 msg 205
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 207 tid 207 eid 207 etid 207 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 207 tid 207 eid 207 etid 207 c Packet n GATEWAY_PONG m 11 pe 286
+SH sm 11 sg 3 pd 0.001
+ES id 207 tid 207 eid 207 etid 207 c Packet n GATEWAY_PONG sm 11 sg 3 st 20.014 am 2 ag 1048583 at 20.015 pe 286
+CL id 208 tid 207 eid 208 etid 207 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 207
+
+E # 287 t 20.014 m 11 ce 285 msg 204
+- INFO: [Storage (ECU-8)] received a data access request
+- INFO: [Storage] exportDataUser requested
+- INFO: [Storage] retrived info: 
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}"}
+- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}"}
+- INFO: 
+BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 11 pe 287
+SH sm 11 sg 3 pd 0.001
+ES id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE sm 11 sg 3 st 20.014 am 2 ag 1048583 at 20.015 pe 287
+CL id 208 tid 204 eid 208 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 11 pe -1 cid 204
+
+E # 288 t 20.015 m 2 ce 286 msg 207
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 289 t 20.015 m 2 ce 287 msg 204
+- INFO: [36m[Gateway] packet "REQUEST_TO_STORAGE"(11):		8 -> 4[0m
+BS id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE m 2 pe 289
+SH sm 2 sg 2621443 pd 0.001
+ES id 204 tid 204 eid 204 etid 204 c Packet n REQUEST_TO_STORAGE sm 2 sg 2621443 st 20.015 am 7 ag 2 at 20.016 pe 289
+CL id 208 tid 204 eid 208 etid 204 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 pe -1 cid 204
+
+E # 290 t 20.016 m 7 ce 289 msg 204
+- INFO: [ECU-4] data retrived from storage: 
+- INFO: {"name":"automated_decision","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}"}
+- INFO: {"name":"marketing_cosent","value":"{\"value\":\"true\",\"tag\":1,\"insetion_time\":\"2025-07-29T10:39:17Z\"}"}
+- INFO: {"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}"}
+- INFO: {"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}"}
+- INFO: 
+
+E # 291 t 21.003 m 2 ce 276 msg 202
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 292 t 21.013 m 2 ce 285 msg 206
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 293 t 22.012 m 7 ce 284 msg 18
+- INFO: [34m[Infotainment] GDPR right to exercise: 21[0m
+CM id 208 tid 208 eid 208 etid 208 c omnetpp::cMessage n DATA_STORE pe -1
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:42Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:42Z"}
+CL id 209 tid 208 eid 209 etid 208 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 208
+BS id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE m 7 pe 293
+SH sm 7 sg 1 pd 0.001
+ES id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE sm 7 sg 1 st 22.012 am 2 ag 1048579 at 22.013 pe 293
+CL id 210 tid 208 eid 210 etid 208 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 209
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 22.012 am 7 at 24.012 pe 293
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 22.012 am 7 at 24.012 pe 293
+
+E # 294 t 22.013 m 2 ce 293 msg 209
+- INFO: [36m[Gateway] packet "DATA_STORE"(9):		4 -> 8[0m
+CM id 210 tid 210 eid 210 etid 210 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 210 tid 210 eid 210 etid 210 c Packet n GATEWAY_PING m 2 pe 294
+SH sm 2 sg 2621447 pd 0.001
+ES id 210 tid 210 eid 210 etid 210 c Packet n GATEWAY_PING sm 2 sg 2621447 st 22.013 am 11 ag 0 at 22.014 pe 294
+CL id 211 tid 210 eid 211 etid 210 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 210
+CL id 211 tid 0 eid 211 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 211 tid 0 eid 211 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 22.013 am 2 at 23.013 pe 294
+ES id 211 tid 0 eid 211 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 22.013 am 2 at 23.013 pe 294
+BS id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE m 2 pe 294
+SH sm 2 sg 2621447 pd 0.001
+ES id 209 tid 208 eid 209 etid 208 c Packet n DATA_STORE sm 2 sg 2621447 st 22.013 am 11 ag 0 at 22.014 pe 294
+CL id 212 tid 208 eid 212 etid 208 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 209
+
+E # 295 t 22.014 m 11 ce 294 msg 210
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 212 tid 212 eid 212 etid 212 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 212 tid 212 eid 212 etid 212 c Packet n GATEWAY_PONG m 11 pe 295
+SH sm 11 sg 3 pd 0.001
+ES id 212 tid 212 eid 212 etid 212 c Packet n GATEWAY_PONG sm 11 sg 3 st 22.014 am 2 ag 1048583 at 22.015 pe 295
+CL id 213 tid 212 eid 213 etid 212 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 212
+
+E # 296 t 22.014 m 11 ce 294 msg 209
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:42Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:42Z"}
+
+E # 297 t 22.015 m 2 ce 295 msg 212
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 298 t 23.013 m 2 ce 294 msg 211
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 299 t 24 m 11 ce 234 msg 37
+- INFO: [Storage] cleanup start: "storage/ecu8/ecu4/private_log.txt"
+- INFO: [Storage] Cleanup of "storage/ecu8/ecu4/private_log.txt" complete. Valid lines: 4
+BS id 37 tid 37 eid 37 etid 37 c Packet n periodicCleanup sm 11 st 24 am 11 at 32 pe 299
+ES id 37 tid 37 eid 37 etid 37 c Packet n periodicCleanup sm 11 st 24 am 11 at 32 pe 299
+
+E # 300 t 24.012 m 7 ce 293 msg 18
+- INFO: [34m[Infotainment] GDPR right to exercise: 22[0m
+CM id 213 tid 213 eid 213 etid 213 c omnetpp::cMessage n DATA_STORE pe -1
+- INFO: [ECU-4] sending data to be stored with level PRIVATE: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:43Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:43Z"}
+CL id 214 tid 213 eid 214 etid 213 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 213
+BS id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE m 7 pe 300
+SH sm 7 sg 1 pd 0.001
+ES id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE sm 7 sg 1 st 24.012 am 2 ag 1048579 at 24.013 pe 300
+CL id 215 tid 213 eid 215 etid 213 c omnetpp::cMessage n DATA_STORE m 7 pe -1 cid 214
+BS id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 24.012 am 7 at 26.012 pe 300
+ES id 18 tid 18 eid 18 etid 18 c Packet n SELF_GDPR_REQUEST_TEST sm 7 st 24.012 am 7 at 26.012 pe 300
+
+E # 301 t 24.013 m 2 ce 300 msg 214
+- INFO: [36m[Gateway] packet "DATA_STORE"(9):		4 -> 8[0m
+CM id 215 tid 215 eid 215 etid 215 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 215 tid 215 eid 215 etid 215 c Packet n GATEWAY_PING m 2 pe 301
+SH sm 2 sg 2621447 pd 0.001
+ES id 215 tid 215 eid 215 etid 215 c Packet n GATEWAY_PING sm 2 sg 2621447 st 24.013 am 11 ag 0 at 24.014 pe 301
+CL id 216 tid 215 eid 216 etid 215 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 215
+CL id 216 tid 0 eid 216 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 216 tid 0 eid 216 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 24.013 am 2 at 25.013 pe 301
+ES id 216 tid 0 eid 216 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 24.013 am 2 at 25.013 pe 301
+BS id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE m 2 pe 301
+SH sm 2 sg 2621447 pd 0.001
+ES id 214 tid 213 eid 214 etid 213 c Packet n DATA_STORE sm 2 sg 2621447 st 24.013 am 11 ag 0 at 24.014 pe 301
+CL id 217 tid 213 eid 217 etid 213 c omnetpp::cMessage n DATA_STORE m 2 pe -1 cid 214
+
+E # 302 t 24.014 m 11 ce 301 msg 215
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 217 tid 217 eid 217 etid 217 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 217 tid 217 eid 217 etid 217 c Packet n GATEWAY_PONG m 11 pe 302
+SH sm 11 sg 3 pd 0.001
+ES id 217 tid 217 eid 217 etid 217 c Packet n GATEWAY_PONG sm 11 sg 3 st 24.014 am 2 ag 1048583 at 24.015 pe 302
+CL id 218 tid 217 eid 218 etid 217 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 217
+
+E # 303 t 24.014 m 11 ce 301 msg 214
+- INFO: [Storage] editing the following data to storage: {"type":602,"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:43Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:43Z"}
+
+E # 304 t 24.015 m 2 ce 302 msg 217
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 305 t 25 m 4 ce 253 msg 3
+- INFO: [ECU-1] sent clock synchronization request to the HMS
+CM id 218 tid 218 eid 218 etid 218 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 218 tid 218 eid 218 etid 218 c Packet n SYNC_CLOCK_REQUEST m 4 pe 305
+SH sm 4 sg 1 pd 0.001
+ES id 218 tid 218 eid 218 etid 218 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 25 am 2 ag 1048576 at 25.001 pe 305
+CL id 219 tid 218 eid 219 etid 218 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 218
+BS id 3 tid 3 eid 3 etid 3 c Packet n SELF_ClockSyncSignal sm 4 st 25 am 4 at 30 pe 305
+ES id 3 tid 3 eid 3 etid 3 c Packet n SELF_ClockSyncSignal sm 4 st 25 am 4 at 30 pe 305
+
+E # 306 t 25 m 5 ce 254 msg 7
+- INFO: [ECU-2] sent clock synchronization request to the HMS
+CM id 219 tid 219 eid 219 etid 219 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 219 tid 219 eid 219 etid 219 c Packet n SYNC_CLOCK_REQUEST m 5 pe 306
+SH sm 5 sg 1 pd 0.001
+ES id 219 tid 219 eid 219 etid 219 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 25 am 2 ag 1048577 at 25.001 pe 306
+CL id 220 tid 219 eid 220 etid 219 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 219
+BS id 7 tid 7 eid 7 etid 7 c Packet n SELF_ClockSyncSignal sm 5 st 25 am 5 at 30 pe 306
+ES id 7 tid 7 eid 7 etid 7 c Packet n SELF_ClockSyncSignal sm 5 st 25 am 5 at 30 pe 306
+
+E # 307 t 25 m 6 ce 255 msg 11
+- INFO: [ECU-3] sent clock synchronization request to the HMS
+CM id 220 tid 220 eid 220 etid 220 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 220 tid 220 eid 220 etid 220 c Packet n SYNC_CLOCK_REQUEST m 6 pe 307
+SH sm 6 sg 1 pd 0.001
+ES id 220 tid 220 eid 220 etid 220 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 25 am 2 ag 1048578 at 25.001 pe 307
+CL id 221 tid 220 eid 221 etid 220 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 220
+BS id 11 tid 11 eid 11 etid 11 c Packet n SELF_ClockSyncSignal sm 6 st 25 am 6 at 30 pe 307
+ES id 11 tid 11 eid 11 etid 11 c Packet n SELF_ClockSyncSignal sm 6 st 25 am 6 at 30 pe 307
+
+E # 308 t 25 m 7 ce 256 msg 15
+- INFO: [ECU-4] sent clock synchronization request to the HMS
+CM id 221 tid 221 eid 221 etid 221 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 221 tid 221 eid 221 etid 221 c Packet n SYNC_CLOCK_REQUEST m 7 pe 308
+SH sm 7 sg 1 pd 0.001
+ES id 221 tid 221 eid 221 etid 221 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 25 am 2 ag 1048579 at 25.001 pe 308
+CL id 222 tid 221 eid 222 etid 221 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 221
+BS id 15 tid 15 eid 15 etid 15 c Packet n SELF_ClockSyncSignal sm 7 st 25 am 7 at 30 pe 308
+ES id 15 tid 15 eid 15 etid 15 c Packet n SELF_ClockSyncSignal sm 7 st 25 am 7 at 30 pe 308
+
+E # 309 t 25 m 8 ce 257 msg 20
+- INFO: [ECU-5] sent clock synchronization request to the HMS
+CM id 222 tid 222 eid 222 etid 222 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 222 tid 222 eid 222 etid 222 c Packet n SYNC_CLOCK_REQUEST m 8 pe 309
+SH sm 8 sg 1 pd 0.001
+ES id 222 tid 222 eid 222 etid 222 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 25 am 2 ag 1048580 at 25.001 pe 309
+CL id 223 tid 222 eid 223 etid 222 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 222
+BS id 20 tid 20 eid 20 etid 20 c Packet n SELF_ClockSyncSignal sm 8 st 25 am 8 at 30 pe 309
+ES id 20 tid 20 eid 20 etid 20 c Packet n SELF_ClockSyncSignal sm 8 st 25 am 8 at 30 pe 309
+
+E # 310 t 25 m 9 ce 258 msg 24
+- INFO: [ECU-6] sent clock synchronization request to the HMS
+CM id 223 tid 223 eid 223 etid 223 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 223 tid 223 eid 223 etid 223 c Packet n SYNC_CLOCK_REQUEST m 9 pe 310
+SH sm 9 sg 1 pd 0.001
+ES id 223 tid 223 eid 223 etid 223 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 25 am 2 ag 1048581 at 25.001 pe 310
+CL id 224 tid 223 eid 224 etid 223 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 223
+BS id 24 tid 24 eid 24 etid 24 c Packet n SELF_ClockSyncSignal sm 9 st 25 am 9 at 30 pe 310
+ES id 24 tid 24 eid 24 etid 24 c Packet n SELF_ClockSyncSignal sm 9 st 25 am 9 at 30 pe 310
+
+E # 311 t 25 m 11 ce 259 msg 34
+- INFO: [ECU-8] sent clock synchronization request to the HMS
+CM id 224 tid 224 eid 224 etid 224 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 224 tid 224 eid 224 etid 224 c Packet n SYNC_CLOCK_REQUEST m 11 pe 311
+SH sm 11 sg 3 pd 0.001
+ES id 224 tid 224 eid 224 etid 224 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 25 am 2 ag 1048583 at 25.001 pe 311
+CL id 225 tid 224 eid 225 etid 224 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 224
+BS id 34 tid 34 eid 34 etid 34 c Packet n SELF_ClockSyncSignal sm 11 st 25 am 11 at 30 pe 311
+ES id 34 tid 34 eid 34 etid 34 c Packet n SELF_ClockSyncSignal sm 11 st 25 am 11 at 30 pe 311
+
+E # 312 t 25.001 m 2 ce 305 msg 218
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		1 -> 0[0m
+BS id 218 tid 218 eid 218 etid 218 c Packet n SYNC_CLOCK_REQUEST m 2 pe 312
+SH sm 2 sg 5 pd 0.001
+ES id 218 tid 218 eid 218 etid 218 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 25.001 am 3 ag 0 at 25.002 pe 312
+CL id 225 tid 218 eid 225 etid 218 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 218
+
+E # 313 t 25.001 m 2 ce 306 msg 219
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		2 -> 0[0m
+BS id 219 tid 219 eid 219 etid 219 c Packet n SYNC_CLOCK_REQUEST m 2 pe 313
+SH sm 2 sg 5 pd 0.001
+ES id 219 tid 219 eid 219 etid 219 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 25.001 am 3 ag 0 at 25.002 pe 313
+CL id 225 tid 219 eid 225 etid 219 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 219
+
+E # 314 t 25.001 m 2 ce 307 msg 220
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		3 -> 0[0m
+BS id 220 tid 220 eid 220 etid 220 c Packet n SYNC_CLOCK_REQUEST m 2 pe 314
+SH sm 2 sg 5 pd 0.001
+ES id 220 tid 220 eid 220 etid 220 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 25.001 am 3 ag 0 at 25.002 pe 314
+CL id 225 tid 220 eid 225 etid 220 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 220
+
+E # 315 t 25.001 m 2 ce 308 msg 221
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		4 -> 0[0m
+BS id 221 tid 221 eid 221 etid 221 c Packet n SYNC_CLOCK_REQUEST m 2 pe 315
+SH sm 2 sg 5 pd 0.001
+ES id 221 tid 221 eid 221 etid 221 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 25.001 am 3 ag 0 at 25.002 pe 315
+CL id 225 tid 221 eid 225 etid 221 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 221
+
+E # 316 t 25.001 m 2 ce 309 msg 222
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		5 -> 0[0m
+- INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 5 and destination: 0
+DM id 222 tid 222 eid 222 etid 222 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 316
+
+E # 317 t 25.001 m 2 ce 310 msg 223
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		6 -> 0[0m
+- INFO: [Gateway] blocked message: "SYNC_CLOCK_REQUEST" with source: 6 and destination: 0
+DM id 223 tid 223 eid 223 etid 223 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe 317
+
+E # 318 t 25.001 m 2 ce 311 msg 224
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_REQUEST"(7):		8 -> 0[0m
+BS id 224 tid 224 eid 224 etid 224 c Packet n SYNC_CLOCK_REQUEST m 2 pe 318
+SH sm 2 sg 5 pd 0.001
+ES id 224 tid 224 eid 224 etid 224 c Packet n SYNC_CLOCK_REQUEST sm 2 sg 5 st 25.001 am 3 ag 0 at 25.002 pe 318
+CL id 225 tid 224 eid 225 etid 224 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 2 pe -1 cid 224
+
+E # 319 t 25.002 m 3 ce 312 msg 218
+CM id 225 tid 225 eid 225 etid 225 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 225 tid 225 eid 225 etid 225 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 319
+SH sm 3 sg 3 pd 0.001
+ES id 225 tid 225 eid 225 etid 225 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 25.002 am 2 ag 6 at 25.003 pe 319
+CL id 226 tid 225 eid 226 etid 225 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 225
+- INFO: HSM received clock synchronization request from ECU-1
+DM id 218 tid 218 eid 218 etid 218 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 319
+
+E # 320 t 25.002 m 3 ce 313 msg 219
+CM id 226 tid 226 eid 226 etid 226 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 226 tid 226 eid 226 etid 226 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 320
+SH sm 3 sg 3 pd 0.001
+ES id 226 tid 226 eid 226 etid 226 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 25.002 am 2 ag 6 at 25.003 pe 320
+CL id 227 tid 226 eid 227 etid 226 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 226
+- INFO: HSM received clock synchronization request from ECU-2
+DM id 219 tid 219 eid 219 etid 219 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 320
+
+E # 321 t 25.002 m 3 ce 314 msg 220
+CM id 227 tid 227 eid 227 etid 227 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 227 tid 227 eid 227 etid 227 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 321
+SH sm 3 sg 3 pd 0.001
+ES id 227 tid 227 eid 227 etid 227 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 25.002 am 2 ag 6 at 25.003 pe 321
+CL id 228 tid 227 eid 228 etid 227 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 227
+- INFO: HSM received clock synchronization request from ECU-3
+DM id 220 tid 220 eid 220 etid 220 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 321
+
+E # 322 t 25.002 m 3 ce 315 msg 221
+CM id 228 tid 228 eid 228 etid 228 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 228 tid 228 eid 228 etid 228 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 322
+SH sm 3 sg 3 pd 0.001
+ES id 228 tid 228 eid 228 etid 228 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 25.002 am 2 ag 6 at 25.003 pe 322
+CL id 229 tid 228 eid 229 etid 228 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 228
+- INFO: HSM received clock synchronization request from ECU-4
+DM id 221 tid 221 eid 221 etid 221 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 322
+
+E # 323 t 25.002 m 3 ce 318 msg 224
+CM id 229 tid 229 eid 229 etid 229 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE pe -1
+BS id 229 tid 229 eid 229 etid 229 c Packet n SYNC_CLOCK_RESPONSE m 3 pe 323
+SH sm 3 sg 3 pd 0.001
+ES id 229 tid 229 eid 229 etid 229 c Packet n SYNC_CLOCK_RESPONSE sm 3 sg 3 st 25.002 am 2 ag 6 at 25.003 pe 323
+CL id 230 tid 229 eid 230 etid 229 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 3 pe -1 cid 229
+- INFO: HSM received clock synchronization request from ECU-8
+DM id 224 tid 224 eid 224 etid 224 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 3 pe 323
+
+E # 324 t 25.003 m 2 ce 319 msg 225
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 1[0m
+BS id 225 tid 225 eid 225 etid 225 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 324
+SH sm 2 sg 2621440 pd 0.001
+ES id 225 tid 225 eid 225 etid 225 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621440 st 25.003 am 4 ag 2 at 25.004 pe 324
+CL id 230 tid 225 eid 230 etid 225 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 225
+
+E # 325 t 25.003 m 2 ce 320 msg 226
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 2[0m
+BS id 226 tid 226 eid 226 etid 226 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 325
+SH sm 2 sg 2621441 pd 0.001
+ES id 226 tid 226 eid 226 etid 226 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621441 st 25.003 am 5 ag 2 at 25.004 pe 325
+CL id 230 tid 226 eid 230 etid 226 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 226
+
+E # 326 t 25.003 m 2 ce 321 msg 227
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 3[0m
+BS id 227 tid 227 eid 227 etid 227 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 326
+SH sm 2 sg 2621442 pd 0.001
+ES id 227 tid 227 eid 227 etid 227 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621442 st 25.003 am 6 ag 2 at 25.004 pe 326
+CL id 230 tid 227 eid 230 etid 227 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 227
+
+E # 327 t 25.003 m 2 ce 322 msg 228
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 4[0m
+BS id 228 tid 228 eid 228 etid 228 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 327
+SH sm 2 sg 2621443 pd 0.001
+ES id 228 tid 228 eid 228 etid 228 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621443 st 25.003 am 7 ag 2 at 25.004 pe 327
+CL id 230 tid 228 eid 230 etid 228 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 228
+
+E # 328 t 25.003 m 2 ce 323 msg 229
+- INFO: [36m[Gateway] packet "SYNC_CLOCK_RESPONSE"(8):		0 -> 8[0m
+CM id 230 tid 230 eid 230 etid 230 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 230 tid 230 eid 230 etid 230 c Packet n GATEWAY_PING m 2 pe 328
+SH sm 2 sg 2621447 pd 0.001
+ES id 230 tid 230 eid 230 etid 230 c Packet n GATEWAY_PING sm 2 sg 2621447 st 25.003 am 11 ag 0 at 25.004 pe 328
+CL id 231 tid 230 eid 231 etid 230 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 230
+CL id 231 tid 0 eid 231 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 231 tid 0 eid 231 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 25.003 am 2 at 26.003 pe 328
+ES id 231 tid 0 eid 231 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 25.003 am 2 at 26.003 pe 328
+BS id 229 tid 229 eid 229 etid 229 c Packet n SYNC_CLOCK_RESPONSE m 2 pe 328
+SH sm 2 sg 2621447 pd 0.001
+ES id 229 tid 229 eid 229 etid 229 c Packet n SYNC_CLOCK_RESPONSE sm 2 sg 2621447 st 25.003 am 11 ag 0 at 25.004 pe 328
+CL id 232 tid 229 eid 232 etid 229 c omnetpp::cMessage n SYNC_CLOCK_RESPONSE m 2 pe -1 cid 229
+
+E # 329 t 25.004 m 4 ce 324 msg 225
+- INFO: [ECU-1] received clock synchronization response from HSM
+- INFO: [ECU-1] synchronized its internal clock
+
+E # 330 t 25.004 m 5 ce 325 msg 226
+- INFO: [ECU-2] received clock synchronization response from HSM
+- INFO: [ECU-2] synchronized its internal clock
+
+E # 331 t 25.004 m 6 ce 326 msg 227
+- INFO: [ECU-3] received clock synchronization response from HSM
+- INFO: [ECU-3] synchronized its internal clock
+
+E # 332 t 25.004 m 7 ce 327 msg 228
+- INFO: [ECU-4] received clock synchronization response from HSM
+- INFO: [ECU-4] synchronized its internal clock
+
+E # 333 t 25.004 m 11 ce 328 msg 230
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 232 tid 232 eid 232 etid 232 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 232 tid 232 eid 232 etid 232 c Packet n GATEWAY_PONG m 11 pe 333
+SH sm 11 sg 3 pd 0.001
+ES id 232 tid 232 eid 232 etid 232 c Packet n GATEWAY_PONG sm 11 sg 3 st 25.004 am 2 ag 1048583 at 25.005 pe 333
+CL id 233 tid 232 eid 233 etid 232 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 232
+
+E # 334 t 25.004 m 11 ce 328 msg 229
+- INFO: [ECU-8] received clock synchronization response from HSM
+- INFO: [ECU-8] synchronized its internal clock
+
+E # 335 t 25.005 m 2 ce 333 msg 232
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 336 t 25.013 m 2 ce 301 msg 216
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 337 t 26.003 m 2 ce 328 msg 231
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 338 t 26.012 m 7 ce 300 msg 18
+- INFO: [34m[Infotainment] GDPR right to exercise: 23[0m
+CM id 233 tid 233 eid 233 etid 233 c omnetpp::cMessage n REQUEST_TO_STORAGE pe -1
+BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 7 pe 338
+SH sm 7 sg 1 pd 0.001
+ES id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE sm 7 sg 1 st 26.012 am 2 ag 1048579 at 26.013 pe 338
+CL id 234 tid 233 eid 234 etid 233 c omnetpp::cMessage n REQUEST_TO_STORAGE m 7 pe -1 cid 233
+
+E # 339 t 26.013 m 2 ce 338 msg 233
+- INFO: [36m[Gateway] packet "REQUEST_TO_STORAGE"(605):		4 -> 8[0m
+CM id 234 tid 234 eid 234 etid 234 c omnetpp::cMessage n GATEWAY_PING pe -1
+BS id 234 tid 234 eid 234 etid 234 c Packet n GATEWAY_PING m 2 pe 339
+SH sm 2 sg 2621447 pd 0.001
+ES id 234 tid 234 eid 234 etid 234 c Packet n GATEWAY_PING sm 2 sg 2621447 st 26.013 am 11 ag 0 at 26.014 pe 339
+CL id 235 tid 234 eid 235 etid 234 c omnetpp::cMessage n GATEWAY_PING m 2 pe -1 cid 234
+CL id 235 tid 0 eid 235 etid 0 c omnetpp::cMessage n SELF_PONG_CHECK m 2 pe -1 cid 0
+BS id 235 tid 0 eid 235 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 26.013 am 2 at 27.013 pe 339
+ES id 235 tid 0 eid 235 etid 0 c Packet n SELF_PONG_CHECK sm 2 st 26.013 am 2 at 27.013 pe 339
+BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 2 pe 339
+SH sm 2 sg 2621447 pd 0.001
+ES id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE sm 2 sg 2621447 st 26.013 am 11 ag 0 at 26.014 pe 339
+CL id 236 tid 233 eid 236 etid 233 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 pe -1 cid 233
+
+E # 340 t 26.014 m 11 ce 339 msg 234
+- INFO: [Storage (ECU-8)] Received Ping. Sending pong.
+CM id 236 tid 236 eid 236 etid 236 c omnetpp::cMessage n GATEWAY_PONG pe -1
+BS id 236 tid 236 eid 236 etid 236 c Packet n GATEWAY_PONG m 11 pe 340
+SH sm 11 sg 3 pd 0.001
+ES id 236 tid 236 eid 236 etid 236 c Packet n GATEWAY_PONG sm 11 sg 3 st 26.014 am 2 ag 1048583 at 26.015 pe 340
+CL id 237 tid 236 eid 237 etid 236 c omnetpp::cMessage n GATEWAY_PONG m 11 pe -1 cid 236
+
+E # 341 t 26.014 m 11 ce 339 msg 233
+- INFO: [Storage (ECU-8)] received a data access request
+- INFO: [Storage] exportDataUser requested
+- INFO: [Storage] retrived info: 
+- INFO: {"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:27Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:36Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:42Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:42Z"}
+- INFO: {"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:43Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:43Z"}
+- INFO: 
+BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 11 pe 341
+SH sm 11 sg 3 pd 0.001
+ES id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE sm 11 sg 3 st 26.014 am 2 ag 1048583 at 26.015 pe 341
+CL id 237 tid 233 eid 237 etid 233 c omnetpp::cMessage n REQUEST_TO_STORAGE m 11 pe -1 cid 233
+
+E # 342 t 26.015 m 2 ce 340 msg 236
+- INFO: [36m[Gateway] packet "GATEWAY_PONG"(101):		8 -> -1[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 343 t 26.015 m 2 ce 341 msg 233
+- INFO: [36m[Gateway] packet "REQUEST_TO_STORAGE"(607):		8 -> 4[0m
+BS id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE m 2 pe 343
+SH sm 2 sg 2621443 pd 0.001
+ES id 233 tid 233 eid 233 etid 233 c Packet n REQUEST_TO_STORAGE sm 2 sg 2621443 st 26.015 am 7 ag 2 at 26.016 pe 343
+CL id 237 tid 233 eid 237 etid 233 c omnetpp::cMessage n REQUEST_TO_STORAGE m 2 pe -1 cid 233
+
+E # 344 t 26.016 m 7 ce 343 msg 233
+
+E # 345 t 27.013 m 2 ce 339 msg 235
+- INFO: [36m[Gateway] packet "SELF_PONG_CHECK"(101):		8 -> -2[0m
+- INFO: [Gateway] received store (ECU 8) pong
+
+E # 346 t 30 m 4 ce 305 msg 3
+- INFO: [ECU-1] sent clock synchronization request to the HMS
+CM id 237 tid 237 eid 237 etid 237 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 237 tid 237 eid 237 etid 237 c Packet n SYNC_CLOCK_REQUEST m 4 pe 346
+SH sm 4 sg 1 pd 0.001
+ES id 237 tid 237 eid 237 etid 237 c Packet n SYNC_CLOCK_REQUEST sm 4 sg 1 st 30 am 2 ag 1048576 at 30.001 pe 346
+CL id 238 tid 237 eid 238 etid 237 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 4 pe -1 cid 237
+BS id 3 tid 3 eid 3 etid 3 c Packet n SELF_ClockSyncSignal sm 4 st 30 am 4 at 35 pe 346
+ES id 3 tid 3 eid 3 etid 3 c Packet n SELF_ClockSyncSignal sm 4 st 30 am 4 at 35 pe 346
+
+E # 347 t 30 m 5 ce 306 msg 7
+- INFO: [ECU-2] sent clock synchronization request to the HMS
+CM id 238 tid 238 eid 238 etid 238 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 238 tid 238 eid 238 etid 238 c Packet n SYNC_CLOCK_REQUEST m 5 pe 347
+SH sm 5 sg 1 pd 0.001
+ES id 238 tid 238 eid 238 etid 238 c Packet n SYNC_CLOCK_REQUEST sm 5 sg 1 st 30 am 2 ag 1048577 at 30.001 pe 347
+CL id 239 tid 238 eid 239 etid 238 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 5 pe -1 cid 238
+BS id 7 tid 7 eid 7 etid 7 c Packet n SELF_ClockSyncSignal sm 5 st 30 am 5 at 35 pe 347
+ES id 7 tid 7 eid 7 etid 7 c Packet n SELF_ClockSyncSignal sm 5 st 30 am 5 at 35 pe 347
+
+E # 348 t 30 m 6 ce 307 msg 11
+- INFO: [ECU-3] sent clock synchronization request to the HMS
+CM id 239 tid 239 eid 239 etid 239 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 239 tid 239 eid 239 etid 239 c Packet n SYNC_CLOCK_REQUEST m 6 pe 348
+SH sm 6 sg 1 pd 0.001
+ES id 239 tid 239 eid 239 etid 239 c Packet n SYNC_CLOCK_REQUEST sm 6 sg 1 st 30 am 2 ag 1048578 at 30.001 pe 348
+CL id 240 tid 239 eid 240 etid 239 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 6 pe -1 cid 239
+BS id 11 tid 11 eid 11 etid 11 c Packet n SELF_ClockSyncSignal sm 6 st 30 am 6 at 35 pe 348
+ES id 11 tid 11 eid 11 etid 11 c Packet n SELF_ClockSyncSignal sm 6 st 30 am 6 at 35 pe 348
+
+E # 349 t 30 m 7 ce 308 msg 15
+- INFO: [ECU-4] sent clock synchronization request to the HMS
+CM id 240 tid 240 eid 240 etid 240 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 240 tid 240 eid 240 etid 240 c Packet n SYNC_CLOCK_REQUEST m 7 pe 349
+SH sm 7 sg 1 pd 0.001
+ES id 240 tid 240 eid 240 etid 240 c Packet n SYNC_CLOCK_REQUEST sm 7 sg 1 st 30 am 2 ag 1048579 at 30.001 pe 349
+CL id 241 tid 240 eid 241 etid 240 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 7 pe -1 cid 240
+BS id 15 tid 15 eid 15 etid 15 c Packet n SELF_ClockSyncSignal sm 7 st 30 am 7 at 35 pe 349
+ES id 15 tid 15 eid 15 etid 15 c Packet n SELF_ClockSyncSignal sm 7 st 30 am 7 at 35 pe 349
+
+E # 350 t 30 m 8 ce 309 msg 20
+- INFO: [ECU-5] sent clock synchronization request to the HMS
+CM id 241 tid 241 eid 241 etid 241 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 241 tid 241 eid 241 etid 241 c Packet n SYNC_CLOCK_REQUEST m 8 pe 350
+SH sm 8 sg 1 pd 0.001
+ES id 241 tid 241 eid 241 etid 241 c Packet n SYNC_CLOCK_REQUEST sm 8 sg 1 st 30 am 2 ag 1048580 at 30.001 pe 350
+CL id 242 tid 241 eid 242 etid 241 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 8 pe -1 cid 241
+BS id 20 tid 20 eid 20 etid 20 c Packet n SELF_ClockSyncSignal sm 8 st 30 am 8 at 35 pe 350
+ES id 20 tid 20 eid 20 etid 20 c Packet n SELF_ClockSyncSignal sm 8 st 30 am 8 at 35 pe 350
+
+E # 351 t 30 m 9 ce 310 msg 24
+- INFO: [ECU-6] sent clock synchronization request to the HMS
+CM id 242 tid 242 eid 242 etid 242 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 242 tid 242 eid 242 etid 242 c Packet n SYNC_CLOCK_REQUEST m 9 pe 351
+SH sm 9 sg 1 pd 0.001
+ES id 242 tid 242 eid 242 etid 242 c Packet n SYNC_CLOCK_REQUEST sm 9 sg 1 st 30 am 2 ag 1048581 at 30.001 pe 351
+CL id 243 tid 242 eid 243 etid 242 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 9 pe -1 cid 242
+BS id 24 tid 24 eid 24 etid 24 c Packet n SELF_ClockSyncSignal sm 9 st 30 am 9 at 35 pe 351
+ES id 24 tid 24 eid 24 etid 24 c Packet n SELF_ClockSyncSignal sm 9 st 30 am 9 at 35 pe 351
+
+E # 352 t 30 m 11 ce 311 msg 34
+- INFO: [ECU-8] sent clock synchronization request to the HMS
+CM id 243 tid 243 eid 243 etid 243 c omnetpp::cMessage n SYNC_CLOCK_REQUEST pe -1
+BS id 243 tid 243 eid 243 etid 243 c Packet n SYNC_CLOCK_REQUEST m 11 pe 352
+SH sm 11 sg 3 pd 0.001
+ES id 243 tid 243 eid 243 etid 243 c Packet n SYNC_CLOCK_REQUEST sm 11 sg 3 st 30 am 2 ag 1048583 at 30.001 pe 352
+CL id 244 tid 243 eid 244 etid 243 c omnetpp::cMessage n SYNC_CLOCK_REQUEST m 11 pe -1 cid 243
+BS id 34 tid 34 eid 34 etid 34 c Packet n SELF_ClockSyncSignal sm 11 st 30 am 11 at 35 pe 352
+ES id 34 tid 34 eid 34 etid 34 c Packet n SELF_ClockSyncSignal sm 11 st 30 am 11 at 35 pe 352
+
+
+SE e 0 c 38 m "Simulation time limit reached -- at t=30s, event #353"

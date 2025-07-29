@@ -725,6 +725,7 @@ Packet* Storage::deleteUserData(Packet *packet) {
     if(!canDelete) {
         packet->setData("{\"status\":\"error\",\"message\":\"could not delete user data: minimum retention time has not elapsed\"}");
         packet->setType(STORAGE_ERROR);
+        return packet;
     }
 
     std::string delete_path = "";

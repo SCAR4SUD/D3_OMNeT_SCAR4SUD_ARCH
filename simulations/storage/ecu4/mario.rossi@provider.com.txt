@@ -1,5 +1,5 @@
-{"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:52:58Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:52:58Z"}
-{"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:53:06Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:53:06Z"}
-{"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:53:12Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:53:12Z"}
-{"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-28T21:53:13Z\"}","tag":0,"privacy_level":1,"date":"2025-07-28T21:53:13Z"}
+{"store_id":4,"user_id":1001,"name":"address","value":"{\"value\":\"Via dell'anticorso 2, Milano\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:27Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:27Z"}
+{"store_id":4,"user_id":1001,"name":"restriction","value":"{\"value\":\"true,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:36Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:36Z"}
+{"store_id":4,"user_id":1001,"name":"marketing_cosent","value":"{\"value\":\"false,reason_for_change\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:42Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:42Z"}
+{"store_id":4,"user_id":1001,"name":"automated_decision","value":"{\"value\":\"false\",\"tag\":0,\"insetion_time\":\"2025-07-29T10:39:43Z\"}","tag":0,"privacy_level":1,"date":"2025-07-29T10:39:43Z"}
 
